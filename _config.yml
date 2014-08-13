@@ -1,13 +1,10 @@
-markdown: kramdown
-kramdown:
-  parse_block_html: true
+markdown: redcarpet
 permalink: /:categories/:title.html
 url: 
 lsi: false
 pygments: true
 safe: true
 auto: false 
-highlighter: pygments
 
 paginate: 10
 paginate_path: "page:num"
@@ -18,7 +15,3 @@ description: Chrispher Guan's Blog, powered by Jekyll...
 feed: http://chrispher.github.io//atom.xml
 
 author: Chrispher Guan
-
-seo: 
-  keyword: blog
-  description: Chrispher Guan's Blog, powered by Jekyll...
