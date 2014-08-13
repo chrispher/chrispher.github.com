@@ -1,19 +1,21 @@
-source:      .
-destination: ./_site
-plugins:     ./_plugins
-layouts:     ./_layouts
-exclude:     []
-keep_files:  ['.git','.svn']
-timezone:    nil
-encoding:    nil
-
-auto: true
-markdown: rdiscount
+markdown: redcarpet
+permalink: /:categories/:title.html
+url: 
+lsi: false
 pygments: true
-paginate: 8
-permalink: /:title
+safe: true
+auto: false 
 
-title: Personal Knowledge Management
-url: http://chrispher.github.io
-feed: /atom.xml
-author_info: <a href="http://chrispher.github.io/">chrispher guan</a>
+paginate: 10
+paginate_path: "page:num"
+
+# presonal config
+title: Steven Pan's Blog
+description: Chrispher Guan's Blog, powered by Jekyll...
+feed: http://chrispher.github.io//atom.xml
+
+author: Chrispher Guan
+
+seo: 
+  keyword: blog
+  description: Chrispher Guan's Blog, powered by Jekyll...
