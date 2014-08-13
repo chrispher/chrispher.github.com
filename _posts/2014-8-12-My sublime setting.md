@@ -6,9 +6,7 @@ category: application
 
 windows下sublime text2的一些设置和调整
 
-![](./images/pic/sublimetext2.jpg)
-
-[TOC]
+![](./images/pic/sublimetext2.jpg)  
 
 ####1. 安装插件Package Control 
 在控制台输入以下代码后重启：
