@@ -5,6 +5,7 @@ lsi: false
 pygments: true
 safe: true
 auto: false 
+highlighter: pygments
 
 paginate: 10
 paginate_path: "page:num"
