@@ -1,11 +1,11 @@
 ---
 layout: post
 title: My sublime setting
-category:软件应用
+category: application
 ---
 My sublime setting
 ===================
-Summary: windows下sublime text2的一些设置和调整
+windows下sublime text2的一些设置和调整
 
 [TOC]
 
