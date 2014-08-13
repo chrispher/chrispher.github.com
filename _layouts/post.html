@@ -1,44 +1,25 @@
---- 
-layout: default 
---- 
-<!-- Blog Post -->
-<!-- Title -->
-<h2>
-  {{ page.title }}
-  <div class="post-date">
-	<span class="glyphicon glyphicon-time"></span>
-	{{ page.date | date_to_string }}
-  </div>
-</h2>
-<!-- Author -->
-<hr>
-{{ content }}
-<br/>
-<div style="margin-top:10px;margin-bottom:10px">
-  {%if page.previous%}
-  <span class="next">
-    上篇：
-    <a href="{{page.previous.url}}">
-      {{page.previous.title}}
-    </a>
-  </span>
-  {%endif%} 
-  {%if page.next%}
-  <span class="prev">
-    下篇：
-    <a href="{{page.next.url}}">
-      {{page.next.title}}
-    </a>
-  </span>
-  {%endif%}
+---
+layout: default
+---
+
+<div class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <span class="post-date">{{ page.date | date_to_string }}</span>
+  {{ content }}
 </div>
-<hr>
-<!-- Blog Comments -->
-<div class="media">
-  <!-- UY BEGIN -->
-  <div id="uyan_frame">
-  </div>
-  <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1511840">
-  </script>
-  <!-- UY END -->
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    {% for post in site.related_posts limit:3 %}
+      <li>
+        <h3>
+          <a href="{{ post.url }}">
+            {{ post.title }}
+            <small>{{ post.date | date_to_string }}</small>
+          </a>
+        </h3>
+      </li>
+    {% endfor %}
+  </ul>
 </div>
