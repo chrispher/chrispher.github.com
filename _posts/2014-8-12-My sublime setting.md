@@ -59,7 +59,7 @@ build R
 
 
 ####4. sublimeREPL 
-可以使用iypthon交互式分析
+可以使用iypthon交互式分析。设置R的交互环境如下：
 
     {  
     "default_extend_env": {"PATH": "{PATH};C:\\Program Files\\R\\R-3.0.3\\bin\\i386"}  
