@@ -1,12 +1,10 @@
 ---
 layout: post
 title: My sublime setting
-category: application
+category: 软件应用
 ---
 
 windows下sublime text2的一些设置和调整
-
-![](./images/pic/sublimetext2.jpg)  
 
 ####1. 安装插件Package Control 
 在控制台输入以下代码后重启：
@@ -83,3 +81,5 @@ build R
 - ctrl + shift + l —— 同时编辑选中的行
 - ctrl + shift + d —— 在该行下面复制该行
 对于插件的快捷键，可以通过 Package Settings对应设置。
+
+![](./images/pic/sublimetext2.jpg)  
