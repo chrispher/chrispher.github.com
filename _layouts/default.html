@@ -1,215 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-  
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>
-      {{ page.title }}
-    </title>
-    <!-- Bootstrap Core CSS -->
-    <link href="/assert/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="/assert/blog.css" rel="stylesheet">
-  </head>
-  
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">
-              Toggle navigation
-            </span>
-            <span class="icon-bar">
-            </span>
-            <span class="icon-bar">
-            </span>
-            <span class="icon-bar">
-            </span>
-          </button>
-          <a class="navbar-brand" href="/index.html">
-            chrispher's Blog
-          </a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="/archives.html">
-                归 档
-              </a>
-            </li>
-            <li>
-              <a href="/categories.html">
-                分 类
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container -->
-    </nav>
-    <!-- Page Content -->
-    <div class="container">
-      <div class="row">
-        <!-- Blog Entries Column -->
-        <div class="col-md-8">
-          {{ content }}
-        </div>
-        <!-- Blog Sidebar Widgets Column -->
-        <div class="col-md-4">
-          <!-- Blog Search Well -->
-          <div class="well">
-            <h4>
-              站内搜索
-            </h4>
-            <form action="https://www.google.com/search" method="get">
-              <div class="input-group">
-                <input type="text" name="q" class="form-control">
-				<input type="hidden" name="ie" value="UTF-8" />
-				<input type="hidden" name="sitesearch" value="www.google.com" />
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="submit">
-                    <span class="glyphicon glyphicon-search">
-                    </span>
-                  </button>
-                </span>
-              </div>
-            </form>
-            <!-- /.input-group -->
-          </div>
-          <!-- Blog Categories Well -->
-          <div class="well">
-            <h4>
-              分 类
-            </h4>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="/categories.html#软件应用">
-                      软件应用
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/categories.html#统计分析">
-                      统计分析
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/categories.html#数学矩阵">
-                      数学矩阵
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/categories.html#机器学习">
-                      机器学习
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <!-- /.col-lg-6 -->
-              <div class="col-lg-6">
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="/categories.html#深度学习">
-                      深度学习
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/categories.html#论文阅读">
-                      论文阅读
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/categories.html#生活随笔">
-                      生活随笔
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/categories.html#其它">
-                      其它
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <!-- /.col-lg-6 -->
-            </div>
-            <!-- /.row -->
-          </div>
-          <!-- Blog Links Well -->
-          <div class="well">
-            <h4>
-              相关链接
-            </h4>
-            <ul class="list-unstyled">
-              <li>
-                <a href="https://github.com/chrispher">
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a href="http://cn.linkedin.com/pub/chrispher-guan/5a/a68/6b8/">
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a href="http://weibo.com/u/2917650677">
-                  weibo
-                </a>
-              </li>
-            </ul>
-          </div>
-          <!-- Side Widget Well -->
-          <div class="well">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-            </script>
-            <!-- ArticleRa -->
-            <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px"
-            data-ad-client="ca-pub-3557776493079475" data-ad-slot="3861947889">
-            </ins>
-            <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-          </div>
-        </div>
-      </div>
-      <!-- /.row -->
-      <hr>
-      <!-- Footer -->
-      <footer>
-        <div class="row">
-          <div class="col-lg-12">
-            <p align="center">
-              Copyright &copy; chrispher guan 2014, powered by Jekyll and GitPaes, 
-              <a href="https://github.com/chrispher/chrispher.github.com">
-                fork
-              </a> to get the source, or vist my <a href="https://github.com/chrispher">
-                  GitHub
-                </a>.
-				<br/>
-				<font size=2px><script src="http://s22.cnzz.com/stat.php?id=5868355&web_id=5868355" language="JavaScript"></script></font>
-            </p>
-          </div>
-          <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-      </footer>
-    </div>
-    <!-- /.container -->
-    <!-- jQuery Version 1.11.0 -->
-    <script src="assert/jquery-1.11.0.js">
-    </script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="assert/bootstrap.min.js">
-    </script>
-  </body>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 
+  {% include head.html %}
+  {% include google_analytics.html %}
+
+  <body>
+
+    <div class="container content">
+      <div class="masthead">
+        <h3 class="masthead-title">
+          <a href="/" title="Home">{{ site.title }}</a>
+
+          {% for page in site.pages_list %}
+              &nbsp;&nbsp;&nbsp;<small><a href="{{ page[1]  }}">{{ page[0] }}</a></small>
+          {% endfor %}
+
+        </h3>
+      </div>
+
+      {{ content }}
+
+      {% include comments.html %}
+
+      <div class="footer">
+        <p>
+          &copy; {{ site.time | date: '%Y' }}. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+  </body>
 </html>
