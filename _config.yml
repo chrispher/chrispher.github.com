@@ -1,0 +1,19 @@
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+layouts:     ./_layouts
+exclude:     []
+keep_files:  ['.git','.svn']
+timezone:    nil
+encoding:    nil
+
+auto: true
+markdown: rdiscount
+pygments: true
+paginate: 8
+permalink: /:title
+
+title: Personal Knowledge Management
+url: http://chrispher.github.io
+feed: /atom.xml
+author_info: <a href="http://chrispher.github.io/">chrispher guan</a>
