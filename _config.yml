@@ -1,13 +1,2 @@
 markdown: rdiscount
 pygments: true
-permalink: pretty
-
-paginate: 3
-paginate_path: "page:num"
-
-# presonal config
-title: Chrispher Guan's Blog
-description: Chrispher Guan's Blog, powered by Jekyll...
-feed: http://chrispher.github.io//atom.xml
-
-author: Chrispher Guan
