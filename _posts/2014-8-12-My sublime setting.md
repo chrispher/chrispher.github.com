@@ -8,7 +8,7 @@ windows下sublime text2的一些设置和调整
 
 ####1. 安装插件Package Control 
 在控制台输入以下代码后重启：
-
+    {% highlight %} 
     import urllib2,os; pf='Package Control.sublime-package';
     ipp = sublime.installed_packages_path();
     os.makedirs( ipp ) if not os.path.exists(ipp) else None;
