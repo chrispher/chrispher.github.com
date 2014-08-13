@@ -1,16 +1,12 @@
 markdown: rdiscount
-permalink: /:categories/:title.html
-url: 
-lsi: false
 pygments: true
-safe: true
-auto: false 
+permalink: pretty
 
-paginate: 10
+paginate: 3
 paginate_path: "page:num"
 
 # presonal config
-title: Steven Pan's Blog
+title: Chrispher Guan's Blog
 description: Chrispher Guan's Blog, powered by Jekyll...
 feed: http://chrispher.github.io//atom.xml
 
