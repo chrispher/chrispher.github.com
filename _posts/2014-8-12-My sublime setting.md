@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: My sublime setting
 category: application
 ---
