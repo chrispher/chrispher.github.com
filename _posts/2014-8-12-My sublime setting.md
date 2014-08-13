@@ -3,8 +3,7 @@ layout: post
 title: My sublime setting
 category: application
 ---
-My sublime setting
-===================
+
 windows下sublime text2的一些设置和调整
 
 [TOC]
