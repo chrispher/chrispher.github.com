@@ -464,11 +464,11 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>2014-8-12-My sublime setting</title></head><body><h1 id="my-sublime-setting"><a name="user-content-my-sublime-setting" href="#my-sublime-setting" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>My sublime setting</h1>
+<title>2014-8-12-My sublime setting</title></head><body><h1 id="my-sublime-text2-setting"><a name="user-content-my-sublime-text2-setting" href="#my-sublime-text2-setting" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>My sublime text2 setting</h1>
 <p>windows下sublime text2的一些设置和调整</p>
 <div class="toc">
 <ul>
-<li><a href="#my-sublime-setting">My sublime setting</a><ul>
+<li><a href="#my-sublime-text2-setting">My sublime text2 setting</a><ul>
 <li><a href="#1-package-control">1. 安装插件Package Control</a></li>
 <li><a href="#2-theme-fatland">2. 推荐主题theme fatland</a></li>
 <li><a href="#3-enhanced-r">3. Enhanced-R</a></li>
@@ -481,7 +481,7 @@ MathJax.Hub.Config({
 </ul>
 </div>
 <h4 id="1-package-control"><a name="user-content-1-package-control" href="#1-package-control" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>1. 安装插件Package Control</h4>
-<p>在控制台输入以下代码后重启： </p>
+<p>在控制台输入以下代码后重启：</p>
 <div class="codehilite"><pre><span class="kn">import</span> <span class="nn">urllib2</span><span class="o">,</span><span class="nn">os</span><span class="p">;</span> <span class="n">pf</span><span class="o">=</span><span class="s">&#39;Package Control.sublime-package&#39;</span><span class="p">;</span>
 <span class="n">ipp</span> <span class="o">=</span> <span class="n">sublime</span><span class="o">.</span><span class="n">installed_packages_path</span><span class="p">();</span>
 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span> <span class="n">ipp</span> <span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">ipp</span><span class="p">)</span> <span class="k">else</span> <span class="bp">None</span><span class="p">;</span>
@@ -531,7 +531,7 @@ MathJax.Hub.Config({
 
 
 <h4 id="4-sublimerepl"><a name="user-content-4-sublimerepl" href="#4-sublimerepl" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>4. sublimeREPL</h4>
-<p>可以使用iypthon交互式分析。设置R的交互环境如下：</p>
+<p>可以使用iypthon交互式分析</p>
 <div class="codehilite"><pre><span class="p">{</span><span class="w">  </span>
 <span class="s2">&quot;default_extend_env&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;PATH&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{PATH};C:\\Program Files\\R\\R-3.0.3\\bin\\i386&quot;</span><span class="p">}</span><span class="w">  </span>
 <span class="p">}</span>
@@ -544,6 +544,7 @@ MathJax.Hub.Config({
 <li>SideBarEnhancements </li>
 <li>Markdown Preview</li>
 <li>Python PEP8 Autoformat</li>
+<li>GBK Encoding Support</li>
 </ul>
 <h4 id="6-tab4"><a name="user-content-6-tab4" href="#6-tab4" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>6. 修改tab键为4个空格</h4>
 <div class="codehilite"><pre><span class="vg">preferences</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="vg">Settings</span><span class="o">-</span><span class="nl">Default:</span><span class="w">  </span>
