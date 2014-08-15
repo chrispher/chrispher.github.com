@@ -1,0 +1,581 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* Fonts */
+@font-face{
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face{
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+/* Body */
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#4d4d4c;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  outline: 1300px solid #f8f8f8;
+}
+
+/* Links */
+a{ color: #06d; text-decoration:none; }
+a:hover{ color: #06e; text-decoration: underline; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+::-moz-selection { background:#a8d1ff; color:#000 }
+::selection { background:#a8d1ff; color:#000 }
+
+a::-moz-selection { background:#a8d1ff; color:#0645ad }
+a::selection { background:#a8d1ff; color:#0645ad }
+
+/* Header Anchor Links*/
+.headeranchor-link {
+  color:#111;
+  border: 0;
+  margin-left: -20px;
+  padding-right: 6px;
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor-link:hover,
+.headeranchor-link:visited,
+.headeranchor-link:active
+{ text-decoration: none; color:#4d4d4c; }
+.headeranchor-link:hover .headeranchor:before,
+h1:hover .headeranchor:before,
+h2:hover .headeranchor:before,
+h3:hover .headeranchor:before,
+h4:hover .headeranchor:before,
+h5:hover .headeranchor:before,
+h6:hover .headeranchor:before
+{ content: '\f05c'; }
+
+abbr { cursor: pointer; }
+
+/* Paragraphs */
+p { margin:1em 0; }
+
+/* Images */
+img {
+  max-width:100%;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
+
+/* Headers */
+h1,h2,h3,h4,h5,h6 {
+  font-weight:normal;
+  color:#111;
+  line-height: 1.7;
+  position: relative;
+}
+h4,h5,h6{ font-weight: bold; }
+h1 { font-size:2.5em; border-bottom: 1px solid #ddd;}
+h2 { font-size:2em; border-bottom:1px solid #eee; padding-bottom: 5px; }
+h3 { font-size:1.5em; }
+h4 { font-size:1.2em; }
+h5 { font-size:1em; }
+h6 { font-size:0.9em; }
+
+/* Block Quotes */
+blockquote {
+  color:#666666;
+  margin:0;
+  padding-left: 3em;
+  border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+/* Raw Blocks */
+pre, code, kbd, samp {
+  color: #000;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 0.88em;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC;
+}
+
+pre {
+  padding: 10px;
+  overflow: auto;
+}
+
+code { padding: 0 3px 0 3px; }
+pre code { border: 0; padding: 0; }
+
+/* Admonition */
+.admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 0.88em;
+  padding: 0.5em 1em 0.5em 1em;
+  margin: 10px auto;
+  color: #888888;
+  background-color: #F8F8F8;
+  border: 1px solid #888888;
+}
+
+.admonition p { padding: 0; margin: 0; }
+.admonition-title { font-weight: bold; margin: 0; }
+
+.admonition-icon {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1.5;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float: left;
+}
+
+.admonition.attention { color: #4F8A10; background-color: #DFF2BF; border: 1px solid #4F8A10; }
+.admonition.caution { color: #D63301; background-color: #FFCCBA; border: 1px solid #D63301; }
+.admonition.hint { color: #00529B; background-color: #BDE5F8; border: 1px solid #00529B; }
+.admonition.danger { color: #D8000C; background-color: #FFBABA; border: 1px solid #D8000C; }
+.admonition.question { color: #00049b; background-color: #BDC8F8; border: 1px solid #00049b; }
+.admonition.note { color: #9F6000; background-color: #FEEFB3; border: 1px solid #9F6000; }
+
+.attention > .admonition-icon:before { content: "\f058\00a0"; }
+.caution > .admonition-icon:before { content: "\f06a\00a0"; }
+.hint > .admonition-icon:before { content: "\f05a\00a0"; }
+.danger > .admonition-icon:before { content: "\f056\00a0"; }
+.question > .admonition-icon:before { content: "\f059\00a0"; }
+.note > .admonition-icon:before { content: "\f040\00a0"; }
+
+/* progress bar*/
+.progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #F8F8F8;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow:
+    1px 1px 0px #fefefe,
+    -1px -1px 0px #fefefe,
+    -1px 1px 0px #fefefe,
+    1px -1px 0px #fefefe,
+    0px 1px 0px #fefefe,
+    0px -1px 0px #fefefe,
+    1px 0px 0px #fefefe,
+    -1px 0px 0px #fefefe,
+    1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 24px;
+  float: left;
+  border-right: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #34c2e3;
+  box-shadow: inset 0 1px 0px rgba(255, 255, 255, .5);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.progress-100plus .progress-bar { background-color: #1ee038; }
+.progress-80plus .progress-bar { background-color: #86e01e; }
+.progress-60plus .progress-bar { background-color: #f2d31b; }
+.progress-40plus .progress-bar { background-color: #f2b01e; }
+.progress-20plus .progress-bar { background-color: #f27011; }
+.progress-0plus .progress-bar { background-color: #f63a0f; }
+
+.gloss .progress-bar {
+  box-shadow:
+    inset -1px 1px 0px rgba(255, 255, 255, .5),
+    inset 0 -4px 12px rgba(255, 255, 255, .7),
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0px rgba(0, 0, 0, .05),
+    inset 1px -1px 0px rgba(255, 255, 255, .2);
+}
+
+.candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes { 0% { background-position: 0 0; } 100% { background-position: 60px 0; } }
+@-moz-keyframes animate-stripes { 0% { background-position: 0 0; } 100% { background-position: 60px 0; } }
+@keyframes animate-stripes { 0% { background-position: 0 0; } 100% { background-position: 60px 0; } }
+
+/* Inlines */
+b, strong { font-weight: bold; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+dfn { font-style: italic; }
+
+/* Lists */
+ul, ol { padding-left: 30px; }
+li p:last-child { margin:0 }
+.task-list-item { list-style-type: none; }
+.task-list-item input { float:left; margin-left: -20px; margin-top: 6px; }
+dt { font-weight: bold; font-style: italic;}
+dd { margin: 0 0 0 2em; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; overflow-x: auto; overflow-y: hidden; display: block;}
+table tr { background-color: #fefefe; }
+table tr:nth-child(2n) { background-color: #f8f8f8; }
+td, th { border: 1px solid #ddd; padding: 6px 13px; }
+
+/* Codehilite Tables */
+.codehilitetable { border: 0; border-spacing: 0; }
+.linenos, .code, .codehilitetable td { border: 0; padding: 0; }
+td:not(.linenos) .linenodiv { padding: 0 !important; }
+.code { width: 100%; }
+.linenos div pre, .linenodiv pre {
+  border: 0;
+  border-top: 1px solid #CCC;
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.code div pre {
+  border: 0;
+  border-top: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  body{ font-size:14px; }
+}
+
+@media only screen and (min-width: 768px) {
+  body{ font-size:16px; }
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{ font-size:12pt; max-width:100%; outline:none; border: 0;}
+  a, a:visited { text-decoration: underline; }
+  .headeranchor-link { display: none; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  .progress, .progress-bar { box-shadow: none; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><style>.codehilite pre .hll { background-color: #ffffcc }
+.codehilite pre  { background: #f8f8f8; color: #333333 }
+.codehilite pre .c { color: #999988; font-style: italic } /* Comment */
+.codehilite pre .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.codehilite pre .k { font-weight: bold } /* Keyword */
+.codehilite pre .n { color: #333333 } /* Name */
+.codehilite pre .o { font-weight: bold } /* Operator */
+.codehilite pre .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.codehilite pre .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.codehilite pre .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.codehilite pre .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.codehilite pre .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.codehilite pre .ge { font-style: italic } /* Generic.Emph */
+.codehilite pre .gr { color: #aa0000 } /* Generic.Error */
+.codehilite pre .gh { color: #999999 } /* Generic.Heading */
+.codehilite pre .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.codehilite pre .go { color: #888888 } /* Generic.Output */
+.codehilite pre .gp { color: #555555 } /* Generic.Prompt */
+.codehilite pre .gs { font-weight: bold } /* Generic.Strong */
+.codehilite pre .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite pre .gt { color: #aa0000 } /* Generic.Traceback */
+.codehilite pre .kc { font-weight: bold } /* Keyword.Constant */
+.codehilite pre .kd { font-weight: bold } /* Keyword.Declaration */
+.codehilite pre .kn { font-weight: bold } /* Keyword.Namespace */
+.codehilite pre .kp { font-weight: bold } /* Keyword.Pseudo */
+.codehilite pre .kr { font-weight: bold } /* Keyword.Reserved */
+.codehilite pre .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.codehilite pre .m { color: #009999 } /* Literal.Number */
+.codehilite pre .s { color: #dd1144 } /* Literal.String */
+.codehilite pre .na { color: #008080 } /* Name.Attribute */
+.codehilite pre .nb { color: #0086b3 } /* Name.Builtin */
+.codehilite pre .nc { color: #445588; font-weight: bold } /* Name.Class */
+.codehilite pre .no { color: #008080 } /* Name.Constant */
+.codehilite pre .nd { color: #333333 } /* Name.Decorator */
+.codehilite pre .ni { color: #800080 } /* Name.Entity */
+.codehilite pre .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.codehilite pre .nf { color: #990000; font-weight: bold } /* Name.Function */
+.codehilite pre .nl { color: #333333 } /* Name.Label */
+.codehilite pre .nn { color: #555555 } /* Name.Namespace */
+.codehilite pre .nx { color: #333333 } /* Name.Other */
+.codehilite pre .py { color: #333333 } /* Name.Property */
+.codehilite pre .nt { color: #000080 } /* Name.Tag */
+.codehilite pre .nv { color: #008080 } /* Name.Variable */
+.codehilite pre .ow { font-weight: bold } /* Operator.Word */
+.codehilite pre .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite pre .mb { color: #009999 } /* Literal.Number.Bin */
+.codehilite pre .mf { color: #009999 } /* Literal.Number.Float */
+.codehilite pre .mh { color: #009999 } /* Literal.Number.Hex */
+.codehilite pre .mi { color: #009999 } /* Literal.Number.Integer */
+.codehilite pre .mo { color: #009999 } /* Literal.Number.Oct */
+.codehilite pre .sb { color: #dd1144 } /* Literal.String.Backtick */
+.codehilite pre .sc { color: #dd1144 } /* Literal.String.Char */
+.codehilite pre .sd { color: #dd1144 } /* Literal.String.Doc */
+.codehilite pre .s2 { color: #dd1144 } /* Literal.String.Double */
+.codehilite pre .se { color: #dd1144 } /* Literal.String.Escape */
+.codehilite pre .sh { color: #dd1144 } /* Literal.String.Heredoc */
+.codehilite pre .si { color: #dd1144 } /* Literal.String.Interpol */
+.codehilite pre .sx { color: #dd1144 } /* Literal.String.Other */
+.codehilite pre .sr { color: #009926 } /* Literal.String.Regex */
+.codehilite pre .s1 { color: #dd1144 } /* Literal.String.Single */
+.codehilite pre .ss { color: #990073 } /* Literal.String.Symbol */
+.codehilite pre .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.codehilite pre .vc { color: #008080 } /* Name.Variable.Class */
+.codehilite pre .vg { color: #008080 } /* Name.Variable.Global */
+.codehilite pre .vi { color: #008080 } /* Name.Variable.Instance */
+.codehilite pre .il { color: #009999 } /* Literal.Number.Integer.Long */</style><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>2014-8-16-应用回归分析</title></head><body><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>应用线性回归</h1>
+<div class="toc">
+<ul>
+<li><a href="#_1">应用线性回归</a><ul>
+<li><a href="#_2">线性回归概述</a></li>
+<li><a href="#_3">基本过程</a></li>
+<li><a href="#_8">误差分析</a></li>
+<li><a href="#_15">附录</a><ul>
+<li><a href="#_4">提一些问题</a></li>
+<li><a href="#_5">古典假设</a></li>
+<li><a href="#_6">回归推论</a></li>
+<li><a href="#_7">假设检验</a></li>
+<li><a href="#_9">非线性</a></li>
+<li><a href="#_10">误差项相关</a></li>
+<li><a href="#_11">误差方差不固定</a></li>
+<li><a href="#_12">异常值</a></li>
+<li><a href="#_13">高杠杆点</a></li>
+<li><a href="#_14">共线性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>本文主要简述线性回归问题，目的在厘清回归问题中涉及的基本假设、检验方法等，除了必要的公式和计算，本文将着重在如何做好回归分析。<strong>笔记主要参考《An Introduction to Statistical Learning with Applications in R》、《完全统计学教程》、维基百科等资料</strong>。</p>
+<h3 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>线性回归概述</h3>
+<p>回归是研究因变量$Y$和自变量$X$关系的方法。自变量也称为预测变量、协变量或特征。总结 $X$ 和 $Y$ 的关系的一种方法是通过回归函数: $r(X) = E(Y|X=x) = \int yf(y|x)dy$, 目标是用形如 $(X_1,Y_1),\ldots,(X_n,Y_n) \sim F_{XY}$ 的数据估计回归函数$r(x)$ .<br />
+给定一个随机样本 $(Y_i, X_{i1}, \ldots, X_{ip}), \, i = 1, \ldots, n $, 一个多变量线性回归模型表示为:$ Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \ldots + \beta_p X_{ip} + \varepsilon_i, \qquad i = 1, \ldots, n $. <br />
+为了估计这些参数，我们使用矩阵表示: $ Y = X \beta + \varepsilon \,$ (注意区分随机变量、参数和观测值).  使用矩阵(或<a href="http://zh.wikipedia.org/wiki/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95">最小二乘法</a>)得到参数估计 $\hat\beta = (X^T X)^{-1}X^T y$ . </p>
+<h3 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>基本过程</h3>
+<ul>
+<li>
+<h4 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>提一些问题</h4>
+<br />
+1.自协变量(预测变量)与因变量之间有什么关系吗，这种关系有多强烈呢？<br />
+2.哪些自变量对相应变量有影响，能否评估这种影响大小呢？<br />
+3.模型拟合的效果如何评价？<br />
+4.如何模型拟合效果不佳，我们该怎么办？</li>
+<li>
+<h4 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>古典假设</h4>
+<p>1.样本是在母体之中随机抽取出来的。<br />
+2.因变量Y在实直线上是连续的。<br />
+3.残差项是独立且相同分布的(iid)，即残差是独立随机的，且服从均值为0，方差为$\sigma$高斯分布。</p>
+</li>
+<li>
+<h4 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>回归推论</h4>
+<p>1.对于每一个 $i=1,\ldots,n$ ，我们用 $\sigma^2$ 代表误差项 $\varepsilon$ 的方差（即标准误）。对于参数个数为 p + 1 的模型，标准误的一个无偏估计是：$\hat \sigma^2  = \frac {RSS} {n-p} $，其中 RSS 是误差平方和（残差平方和, residual-sum square).<br />
+估计值和实际值之间的关系是：$\hat\sigma^2 \cdot \frac{n-p}{\sigma^2} \sim  \chi_{n-p}^2 $， 其中 $\chi_{n-p}^2 $服从卡方分布，自由度是n-p。<br />
+2.对普通方程的解可以写为：$\hat{\boldsymbol\beta}=(\mathbf{X^TX)^{-1}X^Ty}$.这表示估计项是因变量的线性组合。进一步地说，如果所观察的误差服从正态分布。参数的估计值将服从联合正态分布。在当前的假设之下，估计的参数向量是精确分布的。$\hat\beta \sim N ( \beta, \sigma^2 (X^TX)^{-1} )$，其中$N(\cdot)$表示多变量正态分布。<br />
+3.参数估计值的标准差 $\hat\sigma_j=diag(\sqrt{ \frac{RSS}{n-p}[\mathbf{(X^TX)}^{-1}]})$ 参数$\beta_j$ 的$100(1-\alpha)\%$ 置信区间可以用以下式子来计算：<br />
+$\hat \beta_j  \pm t_{\frac{\alpha }{2},n - p} \hat \sigma_j $ (因为均值为0). <br />
+误差项可以表示为：$ \mathbf{\hat r =  y-X \hat{\boldsymbol{\beta}}= y-X(X^TX)^{-1}X^Ty}$</p>
+</li>
+<li>
+<h4 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>假设检验</h4>
+<p>1.是否存在关系<br />
+标准误$\sigma^2$也可以用于系数的假设检验。这里为了简化问题，我们以$Y = \beta_0 + \beta_1 X + \varepsilon$我们的零假设：$H_0$: $X$和$Y$之间没有关系，备择假设就是两者之间存在某些关系。用数学表示，零假设就是$H_0: \beta_1 = 0$, 备择假设为$H_1: \beta_1 \neq 0$. 实际中，我们通常采用t检验，$t = \frac{\hat{\beta_1}-0}{\hat{SE(\beta_1)}}$, 这里SE表示标准误。<br />
+2.模型是否准确<br />
+判断回归模型质量好坏主要是：标准化残差($RSE$)和<br />
+$R^2$统计量。为了方便我们的进一步讨论，回想以下上面的表示：<br />
+$RSS = \sum_{i=1}^n (y_i - \hat{y_i})^2$<br />
+$RSE = \sqrt{\frac{RSS}{n-p}} = \hat \sigma$<br />
+$TSS = \sum_{i=1}^n (y_i - \hat(y))^2$<br />
+$R^2 = 1 - \frac{RSS}{TSS}$<br />
+$RSE$能够提供直接的拟合效果测量，但是我们仍不好判断究竟多少的$RSE$是好的。$R^2$提供了一种测量，它是一种方差解释率，即预测值能解释实际值波动的比例，换句话说就是$Y$值波动性能被用$X$解释的比例。$R^2$的值介于0-1之间，越接近于1，说明拟合效果越好。此外，对于两个变量而言，$R^2$通常等于我们所说的<strong>相关系数</strong>。<br />
+3.$F$检验<br />
+对于多元回归分析，我们的零假设会调整为$H_0:\beta_1=\beta_2=\ldots=\beta_p=0$,(即对整个模型做检验)备择假设是至少有一个$\beta_j$是非零的。这个时候，我们采用$F$检验，其中$F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}$</p>
+</li>
+</ul>
+<h3 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>误差分析</h3>
+<p>在回归分析中，存在很多潜在问题。当然，我们的假设是古典假设，细化起来的话，有一些假设(<a href="http://en.wikipedia.org/wiki/Linear_regression">参考维基百科</a>)，主要是自变量不随机、线性关系、残差方差固定、误差独立、不存在多重共线性。</p>
+<ul>
+<li>
+<h4 id="_9"><strong>非线性</strong></h4>
+<br />
+线性回归模型假设了因变量和自变量之间的关系是线性的，而它们之间的实际关系很少是线性的。因此，我们得到的模型是有待进一步考证的，模型预测的准确率也会因非线性而大大折扣。残差图(Residual plots) 是判断非线性的一个有用的工具。<br />
+考虑到自变量个数可能多余一个，因此我们绘制的残差图是以预测值为横轴，残差值为纵轴。如下图所示：<br />
+<img alt="" src="chrispher.github.com/images/statistics/应用回归分析-非线性.jpg" /><br />
+上图左侧图中，残差存在一定的模式，增加二次项能够提高拟合效果。如果残差图显示没有非线性关系存在，那么直接使用线性回归就可以。如果发现残差图中存在某些模式，那么可以对原始数据进行变换，比如$logX, \sqrt{X}, X^2$等。</li>
+<li>
+<h4 id="_10"><strong>误差项相关</strong></h4>
+<p>在线性回归中，一个重要的假设是残差项$\varepsilon_1,&hellip;,\varepsilon_n$是不相关的。在回归模型的参数估计中，使用的标准误是基于残差项相互独立的，而实际中，残差项之间可能存在相关关系，从而使得标准误的估计有误，即使得标准误被<strong>低估</strong>了，从而置信区间和预测区间都会被缩窄，此外P值也会变小(参考维基百科：标准误-<a href="http://zh.wikipedia.org/wiki/%E6%A0%87%E5%87%86%E8%AF%AF">样本相关性校正</a>)。<br />
+在时间序列中，因为惯性等各种因素，经常出现<strong>自相关</strong>(<a href="https://www.google.com.hk/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;cad=rja&amp;uact=8&amp;ved=0CDIQFjAB&amp;url=%68%74%74%70%3a%2f%2f%65%63%6f%2e%68%75%73%74%2e%65%64%75%2e%63%6e%2f%6a%69%6c%69%61%6e%67%2f%45%63%6f%6e%6f%6d%65%74%72%69%63%73%2f%64%6f%77%6e%6c%6f%61%64%2f%25%45%37%25%41%43%25%41%43%39%25%45%37%25%41%42%25%41%30%25%45%46%25%42%43%25%38%38%25%45%38%25%38%37%25%41%41%25%45%37%25%39%42%25%42%38%25%45%35%25%38%35%25%42%33%25%45%46%25%42%43%25%38%39%2e%70%70%74&amp;ei=o8ofU8fkC4qZiAeZ8oH4Dg&amp;usg=AFQjCNHmVLiydcZ-G6IQIz_yb_dWRbmEMg&amp;sig2=-xXIYwSyh_Cm4NGqNbT11A&amp;bvm=bv.62788935,d.aGc">参考资料:自相关</a>)。绘制序列-残差图，可以发现残差之间的自相关。这里就不再上图了，在很多时间序列分析中应该会有详细的谈及。在非时间序列问题中，也可能存在自相关。比如在研究人的身高跟体重的关系时，因为没考虑两个人是否来自同一个家庭或者饮食、成长环境是否相似等因素，导致自相关的存在。<br />
+注意：残差项相互独立不仅仅是线性回归分析中，也是其他统计模型中非常重要的假设，好的<strong>试验设计</strong>能够降低自相关的存在风险。</p>
+</li>
+<li>
+<h4 id="_11"><strong>误差方差不固定</strong></h4>
+<p>在线性回归分析中，关于残差的另一个重要假设是$Var(\varepsilon_i) = \sigma^2$, 标准误、置信区间以及线性模型的假设检验均基于该假设。然而，残差项方差不固定却是很常见。如下图左侧图所示，可能方差会随着观测值的增加而增加。<br />
+<img alt="" src="chrispher.github.com/images/statistics/应用回归分析-误差方差不固定.jpg" /><br />
+对于这样的问题，一般采取的方法是对因变量$Y$进行凹函数变换处理，如$logY, \sqrt{Y}$,结果如上图右侧图所示: 残差项的方差基本上固定，虽然看起来有一点非线性项的存在。（这里的残差图仍然是预测值y和残差）。<br />
+另外一个处理方式是采用<strong>加权最小二乘法</strong>(weighted least squares), 对于上面的例子而言，可以令$w_i = n_i$，这样对应的方差可以调整为$\sigma_i^2 = \sigma^2 / n_i$. </p>
+</li>
+<li>
+<h4 id="_12"><strong>异常值</strong></h4>
+<br />
+异常值指的是$y_i$非常远离模型的预测值(残差较大)。异常值，可能是很多原因引起的，比如记录错误等。异常值会引起标准误增加，使得$R^2$降低。残差图可以用来判断是否存在异常值。如下图所示：<br />
+<img alt="" src="chrispher.github.com/images/statistics/应用回归分析-异常值.jpg" /><br />
+但是，实际中我们很难判断多大的残差才算是异常值呢？为此，我们通常绘制<strong>学生残差</strong>(<a href="http://en.wikipedia.org/wiki/Studentized_residual">studentized residuals</a>,  简单的说，误差均值为0，标准残差=残差/样本残差的标准差， 而学生残差=残差/残差标准差的点估计值)，学生残差能够更精确的反映误差的方差在每个点上的实际差异。处理异常值的常用方法是剔除，但是需要关注一下这个值异常的原因，异常值也可能是模型的缺陷。  </li>
+<li>
+<h4 id="_13"><strong>高杠杆点</strong></h4>
+<br />
+与给定 $x_i$ 下观察 $y_i$ 是否是异常值对应，如果样本有一个异常的 $x_i$ ,称之为高杠杆点。如下图所示：<br />
+<img alt="" src="chrispher.github.com/images/statistics/应用回归分析-高杠杆点.jpg" /><br />
+左图，红线拟合了全部数据，而蓝线拟合了去除高杠杆点后的。高杠杆点在最小二乘法中，对于估计具有尺度的杠杆效应，使得最小二乘法受到该点的影响非常大。在单变量情况下，我们可以绘制散点图，但是多变量情况下，就无法绘制了。中间图说明了，我们绘制两个自变量的散点图，能够发现高杠杆点的情况，然而该点的$X_1$单独对于$X_1$却不是高杠杆点。所以我们需要考虑的是多有的自变量，而不是单一的。<br />
+通常情况下，我们会计算<strong>杠杆统计量</strong>(<a href="http://en.wikipedia.org/wiki/Leverage_(statistics)">leverage statistic</a>), 对于简单线性回归，$h_i = \frac{1}{n} + \frac{(x_i - \bar{x})^2}{\sum_{i^\prime=1}^n(x_{i^\prime} - \bar{x})^2}$. $h_i$是介于1/n到1之间。对于p个自变量，所有样本的杠杆统计量均值为 $(p+1)/n$, 如果杠杆统计量大于均值，我们可以怀疑对应的点是否是高杠杆点。在R语言中，绘制杠杆-残差图中，会标识出这些高杠杆点。</li>
+<li>
+<h4 id="_14"><strong>共线性</strong></h4>
+<br />
+共线性(<a href="http://en.wikipedia.org/wiki/Collinearity">collinearity</a>)是指自变量中两个或多个之间存在较强的相关关系。共线性在线性回归分析中，使得我们很难分析单个自变量对因变量的影响。此外，共线性也使得参数估计准确性下降，标准误估计增加。<br />
+一个判断是否有共线性的方法是看自变量的相关矩阵(<a href="http://en.wikipedia.org/wiki/Correlation_matrix#Correlation_matrices">correlation matrix</a>), 然而相关矩阵能很好的判断两两变量之间的相关性，但是不能判断超多两个变量间的相关关系(这种情况成为<strong>多重共线性</strong>(multicollinearity))。解决多重共线性的方法是计算<strong>方差膨胀因子</strong>(VIF, <a href="http://en.wikipedia.org/wiki/Variance_inflation_factor">variance inflation factor</a>), VIF是使用所有变量拟合模型的$\hat{\beta_j}$的方差，除以只用该变量拟合得到的参数的方差。VIF最小是1，但在实际应用中，允许存在一定的共线性，一般VIF大于5或10，则表明存在共线性。对于每一个变量的VIF计算公式, 为$VIF(\hat{\beta_j}) = 1 / (1 - R^2_{X_j|X_{-j}})$, 这里$R^2_{X_j|X_{-j}}$ 指以$X_j$为因变量，其他变量为自变量拟合得到模型的$R^2$。如果$R^2_{X_j|X_{-j}}$接近1，说明该变量可以用其他变量的线性组合得到，VIF值越大。<br />
+解决共线性通常有两个方法，一是剔除某个有问题的变量，这对模型通常没有太大坏影响。另外一个方法是把这些共线性变量整合成一个新变量。</li>
+</ul>
+<h3 id="_15"><a name="user-content-_15" href="#_15" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>附录</h3>
+<p>1.<strong>置信区间估计</strong>(confidence interval estimate)：利用估计的回归方程，对于自变量 $x$ 的一个给定值 $x_0$ ，求出因变量 y 的平均值的估计区间。<br />
+<strong>预测区间估计</strong>(prediction interval estimate)：利用估计的回归方程，对于自变量 $x$ 的一个给定值 $x_0$ ，求出因变量 y 的一个个别值的估计区间。</p></body></html>
