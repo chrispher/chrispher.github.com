@@ -20,6 +20,8 @@ windows下sublime text2的一些设置和调整
 - [7. 常用快捷键](#7. 常用快捷键)
 <!-- /MarkdownTOC -->
 
+<a name="1. 安装插件Package Control "/>
+
 ####1. 安装插件Package Control 
 在控制台输入以下代码后重启：
 
@@ -29,6 +31,8 @@ windows下sublime text2的一些设置和调整
     urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( )));
     open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read());
     print( 'Please restart Sublime Text to finish installation')
+
+<a name="2. 推荐主题theme fatland"/>
 
 ####2. 推荐主题theme fatland
 主题设置
@@ -59,6 +63,8 @@ windows下sublime text2的一些设置和调整
     }
 
 
+<a name="3. Enhanced-R  "/>
+
 ####3. Enhanced-R  
 build R 
 
@@ -69,12 +75,16 @@ build R
     }
 
 
+<a name="4. sublimeREPL "/>
+
 ####4. sublimeREPL 
 可以使用iypthon交互式分析
 
     {  
     "default_extend_env": {"PATH": "{PATH};C:\\Program Files\\R\\R-3.0.3\\bin\\i386"}  
     }  
+
+<a name="5. 其他插件"/>
 
 ####5. 其他插件
 * CodeIntel  
@@ -83,10 +93,14 @@ build R
 * Python PEP8 Autoformat
 * GBK Encoding Support
 
+<a name="6. 修改tab键为4个空格"/>
+
 ####6. 修改tab键为4个空格
     preferences - Settings-Default:  
     "tab_size": 4  
     "translate_tabs_to_spaces": true  
+
+<a name="7. 常用快捷键"/>
 
 ####7. 常用快捷键
 - ctrl + -> —— 按照单词移动
