@@ -3,8 +3,6 @@ layout: post
 title: My sublime text2 setting
 ---
 
-My sublime text2 setting
-============================
 windows下sublime text2的一些设置和调整
 
 ### 目录

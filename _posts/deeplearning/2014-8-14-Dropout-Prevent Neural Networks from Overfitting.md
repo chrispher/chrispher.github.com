@@ -3,8 +3,6 @@ layout: post
 title: Dropout-A Simple Way to Prevent Neural Networks from Overfitting
 ---
 
-Dropout-A Simple Way to Prevent Neural Networks from Overfitting
-=============================================================
 文章参考Benjio的论文：[Dropout-A Simple Way to Prevent Neural Networks from Overfitting](http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)
 
 ### 目录
