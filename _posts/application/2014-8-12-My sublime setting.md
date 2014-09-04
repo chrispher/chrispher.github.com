@@ -1,8 +1,24 @@
+---
+layout: default
+title: My sublime text2 setting
+published: true 
+comments: true
+---
+
 My sublime text2 setting
 ============================
 windows下sublime text2的一些设置和调整
 
-[TOC]
+### 目录
+<!-- MarkdownTOC depth=4 -->
+- [1. 安装插件Package Control ](#1. 安装插件Package Control)
+- [2. 推荐主题theme fatland](#2. 推荐主题theme fatland)
+- [3. Enhanced-R  ](#3. Enhanced-R  )
+- [4. sublimeREPL ](#4. sublimeREPL )
+- [5. 其他插件](#5. 其他插件)
+- [6. 修改tab键为4个空格](#6. 修改tab键为4个空格)
+- [7. 常用快捷键](#7. 常用快捷键)
+<!-- /MarkdownTOC -->
 
 ####1. 安装插件Package Control 
 在控制台输入以下代码后重启：
