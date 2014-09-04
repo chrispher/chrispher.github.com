@@ -11,18 +11,18 @@ windows下sublime text2的一些设置和调整
 
 ### 目录
 <!-- MarkdownTOC depth=4 -->
-- [1. 安装插件Package Control ](#1. 安装插件Package Control)
+- [1. 安装插件Package Control](#1. 安装插件Package Control)
 - [2. 推荐主题theme fatland](#2. 推荐主题theme fatland)
-- [3. Enhanced-R  ](#3. Enhanced-R  )
-- [4. sublimeREPL ](#4. sublimeREPL )
+- [3. Enhanced-R](#3. Enhanced-R  )
+- [4. sublimeREPL](#4. sublimeREPL )
 - [5. 其他插件](#5. 其他插件)
 - [6. 修改tab键为4个空格](#6. 修改tab键为4个空格)
 - [7. 常用快捷键](#7. 常用快捷键)
 <!-- /MarkdownTOC -->
 
-<a name="1. 安装插件Package Control "/>
+<a name="1. 安装插件Package Control"/>
 
-####1. 安装插件Package Control 
+####1. 安装插件Package Control
 在控制台输入以下代码后重启：
 
     import urllib2,os; pf='Package Control.sublime-package';
@@ -63,9 +63,9 @@ windows下sublime text2的一些设置和调整
     }
 
 
-<a name="3. Enhanced-R  "/>
+<a name="3. Enhanced-R"/>
 
-####3. Enhanced-R  
+####3. Enhanced-R
 build R 
 
     {
@@ -75,9 +75,9 @@ build R
     }
 
 
-<a name="4. sublimeREPL "/>
+<a name="4. sublimeREPL"/>
 
-####4. sublimeREPL 
+####4. sublimeREPL
 可以使用iypthon交互式分析
 
     {  
