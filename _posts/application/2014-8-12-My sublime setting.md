@@ -1,6 +1,7 @@
 ---
 layout: post
 title: My sublime text2 setting
+comments: true
 ---
 
 windows下sublime text2的一些设置和调整
