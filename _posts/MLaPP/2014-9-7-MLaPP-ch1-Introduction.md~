@@ -25,7 +25,7 @@ comments: true
 
 ### 1.1 Machine Learning
 **We are drowning in information and starving for knowledge. -- John Naisbitt.**
-
+ 
 作者在书中定义机器学习为：a set of methods that can automatically detect patterns in data, and use the uncovered patterns to predict future data or perform other kinds of decision making under uncertainty(such as planning how to collect more data!). 本书主要采用概率论的知识来解决这些问题。将会介绍各种概率模型，以及用于学习和使用这些模型的算法实现。这里需要注意：尽管我们现在有大量的数据，但是数据中的有价值的信息可能很少——长尾效应。
 
 机器学习主要分成两大类型：一种是预测或**监督式学习**（predictive or supervised learning），目标是学习一种输入x到输出y之间的一种映射关系。每一个x都是一个向量，称之为特征或属性。如果y是离散变量，那么这种监督式学习称之为**分类**（也成为模式识别）；如果y是连续性变量，则称之为**回归**。另一种是描述或**非监督式学习**(descriptive or unsupervised learning)。目标是发现数据中的一些有价值的模式，有时也可以称之为知识发现(knowledge discovery)，这是一个比较困难的问题，因为缺少很明确的误差度量(error metric)。另外还有一种是**增强式学习**(reinforcement learning)，用的相对比较少，主要用于对响应有对应的惩罚(punishment)或奖励(reward)的时候。
@@ -37,7 +37,7 @@ comments: true
 
 #### 1.2.1 Classification
 
-在分类中，目标是学习一种映射将输入x映射到y，其中y属于{1, 2, ... ,C}，这里C指类别的个数。如果C＝2，就是二元分类(binary classification)。二元分类中，通常假设y属于{0, 1}。如果C>2，则成为多元分类(multiclass classificaiton)。同样，有时候y是多维的，比如某人可能被分类为又高又壮，称之为多标签分类(multi-label classification)。通常情况下，假设y是一维的。书中给出了一个MAP估计( maximum a posteriori)公式$$ \hat{y} = \hat{f}(x) = argmax^{C}_{c=1} p(y=c|x,D) $$, 其中D是训练数据集。具体的会在以后章节介绍到。
+在分类中，目标是学习一种映射将输入x映射到y，其中y属于{1, 2, ... ,C}，这里C指类别的个数。如果C＝2，就是二元分类(binary classification)。二元分类中，通常假设y属于{0, 1}。如果C>2，则成为多元分类(multiclass classificaiton)。同样，有时候y是多维的，比如某人可能被分类为又高又壮，称之为多标签分类(multi-label classification)。通常情况下，假设y是一维的。书中给出了一个MAP估计( maximum a posteriori)公式$$\hat{y} = \hat{f}(x) = argmax x^{C}_{c=1} p(y=c|x,D)$$, 其中D是训练数据集。具体的会在以后章节介绍到。
 分类的实际案例又很多，比如文本分类，垃圾邮件分类，花朵分类，人脸识别等等。
 
 #### 1.2.2 Regression
@@ -46,18 +46,17 @@ comments: true
 <a name="1.3 Unsupervised Learning" />
 
 ### 1.3 Unsupervised Learning
-非监督式学习中，我们只给出输入并不给出输出，通常用密度估计(density estimation)来建模我们的问题，即得到$$ p(x_i|\theta) $$。与监督式学习主要有两个不同：其一是用$$ p(x_i|\theta) $$ 替代了$$ p(y|x_i,\theta)$$，也就是说监督式学习的是条件密度估计(conditional density estimation)。另外一个是$$x_i$$是一个向量，因此要创建多元概率模型(multivariable probability models)，而监督式学习中$$y_i$$通常都是一维的。但是，非监督式学习更加更加符合人类和动物的学习，而且应用也更加广泛，因为他不需要专门的标注数据。获取数据标签有时候费时费力。Geoff Hinton曾说，孩子学习的时候，都是看了很多东西，而家长只是简单的告诉他这是狗，他就能学习的很好。
+非监督式学习中，我们只给出输入并不给出输出，通常用密度估计(density estimation)来建模我们的问题，即得到$$p(x_i|\theta)$$。与监督式学习主要有两个不同：其一是用$$p(x_i|\theta)$$替代了$$p(y|x_i,\theta)$$，也就是说监督式学习的是条件密度估计(conditional density estimation)。另外一个是$$x_i$$是一个向量，因此要创建多元概率模型(multivariable probability models)，而监督式学习中$$y_i$$通常都是一维的。但是，非监督式学习更加更加符合人类和动物的学习，而且应用也更加广泛，因为他不需要专门的标注数据。获取数据标签有时候费时费力。Geoff Hinton 曾说，孩子学习的时候，都是看了很多东西，而家长只是简单的告诉他这是狗，他就能学习的很好。
 
-聚类问题(discovering clusters)是非监督式学习中的典型情况。我们要将数据分成多个组，尽管我们不能明确一定是多少个类别，先假设是K个组，那么我们的**第一个目标**就是估计这些组的分布$$p(K|D)$$, 为了简便我们根据众数来确定分布，即$$K^* = argmax_k p(K|D)$$。在监督是学习中，我们明确知道有几个类别，但是在聚类中，并没有明确多少多组，我们可以选择多个组，也可以是少一点的。而选择一个合适复杂度的模型，称之为模型选择。**第二个目标**是估计这些点属于哪一个组。令$$z_i \in {1, ..., K}$$表示输入数据x属于的组。这里的$$z_i$$是潜在变量(hidden or latent variable)，因为他在训练数据中不可见。我们可以简单的计算$$z^*_i = argmaxx_k p(z_i=k|x_i,D)$$来确定输入数据具体属于哪一个组。
-
+聚类问题(discovering clusters)是非监督式学习中的典型情况。我们要将数据分成多个组，尽管我们不能明确一定是多少个类别，先假设是K个组，那么我们的**第一个目标**就是估计这些组的分布$$p(K|D)$$, 为了简便我们根据众数来确定分布，即$$K^* = argmax x_k p(K|D)$$。在监督是学习中，我们明确知道有几个类别，但是在聚类中，并没有明确多少多组，我们可以选择多个组，也可以是少一点的。而选择一个合适复杂度的模型，称之为模型选择。**第二个目标**是估计这些点属于哪一个组。令$$z_i \in {1, ..., K}$$表示输入数据x属于的组。这里的$$z_i$$是潜在变量(hidden or latent variable)，因为他在训练数据中不可见。我们可以简单的计算$$z^*_i = argmax x_k p(z_i=k|x_i,D)$$来确定输入数据具体属于哪一个组。
 ![](http://chrispher.github.com/images/MLaPP/ch1-kmeans.png)
 
 在本书中，主要集中在model based clustering，也就是说我们拟合一个概率模型，而不是使用一些ad hoc algorithm。使用model－based的方法，优点是不同的模型可以相互比较或者在大系统中组合起来。
+
 聚类问题的另一个应用是降维(discivering latent factors)－－通过降维发现对数据更加本质的刻画。通常而言，较低的维度在模型预测中通常有较好的效果，因为他们关注更加本质的东西，另外也方面数据可视化、和方便算法更快速搜索。最常用的降维方法是PCA(pricipal components analysis)，可以看成是非监督式学习下的线性回归。即观测值y（响应变量）是高维度，而不是低维度的z。模型是学习从z到y的一个映射。后面章节会具体分析。
-聚类问题还包括发现图结构(discovering graph structure)。有时候我们要关注各个变量之间的相互关系。这个时候可以使用图模型G，各个点表示各个变量，而边表示两点之间的依赖关系。我们可以从数据中计算$$\hat{G} = argmaxp(G|D)$$来学习这些关系。
 
+聚类问题还包括发现图结构(discovering graph structure)。有时候我们要关注各个变量之间的相互关系。这个时候可以使用图模型G，各个点表示各个变量，而边表示两点之间的依赖关系。我们可以从数据中计算$$\hat{G} = argmax p(G|D)$$来学习这些关系。
 ![](http://chrispher.github.com/images/MLaPP/ch1-graph.png)
-
 其他还有很多问题，包括矩阵分解、协同过滤、市场购物篮分析等等。
 
 <a name="1.4 basic concepts"/>
@@ -67,8 +66,7 @@ comments: true
 <a name="1.4.1 Parametric vs non-parametric models"/>
 
 #### 1.4.1 Parametric vs non-parametric models
-在这本书中，我们主要集中在概率模型p(y|x)或者p(x)。有很多方法来定义这些模型，主要区别在于模型的参数个数。如果参数个数随着训练集合增加而增加，则称之为**非参数模型**(parametric models)，如果参数个数固定，则称之为**参数模型**(parametric models)。参数模型的有点是计算比较快，但是通常对数据的分布有很强的假设（这些也称之为inductive bias）。而非参数模型则更加灵活，但是计算量随着数据集增大而增大。
-作者用监督式学习给出了一个简单的例子。
+在这本书中，我们主要集中在概率模型p(y|x)或者p(x)。有很多方法来定义这些模型，主要区别在于模型的参数个数。如果参数个数随着训练集合增加而增加，则称之为**非参数模型**(parametric models)，如果参数个数固定，则称之为**参数模型**(parametric models)。参数模型的有点是计算比较快，但是通常对数据的分布有很强的假设（这些也称之为inductive bias）。而非参数模型则更加灵活，但是计算量随着数据集增大而增大。作者用监督式学习给出了一个简单的例子。
 
 <a name="1.4.2 K-nearest-neighbors"/>
 
@@ -79,7 +77,6 @@ comments: true
 
 #### 1.4.3 The curse of dimensionality
 如果数据量无限大的话，那么KNN效果会非常好。但是，随着数据维度的增加，因为维灾难是的KNN的表现很差。使用KNN来解释维灾难，假设我们估计一个测试样本x的所属类别的概率密度，x是D维度的均匀分布，我们希望K值能够占到训练样本比例为f，比如一共100个训练样本，f=10%，那么K=100＊10%=10.那么样本分布(多维均匀分布可视化是一个cube)的边长度是$$e_D(f) = f^{1/D}$$（联想cube体积计算），如果D=10，f=10%，那么$$e_10(0.1)=0.8$$，即对于x的每一个维度都要延伸80%的长度，那么很多点对于x而言已经不算是近邻点了，预测效果也会很差。如下图所示：
-
 ![](http://chrispher.github.com/images/MLaPP/ch1-curseofdimensionality.png)
 
 <a name="1.4.4-5 parametric models for classification"/>
@@ -87,32 +84,33 @@ comments: true
 #### 1.4.4-5 parametric models for classification
 这部分作者简单的给了两个例子，深入分析会在以后详述。
 
-首先是线性回归(Linear regression)，该模型假设响应变量y是输入x的线性方程，即$$y(x) = w^Tx + \epsilon = \sum_{j=1}^Dw_jx_j + \epsilon $$，这里$$w^Tx$$表示两个向量的内积。通常，我们都假设$$\epsilon$$服从高斯分布(Gaussian distribution)，表示为$$\epsilon ~ N(\mu, \sigma^2)$$。那么线性回归和高斯分布合在一起就是$$p(y|x,\theta) = N(y|\mu(x),\sigma^2(x))$$， 该模型是条件概率密度估计，通常假设$$\mu = w^Tx, \sigma^2(x) = \sigma^2$$，这里模型的参数是$$\theta = (w, \sigma^2)$$.对于一元线性回归，我们有$$\mu(x) = w_0 + w_1x = W^Tx$$，这里的$$w_0$$是截距项(intercept or bias term)，而$$x = (1, x)$$(即在原始数据中新增一列，值均为1).
+首先是线性回归(Linear regression)，该模型假设响应变量y是输入x的线性方程，即$$y(x) = w^Tx + \epsilon = \sum_{j=1}^Dw_jx_j + \epsilon$$，这里$$w^Tx$$表示两个向量的内积。通常，我们都假设$$\epsilon$$服从高斯分布(Gaussian distribution)，表示为$$\epsilon ~ N(\mu, \sigma^2)$$。那么线性回归和高斯分布合在一起就是$$p(y|x,\theta) = N(y|\mu(x),\sigma^2(x))$$，该模型是条件概率密度估计，通常假设$$\mu = w^Tx, \sigma^2(x) = \sigma^2$$，这里模型的参数是$$\theta = (w, \sigma^2)$$.对于一元线性回归，我们有$$\mu(x) = w_0 + w_1x = W^Tx$$，这里的$$w_0$$是截距项(intercept or bias term)，而$$x = (1, x)$$(即在原始数据中新增一列，值均为1). 
 
 此外，线性回归也可以加入非线性项(针对x做非线性操作$$\Phi(x)$$),即$$y(y|x,\theta) = N(y|w^T\Phi(x),\sigma^2)$$，这就是**基函数扩展**(basis function expansion).事实上，很多模型比如SVM、神经网络等等都可以看成是对输入做了不同的基函数设置。
 
 <a name="1.4.6 Logistic regression"/>
 
 #### 1.4.6 Logistic regression
-可以通过两个变化使得回归模型变成分类模型：其一是用伯努力分布(Bernoulli distribution)替代高斯分布（对于二元分类）,即$$p(y|x,w) = Ber(y|\mu(x))$$，这里$$\mu(x) = E(y|x) = p(y=1|x)$$。其次是限制输出值在0-1之间，即$$0 \lep \mu(x) \leq 1, \mu(x) = sigm(w^tx)$$,这里sigm(z)指的是sigmoid函数（也称之为logistic或者logit函数），定义为$$sigm(z) = \frac{1}{1+exp(-z)} = \frac{e^z}{e^z + 1} $$,合在一起得到logistic regression:$$p(y|x,w) = Ber(y|sigm(w^Tx))$$.如果我们设置输出概率阈值(threshold)为0.5，我们决策规则(decision rule)就是$$\hat{y}(x) = 1 <==> p(y=1|x) > 0.5$$,对于输出概率为0.5的点组成的线，就是决策边界。具体内容，后面章节会有。
+可以通过两个变化使得回归模型变成分类模型：其一是用伯努力分布(Bernoulli distribution)替代高斯分布（对于二元分类）,即$$p(y|x,w) = Ber(y|\mu(x))$$，这里$$\mu(x) = E(y|x) = p(y=1|x)$$。其次是限制输出值在0-1之间，即$$0 \leq \mu(x) \leq 1, \mu(x) = sigm(w^tx)$$,这里sigm(z)指的是sigmoid函数（也称之为logistic或者logit函数），定义为$$sigm(z) = \frac{1}{1+exp(-z)} = \frac{e^z}{e^z + 1}$$,合在一起得到logistic regression:$$p(y|x,w) = Ber(y|sigm(w^Tx))$$.如果我们设置输出概率阈值(threshold)为0.5，我们决策规则(decision rule)就是$$\hat{y}(x) = 1 <==> p(y=1|x) > 0.5$$,对于输出概率为0.5的点组成的线，就是决策边界。具体内容，后面章节会有。  
 
 <a name="1.4.7-8 Overfitting and model selection"/>
 
 #### 1.4.7-8 Overfitting and model selection
-一个模型如果特别灵活(flexible)，那么就容易导致过拟合。过拟合可能使得学习到的是训练集合中的一些噪声知识。简单来说，如果训练误差特别小，而测试误差很大，就是一种过拟合的表现。
+一个模型如果特别灵活(flexible)，那么就容易导致过拟合。过拟合可能使得学习到的是训练集合中的一些噪声知识。简单来说，如果训练误差特别小，而测试误差很大，就是一种过拟合的表现。  
 
-对于KNN，我们如何选择一个合适的K呢？一个简单的方式是选择不同的K，再看看不同K对应的误差(misclassification rate，定义为$$err(f,D) = \frac{1}{N} \sum_{i=1}^{N}{I(f(x_i) \neq y_i)}$$)，选择一个测试中最小误差对应的K。这里需要注意的是，我们真正关心的并不是训练误差，而是泛化误差(generalization error，后面章节会具体涉及)，指不在训练集合中的额外数据上的测试误差。简单的说，如果K越小，那么越容易过拟合，而K越大越容易欠拟合。通常情况下，我们使用交叉验证(cross validation (CV))来选择合适的模型复杂度。最简单的CV可以是，选择数据集中的80%作为训练集合，20%作为测试集合，选择在测试集合上表现最好的K值。交叉验证如下图右侧所示：
+对于KNN，我们如何选择一个合适的K呢？一个简单的方式是选择不同的K，再看看不同K对应的误差(misclassification rate，定义为$$err(f,D) = \frac{1}{N} \sum_{i=1}^{N}{I(f(x_i) \neq y_i)}$$)，选择一个测试中最小误差对应的K。这里需要注意的是，我们真正关心的并不是训练误差，而是泛化误差(generalization error，后面章节会具体涉及)，指不在训练集合中的额外数据上的测试误差。简单的说，如果K越小，那么越容易过拟合，而K越大越容易欠拟合。通常情况下，我们使用交叉验证(cross validation (CV))来选择合适的模型复杂度。最简单的CV可以是，选择数据集中的80%作为训练集合，20%作为测试集合，选择在测试集合上表现最好的K值。交叉验证如下图右侧所示：  
 
-![](http://chrispher.github.com/images/MLaPP/ch1-cross-valid.png)
+![](http://chrispher.github.com/images/MLaPP/ch1-cross-valid.png)  
 
-简单的解释，是将数据平均分割成K个组，每次用k-1个组来训练，用余下的一个组来测试——这样对于一个模型，一共需要训练和测试k次，最终误差用k个测试误差的均值表示。此外，如果k等于样本数，那么每次测试样本就只有一个，称之为leave-one out cross validation(LOOCV)。KNN中选择一个合适的k，称之为模型选择(model selection)，即选择模型的复杂度。
+简单的解释，是将数据平均分割成K个组，每次用k-1个组来训练，用余下的一个组来测试——这样对于一个模型，一共需要训练和测试k次，最终误差用k个测试误差的均值表示。此外，如果k等于样本数，那么每次测试样本就只有一个，称之为leave-one out cross validation(LOOCV)。KNN中选择一个合适的k，称之为模型选择(model selection)，即选择模型的复杂度。  
 
 <a name="1.4.9 No free lunch theorem"/>
 
 #### 1.4.9 No free lunch theorem
-**All models are wrong, but some models are usefull. --George Box **
 
-机器学习有很多模型以及不同的算法来实现。针对于具体的问题，通常使用交叉验证来经验性的选择最好的模型。没有一个通用的最好模型！理由是模型的一系列假设不某些业务上能表现很好，但是在其他业务上就表现很差了。所以在很多问题上，我们都要在模型的速度-精度-复杂度上作出权衡。
+**All models are wrong, but some models are usefull. --George Box**  
+
+机器学习有很多模型以及不同的算法来实现。针对于具体的问题，通常使用交叉验证来经验性的选择最好的模型。没有一个通用的最好模型！理由是模型的一系列假设不某些业务上能表现很好，但是在其他业务上就表现很差了。所以在很多问题上，我们都要在模型的速度-精度-复杂度上作出权衡。  
 
 <a name="1.5 code"/>
 
