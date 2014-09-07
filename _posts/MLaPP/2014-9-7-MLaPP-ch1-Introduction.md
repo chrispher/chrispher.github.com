@@ -33,10 +33,8 @@ comments: true
 <a name="1.2 Supervised Learning"/>
 
 ### 1.2 Supervised Learning
-监督式学习应用的非常多。
 
 #### 1.2.1 Classification
-
 在分类中，目标是学习一种映射将输入x映射到y，其中y属于{1, 2, ... ,C}，这里C指类别的个数。如果C＝2，就是二元分类(binary classification)。二元分类中，通常假设y属于{0, 1}。如果C>2，则成为多元分类(multiclass classificaiton)。同样，有时候y是多维的，比如某人可能被分类为又高又壮，称之为多标签分类(multi-label classification)。通常情况下，假设y是一维的。书中给出了一个MAP估计( maximum a posteriori)公式$$\hat{y} = \hat{f}(x) = argmax x^{C}_{c=1} p(y=c|x,D)$$, 其中D是训练数据集。具体的会在以后章节介绍到。
 分类的实际案例又很多，比如文本分类，垃圾邮件分类，花朵分类，人脸识别等等。
 
@@ -82,11 +80,9 @@ comments: true
 <a name="1.4.4-5 parametric models for classification"/>
 
 #### 1.4.4-5 parametric models for classification
-这部分作者简单的给了两个例子，深入分析会在以后详述。
+这部分作者简单的给了两个例子，深入分析会在以后详述。首先是线性回归(Linear regression)，该模型假设响应变量y是输入x的线性方程，即$$y(x) = w^Tx + \epsilon = \sum_{j=1}^Dw_jx_j + \epsilon$$，这里$$w^Tx$$表示两个向量的内积。通常，我们都假设$$\epsilon$$服从高斯分布(Gaussian distribution)，表示为$$\epsilon ~ N(\mu, \sigma^2)$$。那么线性回归和高斯分布合在一起就是$$p(y|x,\theta) = N(y|\mu(x),\sigma^2(x))$$，该模型是条件概率密度估计，通常假设$$\mu = w^Tx, \sigma^2(x) = \sigma^2$$，这里模型的参数是$$\theta = (w, \sigma^2)$$.对于一元线性回归，我们有$$\mu(x) = w_0 + w_1x = W^Tx$$，这里的$$w_0$$是截距项(intercept or bias term)，而$$x = (1, x)$$(即在原始数据中新增一列，值均为1)。
 
-首先是线性回归(Linear regression)，该模型假设响应变量y是输入x的线性方程，即$$y(x) = w^Tx + \epsilon = \sum_{j=1}^Dw_jx_j + \epsilon$$，这里$$w^Tx$$表示两个向量的内积。通常，我们都假设$$\epsilon$$服从高斯分布(Gaussian distribution)，表示为$$\epsilon ~ N(\mu, \sigma^2)$$。那么线性回归和高斯分布合在一起就是$$p(y|x,\theta) = N(y|\mu(x),\sigma^2(x))$$，该模型是条件概率密度估计，通常假设$$\mu = w^Tx, \sigma^2(x) = \sigma^2$$，这里模型的参数是$$\theta = (w, \sigma^2)$$.对于一元线性回归，我们有$$\mu(x) = w_0 + w_1x = W^Tx$$，这里的$$w_0$$是截距项(intercept or bias term)，而$$x = (1, x)$$(即在原始数据中新增一列，值均为1). 
-
-此外，线性回归也可以加入非线性项(针对x做非线性操作$$\Phi(x)$$),即$$y(y|x,\theta) = N(y|w^T\Phi(x),\sigma^2)$$，这就是**基函数扩展**(basis function expansion).事实上，很多模型比如SVM、神经网络等等都可以看成是对输入做了不同的基函数设置。
+此外，线性回归也可以加入非线性项(针对x做非线性操作$$\Phi(x)$$)，即$$y(y|x,\theta) = N(y|w^T\Phi(x),\sigma^2)$$，这就是**基函数扩展**(basis function expansion).事实上，很多模型比如SVM、神经网络等等都可以看成是对输入做了不同的基函数设置。
 
 <a name="1.4.6 Logistic regression"/>
 
@@ -105,7 +101,6 @@ comments: true
 <a name="1.4.9 No free lunch theorem"/>
 
 #### 1.4.9 No free lunch theorem
-
 **All models are wrong, but some models are usefull. --George Box**
 
 机器学习有很多模型以及不同的算法来实现。针对于具体的问题，通常使用交叉验证来经验性的选择最好的模型。没有一个通用的最好模型！理由是模型的一系列假设不某些业务上能表现很好，但是在其他业务上就表现很差了。所以在很多问题上，我们都要在模型的速度-精度-复杂度上作出权衡。
@@ -123,23 +118,23 @@ def knn(k, data, dataClass, inputs):
     closest = np.zeros(nInputs)
 
     for n in range(nInputs):
-    # 对于没一个测试样本，计算训练集中点与之距离
-    # axis是指按照行（1）或列（0）求和
-    distances = np.sum((data-inputs[n,:])**2, axis=1)
+        # 对于没一个测试样本，计算训练集中点与之距离
+        # axis是指按照行（1）或列（0）求和
+        distances = np.sum((data-inputs[n,:])**2, axis=1)
 
-    # 对距离排序，选择前k个
-    indices = np.argsort(distances, axis=0)
-    classes = np.unique(dataClass[indices[:k]])
+        # 对距离排序，选择前k个
+        indices = np.argsort(distances, axis=0)
+        classes = np.unique(dataClass[indices[:k]])
     
-    # 如果只有一个类别，则直接返回
-    # 如果存在多个类别，返回出现次数最多的类
-    if len(classes)==1:
-    closest[n] = np.unique(classes)
-    else: 
-    counts = np.zeros(max(classes)+1)
-    for i in range(k):
-    counts[dataClass[indices[i]]] += 1
-    closest[n] = np.max(counts)
+        # 如果只有一个类别，则直接返回
+        # 如果存在多个类别，返回出现次数最多的类
+        if len(classes)==1:
+            closest[n] = np.unique(classes)
+        else: 
+            counts = np.zeros(max(classes)+1)
+            for i in range(k):
+                counts[dataClass[indices[i]]] += 1        
+            closest[n] = np.max(counts)
      
     return closest
 
