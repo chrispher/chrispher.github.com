@@ -80,9 +80,7 @@ comments: true
 <a name="1.4.4-5 parametric models for classification"/>
 
 #### 1.4.4-5 parametric models for classification
-这部分作者简单的给了两个例子，深入分析会在以后详述。首先是线性回归(Linear regression)，该模型假设响应变量y是输入x的线性方程，即$$y(x) = w^Tx + \epsilon = \sum_{j=1}^Dw_jx_j + \epsilon$$，这里$$w^Tx$$表示两个向量的内积。通常，我们都假设$$\epsilon$$服从高斯分布(Gaussian distribution)，表示为$$\epsilon ~ N(\mu, \sigma^2)$$。那么线性回归和高斯分布合在一起就是$$p(y|x,\theta) = N(y|\mu(x),\sigma^2(x))$$，该模型是条件概率密度估计，通常假设$$\mu = w^Tx, \sigma^2(x) = \sigma^2$$，这里模型的参数是$$\theta = (w, \sigma^2)$$.对于一元线性回归，我们有$$\mu(x) = w_0 + w_1x = W^Tx$$，这里的$$w_0$$是截距项(intercept or bias term)，而$$x = (1, x)$$(即在原始数据中新增一列，值均为1)。
-
-此外，线性回归也可以加入非线性项(针对x做非线性操作$$\Phi(x)$$)，即$$y(y|x,\theta) = N(y|w^T\Phi(x),\sigma^2)$$，这就是**基函数扩展**(basis function expansion).事实上，很多模型比如SVM、神经网络等等都可以看成是对输入做了不同的基函数设置。
+这部分作者简单的给了两个例子，深入分析会在以后详述。首先是线性回归(Linear regression)，该模型假设响应变量y是输入x的线性方程，即$$y(x) = w^Tx + \epsilon = \sum_{j=1}^Dw_jx_j + \epsilon$$，这里$$w^Tx$$表示两个向量的内积。通常，我们都假设$$\epsilon$$服从高斯分布(Gaussian distribution)，表示为$$\epsilon ~ N(\mu, \sigma^2)$$。那么线性回归和高斯分布合在一起就是$$p(y|x,\theta) = N(y|\mu(x),\sigma^2(x))$$，该模型是条件概率密度估计，通常假设$$\mu = w^Tx, \sigma^2(x) = \sigma^2$$，这里模型的参数是$$\theta = (w, \sigma^2)$$.对于一元线性回归，我们有$$\mu(x) = w_0 + w_1x = W^Tx$$，这里的$$w_0$$是截距项(intercept or bias term)，而$$x = (1, x)$$(即在原始数据中新增一列，值均为1)。此外，线性回归也可以加入非线性项(针对x做非线性操作$$\Phi(x)$$)，即$$y(y|x,\theta) = N(y|w^T\Phi(x),\sigma^2)$$，这就是**基函数扩展**(basis function expansion).事实上，很多模型比如SVM、神经网络等等都可以看成是对输入做了不同的基函数设置。
 
 <a name="1.4.6 Logistic regression"/>
 

@@ -101,7 +101,6 @@ comments: true
 <a name="1.4.9 No free lunch theorem"/>
 
 #### 1.4.9 No free lunch theorem
-
 **All models are wrong, but some models are usefull. --George Box**
 
 机器学习有很多模型以及不同的算法来实现。针对于具体的问题，通常使用交叉验证来经验性的选择最好的模型。没有一个通用的最好模型！理由是模型的一系列假设不某些业务上能表现很好，但是在其他业务上就表现很差了。所以在很多问题上，我们都要在模型的速度-精度-复杂度上作出权衡。
