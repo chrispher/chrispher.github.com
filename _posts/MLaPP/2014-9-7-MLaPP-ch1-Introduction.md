@@ -10,7 +10,7 @@ comments: true
 - [1.1 Machine Learning](#1.1 Machine Learning)
 - [1.2 Supervised Learnin](#1.2 Supervised Learnin)
 - [1.3 Unsupervised Learning](#1.3 Unsupervised Learning)
-- [1.4 basic concepts](#1.4 basic concept)
+- [1.4 basic concepts](#1.4 basic concepts)
     - [1.4.1 Parametric vs non-parametric models](#1.4.1 Parametric vs non-parametric models)
     - [1.4.2 K-nearest-neighbors](#1.4.2 K-nearest-neighbors)
     - [1.4.3 The curse of dimensionality](#1.4.3 The curse of dimensionality)
@@ -106,29 +106,29 @@ import numpy as np
 
 def knn(k, data, dataClass, inputs):
     # 得到输入测试样本个数
-	nInputs = np.shape(inputs)[0]
-	closest = np.zeros(nInputs)
+    nInputs = np.shape(inputs)[0]
+    closest = np.zeros(nInputs)
 
-	for n in range(nInputs):
-		# 对于没一个测试样本，计算训练集中点与之距离
-		# axis是指按照行（1）或列（0）求和
-		distances = np.sum((data-inputs[n,:])**2, axis=1)
+    for n in range(nInputs):
+    # 对于没一个测试样本，计算训练集中点与之距离
+    # axis是指按照行（1）或列（0）求和
+    distances = np.sum((data-inputs[n,:])**2, axis=1)
 
-		# 对距离排序，选择前k个
-		indices = np.argsort(distances, axis=0)
-		classes = np.unique(dataClass[indices[:k]])
-		
-		# 如果只有一个类别，则直接返回
-		# 如果存在多个类别，返回出现次数最多的类
-		if len(classes)==1:
-			closest[n] = np.unique(classes)
-		else: 
-			counts = np.zeros(max(classes)+1)
-			for i in range(k):
-				counts[dataClass[indices[i]]] += 1
-			closest[n] = np.max(counts)
-			 
-	return closest
+    # 对距离排序，选择前k个
+    indices = np.argsort(distances, axis=0)
+    classes = np.unique(dataClass[indices[:k]])
+    
+    # 如果只有一个类别，则直接返回
+    # 如果存在多个类别，返回出现次数最多的类
+    if len(classes)==1:
+    closest[n] = np.unique(classes)
+    else: 
+    counts = np.zeros(max(classes)+1)
+    for i in range(k):
+    counts[dataClass[indices[i]]] += 1
+    closest[n] = np.max(counts)
+     
+    return closest
 
 def K_forld(data, dataClass, knn, k=10):
     # 把数据打乱序
@@ -138,8 +138,10 @@ def K_forld(data, dataClass, knn, k=10):
 
     for i in range(k):
         # 选择训练集合
-        train_data = np.concatenate((data[0:i*len_fold], data[(i+1)*len_fold:]))
-        train_class = np.concatenate((dataClass[0:i*len_fold], dataClass[(i+1)*len_fold:]))
+        train_data = np.concatenate((data[0:i*len_fold],
+                                     data[(i+1)*len_fold:]))
+        train_class = np.concatenate((dataClass[0:i*len_fold], 
+                                      dataClass[(i+1)*len_fold:]))
         # 选择测试集合
         test_data =  data[i*len_fold:(i+1)*len_fold]
         test_class =  dataClass[i*len_fold:(i+1)*len_fold]
@@ -148,5 +150,4 @@ def K_forld(data, dataClass, knn, k=10):
         error[i] = float(len(test_result == test_class)) / len(test_class)
 
     return error.mean()
-
 {% endhighlight %}
