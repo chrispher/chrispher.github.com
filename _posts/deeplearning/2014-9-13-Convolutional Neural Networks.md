@@ -43,12 +43,12 @@ CNN ([Convolutional Neural Networks](http://en.wikipedia.org/wiki/Convolutional_
 **注意**：图示中的卷积操作，每次只移动一个像素，在某些大图像操作中，比如200×200像素的图像中，filter大小为10×10，我们也可以设定每次移动的步伐（有的称之为stride，有的称之为sub-sample）为10，那么最终得到的卷积特征大小为19×19（19=(200-10)/10 + 1）。
 
 这里需要着重解释一下什么是**参数减少**和**权值共享**。比如我们有1000x1000像素的图像，假设有1百万个隐层神经元，那么他们全连接的话（每个隐层神经元都连接图像的每一个像素点），就有 $$ 1000x1000x1000000 = 10^12$$ 个连接，也就是$$10^12$$个权值参数。然而图像的空间联系是局部的，就像人是通过一个局部的感受野去感受外界图像一样，每一个神经元都不需要对全局图像做感受，每个神经元只感受局部的图像区域，然后在更高层，将这些感受不同局部的神经元综合起来就可以得到全局的信息了。这样，我们就可以减少连接的数目，也就是减少神经网络需要训练的权值参数的个数了。假如局部感受野(filter)是10x10，隐层每个感受野只需要和这10x10的局部图像相连接，所以1百万个隐层神经元就只有一亿个连接，即$$10^8$$个参数。
-![](http://chrispher.github.com/images/deeplearning/cnn_w_share.jpg)
+<img src="http://chrispher.github.com/images/deeplearning/cnn_w_share.jpg" style="width:800px;height:800px;">
 
 上面说的是**参数减少**，而CNN是在参数减少之上再减少的**权值共享**。隐含层的每一个神经元都连接10x10个图像区域，也就是说每一个神经元存在10x10=100个连接权值参数。那如果我们每个神经元这100个参数是相同的呢？也就是说每个神经元用的是同一个filter去卷积图像。这样我们就只有100个参数了。
 
 但是这样共享一个权值，只能提取了一种特征？如果我们用多种filter的话，就能提出图像的不同的特征。所以假设我们加到100种filter，每种filter的参数不一样，表示它提出输入图像的不同特征，这样每种filter去卷积图像就得到对图像的不同特征的表达，我们称之为Feature Map。所以100种filter就有100个Feature Map。这100个Feature Map就组成了一层神经元。那这一层有多少个参数了？100种filterx每种filter共享100个参数=100x100=10K，也就是1万个参数。见下图右：不同的颜色表达不同的滤波器。
-![](http://chrispher.github.com/images/deeplearning/cnn_w_share2.jpg)
+<img src="http://chrispher.github.com/images/deeplearning/cnn_w_share2.jpg" style="width:800px;height:800px;">
 
 
 <a name="2.2 池化层"/>
@@ -59,10 +59,7 @@ CNN ([Convolutional Neural Networks](http://en.wikipedia.org/wiki/Convolutional_
 为了解决这个问题，首先回忆一下，我们之所以决定使用卷积后的特征是因为图像具有一种“静态性”的属性，这也就意味着在一个图像区域有用的特征极有可能在另一个区域同样适用。因此，为了描述大的图像，一个很自然的想法就是对不同位置的特征进行聚合统计，例如，人们可以计算图像一个区域上的某个特定特征的平均值 (或最大值)。这些概要统计特征不仅具有低得多的维度 (相比使用所有提取得到的特征)，同时还会改善结果(不容易过拟合)。这种聚合的操作就叫做池化 (pooling)，有时也称为平均池化或者最大池化 (取决于计算池化的方法)。
 
 下图显示池化如何应用于一个图像的四块不重合区域。
-![](http://chrispher.github.com/images/deeplearning/cnn_Pooling_schematic.gif)
-
-
-<img src="http://chrispher.github.com/images/deeplearning/cnn_Pooling_schematic.gif" style="width:200px;height:200px;">
+<img src="http://chrispher.github.com/images/deeplearning/cnn_Pooling_schematic.gif" style="width:800px;height:800px;">
 
 如果人们选择图像中的连续范围作为池化区域，并且只是池化相同(重复)的隐藏单元产生的特征，那么，这些池化单元就具有平移不变性 (translation invariant)。这就意味着即使图像经历了一个小的平移之后，依然会产生相同的 (池化的) 特征。在很多任务中 (例如物体检测、声音识别)，我们都更希望得到具有平移不变性的特征，因为即使图像经过了平移，样例(图像)的标记仍然保持不变。例如，如果你处理一个MNIST数据集的数字，把它向左侧或右侧平移，那么不论最终的位置在哪里，你都会期望你的分类器仍然能够精确地将其分类为相同的数字[$$^1$$](http://deeplearning.stanford.edu/wiki/index.php/Pooling)。
 
@@ -71,12 +68,10 @@ CNN ([Convolutional Neural Networks](http://en.wikipedia.org/wiki/Convolutional_
 ###3.稀疏连接与LeNet5说明
 根据上面的说明，我们基本上知道了卷积神经网络中各个操作的基本含义：即卷积层做的什么操作，池化层做的什么操作。但是，这些层是如何连接在一起的呢？下图是LeNet5用于手写字母识别的结构图：
 
-<img src="http://chrispher.github.com/images/deeplearning/cnn_lenet5.png" style="width:200px;height:200px;">
-
-![](http://chrispher.github.com/images/deeplearning/cnn_lenet5.png)
+<img src="http://chrispher.github.com/images/deeplearning/cnn_lenet5.png" style="width:800px;height:800px;">
 
 LeNet-5[$$^4$$](http://enpub.fulton.asu.edu/cseml/summer08/papers/cnn-pieee.pdf)共有7层(不包含输入层)，这里输入图像大小是32×32，经过大小为6个5×5的filter卷积操作后，得到C1层(complex cells)，C1层就有6个feature maps（等于filter数）,每个feature map的大小是28×28(stride=1, 28 = (32-5)/1 + 1 )，这一层有多少参数？每个filter5×5=25个参数，一共6层（每层feature map还有一个偏置项，在后面的推导公式中会具体提到），那么C1层一共 6×5×5+6 = 156个参数，一共156*(28*28)=122,304个连接。之后跟着S2层是一个下采样层(池化层、simple cells)，pooling大小是2×2，这里的feature maps数目不变，14 = 28 / 2 ，feature maps的每个单元与C1中相对应特征图的2×2邻域相连接。S2层每个单元的4个输入相加，乘以一个可训练参数，再加上一个可训练偏置。结果通过sigmoid函数（或其他函数）计算。可训练系数和偏置控制着sigmoid函数的非线性程度。如果系数比较小，那么运算近似于线性运算，亚采样相当于模糊图像。如果系数比较大，根据偏置的大小亚采样可以被看成是有噪声的“或”运算或者有噪声的“与”运算。每个单元的2*2感受野并不重叠，因此S2中每个特征图的大小是C1中特征图大小的1/4（行和列各1/2）。S2层有12个可训练参数（6个权值和6个偏置项）和5880个连接。
-![](http://chrispher.github.com/images/deeplearning/cnn_s2.jpg)
+<img src="http://chrispher.github.com/images/deeplearning/cnn_s2.jpg" style="width:800px;height:800px;">
 
 上图说明：第一阶段是输入的图像，后面的阶段就是卷积特征map，然后加一个偏置$$b_x$$，得到卷积层$$C_x$$。子采样过程包括：每邻域四个像素求和变为一个像素，然后通过标量$$W_{x+1}$$加权，再增加偏置$$b_{x+1}$$，然后通过一个sigmoid激活函数，产生一个大概缩小四倍的特征映射图$$S_{x+1}$$。
 所以从一个平面到下一个平面的映射可以看作是作卷积运算，S-层可看作是模糊滤波器，起到二次特征提取的作用。隐层与隐层之间空间分辨率递减，而每层所含的平面数递增，这样可用于检测更多的特征信息。
@@ -85,10 +80,11 @@ LeNet-5[$$^4$$](http://enpub.fulton.asu.edu/cseml/summer08/papers/cnn-pieee.pdf)
 C3层也是一个卷积层，它同样通过5x5的卷积核去卷积层S2，然后得到的特征map就只有10x10个神经元，但是它有16种不同的卷积核，所以就存在16个特征map了。这里需要注意的一点是：C3中的每个特征map是连接到S2中的所有6个或者几个特征map的，表示本层的特征map是上一层提取到的特征map的不同组合。这样做的目的是不完全的连接机制将连接的数量保持在合理的范围内。其次，也是最重要的，其破坏了网络的对称性。由于不同的特征图有不同的输入，所以迫使他们抽取不同的特征（希望是互补的）。
 
 举个例子而言，如下图所示，m层是由m-1层相邻的三个featured map组合而成，即由三个feature map 卷积组合（求和）得到，这称之为稀疏连接（Sparse Connectivity）。
-![](http://chrispher.github.com/images/deeplearning/cnn_sparse_1D_nn.png)
+<img src="http://chrispher.github.com/images/deeplearning/cnn_sparse_1D_nn.png" style="width:800px;height:800px;">
 
 而LeNet中的S2层到C3层的连接方式如下：
-![](http://chrispher.github.com/images/deeplearning/cnn_lenet5_c3.png)
+<img src="http://chrispher.github.com/images/deeplearning/cnn_lenet5_c3.png" style="width:800px;height:800px;">
+
 从上面看，一共有3×6 + 4×9 + 6 = 60个filter，一共有78×5×5+16 = 1516个参数，一共1516×10×10=151600个连接。 S4层是一个下采样层，由16个5*5大小的特征图构成。特征图中的每个单元与C3中相应特征图的2*2邻域相连接，跟C1和S2之间的连接一样。S4层有32个可训练参数（每个特征图1个因子和一个偏置）和2000个连接。 C5层是一个卷积层，有120个特征图。每个单元与S4层的全部16个单元的5*5邻域相连。由于S4层特征图的大小也为5*5（同滤波器一样），故C5特征图的大小为1*1，这构成了S4和C5之间的全连接。之所以仍将C5标示为卷积层而非全相联层，是因为如果LeNet-5的输入变大，而其他的保持不变，那么此时特征图的维数就会比1×1大。C5层有48120个可训练连接。
 F6层有84个单元（之所以选这个数字的原因来自于输出层的设计），与C5层全相连。有10164个可训练参数。如同经典神经网络，F6层计算输入向量和权重向量之间的点积，再加上一个偏置。然后将其传递给sigmoid函数产生单元i的一个状态。最后，输出层由欧式径向基函数（Euclidean Radial Basis Function）单元组成，每类一个单元，每个有84个输入。换句话说，每个输出RBF单元计算输入向量和参数向量之间的欧式距离。输入离参数向量越远，RBF输出的越大。一个RBF输出可以被理解为衡量输入模式和与RBF相关联类的一个模型的匹配程度的惩罚项。用概率术语来说，RBF输出可以被理解为F6层配置空间的高斯分布的负log-likelihood。给定一个输入模式，损失函数应能使得F6的配置与RBF参数向量（即模式的期望分类）足够接近。这些单元的参数是人工选取并保持固定的（至少初始时候如此）。这些参数向量的成分被设为-1或1。虽然这些参数可以以-1和1等概率的方式任选，或者构成一个纠错码，但是被设计成一个相应字符类的7*12大小（即84）的格式化图片。这种表示对识别单独的数字不是很有用，但是对识别可打印ASCII集中的字符串很有用[$$^6$$](http://blog.csdn.net/zouxy09/article/details/8781543)。
 
