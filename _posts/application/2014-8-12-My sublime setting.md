@@ -2,7 +2,7 @@
 layout: post
 title: My sublime text2 setting
 comments: true
-category: application
+category: Application
 tags:[sublime, 设置]
 ---
 
