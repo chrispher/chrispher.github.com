@@ -3,7 +3,7 @@ layout: post
 title: Dropout-for deep learning
 comments: true
 category: DeepLearning
-tags:[DeepLearning, Dropout, 深度学习]
+tags: [DeepLearning, Dropout, 深度学习]
 ---
 
 文章参考Benjio的论文：[Dropout-A Simple Way to Prevent Neural Networks from Overfitting](http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)
