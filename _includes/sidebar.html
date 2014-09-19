@@ -4,44 +4,87 @@
     <img src="/images/logo.bmp" id="logo" alt="Blog logo"/>
   </a>
   <h5>I'm <a href="/">{{ site.theme.name }}</a>.</h5>
+  
   <hr/>
-  <ul>
-  <p>datascikit--个人知识库</p>
-  <p>
-    Please feel free to join the QQ-group(94793465):数据，为梦想而生!
-  </p>
+  <div class=""navbar navbar-inverse navbar-fixed-top" role="navigation"">
+    <ul class="nav navbar-nav">
+    <li>
+      <a href="/index.html">
+        <h5>
+          主 页
+        </h5>
+      </a>
+    </li>
+    <li>
+      <a href="/categories.html">
+        <h5>
+          分 类
+        </h5>
+      </a>
+    </li>
+    </ul>
+  </div>
   <hr/>
 
-    <div class="well">
-      <ul class="nav navbar-nav">
-      <li>
-        <a href="/index.html">
-          <h5>
-            主 页
-          </h5>
-        </a>
-      </li>
-      <li>
-        <a href="/categories.md">
-          <h5>
-            分 类
-          </h5>
-        </a>
-      </li>
-      </ul>
-    </div>
+  <div class="well">
+    <h4>
+      站内搜索
+    </h4>
+    <form action="https://www.google.com/search" method="get">
+      <div class="input-group">
+        <input type="text" name="q" class="form-control">
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input type="hidden" name="sitesearch" value="http://chrispher.github.io/" />
+      </div>
+    </form>
+  </div>
+  <hr/>
 
-    <div class="well">
-      <h4>
-        站内搜索
-      </h4>
-      <form action="https://www.google.com/search" method="get">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control">
-          <input type="hidden" name="ie" value="UTF-8" />
-          <input type="hidden" name="sitesearch" value="http://chrispher.github.io/" />
-        </div>
-      </form>
+  <div class="well">
+    <h4>
+      分 类
+    </h4>
+    <div class="row">
+      <div class="col-lg-6">
+        <ul class="list-unstyled">
+          <li>
+            <a href="/categories.html#application">
+              应用工具
+            </a>
+          </li>
+          <li>
+            <a href="/categories.html#resource">
+              资源整合
+            </a>
+          </li>
+          <li>
+            <a href="/categories.html#deeplearning">
+              深度学习
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.col-lg-6 -->
+      <div class="col-lg-6">
+        <ul class="list-unstyled">
+          <li>
+            <a href="/categories.html#statistics">
+              统计分析
+            </a>
+          </li>
+          <li>
+            <a href="/categories.html#machinelearning">
+              机器学习
+            </a>
+          </li>
+          <li>
+            <a href="/categories.html#other">
+              其它
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.col-lg-6 -->
     </div>
 
   <div>
