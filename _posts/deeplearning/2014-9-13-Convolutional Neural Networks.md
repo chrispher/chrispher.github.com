@@ -210,9 +210,9 @@ train_model = theano.function([index], cost, updates = updates,
             y: train_set_y[index * batch_size: (index + 1) * batch_size]})
 {% endhighlight %}
 
+完整代码，可以去参考5中下载。
+
 <a name="5. 参考资料" />
-他们做了很多实验，结果绘图如下：
-![](http://chrispher.github.com/images/deeplearning/dropout_result.jpg)
 
 ####参考资料
 - [1] [stanford UFLDL trtorial](http://deeplearning.stanford.edu/wiki/index.php/Feature_extraction_using_convolution)
