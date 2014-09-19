@@ -215,9 +215,9 @@ train_model = theano.function([index], cost, updates = updates,
 
 完整代码，可以去参考5中下载。
 
-<a name="5. 参考资料" />
+<a name="5.参考资料" />
 
-####参考资料
+####5.参考资料
 - [1] [stanford UFLDL trtorial](http://deeplearning.stanford.edu/wiki/index.php/Feature_extraction_using_convolution)
 - [2] [Convolutional_neural_network](http://en.wikipedia.org/wiki/Convolutional_neural_network)
 - [3] [Notes on Convolutional Neural Networks](http://cogprints.org/5869/1/cnn_tutorial.pdf)
