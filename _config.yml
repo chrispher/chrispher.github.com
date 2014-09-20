@@ -4,6 +4,9 @@ pygments: true
 lsi: false
 exclude: [LICENSE, CNAME, README.md, .gitignore]
 
+search:true
+url: http://chrispher.github.io
+
 # Theme customization - please change from the defaults!
 theme:
   # Color for top bar, links, etc
