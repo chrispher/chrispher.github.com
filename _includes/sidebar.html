@@ -5,8 +5,23 @@
   </a>
   <h5>I'm <a href="/">{{ site.theme.name }}</a>.</h5>
   <hr/>
-  
-  <div class="well">
+  <div class="navigation-wrapper">
+    <nav role="navigation" id="site-nav" class="animated drop">
+      <ul>
+      <li class="dosearch"><i class="icon-search"></i> Search</li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="search-wrapper">
+  <div class="search-form">
+  <input type="text" class="search-field" placeholder="Search...">
+  <i class="icon-remove-sign icon-2x"></i>
+  <ul class="search-results post-list"></ul><!-- /.search-results -->
+  </div><!-- /.search-form -->
+  </div><!-- ./search-wrapper -->
+
+<!--   <div class="well">
     <h4>
       站内Google
     </h4>
@@ -17,7 +32,7 @@
         <input type="hidden" name="sitesearch" value="chrispher.github.io" />
       </div>
     </form>
-  </div>
+  </div> -->
   <hr/>
 
   <div class="well">
@@ -67,4 +82,36 @@
     </div>
   </div>
   </ul>
+  <!-- Jekyll Simple Search option -->
+  <script>
+  $(document).ready(function() {
+  $('.search-field').simpleJekyllSearch({
+  jsonFile : 'http://chrispher.github.io/search.json',
+  searchResults : '.search-results',
+  template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+  noResults: '<p>Nothing found.</p>'
+  });
+  });
+  (function( $, window, undefined ) {
+  var bs = {
+  close: $(".icon-remove-sign"),
+  searchform: $(".search-form"),
+  canvas: $("body"),
+  dothis: $('.dosearch')
+  };
+  bs.dothis.on('click', function() {
+  $('.search-wrapper').css({ display: "block" });
+  bs.searchform.toggleClass('active');
+  bs.searchform.find('input').focus();
+  bs.canvas.toggleClass('search-overlay');
+  });
+  bs.close.on('click', function() {
+  $('.search-wrapper').removeAttr( 'style' );
+  bs.searchform.toggleClass('active');
+  bs.canvas.removeClass('search-overlay');
+  });
+  })( jQuery, window );
+  </script>
+
 </nav>
+
