@@ -3,7 +3,7 @@ layout: post
 title: My sublime text2 setting
 comments: true
 category: Application
-tags: [sublime, 设置]
+tags: [sublime, setting]
 ---
 
 windows下sublime text2的一些设置和调整

@@ -4,14 +4,61 @@
     <img src="/images/logo.bmp" id="logo" alt="Blog logo"/>
   </a>
   <h5>I'm <a href="/">{{ site.theme.name }}</a>.</h5>
+  <div>
+    <div id="social">
+      {% include social.html %}
+    </div>
+  </div>
+
+  <hr/>
+  <div class="well">
+    <h4>
+      分 类
+    </h4>
+    <div class="row">
+      <div class="col-lg-6">
+        <ul class="list-unstyled">
+          <li>
+            <a href="/categories.html#Application">
+              Application
+            </a>
+          </li>
+          <li>
+            <a href="/categories.html#Resource">
+              Resource
+            </a>
+          </li>
+          <li>
+            <a href="/categories.html#Basic Courses">
+              Basic Courses
+            </a>
+          </li>
+          <li>
+            <a href="/categories.html#Data Analysis">
+              Data Analysis
+            </a>
+          </li>
+          <li>
+            <a href="/categories.html#Machine Learning">
+              Machine Learning
+            </a>
+          </li>
+          <li>
+            <a href="/categories.html#Python">
+              Python
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <hr/>
 
   <div class="navigation-wrapper">
       <ul>
       <li class="dosearch"><i class="icon-search"></i> Search</li>
       </ul>
-  </div>
-  
   <body id="page">
     <div class="search-wrapper">
     <div class="search-form">
@@ -70,54 +117,5 @@
       </div>
     </form>
   </div> -->
-  <hr/>
-
-  <div class="well">
-    <h4>
-      分 类
-    </h4>
-    <div class="row">
-      <div class="col-lg-6">
-        <ul class="list-unstyled">
-          <li>
-            <a href="/categories.html#Application">
-              Application
-            </a>
-          </li>
-          <li>
-            <a href="/categories.html#Resource">
-              Resource
-            </a>
-          </li>
-          <li>
-            <a href="/categories.html#BasicCourses">
-              BasicCourses
-            </a>
-          </li>
-          <li>
-            <a href="/categories.html#DataAnalysis">
-              DataAnalysis
-            </a>
-          </li>
-          <li>
-            <a href="/categories.html#MachineLearning">
-              MachineLearning
-            </a>
-          </li>
-          <li>
-            <a href="/categories.html#Python">
-              Python
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-  <div>
-    <div id="social">
-      {% include social.html %}
-    </div>
-  </div>
-  </ul>
 </nav>
 
