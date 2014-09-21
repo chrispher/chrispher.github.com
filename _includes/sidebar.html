@@ -11,50 +11,14 @@
     </div>
   </div>
 
-  <body id="page">
-    <div class="search-wrapper">
-    <div class="search-form">
-    <input type="text" class="search-field" placeholder="Search...">
-    <i class="icon-remove-sign icon-2x"></i>
-    <ul class="search-results post-list"></ul><!-- /.search-results -->
-    </div><!-- /.search-form -->
-    </div><!-- ./search-wrapper -->
-    
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-    <script src="/assets/js/scripts.min.js"></script>
+  <form class="navbar-search pull-right" action="search.html">
+    <input type="text" class="search-query" placeholder="Search...">
+  </form>
 
-    <!-- Jekyll Simple Search option -->
-    <script>
-    $(document).ready(function() {
-    $('.search-field').simpleJekyllSearch({
-    jsonFile: '/site.json',
-    searchResults: '.search-results',
-    template: '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
-    noResults: '<p>Nothing found.</p>'
-    });
-    });
-    (function( $, window, undefined ) {
-    var bs = {
-    close: $(".icon-remove-sign"),
-    searchform: $(".search-form"),
-    canvas: $("body"),
-    dothis: $('.dosearch')
-    };
-    bs.dothis.on('click', function() {
-    $('.search-wrapper').css({ display: "block" });
-    bs.searchform.toggleClass('active');
-    bs.searchform.find('input').focus();
-    bs.canvas.toggleClass('search-overlay');
-    });
-    bs.close.on('click', function() {
-    $('.search-wrapper').removeAttr('style');
-    bs.searchform.toggleClass('active');
-    bs.canvas.removeClass('search-overlay');
-    });
-    })( jQuery, window );
-    </script>
-  </body>
+  <head>
+    <script src="/assets/js/jquery-1.6.1.min.js"></script>
+    <script src="/assets/js/jquery-tapir.min.js"></script>
+  </head>
 
   <div class="row">
     <div class="col-lg-6">
@@ -92,17 +56,17 @@
       </ul>
     </div>
   </div>
-<!--   <div class="well">
-    <h4>
-      站内Google
-    </h4>
-    <form action="https://www.google.com/search" method="get">
-      <div class="input-group">
-        <input type="text" name="q" class="form-control">
-        <input type="hidden" name="ie" value="UTF-8" />
-        <input type="hidden" name="sitesearch" value="chrispher.github.io" />
-      </div>
-    </form>
-  </div> -->
+// <!--   <div class="well">
+//     <h4>
+//       站内Google
+//     </h4>
+//     <form action="https://www.google.com/search" method="get">
+//       <div class="input-group">
+//         <input type="text" name="q" class="form-control">
+//         <input type="hidden" name="ie" value="UTF-8" />
+//         <input type="hidden" name="sitesearch" value="chrispher.github.io" />
+//       </div>
+//     </form>
+//   </div> -->
 </nav>
 

@@ -4,6 +4,14 @@ pygments: true
 lsi: false
 exclude: [LICENSE, CNAME, README.md, .gitignore]
 url: http://chrispher.github.io
+author:
+  name: chrispher
+  email: chrispher2012@gmail.com
+  github: https://github.com/chrispher
+production_url: http://chrispher.github.io
+JB:
+  BASE_PATH: false
+  atom_path: /atom.xml
 
 # Theme customization - please change from the defaults!
 theme:
