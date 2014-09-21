@@ -11,7 +11,7 @@
             jsonFormat      : 'title,category,tags,url,date,shortdate',
             template        : '<a href="{url}" title="{title}">{title}</a>',
             searchResults   : '.results',
-            searchResultsTitle   : '<h4>Search results</h4>',
+            searchResultsTitle   : '<h6>Search results</h6>',
             limit           : '10',
             noResults       : '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
         }, options);
