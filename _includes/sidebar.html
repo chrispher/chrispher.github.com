@@ -11,19 +11,23 @@
     </div>
   </div>
 
- <body id="index">
-    <div class="search">
-      <div class="search__entry">
-        <input type="text" id="search-field" class="search-field" placeholder="Search...">
-      <div class="results"></div>
-      </div>
-    </div>
+  <script src="/assets/js/jekyll-search.js" type="text/javascript" charset="utf-8"></script>
 
-  <!-- JS Includes -->
-    <script src="http://chrispher.github.io/assets/js/vendor/jquery-1.11.0.min.js"></script> 
-    <script src="http://chrispher.github.io/assets/js/jekyll-search.js"></script>
-    <script src="http://chrispher.github.io/assets/js/vendor/modernizr-2.6.2.min.js"></script>
-    <script src="http://chrispher.github.io/assets/js/main.js"></script>
+  <div id="search">
+      <input type="text" id="search-this-page" name="q" placeholder="  Search..">
+  </div>
+  <div class="archive searcharchive" id="search-results"></div>
+
+  <script type="text/javascript">
+          JekyllSearch.init({
+            searchInput: document.getElementById("search-this-page"),
+            jsonFile : '/search.json',
+            searchResults : document.getElementById("search-results"),
+            template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+            fuzzy: true
+          });
+  </script>
+
   </body>
 
   <div class="row">
