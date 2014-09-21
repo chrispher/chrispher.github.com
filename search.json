@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 layout: none
 ---
@@ -13,3 +14,19 @@ layout: none
 		} {% unless forloop.last %},{% endunless %}
 	{% endfor %}
 ]
+=======
+---
+---
+[
+	{% for post in site.posts %}
+		{
+		  "title"      : "{{ post.title | escape }}",
+          "category"   : "{{ post.category }}",
+		  "tags"       : "{{ post.tags }}",
+		  "url"        : "{{ site.url }}{{ post.url }}",
+		  "date"       : "{{ post.date }}",
+		  "shortdate"  : "{{ post.date | date: '%B %d, %Y' }}"
+		} {% if forloop.last %}{% else %},{% endif %}
+	{% endfor %}
+]
+>>>>>>> parent of 453fd4d... add tags

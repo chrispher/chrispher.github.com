@@ -11,22 +11,49 @@
     </div>
   </div>
 
-  <script src="/assets/js/jekyll-search.js" type="text/javascript" charset="utf-8"></script>
+  <body id="page">
+    <div class="search-wrapper">
+    <div class="search-form">
+    <input type="text" class="search-field" placeholder="Search...">
+    <i class="icon-remove-sign icon-2x"></i>
+    <ul class="search-results post-list"></ul><!-- /.search-results -->
+    </div><!-- /.search-form -->
+    </div><!-- ./search-wrapper -->
 
-  <div id="search">
-      <input type="text" id="search-this-page" name="q" placeholder="  Search..">
-  </div>
-  <div class="archive searcharchive" id="search-results"></div>
-
-  <script type="text/javascript">
-          JekyllSearch.init({
-            searchInput: document.getElementById("search-this-page"),
-            jsonFile : '/search.json',
-            searchResults : document.getElementById("search-results"),
-            template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
-            fuzzy: true
-          });
-  </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+    <script src="/assets/js/vendor/modernizr-2.6.2.min.js"></script>
+    
+    <!-- Jekyll Simple Search option -->
+    <script>
+    $(document).ready(function() {
+    $('.search-field').jekyllSearch({
+    jsonFile: '/search.json',
+    searchResults: '.search-results',
+    template: '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+    noResults: '<p>Nothing found.</p>'
+    });
+    });
+    (function( $, window, undefined ) {
+    var bs = {
+    close: $(".icon-remove-sign"),
+    searchform: $(".search-form"),
+    canvas: $("body"),
+    dothis: $('.dosearch')
+    };
+    bs.dothis.on('click', function() {
+    $('.search-wrapper').css({ display: "block" });
+    bs.searchform.toggleClass('active');
+    bs.searchform.find('input').focus();
+    bs.canvas.toggleClass('search-overlay');
+    });
+    bs.close.on('click', function() {
+    $('.search-wrapper').removeAttr('style');
+    bs.searchform.toggleClass('active');
+    bs.canvas.removeClass('search-overlay');
+    });
+    })( jQuery, window );
+    </script>
 
   </body>
 
