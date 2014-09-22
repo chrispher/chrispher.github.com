@@ -10,15 +10,57 @@
       {% include social.html %}
     </div>
   </div>
+  
+  <body>
+    <div class="search-wrapper">
+      <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search...">
+        <button class="close-btn"><i class="fa fa-times-circle fa-2x"></i></button>
+        <ul class="search-results post-list"></ul><!-- /.search-results -->
+      </div><!-- /.search-form -->
+    </div><!-- ./search-wrapper -->
 
-  <form class="navbar-search pull-right" action="search.html">
-    <input type="text" class="search-query" placeholder="Search...">
-  </form>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+    <script src="/assets/js/scripts.min.js"></script>
+    <!-- Jekyll Simple Search option -->
+    <script>
+      $(document).ready(function() {
+        $('.search-field').jekyllSearch({
+            jsonFile: '/site.json',
+            searchResults: '.search-results',
+            template: '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+            fuzzy: true,
+            noResults: '<p>Nothing found.</p>'
+          });
+      });
 
-  <head>
-    <script src="/assets/js/jquery-1.6.1.min.js"></script>
-    <script src="/assets/js/jquery-tapir.min.js"></script>
-  </head>
+      (function( $, window, undefined ) {
+        
+         var bs = {
+              close: $(".close-btn"),
+              searchform: $(".search-form"),
+              canvas: $(".js-menu-screen"),
+              dothis: $('.dosearch')
+          };
+        
+        bs.dothis.on('click', function() {
+          $('.search-wrapper').css({ display: "block" });
+          $('body').toggleClass('no-scroll');
+          bs.searchform.toggleClass('active');
+          bs.searchform.find('input').focus();
+          bs.canvas.toggleClass('is-visible');
+        });
+        
+          bs.close.on('click', function() {
+            $('.search-wrapper').removeAttr( 'style' );
+            $('body').toggleClass('no-scroll');
+            bs.searchform.toggleClass('active');
+            bs.canvas.removeClass('is-visible');
+        });
+      })( jQuery, window );
+    </script>
+  </body>
 
   <div class="row">
     <div class="col-lg-6">
