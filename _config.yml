@@ -8,7 +8,8 @@ author:
   name: chrispher
   email: chrispher2012@gmail.com
   github: https://github.com/chrispher
-
+analytics :
+  provider : custom
 
 # Theme customization - please change from the defaults!
 theme:
