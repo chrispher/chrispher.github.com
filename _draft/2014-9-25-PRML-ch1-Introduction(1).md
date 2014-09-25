@@ -50,7 +50,21 @@ Suppose we observe a real-valued input variable x and we wish to use this observ
 
 Choosing the order M called  *model comparision* or *model selection*. However, the fitted curve oscillates wildly(fit the trainning data perfectly.) and gives a very poor representation of the target in testing data -- This is known as *over-fitting*.
 
-We shall see that the least squares approach to finding the model parameters represents a specific case of maximum likelihood (discussed in Section 1.2.5), and that the over-fitting problem can be understood as a general property of maximum likelihood. By adopting aBayesianapproach, over-fitting problem can be avoided. We shall see that there is no difficulty from a Bayesian perspective in employing models for which the number of parameters greatly exceeds the number of data points. Indeed, in a Bayesian model theeffective number of parameters adapts automatically to the size of the data set.
+**the least squares approach to finding the model parameters represents a specific case of maximum likelihood**, and the over-fitting problem can be understood as a general property of maximum likelihood. By adopting a Bayesian approach, over-fitting problem can be avoided. And there is no difficulty from a Bayesian perspective in employing models for which the number of parameters greatly exceeds the number of data points. Indeed, in a Bayesian model the effective number of parameters adapts automatically to the size of the data set.
+
+<a name = "1.2 Probability theory"/>
+
+###1.2 Probability theory
+discrete random variables:
+- Sum rule: $$ p(X) = \sum_Y P(X,Y) $$
+- Product rule: $$ p(X, Y) = p(X|Y)p(Y) = p(Y|X)p(X) $$
+- Bayes: $$ p(Y|X) = \frac{p(X|Y)p(Y)}{\sum_Y p(X|Y)p(Y)} $$, posterior = likelihood \* prior / normalization
+
+continue random variables
+- Probability that x lies in an interval:$$ p(x \in (a,b)) = \int_{a}_{b} p(x)d(x)$$
+- $$p(x)$$ is called the probability density over x
+- $$p(x) leq 1, p(x \in h)
+
 
 ###Appendix: No free lunch theorem
 **All models are wrong, but some models are usefull. --George Box**
