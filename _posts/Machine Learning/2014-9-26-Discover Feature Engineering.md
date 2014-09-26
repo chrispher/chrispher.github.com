@@ -3,17 +3,14 @@ layout: post
 title: Discover Feature Engineering
 comments: true
 category: Machine Learning
-tags: [Feature, ]
+tags: [Feature, Steps]
 ---
 
 Note: This article originates from the [network](http://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/)
 
 ### Contents
 <!-- MarkdownTOC depth=4 -->
-- [1.概述](#1.概述)
-- [2.深度学习的过拟合](#2.深度学习的过拟合)
-- [3.dropout](#3.dropout)
-- [4. Appendix](#4. Appendix)
+
 <!-- /MarkdownTOC -->
 
 
