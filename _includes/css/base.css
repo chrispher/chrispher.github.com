@@ -1,10 +1,10 @@
 /*
-* Skeleton V1.2
+* Skeleton V1.1
 * Copyright 2011, Dave Gamache
 * www.getskeleton.com
 * Free to use under the MIT license.
 * http://www.opensource.org/licenses/mit-license.php
-* 6/20/2012
+* 8/17/2011
 */
 
 
@@ -18,8 +18,10 @@
 	#Lists
 	#Images
 	#Buttons
+	#Tabs
 	#Forms
-	#Misc */
+    #Code Blocks
+	#Misc*/
 
 
 /* #Reset & Basics (Inspired by E. Meyers)
@@ -52,7 +54,7 @@
 ================================================== */
 	body {
 		background: #fff;
-		font: 14px/21px "Microsoft Yahei", Microsoft Yahei, Consolas, Consolas, sans-serif;
+		font: 18px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: #444;
 		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 		-webkit-text-size-adjust: 100%;
@@ -63,15 +65,15 @@
 ================================================== */
 	h1, h2, h3, h4, h5, h6 {
 		color: #181818;
-		font-family: "Georgia", "Times New Roman", serif;
+		font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
 		font-weight: normal; }
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
-	h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
+	h1 { font-size: 46px; line-height: 50px; margin-bottom: 18px;}
 	h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
 	h3 { font-size: 28px; line-height: 34px; margin-bottom: 8px; }
 	h4 { font-size: 21px; line-height: 30px; margin-bottom: 4px; }
-	h5 { font-size: 17px; line-height: 24px; }
-	h6 { font-size: 14px; line-height: 21px; }
+	h5 { font-size: 20px; line-height: 24px; }
+	h6 { font-size: 18px; line-height: 21px; }
 	.subheader { color: #777; }
 
 	p { margin: 0 0 20px 0; }
@@ -81,13 +83,15 @@
 	em { font-style: italic; }
 	strong { font-weight: bold; color: #333; }
 	small { font-size: 80%; }
+    sup { font-size: 12px; vertical-align: super}
+    sub { font-size: 12px; vertical-align: sub}
 
 /*	Blockquotes  */
-	blockquote, blockquote p { font-size: 17px; line-height: 24px; color: #777; font-style: italic; }
-	blockquote { margin: 0 0 20px; padding: 9px 20px 0 19px; border-left: 1px solid #ddd; }
+	blockquote, blockquote p { font-size: 20px; line-height: 24px; color: #777; font-style: italic; }
+	blockquote { margin: 0px; padding: 0px 20px 0 15px; border-left: 2px solid #ddd; }
 	blockquote cite { display: block; font-size: 12px; color: #555; }
 	blockquote cite:before { content: "\2014 \0020"; }
-	blockquote cite a, blockquote cite a:visited, blockquote cite a:visited { color: #555; }
+	blockquote cite a, blockquote cite a:visited, blockquote cite a:visited { color: {{ site.colors.highlight }}; }
 
 	hr { border: solid #ddd; border-width: 1px 0 0; clear: both; margin: 10px 0 30px; height: 0; }
 
@@ -115,6 +119,7 @@
 	li { line-height: 18px; margin-bottom: 12px; }
 	ul.large li { line-height: 21px; }
 	li p { line-height: 21px; }
+    .footnotes li p{ line-height: 15px; margin-bottom: 5px;}
 
 /* #Images
 ================================================== */
@@ -127,7 +132,7 @@
 /* #Buttons
 ================================================== */
 
-	.button,
+	a.button,
 	button,
 	input[type="submit"],
 	input[type="reset"],
@@ -142,6 +147,7 @@
 	  border: 1px solid #aaa;
 	  border-top: 1px solid #ccc;
 	  border-left: 1px solid #ccc;
+	  padding: 4px 12px;
 	  -moz-border-radius: 3px;
 	  -webkit-border-radius: 3px;
 	  border-radius: 3px;
@@ -153,11 +159,10 @@
 	  text-shadow: 0 1px rgba(255, 255, 255, .75);
 	  cursor: pointer;
 	  margin-bottom: 20px;
-	  line-height: normal;
-	  padding: 8px 10px;
-	  font-family: "Microsoft Yahei", Microsoft Yahei, Consolas, Consolas, sans-serif; }
+	  line-height: 21px;
+	  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-	.button:hover,
+	a.button:hover,
 	button:hover,
 	input[type="submit"]:hover,
 	input[type="reset"]:hover,
@@ -174,7 +179,7 @@
 	  border-top: 1px solid #aaa;
 	  border-left: 1px solid #aaa; }
 
-	.button:active,
+	a.button:active,
 	button:active,
 	input[type="submit"]:active,
 	input[type="reset"]:active,
@@ -198,12 +203,77 @@
 		padding-right: 0 !important;
 		text-align: center; }
 
-	/* Fix for odd Mozilla border & padding issues */
-	button::-moz-focus-inner,
-	input::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-	}
+
+/* #Tabs (activate in tabs.js)
+================================================== */
+	ul.tabs {
+		display: block;
+		margin: 0 0 20px 0;
+		padding: 0;
+		border-bottom: solid 1px #ddd; }
+	ul.tabs li {
+		display: block;
+		width: auto;
+		height: 30px;
+		padding: 0;
+		float: left;
+		margin-bottom: 0; }
+	ul.tabs li a {
+		display: block;
+		text-decoration: none;
+		width: auto;
+		height: 29px;
+		padding: 0px 20px;
+		line-height: 30px;
+		border: solid 1px #ddd;
+		border-width: 1px 1px 0 0;
+		margin: 0;
+		background: #f5f5f5;
+		font-size: 18px; }
+	ul.tabs li a.active {
+		background: #fff;
+		height: 30px;
+		position: relative;
+		top: -4px;
+		padding-top: 4px;
+		border-left-width: 1px;
+		margin: 0 0 0 -1px;
+		color: #111;
+		-moz-border-radius-topleft: 2px;
+		-webkit-border-top-left-radius: 2px;
+		border-top-left-radius: 2px;
+		-moz-border-radius-topright: 2px;
+		-webkit-border-top-right-radius: 2px;
+		border-top-right-radius: 2px; }
+	ul.tabs li:first-child a.active {
+		margin-left: 0; }
+	ul.tabs li:first-child a {
+		border-width: 1px 1px 0 1px;
+		-moz-border-radius-topleft: 2px;
+		-webkit-border-top-left-radius: 2px;
+		border-top-left-radius: 2px; }
+	ul.tabs li:last-child a {
+		-moz-border-radius-topright: 2px;
+		-webkit-border-top-right-radius: 2px;
+		border-top-right-radius: 2px; }
+
+	ul.tabs-content { margin: 0; display: block; }
+	ul.tabs-content > li { display:none; }
+	ul.tabs-content > li.active { display: block; }
+
+	/* Clearfixing tabs for beautiful stacking */
+	ul.tabs:before,
+	ul.tabs:after {
+	  content: '\0020';
+	  display: block;
+	  overflow: hidden;
+	  visibility: hidden;
+	  width: 0;
+	  height: 0; }
+	ul.tabs:after {
+	  clear: both; }
+	ul.tabs {
+	  zoom: 1; }
 
 
 /* #Forms
@@ -224,7 +294,7 @@
 		-moz-border-radius: 2px;
 		-webkit-border-radius: 2px;
 		border-radius: 2px;
-		font: 13px "Microsoft Yahei", Microsoft Yahei, Consolas, Consolas, sans-serif;
+		font: 18px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: #777;
 		margin: 0;
 		width: 210px;
@@ -249,7 +319,7 @@
 	legend {
 		display: block;
 		font-weight: bold;
-		font-size: 13px;  }
+		font-size: 18px;  }
 	select {
 		width: 220px; }
 	input[type="checkbox"] {
@@ -257,13 +327,28 @@
 	label span,
 	legend span {
 		font-weight: normal;
-		font-size: 13px;
+		font-size: 18px;
 		color: #444; }
+
+/* #Code Blocks
+================================================== */
+.CodeRay .code pre span {
+  line-height: 1;
+}
+.CodeRay .code pre span.line-numbers{
+  padding-right: 10px;
+}
+.CodeRay .code pre span.line-numbers a {
+  user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
 
 /* #Misc
 ================================================== */
 	.remove-bottom { margin-bottom: 0 !important; }
 	.half-bottom { margin-bottom: 10px !important; }
 	.add-bottom { margin-bottom: 20px !important; }
-
-
+    #disqus_thread { border-top: 1px solid #EAEDEE; margin-top: 30px;}
