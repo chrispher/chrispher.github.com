@@ -10,22 +10,46 @@ Note: This article originates from the [network](http://machinelearningmastery.c
 
 ### Contents
 <!-- MarkdownTOC depth=4 -->
+- [1. Introduction](#1. Introduction)
+- [2. Problem that Feature Engineering Solves](#2. Problem that Feature Engineering Solves)
+- [3. Importance of Feature Engineering](#3. Importance of Feature Engineering)
+- [4. What is Feature Engineering?](#4. What is Feature Engineering?)
+- [5. Sub-Problems of Feature Engineering](#5. Sub-Problems of Feature Engineering)
+    - [5.1 Feature](#5.1 Feature)
+    - [5.2 Feature Importance](#5.2 Feature Importance)
+    - [5.3 Feature Extraction](#5.3 Feature Extraction)
+    - [5.4 Feature Selection](#5.4 Feature Selection)
+    - [5.5 Feature Construction](#5.5 Feature Construction)
+    - [5.6 Feature Learning](#5.6 Feature Learning)
+- [6. Process of Feature Engineering](#6. Process of Feature Engineering)
+    - [6.1 Process of Machine Learning](#6.1 Process of Machine Learning)
+    - [6.2 Iterative Process of Feature Engineering](#6.2 Iterative Process of Feature Engineering)
+- [7. General Examples of Feature Engineering](#7. General Examples of Feature Engineering)
+    - [7.1 Decompose Categorical Attributes](#7.1 Decompose Categorical Attributes)
+    - [7.2 Decompose a Date-Time](#7.2 Decompose a Date-Time)
+    - [7.3 Reframe Numerical Quantities](#7.3 Reframe Numerical Quantities)
+    - [7.4 Concrete Examples of Feature Engineering](#7.4 Concrete Examples of Feature Engineering)
+- [8. More Resources on Feature Engineering](#8. More Resources on Feature Engineering)
+    - [8.1 Books](#8.1 Books)
+    - [8.1 Papers and Slides](#8.1 Papers and Slides)
+    - [8.2 Links](#8.2 Links)
+    - [8.3 Videos](#8.3 Videos)
 
 <!-- /MarkdownTOC -->
 
 
-<a name="1.Introduction" />
+<a name="1. Introduction" />
 
-###1.Introduction
+###1. Introduction
 Feature engineering is an informal topic, but one that is absolutely known and agreed to be key to success in applied machine learning.
 In creating this guide I went wide and deep and synthesized all of the material I could.You will discover what feature engineering is, what problem it solves, why it matters, how to engineer features, who is doing it well and where you can go to learn more and get good at it.
 If you read one article on feature engineering, I want it to be this one.
 
 > feature engineering is another topic which doesn’t seem to merit any review papers or books, or even chapters in books, but it is absolutely vital to ML success. [...] Much of the success of machine learning is actually success in engineering features that a learner can understand.  — Scott Locklin, in “[Neglected machine learning ideas](https://scottlocklin.wordpress.com/2014/07/22/neglected-machine-learning-ideas/)”
 
-<a name="2.Problem that Feature Engineering Solves" />
+<a name="2. Problem that Feature Engineering Solves" />
 
-###2.Problem that Feature Engineering Solves
+###2. Problem that Feature Engineering Solves
 When your goal is to get the best possible results from a predictive model, you need to get the most from what you have. This includes getting the best results from the algorithms you are using. It also involves getting the most out of the data for your algorithms to work with.
 
 **How do you get the most out of your data for predictive modeling?**
@@ -34,9 +58,9 @@ This is the problem that the process and practice of feature engineering solves.
 
 > Actually the success of all Machine Learning algorithms depends on how you present the data. — Mohammad Pezeshki, answer to “[What are some general tips on feature selection and engineering that every data scientist should know?](http://www.quora.com/What-are-some-general-tips-on-feature-selection-and-engineering-that-every-data-scientist-should-know)”
 
-<a name="3.Importance of Feature Engineering"/>
+<a name="3. Importance of Feature Engineering"/>
 
-###3.Importance of Feature Engineering
+###3. Importance of Feature Engineering
 The features in your data will directly influence the predictive models you use and the results you can achieve.You can say that: the better the features that you prepare and choose, the better the results you will achieve. It is true, but it also misleading.
 The results you achieve are a factor of the model you choose, the data you have available and the features you prepared. Even your framing of the problem and objective measures you’re using to estimate accuracy play a part. Your results are dependent on many inter-dependent properties.
 
@@ -53,9 +77,9 @@ With good features, you are closer to the underlying problem and a representatio
 - **Better features means better results.**
 > The algorithms we used are very standard for Kagglers. [...]  We spent most of our efforts in feature engineering.  — Xavier Conort, on “[Q&A with Xavier Conort](http://blog.kaggle.com/2013/04/10/qa-with-xavier-conort/)” on winning the Flight Quest challenge on Kaggle
 
-<a name="4.What is Feature Engineering?"/>
+<a name="4. What is Feature Engineering?"/>
 
-###4.What is Feature Engineering?
+###4. What is Feature Engineering?
 Here is how I define feature engineering:
 
 > **Feature engineering is the process of transforming raw data into features that better represent the underlying problem to the predictive models, resulting in improved model accuracy on unseen data.**
