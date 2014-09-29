@@ -52,7 +52,7 @@
 ================================================== */
 	body {
 		background: #fff;
-		font: 14px/21px "Microsoft Yahei", "Microsoft Yahei", Consolas, Consolas, sans-serif;
+		font: 14px/21px "Microsoft Yahei", Microsoft Yahei, Consolas, Consolas, sans-serif;
 		color: #444;
 		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 		-webkit-text-size-adjust: 100%;
@@ -155,7 +155,7 @@
 	  margin-bottom: 20px;
 	  line-height: normal;
 	  padding: 8px 10px;
-	  font-family: "Microsoft Yahei", "Microsoft Yahei", Consolas, Consolas, sans-serif; }
+	  font-family: "Microsoft Yahei", Microsoft Yahei, Consolas, Consolas, sans-serif; }
 
 	.button:hover,
 	button:hover,
@@ -224,7 +224,7 @@
 		-moz-border-radius: 2px;
 		-webkit-border-radius: 2px;
 		border-radius: 2px;
-		font: 13px "Microsoft Yahei", "Microsoft Yahei", Consolas, Consolas, sans-serif;
+		font: 13px "Microsoft Yahei", Microsoft Yahei, Consolas, Consolas, sans-serif;
 		color: #777;
 		margin: 0;
 		width: 210px;
