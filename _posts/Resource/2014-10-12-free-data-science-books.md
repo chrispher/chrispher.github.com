@@ -3,7 +3,7 @@ layout: post
 title: free-data-science-books
 comments: true
 category: Resource
-tags: [Deep Learning, Reading, lists]
+tags: [data science, Reading, lists]
 ---
 
 ###Index
