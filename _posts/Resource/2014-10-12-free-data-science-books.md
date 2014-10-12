@@ -7,18 +7,18 @@ tags: [data science, Reading, lists]
 ---
 
 ###Index
-* [Data Science Introduction](#Data Science Introduction)
-* [Data Processing](#Data Processing)
-* [Data Analysis](#Data Analysis)
-	* [Fundamentals](#Fundamentals)
-	* [Network Analysis](#Network Analysis)
-	* [Statistics](#Statistics)
-	* [Data Mining](#Data Mining)
+* [Data Science Introduction](#data-science-introduction)
+* [Data Processing](#data-processing)
+* [Data Analysis](#data-analysis)
+	* [Fundamentals](#fundamentals)
+    * [Network Analysis](#network-analysis)
+	* [Statistics](#statistics)
+    * [Data Mining](#data-mining)
 	* [Machine Learning](#machine-learning)
-* [Data Science Application](#Data Science Application)
-	* [Data Visualization](#Data Visualization)
-* [Uncategorized](#Uncategorized)
-* [MOOCs about Data Science](#MOOCs about Data Science)	
+* [Data Science Application](#data-science-application)
+	* [Data Visualization](#data-visualization)
+* [Uncategorized](#uncategorized)
+* [MOOCs about Data Science](#moocs-about-data-science)	
 
 
 ###Data Science Introduction
