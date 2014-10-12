@@ -7,18 +7,18 @@ tags: [data science, Reading, lists]
 ---
 
 ###Index
-* [Data Science Introduction](#data-science-introduction)
-* [Data Processing](#big-data-processing)
-* [Data Analysis](#big-data-analysis)
-	* [Fundamentals](#fundamentals)
-	* [Network Analysis](#network-analysis)
-	* [Statistics](#statistics)
-	* [Data Mining](#data-mining)
+* [Data Science Introduction](#Data Science Introduction)
+* [Data Processing](#Data Processing)
+* [Data Analysis](#Data Analysis)
+	* [Fundamentals](#Fundamentals)
+	* [Network Analysis](#Network Analysis)
+	* [Statistics](#Statistics)
+	* [Data Mining](#Data Mining)
 	* [Machine Learning](#machine-learning)
-* [Data Science Application](#big-data-application)
-	* [Data Visualization](#data-visualization)
-* [Uncategorized](#uncategorized)
-* [MOOCs about Data Science](#moocs)	
+* [Data Science Application](#Data Science Application)
+	* [Data Visualization](#Data Visualization)
+* [Uncategorized](#Uncategorized)
+* [MOOCs about Data Science](#MOOCs about Data Science)	
 
 
 ###Data Science Introduction
@@ -36,6 +36,7 @@ tags: [data science, Reading, lists]
 
 
 ###Data Analysis
+
 ####Fundamentals
 * [Fundamental Numerical Methods and Data Analysis](http://ads.harvard.edu/books/1990fnmd.book/) - George W. Collins - `Beginner`
 * [Introduction to Metadata](http://www.getty.edu/research/publications/electronic_publications/intrometadata/index.html) - Murtha Baca - `Beginner`
@@ -86,6 +87,7 @@ tags: [data science, Reading, lists]
 * [Sklearn Basics](http://nbviewer.ipython.org/github/jakevdp/sklearn_scipy2013/tree/master/notebooks/) - `Beginner`
 
 ###Data Science Application
+
 ####Information Retrieval
 * [Introduction to Information Retrival](http://nlp.stanford.edu/IR-book/) - Christopher D. Manning, Prabhakar Raghavan, and Hinrich Schutze - `Intermediate`
 

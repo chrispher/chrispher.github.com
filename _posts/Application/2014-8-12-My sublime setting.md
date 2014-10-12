@@ -9,7 +9,6 @@ tags: [sublime, setting]
 windows下sublime text2的一些设置和调整
 
 ### 目录
-<!-- MarkdownTOC depth=4 -->
 - [1. 安装插件Package Control](#1. 安装插件Package Control)
 - [2. 推荐主题theme fatland](#2. 推荐主题theme fatland)
 - [3. Enhanced-R](#3. Enhanced-R  )
@@ -17,9 +16,7 @@ windows下sublime text2的一些设置和调整
 - [5. 其他插件](#5. 其他插件)
 - [6. 修改tab键为4个空格](#6. 修改tab键为4个空格)
 - [7. 常用快捷键](#7. 常用快捷键)
-<!-- /MarkdownTOC -->
 
-<a name="1. 安装插件Package Control"/>
 
 ####1. 安装插件Package Control
 在控制台输入以下代码后重启：
@@ -32,7 +29,6 @@ windows下sublime text2的一些设置和调整
     print( 'Please restart Sublime Text to finish installation')
 {% endhighlight %}
 
-<a name="2. 推荐主题theme fatland"/>
 
 ####2. 推荐主题theme fatland
 主题设置
@@ -63,7 +59,6 @@ windows下sublime text2的一些设置和调整
     }
 {% endhighlight %}
 
-<a name="3. Enhanced-R"/>
 
 ####3. Enhanced-R
 build R 
@@ -75,7 +70,6 @@ build R
     }
 
 
-<a name="4. sublimeREPL"/>
 
 ####4. sublimeREPL
 可以使用iypthon交互式分析
@@ -84,7 +78,6 @@ build R
     "default_extend_env": {"PATH": "{PATH};C:\\Program Files\\R\\R-3.0.3\\bin\\i386"}  
     }  
 
-<a name="5. 其他插件"/>
 
 ####5. 其他插件
 * CodeIntel  
@@ -93,14 +86,12 @@ build R
 * Python PEP8 Autoformat
 * GBK Encoding Support
 
-<a name="6. 修改tab键为4个空格"/>
 
 ####6. 修改tab键为4个空格
     preferences - Settings-Default:  
     "tab_size": 4  
     "translate_tabs_to_spaces": true  
 
-<a name="7. 常用快捷键"/>
 
 ####7. 常用快捷键
 - ctrl + -> —— 按照单词移动
