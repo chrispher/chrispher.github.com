@@ -9,10 +9,10 @@ tags: [Deep Learning, Dropout, 深度学习]
 文章参考Benjio的论文：[Dropout-A Simple Way to Prevent Neural Networks from Overfitting](http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)
 
 ### 目录
-- [1.概述](#1.概述)
-- [2.深度学习的过拟合](#2.深度学习的过拟合)
-- [3.dropout](#3.dropout)
-- [4. Appendix](#4. Appendix)
+- [1.概述](#概述)
+- [2.深度学习的过拟合](#深度学习的过拟合)
+- [3.dropout](#dropout)
+- [4.Appendix](#Appendix)
 
 
 ####1.概述
@@ -38,7 +38,7 @@ drop的神经元是随机的，且概率独立，概率p可以通过交叉验证
 他们做了很多实验，结果绘图如下：
 ![](http://chrispher.github.com/images/deeplearning/dropout_result.jpg)
 
-####4. Appendix
+####4.Appendix
 在文章Appendix中，作者给了A Practical Guide for Training Dropout Networks。
 
 *  Network Size:  

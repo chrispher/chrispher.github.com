@@ -9,13 +9,13 @@ tags: [sublime, setting]
 windows下sublime text2的一些设置和调整
 
 ### 目录
-- [1. 安装插件Package Control](#1. 安装插件Package Control)
-- [2. 推荐主题theme fatland](#2. 推荐主题theme fatland)
-- [3. Enhanced-R](#3. Enhanced-R  )
-- [4. sublimeREPL](#4. sublimeREPL )
-- [5. 其他插件](#5. 其他插件)
-- [6. 修改tab键为4个空格](#6. 修改tab键为4个空格)
-- [7. 常用快捷键](#7. 常用快捷键)
+- [1. 安装插件Package Control](#PackageControl)
+- [2. 推荐主题theme fatland](#themefatland)
+- [3. Enhanced-R](#Enhanced-R)
+- [4. sublimeREPL](#sublimeREPL)
+- [5. 其他插件](#其他插件)
+- [6. 修改tab键为4个空格](#修改tab键为4个空格)
+- [7. 常用快捷键](#常用快捷键)
 
 
 ####1. 安装插件Package Control
