@@ -13,7 +13,7 @@ body {
   color: #222222;
   line-height: 24px;
   margin: 0;
-  border-top: 7px solid {{ site.theme.highlight_color }};
+  border-top: 7px solid {{ site.data.theme.highlight_color }};
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -48,17 +48,17 @@ ul {
 }
 
 a {
-  color: {{ site.theme.highlight_color }};
+  color: {{ site.data.theme.highlight_color }};
   text-decoration: none;
 }
 
 a:hover {
-  color: {{ site.theme.highlight_color }};
+  color: {{ site.data.theme.highlight_color }};
   text-decoration: underline;
 }
 
 a:visited {
-  color: {{ site.theme.highlight_color }};
+  color: {{ site.data.theme.highlight_color }};
 }
 
 table {
@@ -91,10 +91,6 @@ ul.posts span {
   font-size:14px;
 }
 
-ul.posts .post-link {
-  color: #0894D6;
-}
-
 .meta {
   color: #aaa;
   margin: 0 0 10px 0;
@@ -111,11 +107,12 @@ nav h1, nav h2 {
   text-align: center;
 }
 
-nav hr {
+#bio {
   margin-top: 10px;
   margin-bottom: 15px;
   border: dotted #ddd;
-  border-width: 1px 0 0;
+  border-width: 1px 0;
+  padding-top: 15px;
 }
 
 #social {
@@ -184,7 +181,7 @@ nav hr {
 }
 
 #home h2 {
-  color: {{ site.theme.highlight_color }};
+  color: {{ site.data.theme.highlight_color }};
 }
 
 #logo {
@@ -210,7 +207,7 @@ nav hr {
 
 #stalker a:hover {
   text-decoration: none;
-  color: {{ site.theme.highlight_color }};
+  color: {{ site.data.theme.highlight_color }};
 }
 
 i.fa-hn {
@@ -255,4 +252,9 @@ i.fa-hn {
   text-align: center;
   font-size: smaller;
   padding-bottom: 10px
+}
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
 }

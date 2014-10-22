@@ -20,8 +20,7 @@
 	#Buttons
 	#Tabs
 	#Forms
-    #Code Blocks
-	#Misc*/
+	#Misc */
 
 
 /* #Reset & Basics (Inspired by E. Meyers)
@@ -36,7 +35,7 @@
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block; }
 	body {
-		line-height: 1.5; }
+		line-height: 1; }
 	ol, ul {
 		list-style: none; }
 	blockquote, q {
@@ -54,8 +53,7 @@
 ================================================== */
 	body {
 		background: #fff;
-		font: 16px/21px Lato, "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "微软雅黑", sans-serif;
-		font-family: Lato, "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "微软雅黑", sans-serif;
+		font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: #444;
 		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 		-webkit-text-size-adjust: 100%;
@@ -66,7 +64,7 @@
 ================================================== */
 	h1, h2, h3, h4, h5, h6 {
 		color: #181818;
-		font-family: Lato, "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "微软雅黑", sans-serif;
+		font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
 		font-weight: normal; }
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
 	h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
@@ -74,7 +72,7 @@
 	h3 { font-size: 28px; line-height: 34px; margin-bottom: 8px; }
 	h4 { font-size: 21px; line-height: 30px; margin-bottom: 4px; }
 	h5 { font-size: 17px; line-height: 24px; }
-	h6 { font-size: 16px; line-height: 21px; }
+	h6 { font-size: 14px; line-height: 21px; }
 	.subheader { color: #777; }
 
 	p { margin: 0 0 20px 0; }
@@ -84,8 +82,6 @@
 	em { font-style: italic; }
 	strong { font-weight: bold; color: #333; }
 	small { font-size: 80%; }
-    sup { font-size: 14px; vertical-align: super}
-    sub { font-size: 14px; vertical-align: sub}
 
 /*	Blockquotes  */
 	blockquote, blockquote p { font-size: 17px; line-height: 24px; color: #777; font-style: italic; }
@@ -120,7 +116,6 @@
 	li { line-height: 18px; margin-bottom: 12px; }
 	ul.large li { line-height: 21px; }
 	li p { line-height: 21px; }
-    .footnotes li p{ line-height: 15px; margin-bottom: 5px;}
 
 /* #Images
 ================================================== */
@@ -161,7 +156,7 @@
 	  cursor: pointer;
 	  margin-bottom: 20px;
 	  line-height: 21px;
-	  font-family: Lato, "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "微软雅黑", sans-serif; }
+	  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 	a.button:hover,
 	button:hover,
@@ -320,7 +315,7 @@
 	legend {
 		display: block;
 		font-weight: bold;
-		font-size: 14px;  }
+		font-size: 13px;  }
 	select {
 		width: 220px; }
 	input[type="checkbox"] {
@@ -331,25 +326,10 @@
 		font-size: 13px;
 		color: #444; }
 
-/* #Code Blocks
-================================================== */
-.CodeRay .code pre span {
-  line-height: 1;
-}
-.CodeRay .code pre span.line-numbers{
-  padding-right: 10px;
-}
-.CodeRay .code pre span.line-numbers a {
-  user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-}
-
 /* #Misc
 ================================================== */
 	.remove-bottom { margin-bottom: 0 !important; }
 	.half-bottom { margin-bottom: 10px !important; }
 	.add-bottom { margin-bottom: 20px !important; }
-    #disqus_thread { border-top: 1px solid #EAEDEE; margin-top: 30px;}
+
+
