@@ -26,7 +26,7 @@ tags: [trick, hash]
 - Mary likes movies too.
 - John also likes football.
 
-那么我们得到的词库格式是(词语，索引)是[(John1,1),(likes,2),(to,3),(watch,4),(movies 5),(Mary,6),(too,7),(also,8),(football,9)],即有9个特征。对于每一句话，我们只有看看这些特征是否出现在输入语句中即可。那么对于第一句话的vector就是[1,1,1,1,1,0,0,0,0]。有时候也会考虑词语出现次数，比如对于句子*john likes movies and Mary likes movies too*, 如果不考虑次数，对应的vector(注意这里and不在词库里)是[1,1,0,0,1,1,0,0,0]。如果考虑次数，则是[1,2,0,0,2,1,0,0,0]。
+那么我们得到的词库格式是(词语，索引)是[(John, 1), (likes, 2), (to, 3), (watch, 4), (movies, 5), (Mary, 6), (too, 7),(also, 8), (football, 9)],即有9个特征。对于每一句话，我们只有看看这些特征是否出现在输入语句中即可。那么对于第一句话的vector就是 [1, 1, 1, 1, 1, 0, 0, 0, 0]。有时候也会考虑词语出现次数，比如对于句子*John likes movies and Mary likes movies too*, 如果不考虑次数，对应的vector(注意这里and不在词库里)是[1, 1, 0, 0, 1, 1, 1, 0, 0]。如果考虑次数，则是[1, 2, 0, 0, 2, 1, 1, 0, 0]。
 
 想象一下，如果我们的词库非常大，那么索引起来需要消耗大量的空间和资源。另外，考虑到新的词语(如上面的and)，需要不断的增加词库中的词。而采用哈希(hash)的方法，即对输入进行哈希处理，得到的哈希值直接作为index，而不是像之前那样查找。
 
@@ -52,10 +52,8 @@ tags: [trick, hash]
              x[h % N] += 1
         return x
 
-    # [0, 1, 3, 0]
-    # [1, 3, 3, 0]
-    print hashing_vectorizer('we are the great', 4)
-    print hashing_vectorizer('tell me the way to the IBM', 4)
+    print hashing_vectorizer('we are the great', 4) # return [0, 1, 3, 0]
+    print hashing_vectorizer('tell me the way to the IBM', 4) # return [1, 3, 3, 0]
 {% endhighlight %}
 
 如果我们引入一个二值函数g(x)(假设输出为1，-1)来决定更新数值是加还是减，以此来对坑hash collisions(哈希碰撞)。那么算法更新为:
@@ -66,7 +64,6 @@ tags: [trick, hash]
         for f in s.split():
             h = hash(f)
             x[h % N] += 1*g(f)
-
         return x
 {% endhighlight %}
 
@@ -77,4 +74,4 @@ tags: [trick, hash]
 ###4.other
 另外也有用hash函数自动生成叉乘特征(cross-product features)。比如你的hash函数能够从两个数中生成一个，即i = h(a,b), 那么你就可以把一些组合特征x(a)*x(b)变化为v(i)。Cross-product 在建模一些交互特征中比较有效。
 
-论文[Feature Hashing for Large Scale Multitask Learning](http://alex.smola.org/papers/2009/Weinbergeretal09.pdf)也提到用hash方法解决多任务学习问题。包括降维、稀疏表达、叉乘特征、文本特征、多任务学习等等。
+论文 [Feature Hashing for Large Scale Multitask Learning](http://alex.smola.org/papers/2009/Weinbergeretal09.pdf) 也提到用hash方法解决多任务学习问题。包括降维、稀疏表达、叉乘特征、文本特征、多任务学习等等。
