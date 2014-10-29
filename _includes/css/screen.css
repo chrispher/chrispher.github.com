@@ -1,3 +1,11 @@
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+
+/* Global Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -8,57 +16,34 @@ html, body {
 }
 
 body {
-  font-size: 16px;
   background-color: white;
-  color: #222222;
-  line-height: 24px;
-  margin: 0;
-  border-top: 7px solid {{ site.theme.highlight_color }};
+  font: 13.34px helvetica, arial, clean, sans-serif;
+  *font-size: small;
+  text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #181818;
-  font-family: "open sans", sans-serif;
-  font-weight: 600;
-}
-
-h1.title {
-  font-weight: 800;
+  font-size: 100%;
 }
 
 h1 {
-  font-size: 32px;
-  line-height: 40px;
+  margin-bottom: 1em;
 }
 
-h2 {
-  font-size: 24px;
-  line-height: 30px;
-}
-
-h3 {
-  font-size: 21px;
-  line-height: 24px;
+p {
   margin: 1em 0;
-}
-
-ul {
-  margin: 1em 0;
-  list-style: disc;
 }
 
 a {
-  color: {{ site.theme.highlight_color }};
-  text-decoration: none;
+  color: #00a;
 }
 
 a:hover {
-  color: {{ site.theme.highlight_color }};
-  text-decoration: underline;
+  color: black;
 }
 
 a:visited {
-  color: {{ site.theme.highlight_color }};
+  color: #a0a;
 }
 
 table {
@@ -66,193 +51,147 @@ table {
   font: 100%;
 }
 
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+/*****************************************************************************/
+/*
+/* Home
+/*
+/*****************************************************************************/
 
 ul.posts {
-  margin-top: 0;
   list-style-type: none;
-  margin-bottom: 10px;
+  margin-bottom: 2em;
 }
 
-ul.posts li {
-  line-height: 22px;
-  font-size: 16px;
-  margin-bottom: 0px;
+  ul.posts li {
+    line-height: 1.75em;
+  }
+
+  ul.posts span {
+    color: #aaa;
+    font-family: Monaco, "Courier New", monospace;
+    font-size: 80%;
+  }
+
+/*****************************************************************************/
+/*
+/* Site
+/*
+/*****************************************************************************/
+
+.site {
+  font-size: 110%;
+  text-align: justify;
+  width: 40em;
+  margin: 3em auto 2em auto;
+  line-height: 1.5em;
 }
 
-ul.posts span {
-  font-family: 'Lucida Console', 'Andale Mono', monospace;
-  color: #aaa;
-  padding-right: 5px;
-  font-size:14px;
+.title {
+  color: #a00;
+  font-weight: bold;
+  margin-bottom: 2em;
 }
 
-ul.posts .post-link {
-  color: #0894D6;
+  .site .title a {
+    color: #a00;
+    text-decoration: none;
+  }
+
+  .site .title a:hover {
+    color: black;
+  }
+
+  .site .title a.extra {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 1em;
+  }
+
+  .site .title a.extra:hover {
+    color: black;
+  }
+
+  .site .meta {
+    color: #aaa;
+  }
+
+  .site .footer {
+    font-size: 80%;
+    color: #666;
+    border-top: 4px solid #eee;
+    margin-top: 2em;
+    overflow: hidden;
+  }
+
+    .site .footer .contact {
+      float: left;
+      margin-right: 3em;
+    }
+
+      .site .footer .contact a {
+        color: #8085C1;
+      }
+
+    .site .footer .rss {
+      margin-top: 1.1em;
+      margin-right: -.2em;
+      float: right;
+    }
+
+      .site .footer .rss img {
+        border: 0;
+      }
+
+/*****************************************************************************/
+/*
+/* Posts
+/*
+/*****************************************************************************/
+
+#post {
+
 }
 
-.meta {
-  color: #aaa;
-  margin: 0 0 10px 0;
+  /* standard */
+
+  #post pre {
+    border: 1px solid #ddd;
+    background-color: #eef;
+    padding: 0 .4em;
+  }
+
+  #post ul,
+  #post ol {
+    margin-left: 1.35em;
+  }
+
+  #post code {
+    border: 1px solid #ddd;
+    background-color: #eef;
+    font-size: 85%;
+    padding: 0 .2em;
+  }
+
+    #post pre code {
+      border: none;
+    }
+
+  /* terminal */
+
+  #post pre.terminal {
+    border: 1px solid black;
+    background-color: #333;
+    color: white;
+  }
+
+  #post pre.terminal code {
+    background-color: #333;
+  }
+
+#related {
+  margin-top: 2em;
 }
 
-.site .footer {
-  font-size: 80%;
-  color: #666;
-  border-top: 4px solid #eee;
-  overflow: hidden;
-}
-
-nav h1, nav h2 {
-  text-align: center;
-}
-
-nav hr {
-  margin-top: 10px;
-  margin-bottom: 15px;
-  border: dotted #ddd;
-  border-width: 1px 0 0;
-}
-
-#social {
-  margin-bottom: 10px;
-  font-size: 13px;
-}
-
-#post pre {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .4em;
-  margin-bottom: 20px !important;
-}
-
-#post ul,
-#post ol {
-  margin-left: 1.35em;
-}
-
-#post code {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  font-size: 85%;
-  padding: 0 .2em;
-}
-
-#post pre code {
-  border: none;
-}
-
-.sidebar {
-  padding-top: 25px;
-  font-family: "open sans", sans-serif;
-}
-
-.sidebar p {
-  font-weight: 200;
-}
-
-.sidebar a {
-  font-weight: 600;
-}
-
-.content {
-  font: 400 16px/22px "open sans", sans-serif;
-  border-left: 1px solid #DDD;
-  padding-left: 40px;
-  padding-top: 25px;
-  min-height: 400px;
-}
-
-.footer {
-  width: 100%;
-}
-
-.footer {
-  font-size: 80%;
-  color: #666;
-  border-top: 4px solid #EEE;
-  overflow: hidden;
-}
-
-.aside {
-  font-size: 75%;
-  color: #666;
-}
-
-#home h2 {
-  color: {{ site.theme.highlight_color }};
-}
-
-#logo {
-  margin-bottom: 25px;
-}
-
-#stalker {
-  display: inline-block;
-  height: 18px;
-  margin-left: 5px;
-}
-
-#stalker a {
-  width: 29px;
-  overflow: hidden;
-  float: left;
-}
-
-#stalker i {
-  font-size: 28px;
-  margin-right: 5px;
-}
-
-#stalker a:hover {
-  text-decoration: none;
-  color: {{ site.theme.highlight_color }};
-}
-
-i.fa-hn {
-  font-family: "open sans", sans-serif;
-  text-align: center;
-  font-size: 18px !important;
-  position: relative;
-  color: white;
-}
-
-.home {
-  font-size: 24px;
-  float: right;
-  color: #AAA;
-}
-
-.home:hover {
-  text-decoration: none;
-}
-
-.disclaimer p {
-  margin-top: 5px;
-  font-size: 11px;
-  text-align: center;
-}
-
-.footnotes {
-  font-size: 14px;
-  font-style: italic;
-}
-
-.icon-overlay {
-  font-size: 16px !important;
-  position: relative;
-  bottom: 27px;
-  left: 5px;
-  color: white;
-}
-
-.caption {
-  margin: 0 auto;
-  text-align: center;
-  font-size: smaller;
-  padding-bottom: 10px
-}
+  #related h2 {
+    margin-bottom: 1em;
+  }
