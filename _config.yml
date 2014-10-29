@@ -4,30 +4,3 @@ pygments: true
 lsi: false
 exclude: [LICENSE, CNAME, README.md, .gitignore]
 url: http://chrispher.github.io
-author:
-  name: chrispher
-  email: chrispher2012@gmail.com
-  github: https://github.com/chrispher
-
-
-# Theme customization - please change from the defaults!
-theme:
-  # Color for top bar, links, etc
-  highlight_color: '#3498db'
-
-  # Profile links on the left sidebar, leave blank to ignore
-  social:
-    github: chrispher
-    #stackexchange: 348619
-    #stackoverflow: 348619
-    #facebook: zuck
-    #tumblr: animalygifs
-    linkedin: chrispher-guan/5a/a68/6b8
-    #gplus: 110552447039675960964
-
-  name: Chrispher Guan
-  email: chrispher2012@gmail.com
-  tagline: "walking on my way"
-
-  # Toggle "Postings are my own" disclaimer in footer
-  show_disclaimer: true
