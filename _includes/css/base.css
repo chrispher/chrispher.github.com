@@ -334,7 +334,7 @@
 /* #Code Blocks
 ================================================== */
 .CodeRay .code pre span {
-  line-height: 1;
+  line-height: 1.5;
 }
 .CodeRay .code pre span.line-numbers{
   padding-right: 10px;
