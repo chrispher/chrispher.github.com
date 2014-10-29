@@ -7,7 +7,7 @@ url: http://chrispher.github.io
 
 
 theme:
-    highlight_color: '#586e75' #586e75 3498db
+    highlight_color: '#93a1a1' #586e75-灰 3498db-蓝
 
     # Profile links on the left sidebar, leave blank to ignore
     social:
