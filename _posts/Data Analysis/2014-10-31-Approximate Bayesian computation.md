@@ -32,7 +32,7 @@ tags: [data analysis,steps,分析流程]
 我们先考虑这样一个问题，如果已知了实际袜子数(n_socks,比如为18只)，从这些中取出11只袜子，看看有多少不同的袜子。这里我们没有直接计算，而是直接使用程序去模拟！
 这里我们假设有n_socks=18只袜子，其中有n_pairs=7是成对的，n_odd=4是单只的（遗失4只），从中选n_picked = 11只；首先我们对这18只袜子进行编号，考虑到有成对的袜子，编号socks应该是0-10。程序如下：
 
-{% highlight python%}
+{% highlight python %}
 
 n_socks = 18 # The total number of socks in the laundry
 n_picked = 11 # The number of socks we are going to pick
@@ -44,7 +44,7 @@ picked_socks = random.sample(socks, size=min(n_picked, n_socks))
 unique_socks = len(set(picked_socks))
 pairs = len(picked_socks) - len(set(picked_socks))
 
-{% endhighligh%}
+{% endhighlight %}
 
 
 那我们可以假设不同的袜子总数，看看结果（这里每个参数，都进行了1w次抽样来平均结果）。这里假设单只总是4只。不断的增大n_pairs,程序和结果如下：
