@@ -89,22 +89,23 @@ $$y=argmax_{c_j \in C} \sum_{h_i \in H}{P(c_j｜h_i)P(T｜h_i)P(h_i)}$$
 Bayesian model averaging (BMA, 贝叶斯模型平均)是一个寻求近似于Bayes Optimal Classifier 的方法，他通过从"假设"空间里抽样一些"假设"，再使用贝叶斯法则合并起来。 与Bayes Optimal Classifier不同，BMA是可以实际实现的。可以使用 [Monte Carlo sampling](http://en.wikipedia.org/wiki/Monte_Carlo_sampling) 来采样"假设"。 比如, 使用[Gibbs 抽样](http://en.wikipedia.org/wiki/Gibbs_sampling)(Gibbs sampling)来得到一堆"假设"$$P(T｜H)$$。事实证明在一定情况下，当这些生成的"假设"按照贝叶斯法则合并起来后，期望误差不大于2倍的Bayes Optimal Classifier 的期望误差。先不管理论上的证明，事实表明这种方法比简单的Ensemble方法(如bagging)更容易过拟合、且表现更差。然而，这些结论可能是错误理解了Bayesian model averaging和model combination的目的（前者是为了近似Bayes Optimal Classifier，而后者是为了提高模型准确率）。
 
 伪代码如下:
-> 
-    function train_bayesian_model_averaging(T)
-        z = -infinity
-        For each model, m, in the ensemble:
-                Train m, typically using a random subset of the training data, T.
-                Let prior[m] be the prior probability that m is the generating hypothesis.
-                        Typically, uniform priors are used, so prior[m] = 1.
-                Let x be the predictive accuracy (from 0 to 1) of m for predicting the labels in T.
-                Use x to estimate log_likelihood[m]. Often, this is computed as
-                        log_likelihood[m] = |T| * (x * log(x) + (1 - x) * log(1 - x)),
-                        where |T| is the number of training patterns in T.
-                z = max(z, log_likelihood[m])
-        For each model, m, in the ensemble:
-                weight[m] = prior[m] * exp(log_likelihood[m] - z)
-        Normalize all the model weights to sum to 1.
 
+{% highlight C %}
+function train_bayesian_model_averaging(T)
+    z = -infinity
+    For each model, m, in the ensemble:
+            Train m, typically using a random subset of the training data, T.
+            Let prior[m] be the prior probability that m is the generating hypothesis.
+                    Typically, uniform priors are used, so prior[m] = 1.
+            Let x be the predictive accuracy (from 0 to 1) of m for predicting the labels in T.
+            Use x to estimate log_likelihood[m]. Often, this is computed as
+                    log_likelihood[m] = |T| * (x * log(x) + (1 - x) * log(1 - x)),
+                    where |T| is the number of training patterns in T.
+            z = max(z, log_likelihood[m])
+    For each model, m, in the ensemble:
+            weight[m] = prior[m] * exp(log_likelihood[m] - z)
+    Normalize all the model weights to sum to 1.
+{% endhighlight %}
 
 <a name="3.5 Bayesian model combination"/>
 
@@ -120,33 +121,35 @@ Bayesian model combination(BMC) 是 BMA 的一个校正算法。它不是独立�
 BMA是选择一个与生成数据的分布最接近的模型，而BMC是选择一个与生成数据的分布最接近的模型组合方式。BMA可以看成是从一堆模型中使用交叉验证来选择一个最优模型。而BMC可以认为是从一堆随机模型组合中选择一个最好的组合(Ensemble)。
 
 伪代码如下:更多信息可以阅读[Turning Bayesian Model Averaging Into Bayesian Model Combination](http://synapse.cs.byu.edu/papers/Kristine.ijcnn2011.pdf)
->
-    function train_bayesian_model_combination(T)
-        For each model, m, in the ensemble:
-            weight[m] = 0
-        sum_weight = 0
-        z = -infinity
-        Let n be some number of weightings to sample.
-            (100 might be a reasonable value. Smaller is faster. 
-            Bigger leads to more precise results.)
-        for i from 0 to n - 1:
-            For each model, m, in the ensemble: // draw from a uniform Dirichlet distribution
-                 v[m] = -log(random_uniform(0,1))
-            Normalize v to sum to 1
-            Let x be the predictive accuracy (from 0 to 1) of the entire ensemble, weighted
-                according to v, for predicting the labels in T.
-            Use x to estimate log_likelihood[i]. Often, this is computed as
-                log_likelihood[i] = |T| * (x * log(x) + (1 - x) * log(1 - x)),
-                where |T| is the number of training patterns in T.
-            If log_likelihood[i] > z: // z is used to maintain numerical stability
-                For each model, m, in the ensemble:
-                    weight[m] = weight[m] * exp(z - log_likelihood[i])
-                z = log_likelihood[i]
-            w = exp(log_likelihood[i] - z)
+
+{% highlight C %}
+function train_bayesian_model_combination(T)
+    For each model, m, in the ensemble:
+        weight[m] = 0
+    sum_weight = 0
+    z = -infinity
+    Let n be some number of weightings to sample.
+        (100 might be a reasonable value. Smaller is faster. 
+        Bigger leads to more precise results.)
+    for i from 0 to n - 1:
+        For each model, m, in the ensemble: // draw from a uniform Dirichlet distribution
+             v[m] = -log(random_uniform(0,1))
+        Normalize v to sum to 1
+        Let x be the predictive accuracy (from 0 to 1) of the entire ensemble, weighted
+            according to v, for predicting the labels in T.
+        Use x to estimate log_likelihood[i]. Often, this is computed as
+            log_likelihood[i] = |T| * (x * log(x) + (1 - x) * log(1 - x)),
+            where |T| is the number of training patterns in T.
+        If log_likelihood[i] > z: // z is used to maintain numerical stability
             For each model, m, in the ensemble:
-                weight[m] = weight[m] * sum_weight / (sum_weight + w) + w * v[m]
-            sum_weight = sum_weight + w
-        Normalize the model weights to sum to 1.
+                weight[m] = weight[m] * exp(z - log_likelihood[i])
+            z = log_likelihood[i]
+        w = exp(log_likelihood[i] - z)
+        For each model, m, in the ensemble:
+            weight[m] = weight[m] * sum_weight / (sum_weight + w) + w * v[m]
+        sum_weight = sum_weight + w
+    Normalize the model weights to sum to 1.
+{% endhighlight %}
 
 <a name="3.6 Bucket of models"/>
 
@@ -156,13 +159,14 @@ bucket of models是在Ensemble中针对具体问题进行最优模型选择的�
 
 最常用的方法是[交叉验证](http://en.wikipedia.org/wiki/Cross-validation_(statistics))(cross-validation), 有时候称之为bake-off contest，伪代码如下:
 
->
-    For each model m in the bucket:
-      Do c times: (where 'c' is some constant)
-        Randomly divide the training dataset into two datasets: A, and B.
-        Train m with A
-        Test m with B
-    Select the model that obtains the highest average score
+{% highlight C %}
+For each model m in the bucket:
+  Do c times: (where 'c' is some constant)
+    Randomly divide the training dataset into two datasets: A, and B.
+    Train m with A
+    Test m with B
+Select the model that obtains the highest average score
+{% endhighlight %}
 
 交叉验证可以简单的总结为“在所以的训练集合上，看看它们的表现，选择表现最好的”。
 Gating 是交叉验证的一种一般化。它在训练中多训练一个模型用于决定在特定问题下具体选择某个模型。通常情况下，[感知器](http://en.wikipedia.org/wiki/Perceptron)(perceptron)会被用于Gating model。它可以用于选择最优模型，也可以是bucket中各个模型的预测结果的一组线性权重。比如垃圾分类问题中，用感知器训练Gating 之后，可以训练成：在money单词出现2次以上时使用logistic的分类结果，否则使用朴素贝叶斯的结果；也可以训练成结果为a×money出现次数×决策树+b×money出现次数×朴素贝叶斯 + c的结果（结果是为是会员的概率，abc由感知器训练得到）。
