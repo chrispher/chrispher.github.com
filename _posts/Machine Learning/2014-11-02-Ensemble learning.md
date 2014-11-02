@@ -90,7 +90,7 @@ Bayesian model averaging (BMA, 贝叶斯模型平均)是一个寻求近似于Bay
 
 伪代码如下:
 
-{% highlight C %}
+{% highlight Python %}
 function train_bayesian_model_averaging(T)
     z = -infinity
     For each model, m, in the ensemble:
@@ -122,7 +122,7 @@ BMA是选择一个与生成数据的分布最接近的模型，而BMC是选择�
 
 伪代码如下:更多信息可以阅读[Turning Bayesian Model Averaging Into Bayesian Model Combination](http://synapse.cs.byu.edu/papers/Kristine.ijcnn2011.pdf)
 
-{% highlight C %}
+{% highlight Python %}
 function train_bayesian_model_combination(T)
     For each model, m, in the ensemble:
         weight[m] = 0
@@ -159,7 +159,7 @@ bucket of models是在Ensemble中针对具体问题进行最优模型选择的�
 
 最常用的方法是[交叉验证](http://en.wikipedia.org/wiki/Cross-validation_(statistics))(cross-validation), 有时候称之为bake-off contest，伪代码如下:
 
-{% highlight C %}
+{% highlight Python %}
 For each model m in the bucket:
   Do c times: (where 'c' is some constant)
     Randomly divide the training dataset into two datasets: A, and B.
