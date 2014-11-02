@@ -30,7 +30,7 @@ tags: [Bootstrap, Boosting, Bucket, Stacking]
 
 机器学习中，[监督式学习算法](http://en.wikipedia.org/wiki/Supervised_learning)(Supervised learning)可以描述为:对于一个具体问题，从一堆"假设"(hypothesis space，"假设"空间)中搜索一个具有较好且相对稳定的预测效果的模型。有些时候，即使"假设"空间中包含了一些很好的"假设"(hypothesis) ，我们也很难从中找到一个较好的。Ensemble 的方法就是组合多个"假设"以期望得到一个较优的"假设"。换句话说，Ensemble的方法就是组合许多弱模型(weak learners，预测效果一般的模型) 以得到一个强模型(strong learner，预测效果好的模型)。Ensemble中组合的模型可以是同一类的模型，也可以是不同类型的模型。
 
-Ensemble方法对于大量数据和不充分数据都要很好的效果。因为一些简单模型数据量太大而很难训练，或者只能学习到一部分，而Ensemble方法可以有策略的将数据集划分成一些小数据集，分别进行训练，之后根据一些策略进行组合。相反，如果数据量很少，可以使用bootstrap进行抽样，得到多个数据集，分别进行训练后再组合(Efron 1979)。
+Ensemble方法对于大量数据和不充分数据都有很好的效果。因为一些简单模型数据量太大而很难训练，或者只能学习到一部分，而Ensemble方法可以有策略的将数据集划分成一些小数据集，分别进行训练，之后根据一些策略进行组合。相反，如果数据量很少，可以使用bootstrap进行抽样，得到多个数据集，分别进行训练后再组合(Efron 1979)。
 
 使用Ensemble的方法在评估测试的时候，相比于单一模型，需要更多的计算。因此，有时候也认为Ensemble是用更多的计算来弥补弱模型。同时，这也导致模型中的每个参数所包含的信息量比单一模型少很多，导致太多的冗余！
 
@@ -168,8 +168,8 @@ For each model m in the bucket:
 Select the model that obtains the highest average score
 {% endhighlight %}
 
-交叉验证可以简单的总结为“在所以的训练集合上，看看它们的表现，选择表现最好的”。
-Gating 是交叉验证的一种一般化。它在训练中多训练一个模型用于决定在特定问题下具体选择某个模型。通常情况下，[感知器](http://en.wikipedia.org/wiki/Perceptron)(perceptron)会被用于Gating model。它可以用于选择最优模型，也可以是bucket中各个模型的预测结果的一组线性权重。比如垃圾分类问题中，用感知器训练Gating 之后，可以训练成：在money单词出现2次以上时使用logistic的分类结果，否则使用朴素贝叶斯的结果；也可以训练成结果为a×money出现次数×决策树+b×money出现次数×朴素贝叶斯 + c的结果（结果是为是会员的概率，abc由感知器训练得到）。
+交叉验证可以简单的总结为“在所有的训练集合上，看看它们的表现，选择表现最好的”。
+Gating 是交叉验证的一种一般化。它在训练中多训练一个模型用于决定在特定问题下具体选择某个模型。通常情况下，[感知器](http://en.wikipedia.org/wiki/Perceptron)(perceptron)会被用于Gating model。它可以用于选择最优模型，也可以是bucket中各个模型的预测结果的一组线性权重。比如垃圾分类问题中，用感知器训练Gating 之后，可以训练成：在money单词出现2次以上时使用logistic的分类结果，否则使用朴素贝叶斯的结果；也可以训练成结果为a×money出现次数×决策树+b×money出现次数×朴素贝叶斯 + c的结果（结果是为是是垃圾邮件的概率，abc由感知器训练得到）。
 
 Bucket of models也可以用于处理一大组问题，用以避免训练一些需要很长时间训练的模型。Landmark learning是一种旨在解决这个问题的元学习(meta-learning)方法。Bucket中，只包括一些训练比较快的模型(可能不是很准确)，用这些模型的结果来确定哪些缓慢（但准确）算法是最有可能做最好。
 
@@ -183,7 +183,7 @@ Stacking(有时候也称之为stacked generalization)是指训练一个模型用
 
 <img src="http://chrispher.github.com/images/machinelearning/EnsembleLearning_Stacked_generalization.jpg" height="100%" width="100%">
 
-总的来说，Stacking 方法比任何单一模型的效果多要好，而且不仅成功应用在了监督式学习中，也成功应用在了非监督式(概率密度估计)学习中。甚至应用于估计bagging模型的错误率。据论文Feature-Weighted Linear Stacking(Sill, J. and Takacs, G. and Mackey L. and Lin D., 2009, arXiv:0911.0460)而言，Stacking比Bayesian Model Averaging表现要更好！此外在Kaggle上，很多比赛多是通过Stacking获取优秀的结果！
+总的来说，Stacking 方法比任何单一模型的效果都要好，而且不仅成功应用在了监督式学习中，也成功应用在了非监督式(概率密度估计)学习中。甚至应用于估计bagging模型的错误率。据论文Feature-Weighted Linear Stacking(Sill, J. and Takacs, G. and Mackey L. and Lin D., 2009, arXiv:0911.0460)而言，Stacking比Bayesian Model Averaging表现要更好！此外在Kaggle上，很多比赛多是通过Stacking获取优秀的结果！
 
 <a name="4. Ensemble combination rules"/>
 
