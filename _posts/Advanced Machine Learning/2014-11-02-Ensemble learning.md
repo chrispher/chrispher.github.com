@@ -2,7 +2,7 @@
 layout: post
 title: Ensemble learning 概述
 comments: true
-category: Machine Learning
+category: Advanced Machine Learning
 tags: [Bootstrap, Boosting, Bucket, Stacking]
 ---
 

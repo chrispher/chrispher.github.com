@@ -2,7 +2,7 @@
 layout: post
 title: Dropout-for deep learning
 comments: true
-category: Machine Learning
+category: Advanced Machine Learning
 tags: [Deep Learning, Dropout, 深度学习]
 ---
 

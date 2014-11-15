@@ -2,7 +2,7 @@
 layout: post
 title: Feature hashing
 comments: true
-category: Machine Learning
+category: Advanced Machine Learning
 tags: [trick, hash]
 ---
 

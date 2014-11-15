@@ -2,7 +2,7 @@
 layout: post
 title: Discover Feature Engineering
 comments: true
-category: Machine Learning
+category: Advanced Machine Learning
 tags: [Feature, Steps]
 ---
 

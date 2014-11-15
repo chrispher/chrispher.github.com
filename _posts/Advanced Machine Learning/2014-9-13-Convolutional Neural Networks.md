@@ -2,7 +2,7 @@
 layout: post
 title: Convolutional Neural Networks
 comments: true
-category: Machine Learning
+category: Advanced Machine Learning
 tags: [Deep Learning, CNN, 深度学习, 卷积, LeNet]
 ---
 
