@@ -40,11 +40,16 @@ tags: [convnet, CNN, win7, Stacking]
 
 - 6).右击工程: 属性(Property) -> 配置属性(Configuration Properties)  -> C/C++ -> 常规(General) -> 附加包含目录(Additional Include Directories)：删除所有，把下面的复制过去；需要主要Python的路径和CUDA的路径；
 
-`C:/Anaconda/Lib/site-packages/numpy/core/include/numpy;C:/Anaconda/include;./include/common;./include/nvmatrix;./include/cudaconv2;./include;$(CudaToolkitIncludeDir);./;./LIBS/Pre-built.2/include;./LIBS/include;C:/NVIDIA/CUDA/CUDASamples/common/inc; `
+    `C:/Anaconda/Lib/site-packages/numpy/core/include/numpy;`
+    `C:/Anaconda/include;./include/common;./include/nvmatrix;`
+    `./include/cudaconv2;./include;$(CudaToolkitIncludeDir);`
+    `./;./LIBS/Pre-built.2/include;./LIBS/include;`
+    `C:/NVIDIA/CUDA/CUDASamples/common/inc;`
 
 - 7).右击工程: 属性(Property) -> 配置属性(Configuration Properties)  -> 链接器(Linker)  -> 常规(General) -> 附加包含目录(Additional Include Directories)：加入库目录。最终如下所示：
 
-` C:/Anaconda/libs;C:/NVIDIA/CUDA/CUDAToolkit/lib/x64;./LIBS;./LIBS/Pre-built.2/lib;$(CudaToolkitLibDir); `
+    ` C:/Anaconda/libs;C:/NVIDIA/CUDA/CUDAToolkit/lib/x64;`
+    `./LIBS;./LIBS/Pre-built.2/lib;$(CudaToolkitLibDir); `
 
 - 8).右击工程: 属性(Property) -> 配置属性(Configuration Properties)  -> 链接器(Linker) -> 输入(Input) -> 附加依赖项(Additional Dependencies)：加入附加依赖项。保持原有的不变，在其中加入python27.lib;libopenblas.lib。
 
