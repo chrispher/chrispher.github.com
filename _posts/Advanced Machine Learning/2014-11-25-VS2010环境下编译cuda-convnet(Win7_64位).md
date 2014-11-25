@@ -2,8 +2,8 @@
 layout: post
 title: VS2010环境下编译cuda-convnet(Win7_64位)
 comments: true
-category: Advanced Machine Learning
-tags: [convnet, CNN, win7, Stacking]
+category: Application
+tags: [convnet, CNN, win7, Stacking, Deep Learning]
 ---
 
 系统是win7 64位, 已经提前安装了Visual Studio2010， CUDA5.5，Python安装的是Anaconda环境(可以自行搜索安装)；
@@ -91,8 +91,8 @@ tags: [convnet, CNN, win7, Stacking]
 
 - 1).测试阶段，错误提示为：
 
-    ` import pyconvnet `
-    ` ImportError: DLL load failed: 找不到指定的模块。`
+    `import pyconvnet `  
+    `ImportError: DLL load failed: 找不到指定的模块。`
 
     解决方法：这种错误是缺少dll引起的，用Dependency Walker进行全面检查。
 
