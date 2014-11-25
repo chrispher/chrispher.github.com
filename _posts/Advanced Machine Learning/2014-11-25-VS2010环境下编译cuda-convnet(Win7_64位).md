@@ -40,11 +40,11 @@ tags: [convnet, CNN, win7, Stacking]
 
 - 6).右击工程: 属性(Property) -> 配置属性(Configuration Properties)  -> C/C++ -> 常规(General) -> 附加包含目录(Additional Include Directories)：删除所有，把下面的复制过去；需要主要Python的路径和CUDA的路径；
 
-    `C:/Anaconda/Lib/site-packages/numpy/core/include/numpy;`
-    `C:/Anaconda/include;./include/common;./include/nvmatrix;`
-    `./include/cudaconv2;./include;$(CudaToolkitIncludeDir);`
-    `./;./LIBS/Pre-built.2/include;./LIBS/include;`
-    `C:/NVIDIA/CUDA/CUDASamples/common/inc;`
+    `C:/Anaconda/Lib/site-packages/numpy/core/include/numpy;`  
+    `C:/Anaconda/include;./include/common;./include/nvmatrix;`  
+    `./include/cudaconv2;./include;$(CudaToolkitIncludeDir);`  
+    `./;./LIBS/Pre-built.2/include;./LIBS/include;`  
+    `C:/NVIDIA/CUDA/CUDASamples/common/inc;`  
 
 - 7).右击工程: 属性(Property) -> 配置属性(Configuration Properties)  -> 链接器(Linker)  -> 常规(General) -> 附加包含目录(Additional Include Directories)：加入库目录。最终如下所示：
 
@@ -81,7 +81,9 @@ tags: [convnet, CNN, win7, Stacking]
 
 `python convnet.py --data-path=./data/cifar-10-py-colmajor --save-path=./tmp --test-range=6 --train-range=1-5 --layer-def=./example-layers/layers-19pct.cfg --layer-params=./example-layers/layer-params-19pct.cfg --data-provider=cifar --test-freq=13`
 
-    运行成功会出现如下信息：<img src="http://chrispher.github.com/images/deeplearning/convnet_test.png" height="100%" width="100%">
+运行成功会出现如下信息：
+
+<img src="http://chrispher.github.com/images/deeplearning/convnet_test.png" height="100%" width="100%"
 
 <a name="常见错误"/>
 
@@ -90,7 +92,6 @@ tags: [convnet, CNN, win7, Stacking]
 - 1).测试阶段，错误提示为：
 
     ` import pyconvnet `
-
     ` ImportError: DLL load failed: 找不到指定的模块。`
 
     解决方法：这种错误是缺少dll引起的，用Dependency Walker进行全面检查。
