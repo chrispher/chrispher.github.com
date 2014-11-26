@@ -8,6 +8,8 @@ tags: [sublime, setting]
 
 windows下sublime text2的一些设置和调整
 
+<!-- more -->
+
 ### 目录
 <!-- MarkdownTOC depth=4 -->
 - [1. 安装插件Package Control](#1. 安装插件Package Control)

@@ -8,6 +8,8 @@ tags: [Deep Learning, Dropout, 深度学习]
 
 文章参考Benjio的论文：[Dropout-A Simple Way to Prevent Neural Networks from Overfitting](http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)
 
+<!-- more -->
+
 ### 目录
 <!-- MarkdownTOC depth=4 -->
 - [1.概述](#1.概述)

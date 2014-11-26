@@ -10,6 +10,8 @@ tags: [Bootstrap, Boosting, Bucket, Stacking]
 
 本文主要参考[wikipedia](http://en.wikipedia.org/wiki/Ensemble_learning), wikipedia中参考文章不再罗列！部分参考[scholarpedia](http://www.scholarpedia.org/article/Ensemble_learning)。本文对Ensemble方法仅作概述！
 
+<!-- more -->
+
 ###内容
 - [1.Overview](#1.Overview)
 - [2.Ensemble theory](#2.Ensemble theory)

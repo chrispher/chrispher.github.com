@@ -10,6 +10,8 @@ tags: [convnet, CNN, win7, Stacking, Deep Learning]
 
 注：文章主要参考chenli2010的[blog](http://blog.csdn.net/chenli2010/article/details/17253759)
 
+<!-- more -->
+
 ### 目录
 - [编译过程](#编译过程)
 - [测试过程](#测试过程)

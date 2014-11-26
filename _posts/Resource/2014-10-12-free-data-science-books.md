@@ -6,6 +6,10 @@ category: Resource
 tags: [Deep Learning, Reading, lists]
 ---
 
+some free data science books!
+
+<!-- more -->
+
 ###Index
 - [Data Science Introduction](#data-science-introduction)
 - [Data Processing](#data-processing)

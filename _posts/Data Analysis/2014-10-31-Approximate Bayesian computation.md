@@ -8,6 +8,8 @@ tags: [ABC, 随机模拟法, Tiny data]
 
 本文主要参考[Tiny Data, Approximate Bayesian Computation and the Socks of Karl Broman](http://www.sumsar.net/blog/2014/10/tiny-data-and-the-socks-of-karl-broman/)。原作者使用R语言做分析，本文使用Python，且部分参数选择和测试不同。 [Approximate Bayesian computation](http://en.wikipedia.org/wiki/Approximate_Bayesian_computation)(ABC, 近似贝叶斯计算)是贝叶斯统计的基本方法。
 
+<!-- more -->
+
 ###目录
 - [1.问题](#1.问题)
 - [2.随机模拟法](#2.随机模拟法)

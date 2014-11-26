@@ -8,6 +8,8 @@ tags: [Feature, Steps]
 
 Note: This article originates from the [network](http://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/)
 
+<!-- more -->
+
 ### Contents
 <!-- MarkdownTOC depth=4 -->
 - [1. Introduction](#1. Introduction)

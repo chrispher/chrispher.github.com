@@ -8,6 +8,8 @@ tags: [trick, hash]
 
 在机器学习中，[Feature hasing](https://en.wikipedia.org/wiki/Feature_hashing) 也称之为[hashing trick](http://alex.smola.org/papers/2009/Weinbergeretal09.pdf)，是一种快速的且很节省空间的特征向量化的方法。
 
+<!-- more -->
+
 ###Content
 - [1.Motivating example](#1.Motivating example)
 - [2.overview](#2.overview)

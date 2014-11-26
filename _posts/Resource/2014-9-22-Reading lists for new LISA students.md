@@ -8,6 +8,8 @@ tags: [Deep Learning, Reading, lists]
 
 Benjio给LISA学生的[Reading lists](https://docs.google.com/document/d/1IXF3h0RU5zz4ukmTrVKVotPQypChscNGf5k6E25HGvA/edit)
 
+<!-- more -->
+
 ###content
 <!-- MarkdownTOC depth=4 -->
 - [Research in General](#Research in General)
