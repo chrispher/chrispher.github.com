@@ -1,0 +1,3 @@
+User-Agent: *
+
+Sitemap: http://chrispher.github.io/sitemap.txt

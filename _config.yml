@@ -1,28 +1,19 @@
-# General Jekyll Config
 markdown: kramdown
-pygments: true
-lsi: false
-exclude: [LICENSE, CNAME, README.md, .gitignore]
-url: http://chrispher.github.io
+highlighter: pygments
+permalink: blog/:year/:month/:day/:title.html
+paginate: 6
+paginate_path: page/:num
 
-
-theme:
-    # cb4b16-红 586e75-灰 3498db-蓝 93a1a1-灰白
-    highlight_color: '#3498db' 
-
-
-    # Profile links on the left sidebar, leave blank to ignore
-    social:
-        github: chrispher
-        #stackexchange: 348619
-        #stackoverflow: 348619
-        #facebook: zuck
-        #tumblr: animalygifs
-        linkedin: chrispher-guan/5a/a68/6b8
-        #gplus: 110552447039675960964
-    name: Chrispher Guan
-    email: chrispher2012@gmail.com
-    tagline: "walking on my way"
-
-    # Toggle "Postings are my own" disclaimer in footer
-    show_disclaimer: true
+blog:
+    name: Data Science 
+    description: Personal Knowledge Management
+    title: Walking on my way 
+    url: http://chrispher.github.io 
+    duoshuo: chrispher2012
+    tongji: chrispher2012 
+author:
+    name: chrispher guan 
+    email: chrispher2012@gmail.com 
+    weibo: http://weibo.com/u/2917650677
+    github: https://github.com/chrispher
+    logo:                                                # logo地址

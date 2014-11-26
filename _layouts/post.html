@@ -1,32 +1,33 @@
 ---
-layout: default
+layout: blog
+post: true
+math: true
 ---
 
-<p class="meta">
-  {{ page.date | date: "%B %d, %Y" }}
-  <a href="/">
-    <i class="home fa fa-home"></i>
-  </a>
-</p>
-
-<h1 class="title">{{ page.title }}</h1>
-
-<a href="/categories.html# {{page.category}} "> category: {{page.category}} </a>
-<hr/>
-
-<div id="post">
-  {{ content }}
+<header class="post-header">
+  <h1 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+  <p class="post-meta">
+    <i class="fa fa-calendar"></i>
+    {{ page.date | date: "%Y" }}年{{ page.date | date: "%m" }}月{{ page.date | date: "%d" }}日
+    <i class="space"></i>
+    <i class="fa fa-tags"></i>
+    <a class="post-category" href="/page/category.html#{{ page.categories }}">{{ page.categories }}</a>	
+  </p>
+</header>
+<div class="post-main">
+{{ content }}
 </div>
-
-<div id="related">
-  <h3>Related Posts</h3>
-  <ul class="posts">
-    {% for post in site.related_posts limit:2 %}
-    <li>
-      <span>{{ post.date | date_to_string }} &raquo;</span> <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-  </ul>
+{% include share.html %}
+<div class="pagination">
+{% if page.previous %}
+<a class="pagination-item newer" href="{{ BASE_PATH }}{{ page.previous.url }}"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{ page.previous.title }}</a>
+{% else %}
+<span class="pagination-item newer">上一篇&nbsp;<i class="fa fa-chain-broken"></i></span>
+{% endif %}
+{% if page.next %}
+<a class="pagination-item older" href="{{ BASE_PATH }}{{ page.next.url }}">{{ page.next.title }}&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+{% else %}
+<span class="pagination-item older">下一篇&nbsp;<i class="fa fa-chain-broken"></i></span>
+{% endif %}
 </div>
-
-{% include disqus.html %}
+{% if page.duoshuo != false %}{% include duoshuo.html %}{% endif %}
