@@ -17,7 +17,7 @@ index: true
       </p>
     </header>
     <div class="post-main">
-      {{ post.content | split:'<!-- more -->'| first }}
+      {{ post.content | split:'###'| first }}
       <div class="readall"><a href="{{ post.url }}" id="post-readall">阅读全文&nbsp;<i class="fa fa-chevron-right"></i></a></div>
     </div>
   </section>
