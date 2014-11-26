@@ -5,9 +5,9 @@ paginate: 15
 paginate_path: page/:num
 
 blog:
-    name: chrispher2012
-    description: Data Science
-    title: Walking on my way 
+    name: Data Science
+    description: chrispher2012
+    title: Data Science
     url: http://chrispher.github.io 
     duoshuo: chrispher2012
     tongji: chrispher2012 
