@@ -36,7 +36,7 @@
         $('.search-field').jekyllSearch({
             jsonFile: '/site.json',
             searchResults: '.search-results',
-            template: '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+            template: '<li><article><a href="{url}">{title} </a></article></li>',
             fuzzy: true,
             noResults: '<p>Nothing found.</p>'
           });
