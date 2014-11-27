@@ -1,14 +1,14 @@
 markdown: kramdown
 highlighter: pygments
 permalink: blog/:year/:month/:day/:title.html
-paginate: 10
+paginate: 12
 paginate_path: page/:num
 
 blog:
     name: Data Science
     description: chrispher guan
     title: Data Science
-    url: http://chrispher.github.io 
+    url: http://chrispher.github.com 
     duoshuo: chrispher2012
     tongji: 3F27793c8b949a643c724f32bcf5058791
 author:
