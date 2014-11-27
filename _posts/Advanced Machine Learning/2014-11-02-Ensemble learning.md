@@ -3,7 +3,7 @@ layout: post
 title: Ensemble learning 概述
 comments: true
 category: Advanced Machine Learning
-tags: [Bootstrap, Boosting, Bucket, Stacking]
+tags: [Bootstrap, Boosting, Bucket, Stacking, 集成学习, 机器学习, 组合分类]
 ---
 
 在机器学习和统计学习中, [Ensemble Learning](http://en.wikipedia.org/wiki/Ensemble_learning)(集成学习)是一种将多种学习算法组合在一起以取得更好表现的一种方法。与 [Statistical Ensemble](http://en.wikipedia.org/wiki/Statistical_ensemble)(统计总体，通常是无限的)不同，机器学习下的Ensemble 主要是指有限的模型相互组合，而且可以有很多不同的结构。相关的概念有多模型系统、Committee Learning、Modular systems、多分类器系统等等。这些概念相互之间相互联系，又有区别，而对这些概念的界定，业界目前还没有达成共识。

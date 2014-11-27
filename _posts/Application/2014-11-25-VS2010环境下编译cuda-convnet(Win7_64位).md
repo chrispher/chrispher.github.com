@@ -3,7 +3,7 @@ layout: post
 title: VS2010环境下编译cuda-convnet(Win7_64位)
 comments: true
 category: Application
-tags: [convnet, CNN, win7, Stacking, Deep Learning]
+tags: [convnet, CNN, win7, Deep Learning, 深度学习]
 ---
 
 系统是win7 64位, 已经提前安装了Visual Studio2010， CUDA5.5，Python安装的是Anaconda环境(可以自行搜索安装)；

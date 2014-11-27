@@ -3,7 +3,7 @@ layout: post
 title: Reading lists for new LISA students
 comments: true
 category: Resource
-tags: [Deep Learning, Reading, lists]
+tags: [Deep Learning, Reading, lists, 资料]
 ---
 
 Benjio给LISA学生的[Reading lists](https://docs.google.com/document/d/1IXF3h0RU5zz4ukmTrVKVotPQypChscNGf5k6E25HGvA/edit)
