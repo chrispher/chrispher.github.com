@@ -5,8 +5,8 @@ paginate: 12
 paginate_path: page/:num
 
 blog:
-    name: Data Science
-    description: chrispher guan
+    name: chrispher guan
+    description: Data Science
     title: Data Science
     url: http://chrispher.github.com 
     duoshuo: chrispher2012
