@@ -7,11 +7,11 @@ title: 站内搜索
 
 <h2 class="category">站内搜索</h2>
 
-<div class="category">
-	<div class="category">
-	  <input type="text" class="search-field" placeholder="Search...">
-	  <ul class="category-box-sub"></ul><!-- /.search-results -->
-	</div><!-- /.search-form -->
+<div class="search-wrapper">
+  <div class="search-form">
+    <input type="text" class="search-field" placeholder="Search...">
+    <ul class="search-results post-list"></ul><!-- /.search-results -->
+  </div><!-- /.search-form -->
 </div><!-- ./search-wrapper -->
 
 <br/>
@@ -24,8 +24,8 @@ title: 站内搜索
 	$(document).ready(function() {
 	  $('.search-field').jekyllSearch({
 	      jsonFile: '/site.json',
-	      searchResults: '.search-results' ,
-	      template: '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>'  ,
+	      searchResults: '.search-results <br/> ' ,
+	      template: '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li> <br/> '  ,
 	      fuzzy: true,
 	      noResults: '<p>Nothing found.</p>'
 	    });
