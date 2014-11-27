@@ -4,7 +4,7 @@ title: 站内搜索
 ---
 
 <nav>
-  <h3>  站内搜索</h3>
+  <h2>  站内搜索</h2>
   <hr/>
   <body>
   <div class="search-wrapper">
@@ -23,7 +23,7 @@ title: 站内搜索
 		  $('.search-field').jekyllSearch({
 		      jsonFile: '/site.json',
 		      searchResults: '',
-		      template: '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>' ,
+		      template: '<li> <h4> <article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article> <h4> </li>' ,
 		      fuzzy: true,
 		      noResults: '<p>Nothing found.</p>'
 		    });
