@@ -1,12 +1,12 @@
 markdown: kramdown
 highlighter: pygments
 permalink: blog/:year/:month/:day/:title.html
-paginate: 15
+paginate: 10
 paginate_path: page/:num
 
 blog:
     name: Data Science
-    description: chrispher2012
+    description: chrispher guan
     title: Data Science
     url: http://chrispher.github.io 
     duoshuo: chrispher2012
