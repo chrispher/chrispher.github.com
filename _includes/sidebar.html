@@ -19,56 +19,53 @@
     </ul>
   </nav>
 
-<body>
-    <div class="search-wrapper">
-      <div class="search-form">
-        <input type="text" class="search-field" placeholder="Search...">
-        <ul class="search-results post-list"></ul><!-- /.search-results -->
-      </div><!-- /.search-form -->
-    </div><!-- ./search-wrapper -->
+  <div class="search-wrapper">
+    <div class="search-form">
+      <input type="text" class="search-field" placeholder="Search...">
+      <ul class="search-results post-list"></ul><!-- /.search-results -->
+    </div><!-- /.search-form -->
+  </div><!-- ./search-wrapper -->
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/res/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-    <script src="/res/js/scripts.min.js"></script>
-    <!-- Jekyll Simple Search option -->
-    <script>
-      $(document).ready(function() {
-        $('.search-field').jekyllSearch({
-            jsonFile: '/site.json',
-            searchResults: '.search-results',
-            template: '<li><article><a href="{url}">{title} </a></article></li>',
-            fuzzy: true,
-            noResults: '<p>Nothing found.</p>'
-          });
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/res/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+  <script src="/res/js/scripts.min.js"></script>
+  <!-- Jekyll Simple Search option -->
+  <script>
+    $(document).ready(function() {
+      $('.search-field').jekyllSearch({
+          jsonFile: '/site.json',
+          searchResults: '.search-results',
+          template: '<li><article><a href="{url}">{title} </a></article></li>',
+          fuzzy: true,
+          noResults: '<p>Nothing found.</p>'
+        });
+    });
+
+    (function( $, window, undefined ) {
+      
+       var bs = {
+            close: $(".close-btn"),
+            searchform: $(".search-form"),
+            canvas: $(".js-menu-screen"),
+            dothis: $('.dosearch')
+        };
+      
+      bs.dothis.on('click', function() {
+        $('.search-wrapper').css({ display: "block" });
+        $('body').toggleClass('no-scroll');
+        bs.searchform.toggleClass('active');
+        bs.searchform.find('input').focus();
+        bs.canvas.toggleClass('is-visible');
       });
-
-      (function( $, window, undefined ) {
-        
-         var bs = {
-              close: $(".close-btn"),
-              searchform: $(".search-form"),
-              canvas: $(".js-menu-screen"),
-              dothis: $('.dosearch')
-          };
-        
-        bs.dothis.on('click', function() {
-          $('.search-wrapper').css({ display: "block" });
+      
+        bs.close.on('click', function() {
+          $('.search-wrapper').removeAttr( 'style' );
           $('body').toggleClass('no-scroll');
           bs.searchform.toggleClass('active');
-          bs.searchform.find('input').focus();
-          bs.canvas.toggleClass('is-visible');
-        });
-        
-          bs.close.on('click', function() {
-            $('.search-wrapper').removeAttr( 'style' );
-            $('body').toggleClass('no-scroll');
-            bs.searchform.toggleClass('active');
-            bs.canvas.removeClass('is-visible');
-        });
-      })( jQuery, window );
-    </script>
-
-  </body>
+          bs.canvas.removeClass('is-visible');
+      });
+    })( jQuery, window );
+  </script>
 
   <div id="license">
     <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="本站所有作品采用：&#10;知识共享《署名 非商业性使用 相同方式共享 3.0》&#10;进行许可" ></a>
