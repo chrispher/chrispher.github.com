@@ -7,9 +7,9 @@
   title: 分类
 
 - href: /page/search.html
-  icon: fa fa-tags
+  icon: fa fa-search
   title: 搜索
 
-- href: /page/about.html
+- href: README.md
   icon: fa fa-paper-plane-o
   title: 关于
