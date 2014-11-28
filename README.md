@@ -14,7 +14,7 @@ title: 个人博客
 
 - [http://chrispher.github.io](http://chrispher.github.io)
 
-- 博客主题Jekyll Light, 由[pexcn](https://github.com/pexcn/Jekyll-Light)制作。
+- 博客主题Jekyll Light, 由[pexcn](https://github.com/pexcn/Jekyll-Light)设计，我在该版本上增加了`站内搜索`功能、删除了豆瓣阅读和其他一些细节上的修改。
 
 ### 许可证
 
