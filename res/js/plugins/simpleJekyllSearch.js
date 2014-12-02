@@ -9,7 +9,7 @@
     $.fn.jekyllSearch = function(options) {
         var settings = $.extend({
             jsonFile            : '/site.json',
-            template            : '<a href="{url}" title="{desc}">{title}</a>',
+            template            : '<a href="{url}" title="{desc}">{title}</a><hr/>',
             searchResults       : '.results',
             searchResultsTitle  : '<h3>Search results</h3><hr/>',
             limit               : '20',
