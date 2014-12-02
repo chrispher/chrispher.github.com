@@ -11,8 +11,8 @@
             jsonFile            : '/site.json',
             template            : '<a href="{url}" title="{desc}">{title}</a>',
             searchResults       : '.results',
-            searchResultsTitle  : '<h4>Search results</h4>',
-            limit               : '10',
+            searchResultsTitle  : '<h3>Search results</h3><hr/>',
+            limit               : '20',
             noResults           : '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
         }, options);
 
