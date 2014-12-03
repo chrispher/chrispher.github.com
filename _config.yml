@@ -10,10 +10,13 @@ blog:
     title: Data Science
     url: http://chrispher.github.com 
     duoshuo: chrispher2012
-    tongji: 3F27793c8b949a643c724f32bcf5058791
+    tongji: 3Fca70591450b95f8b7d7de185c49db345
 author:
+    # Profile links on the left sidebar, leave blank to ignore
     name: chrispher guan 
     email: chrispher2012@gmail.com 
-    weibo: http://weibo.com/u/2917650677
-    github: https://github.com/chrispher
+    weibo: 2917650677  # weibo ID
+    github: chrispher  # github ID
+    linkedin: chrispher-guan/5a/a68/6b8
+    gplus: 110552447039675960964
     logo: http://chrispher.github.com/images/op_we_are_brothers.png
