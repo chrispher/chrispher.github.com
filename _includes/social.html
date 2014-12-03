@@ -1,4 +1,16 @@
 <div id="stalker">
+  {% if site.author.linkedin %}
+  <a class="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/pub/{{ site.author.linkedin }}">
+    <i class="fa fa-linkedin fa-1.6x"></i>
+  </a>
+  {% endif %}
+
+  {% if site.author.gplus %}
+  <a class="Google Plus" title="Google Plus" href="https://plus.google.com/{{ site.author.gplus }}">
+    <i class="fa fa-google-plus fa-1.6x"></i>
+  </a>
+  {% endif %}
+
   {% if site.author.github %}
   <a class="Github" title="Github" href="https://github.com/{{ site.author.github }}">
     <i class="fa fa-github fa-2x"></i>
@@ -47,18 +59,6 @@
   {% if site.author.tumblr %}
   <a class="tumblr" title="tumblr" href="https://{{ site.author.tumblr }}.tumblr.com">
     <i class="fa fa-tumblr fa-2x"></i>
-  </a>
-  {% endif %}
-
-  {% if site.author.linkedin %}
-  <a class="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/pub/{{ site.author.linkedin }}">
-    <i class="fa fa-linkedin fa-2x"></i>
-  </a>
-  {% endif %}
-
-  {% if site.author.gplus %}
-  <a class="Google Plus" title="Google Plus" href="https://plus.google.com/{{ site.author.gplus }}">
-    <i class="fa fa-google-plus fa-2x"></i>
   </a>
   {% endif %}
 
