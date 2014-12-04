@@ -119,32 +119,6 @@ a:link {
 	-o-border-radius:10%;
 }
 
-.ads { 
-	mergin: 0 auto; 
-} 
-.ads img { 
-	height:100px;
-	width:220px;
-	border:4px solid rgba(0,100,200,0.5);
-	border-radius:50%;
-	-moz-border-radius:50%;
-	-webkit-border-radius:50%;
-	transition:transform 2.0s ease-out,border-radius 1.0s ease-out;
-	-webkit-transition:-webkit-transform 2.0s ease-out,border-radius 1.0s ease-out;
-	-moz-transition:-moz-transform 2.0s ease-out,border-radius 1.0s ease-out;
-	-o-transition:-moz-transform 2.0s ease-out,border-radius 1.0s ease-out;
-} 
-.ads img:hover { 
-	transform:rotateZ(360deg);
-	-webkit-transform:rotateZ(360deg);
-	-moz-transform:rotateZ(360deg);
-	-o-transform:rotateZ(360deg);
-	border-radius:10%;
-	-moz-border-radius:10%;
-	-webkit-border-radius:10%;
-	-o-border-radius:10%;
-} 
-
 .title {
 	font-family:segoepr;
 	font-size:40px;
