@@ -119,22 +119,25 @@ a:link {
 	-o-border-radius:10%;
 }
 
-#container { 
-	width: 300px; 
+.ads { 
 	mergin: 0 auto; 
 } 
-.ads img{ 
-	height: 100px; 
-	width: 200px; 
-	mergin: 15px 0; 
-	-webkit-transition: all 1s ease; 
-	-moz-transition: all 1s ease; 
-	-o-transition: all 1s ease; 
+.ads img { 
+	height:100px;
+	width:220px;
+	mergin: 20px; 
+	border: 5px solid #eee; 
+	-webkit-box-shadow: 4px 4px 4px rgba(0,0,0,0.2); 
+	-moz-box-shadow: 4px 4px 4px rgba(0,0,0,0.2); 
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.2); 
+	-webkit-transition: all 0.5s ease-out; 
+	-moz-transition: all 0.5s ease; 
+	-o-transition: all 0.5s ease; 
 } 
 .ads img:hover { 
-	height: 133px; 
-	width: 400px; 
-	mergin-left: -50px; 
+	-webkit-transform: rotate(-7deg); 
+	-moz-transform: rotate(-7deg); 
+	-o-transform: rotate(-7deg); 
 } 
 
 .title {
