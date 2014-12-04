@@ -124,8 +124,8 @@ a:link {
 	mergin: 0 auto; 
 } 
 .ads img{ 
-	height: 250px; 
-	width: 500px; 
+	height: 100px; 
+	width: 200px; 
 	mergin: 15px 0; 
 	-webkit-transition: all 1s ease; 
 	-moz-transition: all 1s ease; 
