@@ -121,7 +121,7 @@ a:link {
 
 .title {
 	font-family:segoepr;
-	font-size:40px;
+	font-size:30px;
 	margin-top:-3%;
 }
 .title a {
@@ -146,7 +146,7 @@ a:link {
 	letter-spacing:0;
 }
 #nav {
-	margin:8% 0 8% -10%;
+	margin:3% 0 3% -10%;
 }
 #nav ul {
 	list-style:none;
