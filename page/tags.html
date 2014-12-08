@@ -13,6 +13,8 @@ title: 文章标签
     {% capture word %}{{ tag[item] | strip_newlines }}{% endcapture %}
     <a class="category-box-sub"><a href="#{{ word }}">{{ word }}&nbsp;<sup>{{ site.tags[word].size }}</sup></a></a>
     <i class="space"></i>
+    <i class="space"></i>
+    <i class="space"></i>
     {% endunless %}{% endfor %}
   </ul>
 </div>
