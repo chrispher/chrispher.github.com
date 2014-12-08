@@ -16,6 +16,10 @@ index: true
         <a class="post-category" href="/page/category.html#{{ post.categories }}">{{ post.categories }}</a>
         <i class="space"></i>
         <i class="fa fa-tags"></i>
+        {% for tag in page.tags %}
+          <a class="post-tag" href="/page/tags.html#{{tag}}">{{tag}}</a>
+          <i class="space"></i>
+        {% endfor %}
       </p>
     </header>
     <div class="post-main">

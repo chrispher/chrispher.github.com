@@ -14,7 +14,7 @@ math: true
     <a class="post-category" href="/page/category.html#{{ page.categories }}">{{ page.categories }}</a>	
     <i class="space"></i>
     <i class="fa fa-tags"></i>
-    {% for tag page.tags %}
+    {% for tag in page.tags %}
       <a class="post-tag" href="/page/tags.html#{{ tag }}">{{tag}}</a>
       <i class="space"></i>
     {% endfor %}
