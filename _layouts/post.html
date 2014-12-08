@@ -10,8 +10,10 @@ math: true
     <i class="fa fa-calendar"></i>
     {{ page.date | date: "%Y" }}年{{ page.date | date: "%m" }}月{{ page.date | date: "%d" }}日
     <i class="space"></i>
-    <i class="fa fa-tags"></i>
+    <i class="fa fa-archive"></i>
     <a class="post-category" href="/page/category.html#{{ page.categories }}">{{ page.categories }}</a>	
+    <i class="fa fa-tags"></i>
+    <a class="post-tag" href="/page/tags.html#{{ page.tags }}">{{ page.tags }}</a>	
   </p>
 </header>
 <div class="post-main">
