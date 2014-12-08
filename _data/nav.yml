@@ -17,3 +17,7 @@
 - href: /page/about.html
   icon: fa fa-paper-plane-o
   title: 关于
+
+- href: /page/message.html
+  icon: fa fa-message
+  title: 留言板

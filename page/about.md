@@ -3,6 +3,8 @@ layout: blog
 title: 个人博客
 ---
 
+<link rel="stylesheet" href="/res/css/page.css">
+
 ### 博客简介
 
 - 写一点东西，整理一些东西。分享知识，是成长所必须的。

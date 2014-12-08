@@ -12,8 +12,11 @@ math: true
     <i class="space"></i>
     <i class="fa fa-archive"></i>
     <a class="post-category" href="/page/category.html#{{ page.categories }}">{{ page.categories }}</a>	
+    <i class="space"></i>
     <i class="fa fa-tags"></i>
-    <a class="post-tag" href="/page/tags.html#{{ page.tags }}">{{ page.tags }}</a>	
+    {% for tag page.tags %}
+      <a class="post-tag" href="/page/tags.html#{{tag}}">{{tag}}</a>
+      <i class="space"></i>
   </p>
 </header>
 <div class="post-main">
