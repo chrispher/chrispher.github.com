@@ -1,31 +1,4 @@
 <div class="sidebar">
-  <div class="profilepic">
-    <a href="/"><img src="{{ site.author.logo }}" alt="logo"></img></a>
-  </div>
-  <h3 class="title"><a href="/">{{ site.blog.name }}</a></h3>
-
-  <nav id="nav">
-    <ul>
-    {% for nav in site.data.nav %}
-      <li><a href="{{ nav.href }}"{% if nav.newblank == true %}target="_blank"{% endif %}><i class="{{ nav.icon }}"></i>&nbsp;{{ nav.title }}</a></li>
-    {% endfor%}
-    </ul>
-  </nav> 
-
-  <nav id="sub-nav">
-    {% include social.html %}
-  </nav>
-  <br/>
-
-  <td>
-  <form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank" accept-charset="GBK">
-  <input name="optEmail" type="hidden" value="chrispher2012@gmail.com"/>
-  <input name="payAmount" type="hidden" value="10"/>
-  <input id="title" name="title" type="hidden" value=""/>
-  <input name="memo" type="hidden" value="给Chrispher Guan的Blog捐款"/>
-  <input name="pay" type="image" value="转账" src="http://chrispher.github.com/res/img/alipay.png"/>
-  </form>
-  </td>
   
 </div>
     
