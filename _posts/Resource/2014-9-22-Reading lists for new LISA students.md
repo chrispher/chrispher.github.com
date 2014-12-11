@@ -11,7 +11,6 @@ Benjio给LISA学生的[Reading lists](https://docs.google.com/document/d/1IXF3h0
 <!-- more -->
 
 ###content
-<!-- MarkdownTOC depth=4 -->
 - [Research in General](#Research in General)
 - [Basics of machine learning](#Basics of machine learning)
 - [Basics of deep learning](#Basics of deep learning)
@@ -36,8 +35,6 @@ Benjio给LISA学生的[Reading lists](https://docs.google.com/document/d/1IXF3h0
 - [Software documentation](#Software documentation)
 - [Software lists of built-in commands/functions](#Software lists of built-in commands/functions)
 - [Other Software stuff to know about:](#Other Software stuff to know about:)
-
-<!-- /MarkdownTOC -->
 
 Reading lists for new LISA students
 

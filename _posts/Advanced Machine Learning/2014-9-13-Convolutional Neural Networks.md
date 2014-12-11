@@ -10,8 +10,7 @@ CNN ([Convolutional Neural Networks](http://en.wikipedia.org/wiki/Convolutional_
 
 <!-- more -->
 
-### 目录
-<!-- MarkdownTOC depth=4 -->
+###目录
 - [1.概述](#1.概述)
 - [2.卷积层和子抽样层](#2.卷积层和子抽样层)
     - [2.1 卷积层](#2.1 卷积层)
@@ -19,8 +18,6 @@ CNN ([Convolutional Neural Networks](http://en.wikipedia.org/wiki/Convolutional_
 - [3.稀疏连接与LeNet5说明](#3.稀疏连接与LeNet5说明)
 - [4.theano实现](#4.theano实现)
 - [5.参考资料](#5.参考资料)
-<!-- /MarkdownTOC -->
-
 
 <a name="1.概述" />
 

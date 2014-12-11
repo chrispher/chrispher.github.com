@@ -25,7 +25,6 @@ tags: [Bootstrap, Boosting, Bucket, Stacking, 集成学习, 机器学习, 组合
     - [3.7 Stacking](#3.7 Stacking)
 - [4. Ensemble combination rules](#4. Ensemble combination rules)
 
-
 <a name="1.Overview"/>
 
 ###1.Overview

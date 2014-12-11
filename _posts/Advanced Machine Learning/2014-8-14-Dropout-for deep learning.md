@@ -10,14 +10,11 @@ tags: [Deep Learning, Dropout, 深度学习, 机器学习]
 
 <!-- more -->
 
-### 目录
-<!-- MarkdownTOC depth=4 -->
+####目录
 - [1.概述](#1.概述)
 - [2.深度学习的过拟合](#2.深度学习的过拟合)
 - [3.dropout](#3.dropout)
 - [4. Appendix](#4. Appendix)
-<!-- /MarkdownTOC -->
-
 
 <a name="1.概述" />
 

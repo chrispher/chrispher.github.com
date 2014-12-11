@@ -16,7 +16,6 @@ tags: [python, 绘图, matplotlib]
 - [3.colors](#3.colors)
 - [4.matrix](#4.matrix)
 
-
 <a name="1.使用风格"/>
 
 ###1.使用风格

@@ -37,8 +37,6 @@ Note: This article originates from the [network](http://machinelearningmastery.c
     - [8.2 Links](#8.2 Links)
     - [8.3 Videos](#8.3 Videos)
 
-<!-- /MarkdownTOC -->
-
 
 <a name="1. Introduction" />
 

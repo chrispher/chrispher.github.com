@@ -16,7 +16,6 @@ tags: [trick, hash, 特征, 哈希]
 - [3.Feature vectorization using the hashing trick](3.Feature vectorization using the hashing trick)
 - [4.other](#4.other)
 
-
 <a name="1.Motivating example"/>
 
 ###1.Motivating example
