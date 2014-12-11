@@ -40,9 +40,9 @@ $$p(x=1｜D) = \int_0^1 p(x=1｜\mu)p(\mu｜D)d\mu = \int_0^1 \mu p(\mu｜D)d\mu
 
 拓宽来说，对于普通的贝叶斯推断问题，参数$$\theta$$，考虑到条件期望和条件方差，我们可以推导：
 
-\begin{align} E_D[E_\theta[\theta｜D]] &= \int{(\int{\theta p(\theta｜D) d\theta}) p(D)}dD \\ &= \int{(\int{p(\theta｜D) p(D) dD})\theta d\theta} \\ &= \int{p(\theta)\theta d\theta} \\ &= E_\theta(\theta) \end{align}
+$$\begin{align} E_D[E_\theta[\theta｜D]] &= \int{(\int{\theta p(\theta｜D) d\theta}) p(D)}dD \\ &= \int{(\int{p(\theta｜D) p(D) dD})\theta d\theta} \\ &= \int{p(\theta)\theta d\theta} \\ &= E_\theta(\theta) \end{align}$$
 
-\begin{align} var_\theta[\theta] &= E_\theta[\theta^2] - [E_\theta[\theta]]^2 \\ &= E_D[E_\theta[\theta^2｜D]] - [E_D[E_\theta[\theta｜D]]]^2 \\ &= E_D[E_\theta[\theta^2｜D]] - E_D[E_\theta[\theta｜D]^2] + E_D[E_\theta[\theta｜D]^2] - [E_D[E_\theta[\theta｜D]]]^2 \\ &= E_D[var_\theta[\theta｜D]] + var_D[E_\theta[\theta｜D]] \end{align}
+$$\begin{align} var_\theta[\theta] &= E_\theta[\theta^2] - [E_\theta[\theta]]^2 \\ &= E_D[E_\theta[\theta^2｜D]] - [E_D[E_\theta[\theta｜D]]]^2 \\ &= E_D[E_\theta[\theta^2｜D]] - E_D[E_\theta[\theta｜D]^2] + E_D[E_\theta[\theta｜D]^2] - [E_D[E_\theta[\theta｜D]]]^2 \\ &= E_D[var_\theta[\theta｜D]] + var_D[E_\theta[\theta｜D]] \end{align}$$
 
 由此看出参数后验概率的方差是小于先验概率方差的，即参数的不确定性随着观测数据而降低。当然，这只是理想情况，实际过程中，也存在大于的情况。
 
