@@ -16,13 +16,6 @@ tags: [Bootstrap, Boosting, Bucket, Stacking, 集成学习, 机器学习, 组合
 - [1.Overview](#1.Overview)
 - [2.Ensemble theory](#2.Ensemble theory)
 - [3.Common types of ensembles](#3.Common types of ensembles)
-    - [3.1 Bayes optimal classifier](#3.1 Bayes optimal classifier)
-    - [3.2 Bootstrap aggregating](#3.2 Bootstrap aggregating)
-    - [3.3 Boosting](#3.3 Boosting)
-    - [3.4 Bayesian model averaging](#3.4 Bayesian model averaging)
-    - [3.5 Bayesian model combination](#3.5 Bayesian model combination)
-    - [3.6 Bucket of models](#3.6 Bucket of models)
-    - [3.7 Stacking](#3.7 Stacking)
 - [4. Ensemble combination rules](#4. Ensemble combination rules)
 
 <a name="1.Overview"/>
@@ -53,8 +46,6 @@ Ensemble方法是监督式学习的一种，训练完成之后就可以看成是
 
 ###3.Common types of ensembles
 
-<a name="3.1 Bayes optimal classifier"/>
-
 ####3.1 Bayes optimal classifier
 
 贝叶斯最优分类器(Bayes Optimal Classifier)是分类技术的一种，他是"假设"空间里所有"假设"的一个Ensemble。通常来说，没有别的Ensemble会比它有更好的表现！因此，可以认为他是最优的Ensemble(见Tom M. Mitchell, Machine Learning, 1997, pp. 175)。如果"假设"是对的话，那每一个"假设"对从系统中产生训练数据的似然性都有一个投票比例。为了促使训练数据集大小是有限的，我们需要对每个"假设"的投票乘上一个先验概率。因此，完整的Bayes Optimal Classifier如下:  
@@ -67,23 +58,17 @@ $$y=argmax_{c_j \in C} \sum_{h_i \in H}{P(c_j｜h_i)P(T｜h_i)P(h_i)}$$
 - 3) 计算一个训练数据的无偏估计$$P(T｜h_i)$$是非常难的;
 - 4) 估计各个"假设"的先验分布$$P(h_i)$$基本是不可行的；
 
-<a name="3.2 Bootstrap aggregating"/>
-
 ####3.2 Bootstrap aggregating
 
 [Bootstrap aggregating](http://en.wikipedia.org/wiki/Bootstrap_aggregating)通常又简称为Bagging(装袋法)，它是让各个模型都平等投票来决定最终结果。为了提高模型的方差(variance, 差异性)，bagging在训练待组合的各个模型的时候是从训练集合中随机的抽取数据。比如[随机森林](http://en.wikipedia.org/wiki/Random_forest)(random forest)就是多个随机决策树平均组合起来以达到较优分类准确率的模型。 但是，bagging的一个有趣应用是非监督式学习中，图像处理中使用不同的核函数进行bagging，可以阅读论文Image denoising with a multi-phase kernel principal component approach and an ensemble version 和 Preimages for Variation Patterns from Kernel PCA and Bagging。
 
 <img src="http://chrispher.github.com/images/machinelearning/EnsembleLearning_Bagging.jpg" height="100%" width="100%">
 
-<a name="3.3 Boosting"/>
-
 ####3.3 Boosting
 
 [Boosting](http://en.wikipedia.org/wiki/Boosting_(meta-algorithm))(提升法)是通过不断的建立新模型而新模型更强调上一个模型中被错误分类的样本，再将这些模型组合起来的方法。在一些例子中，boosting要比bagging有更好的准确率，但是也更容易过拟合。目前，boosting中最常用的方法是[adaboost](http://en.wikipedia.org/wiki/Adaboost).
 
 <img src="http://chrispher.github.com/images/machinelearning/EnsembleLearning_Boosting.jpg" height="100%" width="100%">
-
-<a name="3.4 Bayesian model averaging"/>
 
 ###3.4 Bayesian model averaging
 
@@ -107,8 +92,6 @@ function train_bayesian_model_averaging(T)
             weight[m] = prior[m] * exp(log_likelihood[m] - z)
     Normalize all the model weights to sum to 1.
 {% endhighlight %}
-
-<a name="3.5 Bayesian model combination"/>
 
 ####3.5 Bayesian model combination
 Bayesian model combination(BMC) 是 BMA 的一个校正算法。它不是独立的生成Ensemble中的一个个模型，而是从可能的Ensemble Space中生成（模型的权重是由同一参数的Dirichlet分布生成）。这个修正克服了BMA算法给单个模型所有权重的倾向。尽管BMC比BMA有更多的计算量，但是它的结果也非常的好！有很多例子证明了BMC比BMA和bagging的效果更好。
@@ -152,8 +135,6 @@ function train_bayesian_model_combination(T)
     Normalize the model weights to sum to 1.
 {% endhighlight %}
 
-<a name="3.6 Bucket of models"/>
-
 ####3.6 Bucket of models
 
 bucket of models是在Ensemble中针对具体问题进行最优模型选择的算法。当针对一个具体问题是，bucket of models 并不能够产生比最优模型更好的结果，但是在许多问题评估中，平均来说，它将比其他模型有更好的结果。
@@ -173,8 +154,6 @@ Select the model that obtains the highest average score
 Gating 是交叉验证的一种一般化。它在训练中多训练一个模型用于决定在特定问题下具体选择某个模型。通常情况下，[感知器](http://en.wikipedia.org/wiki/Perceptron)(perceptron)会被用于Gating model。它可以用于选择最优模型，也可以是bucket中各个模型的预测结果的一组线性权重。比如垃圾分类问题中，用感知器训练Gating 之后，可以训练成：在money单词出现2次以上时使用logistic的分类结果，否则使用朴素贝叶斯的结果；也可以训练成结果为a×money出现次数×决策树+b×money出现次数×朴素贝叶斯 + c的结果（结果是为是是垃圾邮件的概率，abc由感知器训练得到）。
 
 Bucket of models也可以用于处理一大组问题，用以避免训练一些需要很长时间训练的模型。Landmark learning是一种旨在解决这个问题的元学习(meta-learning)方法。Bucket中，只包括一些训练比较快的模型(可能不是很准确)，用这些模型的结果来确定哪些缓慢（但准确）算法是最有可能做最好。
-
-<a name="3.7 Stacking"/>
 
 ####3.7 Stacking
 

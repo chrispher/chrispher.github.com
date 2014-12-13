@@ -13,8 +13,6 @@ CNN ([Convolutional Neural Networks](http://en.wikipedia.org/wiki/Convolutional_
 ###目录
 - [1.概述](#1.概述)
 - [2.卷积层和子抽样层](#2.卷积层和子抽样层)
-    - [2.1 卷积层](#2.1 卷积层)
-    - [2.2 池化层](#2.2 池化层)
 - [3.稀疏连接与LeNet5说明](#3.稀疏连接与LeNet5说明)
 - [4.theano实现](#4.theano实现)
 - [5.参考资料](#5.参考资料)
@@ -29,8 +27,6 @@ CNN ([Convolutional Neural Networks](http://en.wikipedia.org/wiki/Convolutional_
 
 ###2.卷积层和池化层
 这部分详细的说一下卷积层和池化层（子抽样层的一种典型），并根据这两层的特点说明CNN中的**权值共享**和**部分联通**。
-
-<a name="2.1 卷积层"/>
 
 ####2.1 卷积层
 自然图像有其固有特性，也就是说，图像的一部分的统计特性与其他部分是一样的。这也意味着我们在这一部分学习的特征也能用在另一部分上，所以对于这个图像上的所有位置，我们都能使用同样的学习特征[$$^1$$](http://deeplearning.stanford.edu/wiki/index.php/Feature_extraction_using_convolution)。
@@ -48,9 +44,6 @@ CNN ([Convolutional Neural Networks](http://en.wikipedia.org/wiki/Convolutional_
 
 但是这样共享一个权值，只能提取了一种特征？如果我们用多种filter的话，就能提出图像的不同的特征。所以假设我们加到100种filter，每种filter的参数不一样，表示它提出输入图像的不同特征，这样每种filter去卷积图像就得到对图像的不同特征的表达，我们称之为Feature Map。所以100种filter就有100个Feature Map。这100个Feature Map就组成了一层神经元。那这一层有多少个参数了？100种filterx每种filter共享100个参数=100x100=10K，也就是1万个参数。见下图右：不同的颜色表达不同的滤波器。
 <img src="http://chrispher.github.com/images/deeplearning/cnn_w_share2.jpg" height="100%" width="100%">
-
-
-<a name="2.2 池化层"/>
 
 ####2.2 池化层
 在通过卷积获得了特征 (features) 之后，下一步我们希望利用这些特征去做分类。理论上讲，人们可以用所有提取得到的特征去训练分类器，例如 softmax 分类器，但这样做面临计算量的挑战。例如：对于一个 96X96 像素的图像，假设我们已经学习得到了400个定义在8X8输入上的特征，每一个特征和图像卷积都会得到一个 (96 − 8 + 1) × (96 − 8 + 1) = 7921 维的卷积特征，由于有 400 个特征，所以每个样例 (example) 都会得到一个 892 × 400 = 3,168,400 维的卷积特征向量。学习一个拥有超过 3 百万特征输入的分类器十分不便，并且容易出现过拟合 (over-fitting)。

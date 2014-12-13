@@ -14,13 +14,7 @@ some free data science books!
 - [Data Science Introduction](#data-science-introduction)
 - [Data Processing](#data-processing)
 - [Data Analysis](#data-analysis)
-	- [Fundamentals](#fundamentals)
-    - [Network Analysis](#network-analysis)
-	- [Statistics](#statistics)
-    - [Data Mining](#data-mining)
-	- [Machine Learning](#machine-learning)
 - [Data Science Application](#data-science-application)
-	- [Data Visualization](#data-visualization)
 - [Uncategorized](#uncategorized)
 - [MOOCs about Data Science](#moocs-about-data-science)	
 

@@ -14,9 +14,6 @@ tags: [ABC, 随机模拟法, Tiny data, 数据分析, 统计, 贝叶斯]
 - [1.问题](#1.问题)
 - [2.随机模拟法](#2.随机模拟法)
 - [3.近似贝叶斯计算](#3.近似贝叶斯计算)
-    - [3.1选择先验概率](#3.1选择先验概率)
-    - [3.2程序与结果](#3.2程序与结果)
-
 
 <a name="1.问题"/>
 
@@ -93,14 +90,10 @@ while abs(final - 11) > 0.01:
 
 <img src="http://chrispher.github.com/images/statistics/Approximate_Bayesian_computation_conceptual_overview.svg.png" height="100%" width="100%">
 
-<a name="3.1选择先验概率"/>
-
 ####3.1选择先验概率
 如何选择一个合适的先验概率分布呢？我们的参数是 n_socks（袜子总数）, n_pairs(成对的袜子数) 和 n_odd(成单的袜子数)。我们目前所能知道的是这两者都是离散整数。一个比较不错的选择是泊松分布（适合于描述单位时间内随机事件发生的次数），但是泊松分布的期望和方差都是一个参数值。
 
 我们考虑到一个家庭大约3-4人，每人每周换5次袜子，这里选择n_socks服从[negative binomial](http://en.wikipedia.org/wiki/Negative_binomial_distribution)分布，即`n_socks = random.negative_binomial(30,0.42)`，对于n_pairs，不直接使用概率分布，而是考虑n_socks中出现n_pairs的比例，期望是95%，使用beta分布，即`random.beta(20,2,1)`
-
-<a name="3.2程序与结果"/>
 
 ####3.2程序与结果
 
