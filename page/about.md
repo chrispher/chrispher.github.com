@@ -17,7 +17,7 @@ title: 个人博客
 
 - 邮箱: chrispher2012@gmail.com
 
-- 博客地址: [http://www.datakit.cn](http://www.datakit.cn)，转载文章请注明作者和出处！
+- 博客地址: [http://www.datakit.cn](http://www.datakit.cn)，转载文章请注明作者chrispher guan和出处！
 
 - 捐赠: 看到左下角的**支付宝捐赠**了？觉得有趣，就请抖抖小手吧！有需要探讨的相关主题，可以在留言板块留言哟！
 
