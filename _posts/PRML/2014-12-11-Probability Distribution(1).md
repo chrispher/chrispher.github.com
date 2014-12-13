@@ -131,7 +131,15 @@ $$\ln p(X \mid \mu,\Sigma) = -\frac{ND}{2}\ln (2\pi) - \frac{N}{2}\ln  \mid \Sig
 
 $$\mu_{ML} = \frac{1}{N}\sum_{n=1}^N x_n \ \ \ ; \ \ \  \Sigma_{ML} = \frac{1}{N} \sum_{n=1}^N (x_n - \mu_{ML})(x_n - \mu_{ML})^T$$
 
-这里均值的估计是无偏的，但是方差是有偏的，一般会在此基础之上再乘以$$\frac{N-1}{N}$$。此外，我们考虑到on-line的应用(观测数据无法一次整体得到，每次只能使用一个观测)，那么均值的更新方式就需要更改为$$\mu_{ML}^N = \frac{1}{N}x_N + \frac{N-1}{N} \mu_{ML}^{(N-1)} = \mu_{ML}^{N-1} + \frac{1}{N}(x_N - \mu_{ML}{(N-1)})$$。这里使用了Robbins-Monro 算法的一个例子。考虑联合分布$$p(z,\theta)$$, 定义$$f(\theta) = E(z \mid \theta) = \int zp(z \mid \theta) d \theta $$, Robbins-Monro算法的更新机制是$$\theta^(N) = \theta^{(N-1)} + a_{N-1} z(\theta^{(N-1)})$$, 把该算法应用在求解最大似然时，只需要代入z就可以，对于高斯分布，$$z = \frac{\partial}{\partial \mu_{ML}} \ln  p(x \mid \mu_{ML}, \sigma^2) = \frac{1}{\sigma^2}(x-\mu_{ML})$$。
+这里均值的估计是无偏的，但是方差是有偏的，一般会在此基础之上再乘以$$\frac{N-1}{N}$$。此外，我们考虑到on-line的应用(观测数据无法一次整体得到，每次只能使用一个观测)，那么均值的更新方式就需要更改为:
+
+$$\mu_{ML}^N = \frac{1}{N}x_N + \frac{N-1}{N} \mu_{ML}^{(N-1)} = \mu_{ML}^{N-1} + \frac{1}{N}(x_N - \mu_{ML}{(N-1)})$$
+
+这里使用了Robbins-Monro 算法的一个例子。考虑联合分布$$p(z,\theta)$$, 定义$$f(\theta) = E(z \mid \theta) = \int zp(z \mid \theta) d \theta $$, Robbins-Monro算法的更新机制是
+
+$$\theta^{(N)} = \theta^{(N-1)} + a_{N-1} z(\theta^{(N-1)})$$
+
+把该算法应用在求解最大似然时，只需要代入z就可以，对于高斯分布，$$z = \frac{\partial}{\partial \mu_{ML}} \ln  p(x \mid \mu_{ML}, \sigma^2) = \frac{1}{\sigma^2}(x-\mu_{ML})$$。
 
 ####3.4贝叶斯
 用贝叶斯方法进行参数估计，比较复杂,这里先考虑一维的情况。
@@ -150,6 +158,7 @@ $$p(\lambda \mid X) \propto \lambda^{a_0-1} \lambda^{\frac{N}{2}} exp(-b_0\lambd
 最终得到:
 
 $$a_N = a_0 + \frac{N}{2} $$
+
 $$b_N = b_0 + \frac{1}{2}\sum_{n=1}^N(x_n-\mu)^2 = b_0 + \frac{N}{2}\sigma_{ML}^2$$
 
 那么对于**均值和方差均未知**的情况呢？可以采用normal-gamma分布(也称Gaussian-gamma分布)，即$$p(X \mid \mu,\lambda) = \prod_{n=1}^N (\frac{\lambda}{2\pi})^{\frac{1}{2}} exp(-\frac{\lambda}{2}(x_n - \mu)^2)$$, 即$$p(\mu,\lambda) = N(\mu \mid \mu_0, (\beta\lambda)^{-1}) Gam(\lambda \mid a,b)$$
@@ -181,4 +190,4 @@ $$p(x) = \sum_{k=1}^K \pi_k N(x \mid \mu_k, \Sigma_k)$$
 
 $$\ln p(X \mid \pi,\mu,\Sigma) = \sum_{n=1}^N \ln (\sum_{k=1}^K \pi_k N(x_n \mid \mu_k,\Sigma))$$
 
-这里明显比单一高斯分布要复杂的多，而且不存在闭合解(解析解).一般需要使用迭代法(iterative methods)，比如梯度下降、期望最大等等。
+这里明显比单一高斯分布要复杂的多，而且不存在闭合解(解析解)。一般需要使用迭代法(iterative methods)，比如梯度下降、期望最大等等。
