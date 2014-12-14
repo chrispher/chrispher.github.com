@@ -3,7 +3,7 @@ layout: post
 title: Structure of a Data Analysis
 comments: true
 category: Data Analysis
-tags: [data analysis,steps,分析流程, 数据分析]
+tags: [分析流程, 数据分析]
 ---
   
 随着工作和学习不断进行，越发认识到一个好的框架能够让你更快更容易的着手分析，当然也会有思维定势的缺陷。然而，作为基本流程，确实必须的，该数据分析流程能够保证在数据分析过程不遗落分析步骤，免得出现比如忘记清理异常值等情况。有些咨询公司甚至把适合自己公司的数据分析流程申请专利，可见分析流程的价值，而标准商业数据挖掘流程(CRISP)也由企业层面上升到了行业标准,在后面会整理到。  

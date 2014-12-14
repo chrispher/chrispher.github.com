@@ -3,7 +3,7 @@ layout: post
 title: Ask Me Anything_Yoshua Bengio
 comments: true
 category: Perspective
-tags: [Deep Learning, Bengio, AMA, 机器学习, 深度学习]
+tags: [Bengio, AMA, 机器学习, 深度学习]
 ---
 
 Yoshua Bengio教授（个人主页）是机器学习大神之一，尤其是在深度学习这个领域。他连同Geoff Hinton老先生以及 Yann LeCun（燕乐存）教授，缔造了2006年开始的深度学习复兴。他的研究工作主要聚焦在高级机器学习方面，致力于用其解决人工智能问题。他是仅存的几个仍然全身心投入在学术界的深度学习教授之一，好多其他教授早已投身于工业界，加入了谷歌或Facebook公司。作为机器学习社区的活跃者，Yoshua Bengio教授在美国东部时间2月27日下午一点到两点，在著名社区Reddit的机器学习板块参加了[“Ask Me AnyThing”](http://www.reddit.com/r/MachineLearning/comments/1ysry1/ama_yoshua_bengio/)活动，Yoshua回答了机器学习爱好者许多问题，干货频频。

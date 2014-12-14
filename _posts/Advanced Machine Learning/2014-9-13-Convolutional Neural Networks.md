@@ -3,7 +3,7 @@ layout: post
 title: Convolutional Neural Networks
 comments: true
 category: Advanced Machine Learning
-tags: [Deep Learning, CNN, 深度学习, 卷积, LeNet, 机器学习, pooling]
+tags: [CNN, 深度学习, 卷积, LeNet, 机器学习, pooling]
 ---
 
 CNN ([Convolutional Neural Networks](http://en.wikipedia.org/wiki/Convolutional_neural_network)) 是神经网络的一种，也是受启发于生物学，广泛的应用与图像分类等任务中。 这篇文档主要讨论CNN的基本概念和实现，并且针对某些CNN结构做具体的分析。CNN的发展也是经历了很长时间，不同的人也会有不同的实现方法和技巧，但是基本概念是相同的，这里以LeNet5为主要参照，词语表达以图像处理为基础。本文为个人的知识管理而进行资料整理，并不应用于商业目的，仅供学习交流。
@@ -49,6 +49,9 @@ CNN ([Convolutional Neural Networks](http://en.wikipedia.org/wiki/Convolutional_
 在通过卷积获得了特征 (features) 之后，下一步我们希望利用这些特征去做分类。理论上讲，人们可以用所有提取得到的特征去训练分类器，例如 softmax 分类器，但这样做面临计算量的挑战。例如：对于一个 96X96 像素的图像，假设我们已经学习得到了400个定义在8X8输入上的特征，每一个特征和图像卷积都会得到一个 (96 − 8 + 1) × (96 − 8 + 1) = 7921 维的卷积特征，由于有 400 个特征，所以每个样例 (example) 都会得到一个 892 × 400 = 3,168,400 维的卷积特征向量。学习一个拥有超过 3 百万特征输入的分类器十分不便，并且容易出现过拟合 (over-fitting)。
 
 为了解决这个问题，首先回忆一下，我们之所以决定使用卷积后的特征是因为图像具有一种“静态性”的属性，这也就意味着在一个图像区域有用的特征极有可能在另一个区域同样适用。因此，为了描述大的图像，一个很自然的想法就是对不同位置的特征进行聚合统计，例如，人们可以计算图像一个区域上的某个特定特征的平均值 (或最大值)。这些概要统计特征不仅具有低得多的维度 (相比使用所有提取得到的特征)，同时还会改善结果(不容易过拟合)。这种聚合的操作就叫做池化 (pooling)，有时也称为平均池化或者最大池化 (取决于计算池化的方法)。
+
+pooling的本质是一种局部特征的表达。max pooling的意思就是用图像某一区域像素值的最大值来表示该区域的特征，而mean pool的意思用图像某一区域像素值的均值来表示该区域的特征。这两个pooling操作都提高了提取特征的不变性，而特征提取的误差主要来自两个方面：（1）邻域大小受限造成的估计值方差增大；（2）卷积层参数误差造成估计均值的偏移。一般来说，mean-pooling能减小第一种误差，更多的保留图像的背景信息，max-pooling能减小第二种误差，更多的保留纹理信息。在图像处理中，使用max pooling多于mean pooling。
+
 
 下图显示池化如何应用于一个图像的四块不重合区域。
 <img src="http://chrispher.github.com/images/deeplearning/cnn_Pooling_schematic.gif" height="100%" width="100%">

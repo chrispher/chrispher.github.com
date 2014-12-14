@@ -3,7 +3,7 @@ layout: post
 title: Discover Feature Engineering
 comments: true
 category: Advanced Machine Learning
-tags: [Feature, Steps, 机器学习, 特征工程]
+tags: [机器学习, 特征]
 ---
 
 Note: This article originates from the [network](http://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/)
