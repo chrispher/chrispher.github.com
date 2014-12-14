@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Ask Me Anything_Yoshua Bengio
-comments: true
 category: Perspective
 tags: [Bengio, AMA, 机器学习, 深度学习]
 ---

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Feature hashing
-comments: true
 category: Advanced Machine Learning
 tags: [trick, 特征, 哈希]
 ---

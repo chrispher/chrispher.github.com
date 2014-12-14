@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Dropout-for deep learning
-comments: true
 category: Advanced Machine Learning
 tags: [Dropout, 深度学习, 机器学习]
 ---

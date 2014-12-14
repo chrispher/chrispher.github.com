@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Discover Feature Engineering
-comments: true
 category: Advanced Machine Learning
 tags: [机器学习, 特征]
 ---

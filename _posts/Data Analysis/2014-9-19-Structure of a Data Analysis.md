@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Structure of a Data Analysis
-comments: true
 category: Data Analysis
 tags: [分析流程, 数据分析]
 ---

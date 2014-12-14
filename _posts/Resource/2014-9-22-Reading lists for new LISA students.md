@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Reading lists for new LISA students
-comments: true
 category: Resource
 tags: [深度学习, 资料]
 ---

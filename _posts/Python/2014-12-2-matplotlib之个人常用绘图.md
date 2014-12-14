@@ -1,7 +1,6 @@
 ---
 layout: post
 title: matplotlib之个人常用绘图
-comments: true
 category: Python
 tags: [python, 绘图, matplotlib]
 ---

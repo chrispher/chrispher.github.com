@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Convolutional Neural Networks
-comments: true
 category: Advanced Machine Learning
 tags: [CNN, 深度学习, 卷积, LeNet, 机器学习, pooling]
 ---

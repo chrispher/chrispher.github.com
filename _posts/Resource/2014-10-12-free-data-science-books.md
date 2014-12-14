@@ -1,7 +1,6 @@
 ---
 layout: post
 title: free-data-science-books
-comments: true
 category: Resource
 tags: [数据科学, 资料]
 ---

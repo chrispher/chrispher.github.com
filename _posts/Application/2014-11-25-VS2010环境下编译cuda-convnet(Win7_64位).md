@@ -1,7 +1,6 @@
 ---
 layout: post
 title: VS2010环境下编译cuda-convnet(Win7_64位)
-comments: true
 category: Application
 tags: [convnet, CNN, win7, 配置, 深度学习]
 ---

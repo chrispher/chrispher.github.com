@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Approximate Bayesian Computation and the Socks of Karl Broman
-comments: true
 category: Data Analysis
 tags: [ABC, 随机模拟法, 数据分析, 统计, 贝叶斯]
 ---

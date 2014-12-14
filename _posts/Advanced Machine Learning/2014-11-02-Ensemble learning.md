@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Ensemble learning 概述
-comments: true
 category: Advanced Machine Learning
 tags: [Bootstrap, Boosting, Bucket, Stacking, 集成学习, 机器学习, 组合分类]
 ---

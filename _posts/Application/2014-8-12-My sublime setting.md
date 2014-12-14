@@ -1,7 +1,6 @@
 ---
 layout: post
 title: My sublime text2 setting
-comments: true
 category: Application
 tags: [sublime, 配置]
 ---
