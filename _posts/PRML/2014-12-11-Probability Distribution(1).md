@@ -21,7 +21,7 @@ tags: [共轭先验, 概率分布, 混合高斯分布, 狄利克雷分布]
 <a name="1.二元变量"/>
 
 ###1.二元变量
-首先是对于二元变量(Binary Variables)， $$x \in {0,1}$$ ,参数 $$\mu$$ , $$p(x)$$ 满足 $$p(x=1 \mid \mu)=\mu, p(x=0 \mid \mu=1-\mu)$$ ，那么我们称$$p(x)$$是伯努利分布(Bernoulli distribution)，表示如下：
+首先是对于二元变量(Binary Variables)， $$x \in {0,1}$$ ,参数 $$\mu$$ , $$p(x)$$ 满足 $$p(x=1 \mid \mu)=\mu, p(x=0 \mid \mu) = 1-\mu$$ ，那么我们称$$p(x)$$是伯努利分布(Bernoulli distribution)，表示如下：
 
 $$Bern(x \mid \mu) = \mu^x(1-\mu)^{1-x}$$
 
