@@ -62,11 +62,11 @@ $$\begin{align} var_\theta[\theta] &= E_\theta[\theta^2] - [E_\theta[\theta]]^2 
 <a name="2.多元变量"/>
 
 ###2.多元变量
-对于多元变量(Multinomial Variables)，假设随机变量有K个互斥状态(mutually exclusive states)，用K维度的向量x表示，对于状态K发生时，$$x_k=1, x_{i \neq =k} =0$$。那么对于伯努利分布可以扩展为 $$p(x \mid \mu) = \prod_{k=1}^{K}\mu_k^{x_k}$$，这里要求$$\sum_k\mu_k = 1$$。
+对于多元变量(Multinomial Variables)，假设随机变量有K个互斥状态(mutually exclusive states)，用K维度的向量x表示，对于状态K发生时，$$x_k=1, x_{i \neq k} =0$$。那么对于伯努利分布可以扩展为 $$p(x \mid \mu) = \prod_{k=1}^{K}\mu_k^{x_k}$$，这里要求$$\sum_k\mu_k = 1$$。
 
 对于有N个独立观测的数据集D，使用最大似然估计，可以得到：
 
-$$p(D \mid \mu) = \prod_{n=1}^N \prod_{k=1}^K \mu_k^{x_nk} = \prod_{k=1}^K \mu^{\sum_n x_{nk}} = \prod_{k=1} \mu_k^{m_k}$$
+$$p(D \mid \mu) = \prod_{n=1}^N \prod_{k=1}^K \mu_k^{x_nk} = \prod_{k=1}^K \mu^{\sum_n x_{nk}} = \prod_{k=1}^K \mu_k^{m_k}$$
 
 取对数，并且结合$$\sum_k\mu_k = 1$$，使用拉格朗日法，得到$$L(\mu) = \sum_{k=1}^K m_k \ln \mu_k + \lambda (\sum_{k=1}^K \mu_k -1)$$，得到$$\mu_k = \frac{-m_k}{\lambda}$$，最后估计值为 $$\mu^{ML} = \frac{m_k}{N}$$。
 
