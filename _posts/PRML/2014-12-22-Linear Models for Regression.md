@@ -14,6 +14,7 @@ tags: [线性回归, 基函数, 预测]
 ###目录
 - [1.线性回归模型](#1.线性回归模型)
 - [2.偏差方差分解](#2.偏差方差分解)
+
 **待更新！！**
 
 <a name="1.线性回归模型"/>
@@ -27,7 +28,7 @@ tags: [线性回归, 基函数, 预测]
 基础的线性回归模型形式是：$$y(x,w) = \sum_{j=0}^{M-1} w_i \phi_j(x) = w^T \phi(x)$$, 这里$$w = (w_0,...,w_{M-1})^T ; \ \ \phi=(\phi_0,...,\phi_{M-1})^T, \phi_0(x)=1$$， $$w_0$$是偏置参数（也就是常说的截距项）。这里的$$\phi(x)$$就是基函数，对x的每个属性都有一个基函数，常用的一些基函数有
 
 - 多项式：$$\phi_j(x) = x^j$$；
-- 高斯：$$\phi_j(x) = exp(-frac{(x-\mu_j)^2}{2s^2})$$
+- 高斯：$$\phi_j(x) = exp(-\frac{(x-\mu_j)^2}{2s^2})$$
 - Sigmoidal：$$\phi_j(x) = \sigma(\frac{x-\mu_j}{s}) \ 其中 \  \sigma(a) = \frac{1}{1+e^{-1}}$$
 
 还有其他，比如傅里叶、小波、样条等等。基函数的一个直观的作用是引入了非线性变换。
@@ -41,9 +42,9 @@ $$p(t \mid X, w, \beta) = \prod_{n=1}^N N(t_n \mid \underbrace{ w^T \phi(x_n)}_{
 
 $$\ln p(t \mid w,\beta) = \sum_{n=1}^N \ln N(t_n \mid w^T \phi(x_n), \beta^{-1}) = \frac{N}{2} \ln \beta - \frac{N}{2} \ln(2\pi) - \beta E_D(w)$$
 
-其中，$$E_D(w) = \frac{1}{2} \sum_{n=1}^N (t_n - w^T \phi(x_n))^2$$。对数似然函数对w取导数，可以得到：
+其中，$$E_D(w) = \frac{1}{2} \sum_{n=1}^N (t_n - w^T \phi(x_n))^2$$。对数似然函数对w取导数，可以得到: 
 
-$$\begin{align} \nabla \ln p(t \mid w, \beta) &= \sum_{n=1}^N (t_n - w^T \phi(x_n)) \phi(x_n)^T\end{align} \\ &= \sum_{n=1}^N t_n \phi(x_n)^T - w^T (\sum_{n=1}^N \phi(x_n) \phi(x_n)^T) \\ &= 0$$
+$$\begin{align} \nabla \ln p(t \mid w, \beta) &= \sum_{n=1}^N (t_n - w^T \phi(x_n)) \phi(x_n)^T\end{align} \\ &= \sum_{n=1}^N t_n \phi(x_n)^T - w^T (\sum_{n=1}^N \phi(x_n) \phi(x_n)^T) \\ &= 0 \end{align}$$
 
 最终得到：$$w_{ML} = (\Phi^T \Phi)^{-1} \Phi^T t$$。这里看到了$$(\Phi^T \Phi)$$这种内积形式，那么可以联想到核方法。此外，$$\beta_{ML}^{-1} = \frac{1}{N} \sum_{n=1}^N (t_n - w^T_{ML} \phi(x_n))^2$$。我们可以用几何解释一下回归分析，最小二乘法就是在特征空间里寻找与目标向量t最接近的向量y，而该向量是目标向量t在特征空间的投影。如果$$(\Phi^T \Phi)$$是奇异的，换句话说就是特征空间中，基向量共线或接近共线，那么$$(\Phi^T \Phi)$$就不存在逆矩阵了，导致参数会有很大的浮动（没有唯一解），可以考虑使用SVD或其他方法求解。如下图所示：
 
@@ -89,4 +90,4 @@ squared loss)
 
 $$E_D[(y(x;D) - h(x))^2] = \underbrace{E_D[y(x;D) - h(x)^2]}_{(bias)^2} + \underbrace{E_D[(y(x;D) - E_D[y(x;D)])^2]}_{variance}$$
 
-合起来就是 ** expected loss = (bias)$$^2$$ + variance + noise**, 这里(bias)$$^2 = \int (E_D[y(x;D)] - h(x))^2 p(x)dx$$; variance = $$\int E_D[(y(x;D) - E_D(y(x;D)))^2]p(x)dx$$; nois = $$\int (h(x)-t)^2 p(x,t)dxdt$$。我们把期望损失分解成了bias(偏差)、variance(方差)与常数nose(噪声)的和。灵活的(flexible)模型一般都有较低的bias和较高的variance；而死板的(rigid)模型一般对于较高的bias和较低的variance。虽然这个分解让我们看到了模型复杂度内在的一些东西，但是实际应用确实有限的，因为着要求多个数据集。
+合起来就是 expected loss = (bias)$$^2$$ + variance + noise, 这里(bias)$$^2 = \int (E_D[y(x;D)] - h(x))^2 p(x)dx$$; variance = $$\int E_D[(y(x;D) - E_D(y(x;D)))^2]p(x)dx$$; nois = $$\int (h(x)-t)^2 p(x,t)dxdt$$。我们把期望损失分解成了bias(偏差)、variance(方差)与常数nose(噪声)的和。灵活的(flexible)模型一般都有较低的bias和较高的variance；而死板的(rigid)模型一般对于较高的bias和较低的variance。虽然这个分解让我们看到了模型复杂度内在的一些东西，但是实际应用确实有限的，因为着要求多个数据集。
