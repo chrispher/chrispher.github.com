@@ -44,7 +44,7 @@ $$\ln p(t \mid w,\beta) = \sum_{n=1}^N \ln N(t_n \mid w^T \phi(x_n), \beta^{-1})
 
 其中，$$E_D(w) = \frac{1}{2} \sum_{n=1}^N (t_n - w^T \phi(x_n))^2$$。对数似然函数对w取导数，可以得到: 
 
-$$\begin{align} \nabla \ln p(t \mid w, \beta) &= \sum_{n=1}^N (t_n - w^T \phi(x_n)) \phi(x_n)^T\end{align} \\ &= \sum_{n=1}^N t_n \phi(x_n)^T - w^T (\sum_{n=1}^N \phi(x_n) \phi(x_n)^T) \\ &= 0 \end{align}$$
+$$\begin{align} \nabla \ln p(t \mid w, \beta) &= \sum_{n=1}^N (t_n - w^T \phi(x_n)) \phi(x_n)^T \\ &= \sum_{n=1}^N t_n \phi(x_n)^T - w^T (\sum_{n=1}^N \phi(x_n) \phi(x_n)^T) \\ &= 0 \end{align}$$
 
 最终得到：$$w_{ML} = (\Phi^T \Phi)^{-1} \Phi^T t$$。这里看到了$$(\Phi^T \Phi)$$这种内积形式，那么可以联想到核方法。此外，$$\beta_{ML}^{-1} = \frac{1}{N} \sum_{n=1}^N (t_n - w^T_{ML} \phi(x_n))^2$$。我们可以用几何解释一下回归分析，最小二乘法就是在特征空间里寻找与目标向量t最接近的向量y，而该向量是目标向量t在特征空间的投影。如果$$(\Phi^T \Phi)$$是奇异的，换句话说就是特征空间中，基向量共线或接近共线，那么$$(\Phi^T \Phi)$$就不存在逆矩阵了，导致参数会有很大的浮动（没有唯一解），可以考虑使用SVD或其他方法求解。如下图所示：
 
@@ -56,7 +56,7 @@ $$\begin{align} \nabla \ln p(t \mid w, \beta) &= \sum_{n=1}^N (t_n - w^T \phi(x_
 $$w^{\tau + 1} = w^{\tau} + \eta \underbrace{(t_n - {w^(tau)}^T \phi(x_n)) \phi(x_n)}_{\nabla E_n}$$
 
 ####1.4正则最小二乘
-接下来就是引入正则项，正则项的优点之一是能够控制模型的复杂度。在误差函数上增加正则项：$$E_D(w) + \lambda E_W(w)$$, 其中$$\lambda$$是正则系数，控制着基于数据的误差$$E_D(w)$$和正则项\lambda E_W(w)$$，比较常见的正则项是$$E_W(w) = \frac{1}{2w^Tw}$$,因此误差函数变为:
+接下来就是引入正则项，正则项的优点之一是能够控制模型的复杂度。在误差函数上增加正则项：$$E_D(w) + \lambda E_W(w)$$, 其中$$\lambda$$是正则系数，控制着基于数据的误差$$E_D(w)$$和正则项$$\lambda E_W(w)$$，比较常见的正则项是$$E_W(w) = \frac{1}{2w^Tw}$$,因此误差函数变为:
 
 $$\frac{1}{2} \sum^N_{n=1} (t_n - w^T \phi(x_n))^2 + \frac{\lambda}{2} w^Tw$$
 
