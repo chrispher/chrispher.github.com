@@ -68,7 +68,7 @@ $$w = (\lambda I + \Phi^T \Phi)^(-1) \Phi^T t$$
 
 $$\frac{1}{2} \sum^N_{n=1} (t_n - x^T \phi(x_n))^2 + \frac{\lambda}{2} \sum^M_{j=1} \mid w_j \mid^q$$
 
-对于之前的情况是，q=2。q=1就是统计学里的lasso的方法，当 $$\lambda$$很大时，可以使得$$w_j$$等于0，从而实现稀疏模型(sparse model);为了看到这一点，我们可以把带正则系数的项，可以看成是参数的限制，即$$ \sum^M_(j=1) \mid w_j \mid ^q lq \eta$$，这样对于一个给定的$$\eta$$，可以通过“拉格朗日乘子法”得到我们之前的误差函数。假设只有$$w_1,w_2$$,我们可以看到当q=2的时候，正则项是一个圆，而当q=1的时候，正则项是一个菱形。等高线图是我们误差函数(不带正则项)的在参数空间的投影。交点就是我们最终的$$w$$值，可以看到q=1的时候，$$w_1$$是可以取得0的点，即$$w_1$$对应的属性$$x^(1)$$就没有作用了。
+对于之前的情况是，q=2。q=1就是统计学里的lasso的方法，当 $$\lambda$$很大时，可以使得$$w_j$$等于0，从而实现稀疏模型(sparse model);为了看到这一点，我们可以把带正则系数的项，可以看成是参数的限制，即$$ \sum^M_(j=1) \mid w_j \mid ^q lq \eta$$，这样对于一个给定的$$\eta$$，可以通过“拉格朗日乘子法”得到我们之前的误差函数。假设只有$$w_1,w_2$$,我们可以看到当q=2的时候，正则项是一个圆，而当q=1的时候，正则项是一个菱形。等高线图是我们误差函数(不带正则项)的在参数空间的投影。交点就是我们最终的$$w$$值，可以看到q=1的时候，$$w_1$$是可以取得0的点，即$$w_1$$对应的属性$$x^{(1)}$$就没有作用了。
 
 <img src="http://chrispher.github.com/images/prml/ch3_regular_sparse.jpg" height="100%" width="100%">
 
@@ -92,6 +92,55 @@ $$E_D[(y(x;D) - h(x))^2] = \underbrace{E_D[y(x;D) - h(x)^2]}_{(bias)^2} + \under
 
 合起来就是 expected loss = (bias)$$^2$$ + variance + noise, 这里(bias)$$^2 = \int (E_D[y(x;D)] - h(x))^2 p(x)dx$$; variance = $$\int E_D[(y(x;D) - E_D(y(x;D)))^2]p(x)dx$$; nois = $$\int (h(x)-t)^2 p(x,t)dxdt$$。我们把期望损失分解成了bias(偏差)、variance(方差)与常数nose(噪声)的和。灵活的(flexible)模型一般都有较低的bias和较高的variance；而死板的(rigid)模型一般对于较高的bias和较低的variance。虽然这个分解让我们看到了模型复杂度内在的一些东西，但是实际应用确实有限的，因为着要求多个数据集。
 
-<a name=""/>
+<a name="3.贝叶斯线性回归"/>
 
 ###3.贝叶斯线性回归
+####3.1参数分布
+假设噪声是精度为$$\beta$$的高斯分布，似然函数$$p(t \mid w)$$是w的二次指数形式，共轭先验选择高斯分布$$p(w) = N(w \mid m_0, S_0)$$, 那么后验分布也是高斯分布。
+
+$$p(w \mid t) = N(w \mid m_N, S_N) \propto p(t \mid w)p(w)$$
+
+这里$$m_N = S_N(S_0^{-1}m_0 + \beta \Phi^T t) \ \ ; \ \ S_N^{-1} = S_0^{-1} + \beta \Phi^T \Phi$$。我们知道高斯分布的概率密度取均值时，最大。那么最大后验概率，就可以令
+w等于均值即可，即$$w_{MAP} = m_N$$。同样，这里也可以使用序列学习的框架。
+
+接下来，我们具体的细化一下。为了方便处理，我们现在考虑一个特定形式的先验高斯分布，由超参数$$\alpha$$控制精度，均值为0，即$$p(w \mid \alpha) = N(w \mid 0, \alpha^{-1}I)$$。那么刚才得到的结果可以改写为$$m_N = \beta \Phi^T t) \ \ ; \ \ S_N^{-1} = \alpha^{-1}I + \beta \Phi^T \Phi$$, 我们可以看到当$$\alpha$$趋近于0时，$$m_N \rightarrow w_{ML} = (\Phi^T \Phi)^{-1} \Phi^T t$$。 最大化对数后验概率，得到：
+
+$$\ln p(w \mid t) = -\frac{\beta}{2} \sum_{n=1}^N(t_n - w^T \phi(x_n))^2 - \frac{\alpha}{2}w^Tw +const$$
+
+该式子类似于加了正则项的最大似然估计，其中$$\lambda = \alpha / \beta$$
+
+####3.2预测分布
+现在我们想要对一个给定的新x，预测t的值(下式中用c表示新预测值，t表示训练数据)，则可以:
+
+$$p(c \mid t,\alpha,\beta) = \int p(c \mid w, \beta) p(w \mid t,\alpha, \beta)dw$$
+
+其中，条件分布$$p(c \mid w,\beta) = N(t \mid y(x,w),\beta^{-1})$$,后验分布$$p(w \mid t,\alpha,\beta) = N(w \mid m_N, S_N)$$。最终预测分布也是高斯分布，即$$p(c \mid x,t,\alpha,beta) = N(c \mid m_N^T \Phi(x), \sigma_N^2(x))$$， 其中$$\sigma_N^2$$如下：
+
+$$\sigma_N^2(x) = \underbrace{\beta^{-1}}_{noise in data} + \underbrace{\Phi(x)^TS_N\phi(x)}_{uncertainty in w}$$
+
+同样可以看到当N趋近于无穷大时，后一项趋近于0。同样，在如果我们使用局部基函数，如高斯，那么在远离基函数中心的区域，第二项中的预测方差的贡献将变为零，只留下$$\beta^{-1}$$作为噪声贡献。因此，预测变得非常有信心，这通常不是一个好的行为，可采用一种替代贝叶斯方法来避免这个影响，用高斯过程方法（在第六章会有介绍）。同样，如果$$w,\beta$$均未知，那么先验分布可以选择Gaussian-gamma分布，最终预测分布是学生分布，这个可以在第二章看到。
+
+####3.3等价核
+通过上面的分析，预测分布的均值为$$y(x,m_N) = m_N^T \phi(x) = \beta \phi(x)^T S_N \Phi(^T)t = \sum_{n=1}^N \beta \phi(x)^T S_N \phi(x_n)t_n$$,这里的$$S_N^{-1} = S_0^{-1} + \beta \Phi^T \Phi$$. 这里看到了待预测点x与训练数据集中$$x_n$$的内积形式，我们用一个函数来表示，即$$y(x,m_N) = \sum^N_{n=1} k(x,x_n)tn$$,该函数是$$k(x,x') = \beta \phi(x)^T S_N \phi(x')$$，也称之为Smoother matrix, equivalent kernel（这里简单的翻译为等价核）。在线性回归里，可以看到预测值是训练数据集中目标值得线性组合的产生的，也称之为linear smoother。下图是选用多项式基函数和sigmoid基函数的核函数曲线图。
+
+<img src="http://chrispher.github.com/images/prml/ch3_kernel_regression.jpg" height="100%" width="100%">
+
+从直观上来看，核方法是类似于相似度度量，距离预测点y(x')越近的训练目标值t的的权重越大。我们计算一下y(x)和y(x')的协方差，以方便我们更深入的理解等价核。可以看到：
+
+$$\begin{align} cov[y(x),y(x')] &= cov[\phi(x)^w, w^T\phi(x')] \\ &= \phi(x)^T cov(w,w) \phi(x')  \\ &= \phi(x)^T S_N \phi(x') \\ &= \beta^{-1}k(x,x') \end{align}$$
+
+这里使用了w是方差为$$S_N$$的高斯分布。由此看到，距离点预测均值点越近的点相关性越大。此外，通过预测分布生成的点的不确定性是由预测分布的方差决定的（下图3.8）；但是通过w的后验概率分布生成的点，绘制y(x,w)的曲线图，在x点出的y值得不确定性却是由等价核决定的（下图3.9）。
+
+<img src="http://chrispher.github.com/images/prml/ch3_LinearRegression_figure3.8.jpg" height="100%" width="100%">
+<img src="http://chrispher.github.com/images/prml/ch3_LinearRegression_figure3.9.jpg" height="100%" width="100%">
+
+<a name="4.贝叶斯模型比较"/>
+
+###4.贝叶斯模型比较
+过拟合问题可以通过边缘化模型参数来避免，在使用贝叶斯方法中，交叉验证不再有用，我们可以使用全部数据来训练模型，根据所以训练数据来比较模型。贝叶斯观点下的模型比较，是在模型选择中，使用概率来表示不确定，使用一些概率的加法和乘法原则。假设我们要比较L个模型$${M_i}$$，我们假设数据是由这里的某个模型产生的，但是不确定是具体哪一个，这种不确定性用先验概率$$p(M_i)$$表示。对于给到的数据集D，我们希望评估$$p(M_i \mid D) \propto p(M_i)p(D \mid M_i)$$。我们假设所有模型的先验分布是一样的，那么最终需要关注的就是模型的evidence项$$p(D \mid M_i)$$（有时也称之为边缘似然，marginal likelihood）
+
+我们知道了预测分布，结合概率加法乘法原则,得到右侧的混合分布，如下：
+
+$$p(t \mid x,D) = \sum^L_{i=1} p(t \mid x, M_i, D)p(M_i \mid D)$$
+
+模型选择就是从这么多模型中选择一个最合适的模型。对于一个受控于一系列参数w的模型，模型的evidence是给定的，即$$p(D \mid M_i) = \int p(D \mid w,M_i)p(w \mid M_i)dw$$。
