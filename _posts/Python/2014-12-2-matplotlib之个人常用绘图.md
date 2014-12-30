@@ -105,7 +105,7 @@ colors = plt.cm.Spectral(np.linspace(0, 1, len(unique_labels)))
 {% highlight python%}
 plt.style.use('ggplot')
 m = np.random.rand((10,10))
-plt.imshow(matrix, interpolation='nearest', cmap=plt.cm.ocean)
+plt.imshow(m, interpolation='nearest', cmap=plt.cm.ocean)
 plt.colorbar()
 plt.show()
 
