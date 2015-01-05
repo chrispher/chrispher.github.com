@@ -35,11 +35,11 @@ tags: [convnet, CNN, win7, 配置, 深度学习]
 
 - 3).双击convnet.sln打开工程，将工程设置为x64 release模式。
 
-- 4).在include/nvmatrix/nvmatrix.cuh中加入#include <pthread.h>。
+- 4).在include/nvmatrix/nvmatrix.cuh中加入`#include <pthread.h>`。
 
 - 5).解压LIBS.zip，将解压后的文件夹（LIBS）拷贝到工程文件夹中。
 
-- 6).右击工程: 属性(Property) -> 配置属性(Configuration Properties)  -> C/C++ -> 常规(General) -> 附加包含目录(Additional Include Directories)：删除所有，把下面的复制过去；需要主要Python的路径和CUDA的路径；
+- 6).右击工程: 属性(Property) -> 配置属性(Configuration Properties)  -> C/C++ -> 常规(General) -> 附加包含目录(Additional Include Directories)：删除所有，把下面的复制过去；需要注意Python的路径和CUDA的路径；
 
     `C:/Anaconda/Lib/site-packages/numpy/core/include/numpy;`  
     `C:/Anaconda/include;./include/common;./include/nvmatrix;`  
