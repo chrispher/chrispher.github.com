@@ -149,21 +149,21 @@ $$p(t \mid x,D) = \sum^L_{i=1} p(t \mid x, M_i, D)p(M_i \mid D)$$
 这是一个混合分布(mixture distribution)，是加权平均了各个预测分布$$p(t \mid x, M_i, D)$$的预测值，权重是后验分布$$p(M_i \mid D)$$。比如如果只有两个模型，第一个预测是单峰分布，峰值在t=a,第二个预测也是单峰分布，峰值t=b,根据上式得到的是一个双峰分布（bimodal distribution），而不是一个峰值为(a+b)/2单峰分布。
 模型选择就是从这么多模型中选择一个最合适的模型，而不是用所有模型的混合结果（从上式可以看出，如果知道各个模型的先验分布，那就不用做模型选择，直接把各个模型的结果根据上式求和出最终的预测值，类似于Ensemble的方法了）。对于一个受控于一系列参数w的模型，模型的evidence（边缘似然）就是$$p(D \mid M_i) = \int p(D \mid w,M_i)p(w \mid M_j)dw$$。
 
-我们深入的理解一下边缘似然。假设只有一个参数w，它的先验分布是在$$w_{MAP}$$快速达到峰值,宽度为$$\delta w_{posterior}$$的分布（见下图左侧图）。我们继续假设先验分布是宽度为$$\delta w_{prior}$$的均匀分布，那么$$p(w) = 1 / \delta w_{prior}$$，那么我们有（为方便显示，忽略$$M_i$$）：
+我们深入的理解一下边缘似然。假设只有一个参数w，它的先验分布是在$$w_{MAP}$$快速达到峰值,宽度为$$\Delta w_{posterior}$$的分布（见下图左侧图）。我们继续假设先验分布是宽度为$$\Delta w_{prior}$$的均匀分布，那么$$p(w) = 1 / \Delta w_{prior}$$，那么我们有（为方便显示，忽略$$M_i$$）：
 
-$$p(D) = \int p(D \mid w) p(w)dw \approx p(D \mid w_{MAP}) \frac{\delta w_{posterior}}{\delta w_{prior}}$$
+$$p(D) = \int p(D \mid w) p(w)dw \approx p(D \mid w_{MAP}) \frac{\Delta w_{posterior}}{\Delta w_{prior}}$$
 
 取对数可以得到：
 
-$$\ln p(D) \approx \ln p(D \mid w_{MAP}) + \ln(\frac{\delta w_{posterior}}{\delta w_{prior}})$$
+$$\ln p(D) \approx \ln p(D \mid w_{MAP}) + \ln(\frac{\Delta w_{posterior}}{\Delta w_{prior}})$$
 
-如下图左侧图所示，这种近似后的结果。第一项是表示用最优参数下拟合数据的概率分布；第二项表示对模型复杂的惩罚。因为$$\delta w_{posterior} \lt \delta w_{prior}$$，即这一项就是负的，$$\delta w_{posterior} / \delta w_{prior}$$变得越小，该项值增幅越大。即如果在后验分布中，参数很好的吻合了数据，那么这一项的惩罚越大。
+如下图左侧图所示，这种近似后的结果。第一项是表示用最优参数下拟合数据的概率分布；第二项表示对模型复杂的惩罚。因为$$\Delta w_{posterior} \lt \Delta w_{prior}$$，即这一项就是负的，$$\Delta w_{posterior} / \Delta w_{prior}$$变得越小，该项值增幅越大。即如果在后验分布中，参数很好的吻合了数据，那么这一项的惩罚越大。
 
 <img src="http://chrispher.github.com/images/prml/ch3_bayes_model_select.jpg" height="100%" width="100%">
 
-如果是有M个参数，同上面那些假设，此外还假设所有参数均匀相同的$$\delta w_{posterior} / \delta w_{prior}$$，那么有：
+如果是有M个参数，同上面那些假设，此外还假设所有参数均匀相同的$$\Delta w_{posterior} / \Delta w_{prior}$$，那么有：
 
-$$\ln p(D) \approx \ln p(D \mid w_{MAP}) + M\ln(\frac{\delta w_{posterior}}{\delta w_{prior}})$$
+$$\ln p(D) \approx \ln p(D \mid w_{MAP}) + M\ln(\frac{\Delta w_{posterior}}{\Delta w_{prior}})$$
 
 可以看到，M控制着模型的复杂度，如果M很大，那么第一项就会减小，因为复杂的模型能够更好的拟合数据，而第二项将会增大。我们可以根据最大evidence来得到最优的模型复杂度，在之后会用高斯分布来具体推导。此外，我们根据上图右侧图（注意概率和为1，即各个面积相同），来进一步理解模型复杂度和贝叶斯模型选择。这里$$M_1,M_2,M_3$$依次增大，想象一下用这些模型生成数据，越复杂的模型，越能生成不同的数据。具体生成过程是，从参数先验分布p(w)生成一个w，之后根据$$p(D \mid w)$$生成数据。
 
