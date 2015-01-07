@@ -14,8 +14,9 @@ tags: [线性回归, 基函数, 预测]
 ###目录
 - [1.线性回归模型](#1.线性回归模型)
 - [2.偏差方差分解](#2.偏差方差分解)
-
-**待更新！！**
+- [3.贝叶斯线性回归](#3.贝叶斯线性回归)
+- [4.贝叶斯模型比较](#4.贝叶斯模型比较)
+- [5.Evidence近似](#5.Evidence近似)
 
 <a name="1.线性回归模型"/>
 
@@ -60,13 +61,13 @@ $$w^{\tau + 1} = w^{\tau} + \eta \underbrace{(t_n - {w^(tau)}^T \phi(x_n)) \phi(
 
 $$\frac{1}{2} \sum^N_{n=1} (t_n - w^T \phi(x_n))^2 + \frac{\lambda}{2} w^Tw$$
 
-选择一个合适的正则项，有的称之为“权重衰减”(weight decay),即它使得权重尽可能的小到0；在统计学里，也称之为“参数收缩”(parameter shrinkage)。因为包含了w的二次项，可以直接得到一个闭合解，即另导数为0，得到：
+选择一个合适的正则项，有的称之为“权重衰减”(weight decay),即它使得权重尽可能的小到0；在统计学里，也称之为“参数收缩”(parameter shrinkage)。因为包含了w的二次项，可以直接得到一个闭合解，即令导数为0，得到：
 
-$$w = (\lambda I + \Phi^T \Phi)^(-1) \Phi^T t$$
+$$w = (\lambda I + \Phi^T \Phi)^{-1} \Phi^T t$$
 
 一个更广泛的正则方法如下：
 
-$$\frac{1}{2} \sum^N_{n=1} (t_n - x^T \phi(x_n))^2 + \frac{\lambda}{2} \sum^M_{j=1} \mid w_j \mid^q$$
+$$\frac{1}{2} \sum^N_{n=1} (t_n - w^T \phi(x_n))^2 + \frac{\lambda}{2} \sum^M_{j=1} \mid w_j \mid^q$$
 
 对于之前的情况是，q=2。q=1就是统计学里的lasso的方法，当 $$\lambda$$很大时，可以使得$$w_j$$等于0，从而实现稀疏模型(sparse model);为了看到这一点，我们可以把带正则系数的项，可以看成是参数的限制，即$$ \sum^M_{j=1} \mid w_j \mid ^q \le \eta$$，这样对于一个给定的$$\eta$$，可以通过“拉格朗日乘子法”得到我们之前的误差函数。假设只有$$w_1,w_2$$,我们可以看到当q=2的时候，正则项是一个圆，而当q=1的时候，正则项是一个菱形。等高线图是我们误差函数(不带正则项)的在参数空间的投影。交点就是我们最终的$$w$$值，可以看到q=1的时候，$$w_1$$是可以取得0的点，即$$w_1$$对应的属性$$x^{(1)}$$就没有作用了。
 
@@ -117,12 +118,12 @@ $$p(c \mid t,\alpha,\beta) = \int p(c \mid w, \beta) p(w \mid t,\alpha, \beta)dw
 
 其中，条件分布$$p(c \mid w,\beta) = N(t \mid y(x,w),\beta^{-1})$$,后验分布$$p(w \mid t,\alpha,\beta) = N(w \mid m_N, S_N)$$。最终预测分布也是高斯分布，即$$p(c \mid x,t,\alpha,beta) = N(c \mid m_N^T \Phi(x), \sigma_N^2(x))$$， 其中$$\sigma_N^2$$如下：
 
-$$\sigma_N^2(x) = \underbrace{\beta^{-1}}_{noise in data} + \underbrace{\Phi(x)^TS_N\phi(x)}_{uncertainty in w}$$
+$$\sigma_N^2(x) = \underbrace{\beta^{-1}}_{noise\ in \ data} + \underbrace{\Phi(x)^TS_N\phi(x)}_{uncertainty \ in \ w}$$
 
 同样可以看到当N趋近于无穷大时，后一项趋近于0。同样，在如果我们使用局部基函数，如高斯，那么在远离基函数中心的区域，第二项中的预测方差的贡献将变为零，只留下$$\beta^{-1}$$作为噪声贡献。因此，预测变得非常有信心，这通常不是一个好的行为，可采用一种替代贝叶斯方法来避免这个影响，用高斯过程方法（在第六章会有介绍）。同样，如果$$w,\beta$$均未知，那么先验分布可以选择Gaussian-gamma分布，最终预测分布是学生分布，这个可以在第二章看到。
 
 ####3.3等价核
-通过上面的分析，预测分布的均值为$$y(x,m_N) = m_N^T \phi(x) = \beta \phi(x)^T S_N \Phi(^T)t = \sum_{n=1}^N \beta \phi(x)^T S_N \phi(x_n)t_n$$,这里的$$S_N^{-1} = S_0^{-1} + \beta \Phi^T \Phi$$. 这里看到了待预测点x与训练数据集中$$x_n$$的内积形式，我们用一个函数来表示，即$$y(x,m_N) = \sum^N_{n=1} k(x,x_n)tn$$,该函数是$$k(x,x') = \beta \phi(x)^T S_N \phi(x')$$，也称之为Smoother matrix, equivalent kernel（这里简单的翻译为等价核）。在线性回归里，可以看到预测值是训练数据集中目标值得线性组合的产生的，也称之为linear smoother。下图是选用多项式基函数和sigmoid基函数的核函数曲线图。
+通过上面的分析，预测分布的均值为$$y(x,m_N) = m_N^T \phi(x) = \beta \phi(x)^T S_N \Phi(x)t = \sum_{n=1}^N \beta \phi(x)^T S_N \phi(x_n)t_n$$,这里的$$S_N^{-1} = S_0^{-1} + \beta \Phi^T \Phi$$. 这里看到了待预测点x与训练数据集中$$x_n$$的内积形式，我们用一个函数来表示，即$$y(x,m_N) = \sum^N_{n=1} k(x,x_n)tn$$,该函数是$$k(x,x') = \beta \phi(x)^T S_N \phi(x')$$，也称之为Smoother matrix, equivalent kernel（这里简单的翻译为等价核）。在解析解中，我们简单的（没有引入正则项）看，$$w = (X^TX)^{-1}X^Tt$$，那么预测x值就是$$wx = \frac{X^Txt}{X^TX}$$，分子是点积形式，分母可以认为是归一化，这里就可以和上面提到的$$m_N,S_N$$对应起来。在线性回归里，可以看到预测值是训练数据集中目标值得线性组合的产生的，也称之为linear smoother。下图是选用多项式基函数和sigmoid基函数的核函数曲线图。
 
 <img src="http://chrispher.github.com/images/prml/ch3_kernel_regression.jpg" height="100%" width="100%">
 
@@ -138,10 +139,55 @@ $$\begin{align} cov[y(x),y(x')] &= cov[\phi(x)^w, w^T\phi(x')] \\ &= \phi(x)^T c
 <a name="4.贝叶斯模型比较"/>
 
 ###4.贝叶斯模型比较
-过拟合问题可以通过边缘化模型参数来避免，在使用贝叶斯方法中，交叉验证不再有用，我们可以使用全部数据来训练模型，根据所以训练数据来比较模型。贝叶斯观点下的模型比较，是在模型选择中，使用概率来表示不确定，使用一些概率的加法和乘法原则。假设我们要比较L个模型$${M_i}$$，我们假设数据是由这里的某个模型产生的，但是不确定是具体哪一个，这种不确定性用先验概率$$p(M_i)$$表示。对于给到的数据集D，我们希望评估$$p(M_i \mid D) \propto p(M_i)p(D \mid M_i)$$。我们假设所有模型的先验分布是一样的，那么最终需要关注的就是模型的evidence项$$p(D \mid M_i)$$（有时也称之为边缘似然，marginal likelihood）
+
+过拟合问题可以通过边缘化模型参数来避免，在使用贝叶斯方法中，交叉验证不再有用，我们可以使用全部数据来训练模型，根据所以训练数据来比较模型。贝叶斯观点下的模型比较，是在模型选择中，使用概率来表示不确定，使用一些概率的加法和乘法原则。假设我们要比较L个模型$${M_i}$$，我们假设数据是由这里的某个模型产生的，但是不确定是具体哪一个，这种不确定性用先验概率$$p(M_i)$$表示。对于给到的数据集D，我们希望评估$$p(M_i \mid D) \propto p(M_i)p(D \mid M_i)$$。我们假设所有模型的先验分布是一样的，那么最终需要关注的就是模型的evidence项$$p(D \mid M_i)$$（有时也称之为边缘似然，marginal likelihood）。此外，$$p(D \mid M_i) / p(D \mid M_i)$$被称之为贝叶斯因子(Bayes Factor)。
 
 我们知道了预测分布，结合概率加法乘法原则,得到右侧的混合分布，如下：
 
 $$p(t \mid x,D) = \sum^L_{i=1} p(t \mid x, M_i, D)p(M_i \mid D)$$
 
-模型选择就是从这么多模型中选择一个最合适的模型。对于一个受控于一系列参数w的模型，模型的evidence是给定的，即$$p(D \mid M_i) = \int p(D \mid w,M_i)p(w \mid M_i)dw$$。
+这是一个混合分布(mixture distribution)，是加权平均了各个预测分布$$p(t \mid x, M_i, D)$$的预测值，权重是后验分布$$p(M_i \mid D)$$。比如如果只有两个模型，第一个预测是单峰分布，峰值在t=a,第二个预测也是单峰分布，峰值t=b,根据上式得到的是一个双峰分布（bimodal distribution），而不是一个峰值为(a+b)/2单峰分布。
+模型选择就是从这么多模型中选择一个最合适的模型，而不是用所有模型的混合结果（从上式可以看出，如果知道各个模型的先验分布，那就不用做模型选择，直接把各个模型的结果根据上式求和出最终的预测值，类似于Ensemble的方法了）。对于一个受控于一系列参数w的模型，模型的evidence（边缘似然）就是$$p(D \mid M_i) = \int p(D \mid w,M_i)p(w \mid M_j)dw$$。
+
+我们深入的理解一下边缘似然。假设只有一个参数w，它的先验分布是在$$w_{MAP}$$快速达到峰值,宽度为$$\delta w_{posterior}$$的分布（见下图左侧图）。我们继续假设先验分布是宽度为$$\delta w_{prior}$$的均匀分布，那么$$p(w) = 1 / \delta w_{prior}$$，那么我们有（为方便显示，忽略$$M_i$$）：
+
+$$p(D) = \int p(D \mid w) p(w)dw \approx p(D \mid w_{MAP}) \frac{\delta w_{posterior}}{\delta w_{prior}}$$
+
+取对数可以得到：
+
+$$\ln p(D) \approx \ln p(D \mid w_{MAP}) + \ln(\frac{\delta w_{posterior}}{\delta w_{prior}})$$
+
+如下图左侧图所示，这种近似后的结果。第一项是表示用最优参数下拟合数据的概率分布；第二项表示对模型复杂的惩罚。因为$$\delta w_{posterior} \lt \delta w_{prior}$$，即这一项就是负的，$$\delta w_{posterior} / \delta w_{prior}$$变得越小，该项值增幅越大。即如果在后验分布中，参数很好的吻合了数据，那么这一项的惩罚越大。
+
+<img src="http://chrispher.github.com/images/prml/ch3_bayes_model_select.jpg" height="100%" width="100%">
+
+如果是有M个参数，同上面那些假设，此外还假设所有参数均匀相同的$$\delta w_{posterior} / \delta w_{prior}$$，那么有：
+
+$$\ln p(D) \approx \ln p(D \mid w_{MAP}) + M\ln(\frac{\delta w_{posterior}}{\delta w_{prior}})$$
+
+可以看到，M控制着模型的复杂度，如果M很大，那么第一项就会减小，因为复杂的模型能够更好的拟合数据，而第二项将会增大。我们可以根据最大evidence来得到最优的模型复杂度，在之后会用高斯分布来具体推导。此外，我们根据上图右侧图（注意概率和为1，即各个面积相同），来进一步理解模型复杂度和贝叶斯模型选择。这里$$M_1,M_2,M_3$$依次增大，想象一下用这些模型生成数据，越复杂的模型，越能生成不同的数据。具体生成过程是，从参数先验分布p(w)生成一个w，之后根据$$p(D \mid w)$$生成数据。
+
+我们看到了贝叶斯方法下能够避免模型过拟合也能做模型选择。但是，它也是建立在大量的假设之上。实际过程中，因为各种假设很难满足或者很难获取，导致一些错误的结论。因此实际中，预留一部分数据做测试数据是比较明智的。
+
+<a name="5.Evidence近似"/>
+
+###5.Evidence近似
+
+在使用贝叶斯方法的时候，有一些超参数，比如$$\alpha, \beta$$，那么预测分布如下：
+
+$$p(c \mid t) = \int \int \int p(c \mid w,\beta) p(w \mid t,\alpha,\beta)p(\alpha,\beta \mid t)dw d \alpha d \beta$$
+
+那我们如何确定这些参数呢？这里使用的是最大参数w的边际似然（marginal likelihood function），即最大化$$p(\alpha,\beta \mid t)  \propto p(t \mid \alpha,\beta) p(\alpha,\beta)$$得到$$(\hat{\alpha}, \hat{\beta})$$，这种方法也称之为“经验贝叶斯”(empirical Bayes)。我们知道：
+
+$$\ln p(t \mid \alpha,\beta) = \frac{M}{2} \ln \alpha + \frac{M}{2} \ln \beta - E(m_M) - \frac{1}{2} \ln \mid S_N^{-1} \mid - frac{N}{2} \ln(2 \pi)$$
+
+假设$$p(\alpha,\beta \mid t)$$的峰值在$$(\hat{\alpha}, \hat{\beta})$$，那么有：
+
+$$p(c \mid t) \approx p(c \mid t,\hat{\alpha}, \hat{\beta}) = \int p(c \mid w,\hat{\beta}) p(\hat{\alpha}, \hat{\beta}) dw $$ 
+
+我们绘制evidence $$\ln p(t \mid \alpha, \beta)$$对模型复杂度M的图(如下图所示)：
+<img src="http://chrispher.github.com/images/prml/ch3_evidenceVSm.jpg" height="100%" width="100%">
+
+我们看到在M=3的时候，值最大，模型最好。通过最大化$$p(t \mid \alpha,\beta)$$，我们对$$\alpha$$求偏导，可以得到 $$\gamma = \sum_i \frac{\gamma_i}{\alpha + gamma_i}$$，最终得到$$\alpha = \frac{\gamma}{m_N^Tm_N}$$。同样，可以得到$$\frac{1}{\beta} = \frac{1}{N-\gamma} \sum^N_{n=1}(t_n - m_N^T \Phi(x_n))^2$$。注意这里得到的$$\alpha,\beta$$都不是最终值，因为$$m_N$$的计算依赖于他们，所以这些是迭代公式。最终我们也能够得到$$\gamma$$的表达式$$\gamma = \alpha m_N^Tm_N$$。$$\gamma$$有一个非常好的解释，即可以解释为有效参数。
+
+最后说一下基函数的一些局限性。本章使用了一些非线性基，但是用的还是线性组合，这种参数线性组合的假设，使得结果是有闭合解，也可以方便的使用最小二乘法和贝叶斯方法。选择一个合适的基，可以让我们把输入变量进行非线性变化。但是基函数$$\Phi_j(x)$$是在数据观测之前就选定的，容易导致维灾难(基函数进行幂次数变化)。在后续章节会陆续看到如何解决这些问题。
