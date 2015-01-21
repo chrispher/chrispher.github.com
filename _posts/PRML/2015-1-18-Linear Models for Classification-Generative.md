@@ -111,7 +111,7 @@ $$H = \nabla \nabla E(w) = \sum^N_{n=1} y_n(y_n - t_n) \Phi_n \Phi_n^T = \Phi^T 
 
 这里的R是N维对角矩阵，对角元素$$R_{nn} = y_n (1 - y_n)$$。这里的Hessian矩阵不再固定，而是依赖于w的计算(y的值要通过w计算)。这里Hessian矩阵是正定的，误差函数由全局唯一的最小值。那么，使用牛顿法更新logistic回归权重如下：
 
-$$\begin{align} w^{(new)} &= w^{(old)} - (\Phi^T R \Phi)^{-1} \Phi^T (y - t) \\ &= (\Phi^T R \Phi)^{-1} (\Phi^T R \Phi w^{(old)} - \Phi^T (y - t)) \\ &= (\Phi^T R \Phi)^{-1} \Phi^T R z$$
+$$\begin{align} w^{(new)} &= w^{(old)} - (\Phi^T R \Phi)^{-1} \Phi^T (y - t) \\ &= (\Phi^T R \Phi)^{-1} (\Phi^T R \Phi w^{(old)} - \Phi^T (y - t)) \\ &= (\Phi^T R \Phi)^{-1} \Phi^T R z \end{align}$$
 
 这里z是N维向量，$$z = \Phi w^{(old)} - R^{-1}(y-t)$$。从上面的更新式子看出这是一个加权最小二乘法，权重矩阵是R。每次更新都需要重新根据w得到新的权重矩阵R，所以这个方法也被称之为迭代再加权最小平方(IRLS, iterative reweighted least squares)。 
 
