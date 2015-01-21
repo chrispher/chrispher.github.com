@@ -134,7 +134,7 @@ $$\nabla_{w_k} \nabla_{w_j} E(w_1,...,w_K) = - \sum^N_{n=1} y_{nk}(I_{kj} - y_{n
 
 这里作为一个例子，我们选择标准高斯分布作为$$p(\theta)$$，那么cdf就是$$\Phi(a) = \sum^a_{- \infty} N(\theta \mid 0,1) d \theta$$，这就是probit函数，形状和sigmoid函数类似。这里用其他的高斯分布，不会改变模型，只是相当于对线性系数w做了尺度变换。此外还有一些函数，比如$$erf(a) = \frac{2}{\sqrt{\pi} \int^a_0 exp(-\theta^2 / 2 d \theta)$$，称之为erf函数或误差函数(与机器学习里的误差函数不同)。与probit函数关系为$$\Phi(a) = \frac{1}{2} (1 + \frac{1}{\sqrt{2} erf(a))$$。
 
-给予probit激活函数的广义线性模型，称之为probit回归。我们可以使用最大似然估计来得到参数。实际中，probit得到的结果类似于logistic回归的结果。实际应用中需要注意的是异常值。probit回归比logistic回归对异常值更加敏感，因为logistic函数尾部随着x趋近于无穷大，按照$$exp(-x)$$衰减的，而probit是按照类似于$$exp(-x^2)$$的衰减。但是，两个在训练中，都是假设数据是正确标定的。错误标签可以通过引入错误标定的概率$$\epsilon$$，并加入到概率模型中如下：
+基于probit激活函数的广义线性模型，称之为probit回归。我们可以使用最大似然估计来得到参数。实际中，probit得到的结果类似于logistic回归的结果。实际应用中需要注意的是异常值。probit回归比logistic回归对异常值更加敏感，因为logistic函数尾部随着x趋近于无穷大，按照$$exp(-x)$$衰减的，而probit是按照类似于$$exp(-x^2)$$的衰减。但是，两个在训练中，都是假设数据是正确标定的。错误标签可以通过引入错误标定的概率$$\epsilon$$，并加入到概率模型中如下：
 
 $$p(t \mid x) = (1 - \epsilon) \sigma(x) + \epsilon (1 - \sigma(x)) = \epsilon + (1 - 2 \epsilon) \sigma(x)$$
 
@@ -142,7 +142,7 @@ $$p(t \mid x) = (1 - \epsilon) \sigma(x) + \epsilon (1 - \sigma(x)) = \epsilon +
 
 
 ####2.5规范link函数
-通过之前的讨论，我们可以看到不管是分类还是回归，线性模型的误差或交叉熵误差对参数的导数都是同一个形式，即'error'项$y_n - t_n$$乘以特征向量$$\Phi_n$$，这里的$$y_n = w^T \Phi_n$$或$$y_n = f(w^T \Phi_n)$$。我们扩展到：只要目标变量下的条件分布是指数族的分布，且激活函数是规范link函数(Canonical link functions)，那么我们的结果仍是上面形式的。
+通过之前的讨论，我们可以看到不管是分类还是回归，线性模型的误差或交叉熵误差对参数的导数都是同一个形式，即'error'项$$y_n - t_n$$乘以特征向量$$\Phi_n$$，这里的$$y_n = w^T \Phi_n$$或$$y_n = f(w^T \Phi_n)$$。我们扩展到：只要目标变量下的条件分布是指数族的分布，且激活函数是规范link函数(Canonical link functions)，那么我们的结果仍是上面形式的。
 
 这里目标变量下的条件分布是指数族分布(上一节1.3指数族里)，即$$p(t \mid \eta, s) = \frac{1}{s} h(\frac{t}{s}) g(\eta) exp(\frac{\eta t}{s})$$，推导一下有:$$y = E(t \mid \eta) = - s \frac{d}{d \eta} \ln g(\eta)$$。这里y是$$\eta$$的函数，反过来就是$$\eta = \phi(y)$$。接下来就是广义线性模型(generalized linear model)，定义为y是一个非线性函数，自变量是输入特征的线性组合，即$$y = f(w^T \Phi)$$。这里$$f$$在机器学习里一般称之为激活函数(activation function),$$f^{-1}$$在统计里称之为link函数(link function)。
 
