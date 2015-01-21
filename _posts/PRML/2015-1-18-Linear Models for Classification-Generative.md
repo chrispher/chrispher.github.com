@@ -59,11 +59,11 @@ $$\Sigma = S = \frac{N_1}{N}S_1 + \frac{N_2}{N}S_2 = \frac{1}{N_1} \sum_{n \in C
 $$a_k(x) = \sum^D_{i=1} (x_i \ln \mu_{ki} + (1-x_i) \ln (1-\mu_{ki})) + \ln p(C_k)$$
 
 ####1.3指数族
-之前已经看到了高斯分布和离散输入了，类别的后验概率可以用线性模型和sigmoid函数(K=2)或softmax(K > 2)的结合得到。然而这些只是指数族的一个特例。我们假设类别下的条件概率密度$$p(x \mid C_k)$$是指数族里的一个分布，那么有$$p(x \mid \lambda_k) = h(x)g(lambda_k)exp(lambda_k^T u(x))$$。接下来我们限制一下，使得$$u(x) = x$$，之后引入一个缩放参数s，那么限制后的指数族的条件分布是:
+之前已经看到了高斯分布和离散输入了，类别的后验概率可以用线性模型和sigmoid函数(K=2)或softmax(K > 2)的结合得到。然而这些只是指数族的一个特例。我们假设类别下的条件概率密度$$p(x \mid C_k)$$是指数族里的一个分布，那么有$$p(x \mid \lambda_k) = h(x)g(\lambda_k)exp(\lambda_k^T u(x))$$。接下来我们限制一下，使得$$u(x) = x$$，之后引入一个缩放参数s，那么限制后的指数族的条件分布是:
 
 $$p(x \mid \lambda_k,s) = \frac{1}{s} h(\frac{1}{s} x) g(\lambda_k)exp(\frac{1}{s} \lambda_k^Tx)$$
 
-这里可以看到我们允许各个类有自己的参数向量$$\lambda_k$$，但是假设共享一个参数s。对于二元分类，我们转化得到$$a(x) = (\lambda_1 - \lambda__2)^Tx + \ln(g(\lambda_1)) - \ln g(\lambda_2) + \ln p(C_1) - \ln p(C_2)$$
+这里可以看到我们允许各个类有自己的参数向量$$\lambda_k$$，但是假设共享一个参数s。对于二元分类，我们转化得到$$a(x) = (\lambda_1 - \lambda_2)^T x + \ln (g(\lambda_1)) - \ln g(\lambda_2) + \ln p(C_1) - \ln p(C_2)$$
 。同样，对于多元分类，$$a_k(x) = \lambda_k^Tx + \ln g(\lambda_k) + \ln p(C_k)$$，同样是x的线性函数。
 
 <a name="2.概率判别模型"/>
