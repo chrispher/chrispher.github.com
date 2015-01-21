@@ -132,7 +132,7 @@ $$\nabla_{w_k} \nabla_{w_j} E(w_1,...,w_K) = - \sum^N_{n=1} y_{nk}(I_{kj} - y_{n
 ####2.4Probit回归
 在上面看到了用指数族分布描述的类别下的条件概率，结果可以在线性特征下的logistic或softmax来得到后验概率。但是，很多情况下类别下的条件概率并不能给出一个简单形式的后验概率。这里我们继续考虑二元分类，仍然是在线性模型的框架下，即$$p(t=1 \mid a) = f(a)$$，这里的$$a = w^T \Phi$$，f是激活函数。那么我们就会有很多选择，这里选择一个在$$a_n \le \theta$$时，$$t_n=1$$，否则$$t_n = 0$$。这里的$$\theta$$是由概率密度$$p(\theta)$$来产生的，那么我们的激活函数可以用累积分布函数（cdf）$$f(a) = \int^a_{- \infty}$$表示。
 
-这里作为一个例子，我们选择标准高斯分布作为$$p(\theta)$$，那么cdf就是$$\Phi(a) = \sum^a_{- \infty} N(\theta \mid 0,1) d \theta$$，这就是probit函数，形状和sigmoid函数类似。这里用其他的高斯分布，不会改变模型，只是相当于对线性系数w做了尺度变换。此外还有一些函数，比如$$erf(a) = \frac{2}{\sqrt{\pi} \int^a_0 exp(-\theta^2 / 2 d \theta)$$，称之为erf函数或误差函数(与机器学习里的误差函数不同)。与probit函数关系为$$\Phi(a) = \frac{1}{2} (1 + \frac{1}{\sqrt{2} erf(a))$$。
+这里作为一个例子，我们选择标准高斯分布作为$$p(\theta)$$，那么cdf就是$$\Phi(a) = \sum^a_{- \infty} N(\theta \mid 0,1) d \theta$$，这就是probit函数，形状和sigmoid函数类似。这里用其他的高斯分布，不会改变模型，只是相当于对线性系数w做了尺度变换。此外还有一些函数，比如$$erf(a) = \frac{2}{\sqrt{\pi}} \int^a_0 exp(-\theta^2 / 2 d \theta)$$，称之为erf函数或误差函数(与机器学习里的误差函数不同)。与probit函数关系为$$\Phi(a) = \frac{1}{2} (1 + \frac{1}{\sqrt{2}} erf(a))$$。
 
 基于probit激活函数的广义线性模型，称之为probit回归。我们可以使用最大似然估计来得到参数。实际中，probit得到的结果类似于logistic回归的结果。实际应用中需要注意的是异常值。probit回归比logistic回归对异常值更加敏感，因为logistic函数尾部随着x趋近于无穷大，按照$$exp(-x)$$衰减的，而probit是按照类似于$$exp(-x^2)$$的衰减。但是，两个在训练中，都是假设数据是正确标定的。错误标签可以通过引入错误标定的概率$$\epsilon$$，并加入到概率模型中如下：
 
