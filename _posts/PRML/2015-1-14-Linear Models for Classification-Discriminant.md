@@ -5,7 +5,7 @@ category: PRML
 tags: [线性回归, 分类, 预测, 判别, 感知器]
 ---
 
-本篇主要是概述一下线性分类相关的一些知识。分类的目标是在给到一个D维的输入数据X，预测它的类别c（假设共K个类别，一般而言，各个类别是互斥的）。输入空间可以被分割为不同的决策区域(decision regions),这些区域的平面称之为决策边界(decision boundaries或decision surfaces，本文使用决策平面)。这一章，主要考虑线性分类器，即决策平面是输入x的线性模型。如果数据可以完全被线性决策平面分割，称之为线性可分（linearly separable）。笔记分两部分，这是第一部分：判别法部分。
+本篇主要是概述一下线性分类相关的一些知识。分类的目标是在给到一个D维的输入数据X，预测它的类别c（假设共K个类别，一般而言，各个类别是互斥的）。输入空间可以被分割为不同的决策区域(decision regions),这些区域的平面称之为决策边界(decision boundaries或decision surfaces，本文使用决策平面)。这一章，主要考虑线性分类器，即决策平面是输入x的线性模型。如果数据可以完全被线性决策平面分割，称之为线性可分（linearly separable）。笔记分三部分，这是第一部分：判别法部分。
 
 <!-- more -->
 
@@ -58,7 +58,7 @@ tags: [线性回归, 分类, 预测, 判别, 感知器]
 
 <img src="http://chrispher.github.com/images/prml/ch4_discriminant_fisher1.jpg" height="100%" width="100%">
 
-我们看到重合是因为分布的方差较大导致的。Fisher提出了一个方法，即使得投影后不同类别的样本点越分开越好，同类的越聚集越好，也就是类间方差越大越好，类内方差越小越好，这种方法称之为Fisher线性判别法也称之为线性判别分析(LDA, Linear Discriminant Analysis)。我们知道投影后，类别$$C_k$$内的方差是 $$s_k^2 = \sum_{n \in C_k}(y_n - m'_k)^2$$，这里$$y_n = w^Tx_n$$，那么类内方差和为$$s_1^2 + s_2^2$$。Fisher准则(Fisher criterion)就是类间方差和类内方差的比值，即
+我们看到重合是因为分布的方差较大导致的。Fisher提出了一个方法，即使得投影后不同类别的样本点越分开越好，同类的越聚集越好，也就是类间方差（这是个人翻译，不一定准，有人用“散度”）越大越好，类内方差越小越好，这种方法称之为Fisher线性判别法也称之为线性判别分析(LDA, Linear Discriminant Analysis)。我们知道投影后，类别$$C_k$$内的方差是 $$s_k^2 = \sum_{n \in C_k}(y_n - m'_k)^2$$，这里$$y_n = w^Tx_n$$，那么类内方差和为$$s_1^2 + s_2^2$$。Fisher准则(Fisher criterion)就是类间方差和类内方差的比值，即
 
 $$J(w) = \frac{(m'_2 - m'_1)^2}{s_1^2 + s_2^2}$$
 

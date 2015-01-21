@@ -123,7 +123,7 @@ $$\sigma_N^2(x) = \underbrace{\beta^{-1}}_{noise\ in \ data} + \underbrace{\Phi(
 同样可以看到当N趋近于无穷大时，后一项趋近于0。同样，在如果我们使用局部基函数，如高斯，那么在远离基函数中心的区域，第二项中的预测方差的贡献将变为零，只留下$$\beta^{-1}$$作为噪声贡献。因此，预测变得非常有信心，这通常不是一个好的行为，可采用一种替代贝叶斯方法来避免这个影响，用高斯过程方法（在第六章会有介绍）。同样，如果$$w,\beta$$均未知，那么先验分布可以选择Gaussian-gamma分布，最终预测分布是学生分布，这个可以在第二章看到。
 
 ####3.3等价核
-通过上面的分析，预测分布的均值为$$y(x,m_N) = m_N^T \phi(x) = \beta \phi(x)^T S_N \Phi(x)t = \sum_{n=1}^N \beta \phi(x)^T S_N \phi(x_n)t_n$$,这里的$$S_N^{-1} = S_0^{-1} + \beta \Phi^T \Phi$$. 这里看到了待预测点x与训练数据集中$$x_n$$的内积形式，我们用一个函数来表示，即$$y(x,m_N) = \sum^N_{n=1} k(x,x_n)tn$$,该函数是$$k(x,x') = \beta \phi(x)^T S_N \phi(x')$$，也称之为Smoother matrix, equivalent kernel（这里简单的翻译为等价核）。在解析解中，我们简单的（没有引入正则项）看，$$w = (X^TX)^{-1}X^Tt$$，那么预测x值就是$$wx = \frac{X^Txt}{X^TX}$$，分子是点积形式，分母可以认为是归一化，这里就可以和上面提到的$$m_N,S_N$$对应起来。在线性回归里，可以看到预测值是训练数据集中目标值得线性组合的产生的，也称之为linear smoother。下图是选用多项式基函数和sigmoid基函数的核函数曲线图。
+通过上面的分析，预测分布的均值为$$y(x,m_N) = m_N^T \phi(x) = \beta \phi(x)^T S_N \Phi(x)t = \sum_{n=1}^N \beta \phi(x)^T S_N \phi(x_n)t_n$$,这里的$$S_N^{-1} = S_0^{-1} + \beta \Phi^T \Phi$$. 这里看到了待预测点x与训练数据集中$$x_n$$的内积形式，我们用一个函数来表示，即$$y(x,m_N) = \sum^N_{n=1} k(x,x_n)t_n$$,该函数是$$k(x,x') = \beta \phi(x)^T S_N \phi(x')$$，也称之为Smoother matrix, equivalent kernel（这里简单的翻译为等价核）。在解析解中，我们简单的（没有引入正则项）看，$$w = (X^TX)^{-1}X^Tt$$，那么预测x值就是$$wx = \frac{X^Txt}{X^TX}$$，分子是点积形式，分母可以认为是归一化，这里就可以和上面提到的$$m_N,S_N$$对应起来。在线性回归里，可以看到预测值是训练数据集中目标值得线性组合的产生的，也称之为linear smoother。下图是选用多项式基函数和sigmoid基函数的核函数曲线图。
 
 <img src="http://chrispher.github.com/images/prml/ch3_kernel_regression.jpg" height="100%" width="100%">
 
@@ -157,7 +157,7 @@ $$p(D) = \int p(D \mid w) p(w)dw \approx p(D \mid w_{MAP}) \frac{\Delta w_{poste
 
 $$\ln p(D) \approx \ln p(D \mid w_{MAP}) + \ln(\frac{\Delta w_{posterior}}{\Delta w_{prior}})$$
 
-如下图左侧图所示，这种近似后的结果。第一项是表示用最优参数下拟合数据的概率分布；第二项表示对模型复杂的惩罚。因为$$\Delta w_{posterior} \lt \Delta w_{prior}$$，即这一项就是负的，$$\Delta w_{posterior} / \Delta w_{prior}$$变得越小，该项值增幅越大。即如果在后验分布中，参数很好的吻合了数据，那么这一项的惩罚越大。
+如下图左侧图所示，这种近似后的结果。第一项是表示用最优参数下拟合数据的概率分布；第二项表示对模型复杂的惩罚。因为$$\Delta w_{posterior} < \Delta w_{prior}$$，即这一项就是负的，$$\Delta w_{posterior} / \Delta w_{prior}$$变得越小，该项值增幅越大。即如果在后验分布中，参数很好的吻合了数据，那么这一项的惩罚越大。
 
 <img src="http://chrispher.github.com/images/prml/ch3_bayes_model_select.jpg" height="100%" width="100%">
 
