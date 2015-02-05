@@ -18,6 +18,7 @@ math: true
       <a class="post-tag" href="/page/tags.html#{{ tag }}">{{tag}}</a>
       <i class="space"></i>
     {% endfor %}
+    <i class="space"></i> 字数:{{page.content | size |divided_by:2}}
   </p>
 </header>
 <div class="post-main">
