@@ -5,7 +5,7 @@ paginate: 12
 paginate_path: page/:num
 
 blog:
-    name: chrispher guan
+    name: chrispher
     description: Data Science
     title: Data Science
     url: http://chrispher.github.com 
@@ -18,6 +18,5 @@ author:
     weibo: 2917650677  # weibo ID
     github: chrispher  # github ID
     linkedin: chrispher-guan/5a/a68/6b8
-    gplus: 110552447039675960964
     logo: http://chrispher.github.com/res/img/logo.png
 
