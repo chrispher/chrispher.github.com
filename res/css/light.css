@@ -27,18 +27,18 @@ h1,h2,h3,h4,h5,h6 {
 	color:#f47920;
 }
 .post-main h1,h2,h3,h4 {
-	margin-bottom:-10px;
-	margin-top:10px;
+	margin-bottom:-4px;
+	margin-top:4px;
 	letter-spacing:2px;
 }
 h1 {
-	font-size:2.3em;
+	font-size:1.6em;
 }
 h3 {
 	font-size:19px;
 }
 h5,h6 {
-	margin-bottom:-10px;
+	margin-bottom:-4px;
 }
 p {
 	word-break:break-all;
@@ -47,8 +47,8 @@ img {
 	max-width:92%;
 	height:auto;
 	margin-left:4%;
-	margin-bottom:-10px;
-	margin-top:10px;
+	margin-bottom:-5px;
+	margin-top:5px;
 }
 .post-main img {
 	max-width:92%;
@@ -157,7 +157,7 @@ a:link {
 	list-style:none;
 	display:block;
 	text-align:left;
-	font-size:18px;
+	font-size:15px;
 	letter-spacing:3px;
 }
 #nav ul li {
@@ -243,11 +243,11 @@ a:link {
 }
 .main {
 	margin-left:20%;
-	margin-top:-10px;
+	margin-top:-5px;
 	padding:0 10px 0 10px;
 }
 .posts {
-	margin-bottom:20px;
+	margin-bottom:10px;
 }
 .post-title {
 	color:#0090d3;
@@ -273,9 +273,9 @@ a:link {
 }
 .post-meta {
 	color:#999;
-	font-size:18px;
-	margin-top:-18px;
-	margin-bottom:30px;
+	font-size:15px;
+	margin-top:-5px;
+	margin-bottom:5px;
 	letter-spacing:1px;
 }
 .space {
@@ -342,7 +342,7 @@ a.pagination-item:hover {
 	margin:25px 0 25px 1px;
 }
 footer {
-	font-size:16px;
+	font-size:14px;
 	line-height:1.5;
 	text-align:center;
 	margin-top:7.5em;
@@ -401,8 +401,8 @@ a.fancybox {
 hr {
 	height:4px;
 	padding:0;
-	margin-top:20px;
-	margin-bottom:-10px;
+	margin-top:5px;
+	margin-bottom:-5px;
 	background-color:#EBEBEB;
 	border:0 none;
 }
@@ -412,15 +412,15 @@ sup {
 .footnotes {
 	border-top:2px solid #f0f0f0;
 	padding-top:15px;
-	font-size:17px;
+	font-size:15px;
 }
 .footnotes ol li {
-	font-size:17px;
+	font-size:13px;
 	line-height:1;
 }
 .footnotes p {
 	color:#747f8c;
-	font-size:17px;
+	font-size:13px;
 	line-height:1;
 }
 .footnotes p a {
@@ -496,10 +496,10 @@ pre code {
 		width:130px;
 	}
 	.title {
-		font-size:32px;
+		font-size:22px;
 	}
 	.sub-title {
-		font-size:20px;
+		font-size:16px;
 	}
 	#nav {
 		margin:7% 0 7% -25%;
