@@ -84,7 +84,7 @@ tags: [convnet, CNN, win7, 配置, 深度学习]
 
 运行成功会出现如下信息：
 
-<img src="http://chrispher.github.com/images/deeplearning/convnet_test.png" height="100%" width="100%">
+<img src="/images/deeplearning/convnet_test.png" height="100%" width="100%">
 
 <a name="常见错误"/>
 

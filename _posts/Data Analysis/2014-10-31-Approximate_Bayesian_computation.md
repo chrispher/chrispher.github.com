@@ -19,7 +19,7 @@ tags: [ABC, 随机模拟法, 数据分析, 统计, 贝叶斯]
 ###1.问题
 虽然我们处在大数据时代，但是有时候你并没有大数据。比如Karl Broman在twitter上的提出一个问题:他在洗衣时候发现11只不同的袜子，请问他实际应该有多少只袜子呢？
 
-<img src="http://chrispher.github.com/images/statistics/Approximate_Bayesian_Computation_karl_tweet_1.jpeg" height="100%" width="100%">
+<img src="/images/statistics/Approximate_Bayesian_Computation_karl_tweet_1.jpeg" height="100%" width="100%">
 
 如果我们有大量的数据，我们可以用一些机器学习的方法来推断。而目前我们知道的信息有限，因此这里采用了一些统计模型来求解。
 
@@ -87,7 +87,7 @@ while abs(final - 11) > 0.01:
 - 4.大量的重复步骤2、3，就会得到一堆试验参数值；
 - 5.最后，得到的这些试验参数值就是参数的后验概率分布。与实际观测越符合的参数值，越容易被保存下来。
 
-<img src="http://chrispher.github.com/images/statistics/Approximate_Bayesian_computation_conceptual_overview.svg.png" height="100%" width="100%">
+<img src="/images/statistics/Approximate_Bayesian_computation_conceptual_overview.svg.png" height="100%" width="100%">
 
 ####3.1选择先验概率
 如何选择一个合适的先验概率分布呢？我们的参数是 n_socks（袜子总数）, n_pairs(成对的袜子数) 和 n_odd(成单的袜子数)。我们目前所能知道的是这两者都是离散整数。一个比较不错的选择是泊松分布（适合于描述单位时间内随机事件发生的次数），但是泊松分布的期望和方差都是一个参数值。

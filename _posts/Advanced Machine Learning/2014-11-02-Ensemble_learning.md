@@ -39,7 +39,7 @@ Ensemble方法是监督式学习的一种，训练完成之后就可以看成是
 
 下图是使用训练集合中不同的子集进行训练（以获得适当的差异性，类似于合理抽样），得到不同的误差，之后适当的组合在一起来减少误差。
 
-<img src="http://chrispher.github.com/images/machinelearning/EnsembleLearning_Combining_classifiers.jpg" height="100%" width="100%">
+<img src="/images/machinelearning/EnsembleLearning_Combining_classifiers.jpg" height="100%" width="100%">
 
 <a name="3.Common types of ensembles"/>
 
@@ -61,13 +61,13 @@ $$y=argmax_{c_j \in C} \sum_{h_i \in H}{P(c_j｜h_i)P(T｜h_i)P(h_i)}$$
 
 [Bootstrap aggregating](http://en.wikipedia.org/wiki/Bootstrap_aggregating)通常又简称为Bagging(装袋法)，它是让各个模型都平等投票来决定最终结果。为了提高模型的方差(variance, 差异性)，bagging在训练待组合的各个模型的时候是从训练集合中随机的抽取数据。比如[随机森林](http://en.wikipedia.org/wiki/Random_forest)(random forest)就是多个随机决策树平均组合起来以达到较优分类准确率的模型。 但是，bagging的一个有趣应用是非监督式学习中，图像处理中使用不同的核函数进行bagging，可以阅读论文Image denoising with a multi-phase kernel principal component approach and an ensemble version 和 Preimages for Variation Patterns from Kernel PCA and Bagging。
 
-<img src="http://chrispher.github.com/images/machinelearning/EnsembleLearning_Bagging.jpg" height="100%" width="100%">
+<img src="/images/machinelearning/EnsembleLearning_Bagging.jpg" height="100%" width="100%">
 
 ####3.3 Boosting
 
 [Boosting](http://en.wikipedia.org/wiki/Boosting_(meta-algorithm))(提升法)是通过不断的建立新模型而新模型更强调上一个模型中被错误分类的样本，再将这些模型组合起来的方法。在一些例子中，boosting要比bagging有更好的准确率，但是也更容易过拟合。目前，boosting中最常用的方法是[adaboost](http://en.wikipedia.org/wiki/Adaboost).
 
-<img src="http://chrispher.github.com/images/machinelearning/EnsembleLearning_Boosting.jpg" height="100%" width="100%">
+<img src="/images/machinelearning/EnsembleLearning_Boosting.jpg" height="100%" width="100%">
 
 ###3.4 Bayesian model averaging
 
@@ -97,9 +97,9 @@ Bayesian model combination(BMC) 是 BMA 的一个校正算法。它不是独立�
 
 对于BMA而言，使用贝叶斯法来计算模型权重就必须要计算给定各个模型时生成数据的概率$$P(T｜h_i)$$。通常情况下，Ensemble中的模型都不是严格服从训练数据的生成分布来生成数据，所以这一项一般都非常接近于0。如果Ensemble足够大到可以抽样整个"假设"空间，那么理论上结果是比较好。但是，Ensemble空间有限，不可行。因此，训练数据中的每个模式会导致Ensemble中与训练数据分布最接近的模型的权重增大。举一个例子来说，比如"假设"空间有5个假设，BMA与BMC可以简单的如下图所示：
 
-<img src="http://chrispher.github.com/images/machinelearning/EnsembleLearning_BMA.jpg" height="100%" width="100%">
+<img src="/images/machinelearning/EnsembleLearning_BMA.jpg" height="100%" width="100%">
 
-<img src="http://chrispher.github.com/images/machinelearning/EnsembleLearning_BMC.jpg" height="100%" width="100%">
+<img src="/images/machinelearning/EnsembleLearning_BMC.jpg" height="100%" width="100%">
 
 BMA是选择一个与生成数据的分布最接近的模型，而BMC是选择一个与生成数据的分布最接近的模型组合方式。BMA可以看成是从一堆模型中使用交叉验证来选择一个最优模型。而BMC可以认为是从一堆随机模型组合中选择一个最好的组合(Ensemble)。
 
@@ -160,7 +160,7 @@ Stacking(有时候也称之为stacked generalization)是指训练一个模型用
 
 如下图，先在整个训练数据集上通过bootstrapped抽样得到各个训练集合，得到一系列分类模型，称之为Tier 1分类器, 然后将输出用于训练Tier 2 分类器(meta-classifier, Wolpert 1992)。潜在的一个思想是希望训练数据都得被正确的学习到了。比如某个分类器错误的学习到了特征空间里某个特定区域，因此错误分类就会来自这个区域，但是Tier 2分类器可能根据其他的分类器学习到正确的分类。交叉验证也通常用于训练Tier 1分类器：把这个训练集合分成T个块，Tier 1中的每个分类器根据各自余下的T-1块进行训练，并在T块（该块数据并未用于训练）上测试。之后将这些分类器的输出作为输入，在整个训练集合上训练Tier 2分类器。（这里未提及测试集，测试集是指不在任何训练过程中出现的数据）。
 
-<img src="http://chrispher.github.com/images/machinelearning/EnsembleLearning_Stacked_generalization.jpg" height="100%" width="100%">
+<img src="/images/machinelearning/EnsembleLearning_Stacked_generalization.jpg" height="100%" width="100%">
 
 总的来说，Stacking 方法比任何单一模型的效果都要好，而且不仅成功应用在了监督式学习中，也成功应用在了非监督式(概率密度估计)学习中。甚至应用于估计bagging模型的错误率。据论文Feature-Weighted Linear Stacking(Sill, J. and Takacs, G. and Mackey L. and Lin D., 2009, arXiv:0911.0460)而言，Stacking比Bayesian Model Averaging表现要更好！此外在Kaggle上，很多比赛多是通过Stacking获取优秀的结果！
 

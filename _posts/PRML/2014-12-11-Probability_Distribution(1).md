@@ -104,7 +104,7 @@ $$N(x \mid \mu,\Sigma) = \frac{1}{(2\pi)^{D/2} {\mid \Sigma \mid}^{1/2}} exp(-\f
 
 此外，我们考虑高斯分布的几何特性。首先x到$$\mu$$的马氏距离(Mahalanobis distance)是$$\Delta^2 = (x-\mu)^T\Sigma^{-1}(x-\mu)$$，是高斯分布的函数依赖(functional dependence),即给定这个二次型(quadratic
 form)，高斯分布就被决定下来了。 $$\Sigma$$是对称矩阵(symmetric matrix)，他的特征向量U是正交的。定义$$y = U(x-\mu)$$，那么上面的二次型可以用如下**等高线图**表示：
-<img src="http://chrispher.github.com/images/prml/ch2_GaussianEllipse.jpg" height="100%" width="100%">
+<img src="/images/prml/ch2_GaussianEllipse.jpg" height="100%" width="100%">
 
 其中，$$\lambda_i$$ 是$$\Sigma$$的特征值， $$u_i$$是对应的特征向量。这里我们提及行列式的一个性质$$ \mid \Sigma \mid = \prod_{j=1}^D \lambda_j^(\frac{1}{2})$$。高斯分布是最常使用的概率密度，但是通常会有一些限制。因为正常情况下高斯分布含有 D(D+1)/2 + D 个独立参数，即是随着维度增长而二次增长。因此，有时候我们会限制$$\Sigma$$是对角矩阵(即属性间相互独立，等高线图中特征向量与属性是平行的)，有时候会限制$$\Sigma$$是单位矩阵(等高线图是一个个圆)。书中还简介了一些以后会深入讲的一些东西，比如潜在变量模型、图模型等。
 

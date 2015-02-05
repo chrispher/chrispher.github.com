@@ -36,13 +36,13 @@ Dropout主要用来解决深度学习中因大量参数而导致的过拟合问�
 ####3.dropout
 dropout主要解决以上所说的问题，dropout的意思是drop out 神经网络中的一些神经元（隐含层和可见层）。drop神经元，指随机的从网络中移除，同时包括该神经元的输入和输出，如下图所示。
 
-![](http://chrispher.github.com/images/deeplearning/dropout.png)
+![](/images/deeplearning/dropout.png)
 
 drop的神经元是随机的，且概率独立，概率p可以通过交叉验证来得到，也可以简单的设置为0.5；在分类问题中，使用dropout比传统的正则化方法，泛化误差都有显著的减小。
 论文中提到了很多实验结果。其中，在Street View House Numbers例子中，使用卷积神经网络，提到：仅对MLP层做drop out的效果没有对所有层均做drop out效果好，此外，还提到了使用max-out效果会更加提升。但是，作者提到了这种提升并不显著（卷积层是否使用dropout），这可能是因为卷积神经网络本身参数就少的原因。然而，对于全连接层使用dropout还是能够很好的阻止噪声的干扰从而阻止过拟合。
 
 他们做了很多实验，结果绘图如下：
-![](http://chrispher.github.com/images/deeplearning/dropout_result.jpg)
+![](/images/deeplearning/dropout_result.jpg)
 
 <a name="4. Appendix" />
 

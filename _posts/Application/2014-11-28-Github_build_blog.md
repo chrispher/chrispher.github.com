@@ -40,7 +40,7 @@ tags: [博客, jekyll, Git, 配置]
 
 首先需要大家建立一个去建立一个github账号。注册成功之后，我们新建一个项目，注意**项目名称**！，如下图：
 
-<img src="http://chrispher.github.com/images/application/github_blog.jpg" height="80%" width="80%">
+<img src="/images/application/github_blog.jpg" height="80%" width="80%">
 
 之后可以设置该项目的属性，在项目的右侧的Settings，可以设置允许有wiki等，注意GitHub Pages不要选择**automatic page generator!**。
 

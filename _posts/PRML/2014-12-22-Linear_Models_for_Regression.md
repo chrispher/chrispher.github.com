@@ -23,7 +23,7 @@ tags: [线性回归, 基函数, 预测]
 ###1.线性回归模型
 一个基本的例子是函数拟合，观测到N个D维度的x，每个都都对应一个目标值t，构造一个函数y(x)用于预测t。在概率的观点下，是寻找一个合适的概率分布$$p(t \mid x)$$。如下图所示：
 
-<img src="http://chrispher.github.com/images/prml/ch3_LinearRegression.jpg" height="80%" width="80%">
+<img src="/images/prml/ch3_LinearRegression.jpg" height="80%" width="80%">
 
 ####1.1基函数
 基础的线性回归模型形式是：$$y(x,w) = \sum_{j=0}^{M-1} w_i \phi_j(x) = w^T \phi(x)$$, 这里$$w = (w_0,...,w_{M-1})^T ; \ \ \phi=(\phi_0,...,\phi_{M-1})^T, \phi_0(x)=1$$， $$w_0$$是偏置参数（也就是常说的截距项）。这里的$$\phi(x)$$就是基函数，对x的每个属性都有一个基函数，常用的一些基函数有
@@ -49,7 +49,7 @@ $$\begin{align} \nabla \ln p(t \mid w, \beta) &= \sum_{n=1}^N (t_n - w^T \phi(x_
 
 最终得到：$$w_{ML} = (\Phi^T \Phi)^{-1} \Phi^T t$$。这里看到了$$(\Phi^T \Phi)$$这种内积形式，那么可以联想到核方法。此外，$$\beta_{ML}^{-1} = \frac{1}{N} \sum_{n=1}^N (t_n - w^T_{ML} \phi(x_n))^2$$。我们可以用几何解释一下回归分析，最小二乘法就是在特征空间里寻找与目标向量t最接近的向量y，而该向量是目标向量t在特征空间的投影。如果$$(\Phi^T \Phi)$$是奇异的，换句话说就是特征空间中，基向量共线或接近共线，那么$$(\Phi^T \Phi)$$就不存在逆矩阵了，导致参数会有很大的浮动（没有唯一解），可以考虑使用SVD或其他方法求解。如下图所示：
 
-<img src="http://chrispher.github.com/images/prml/ch3_Geometry_of_least_squares.jpg" height="100%" width="100%">
+<img src="/images/prml/ch3_Geometry_of_least_squares.jpg" height="100%" width="100%">
 
 ####1.3顺序学习 
 顺序学习(Sequential learning)，也称为“在线学习”(on-line),可以使用随机梯度下降(stochastic gradient descent)来实现。即$$E_D(w) = \frac{1}{2} \sum_{n=1}^N (t_n - w^T\phi(x_n))^2$$。在上一部分，我们是直接得到了w的解析解，这里我们使用梯度下降法，选择学习速率$$\eta$$，得到w的更新表达式如下：
@@ -71,7 +71,7 @@ $$\frac{1}{2} \sum^N_{n=1} (t_n - w^T \phi(x_n))^2 + \frac{\lambda}{2} \sum^M_{j
 
 对于之前的情况是，q=2。q=1就是统计学里的lasso的方法，当 $$\lambda$$很大时，可以使得$$w_j$$等于0，从而实现稀疏模型(sparse model);为了看到这一点，我们可以把带正则系数的项，可以看成是参数的限制，即$$ \sum^M_{j=1} \mid w_j \mid ^q \le \eta$$，这样对于一个给定的$$\eta$$，可以通过“拉格朗日乘子法”得到我们之前的误差函数。假设只有$$w_1,w_2$$,我们可以看到当q=2的时候，正则项是一个圆，而当q=1的时候，正则项是一个菱形。等高线图是我们误差函数(不带正则项)的在参数空间的投影。交点就是我们最终的$$w$$值，可以看到q=1的时候，$$w_1$$是可以取得0的点，即$$w_1$$对应的属性$$x^{(1)}$$就没有作用了。
 
-<img src="http://chrispher.github.com/images/prml/ch3_regular_sparse.jpg" height="100%" width="100%">
+<img src="/images/prml/ch3_regular_sparse.jpg" height="100%" width="100%">
 
 此外，如果我们的目标t的维度是大于1的呢？其实是不影响的，只有一维一维的计算就可以了，这样w就是M×K维的了。最终结果就是$$W_{ML} = (\Phi^T \Phi)^{-1} \Phi^T T$$
 
@@ -125,7 +125,7 @@ $$\sigma_N^2(x) = \underbrace{\beta^{-1}}_{noise\ in \ data} + \underbrace{\Phi(
 ####3.3等价核
 通过上面的分析，预测分布的均值为$$y(x,m_N) = m_N^T \phi(x) = \beta \phi(x)^T S_N \Phi(x)t = \sum_{n=1}^N \beta \phi(x)^T S_N \phi(x_n)t_n$$,这里的$$S_N^{-1} = S_0^{-1} + \beta \Phi^T \Phi$$. 这里看到了待预测点x与训练数据集中$$x_n$$的内积形式，我们用一个函数来表示，即$$y(x,m_N) = \sum^N_{n=1} k(x,x_n)t_n$$,该函数是$$k(x,x') = \beta \phi(x)^T S_N \phi(x')$$，也称之为Smoother matrix, equivalent kernel（这里简单的翻译为等价核）。在解析解中，我们简单的（没有引入正则项）看，$$w = (X^TX)^{-1}X^Tt$$，那么预测x值就是$$wx = \frac{X^Txt}{X^TX}$$，分子是点积形式，分母可以认为是归一化，这里就可以和上面提到的$$m_N,S_N$$对应起来。在线性回归里，可以看到预测值是训练数据集中目标值得线性组合的产生的，也称之为linear smoother。下图是选用多项式基函数和sigmoid基函数的核函数曲线图。
 
-<img src="http://chrispher.github.com/images/prml/ch3_kernel_regression.jpg" height="100%" width="100%">
+<img src="/images/prml/ch3_kernel_regression.jpg" height="100%" width="100%">
 
 从直观上来看，核方法是类似于相似度度量，距离预测点y(x')越近的训练目标值t的的权重越大。我们计算一下y(x)和y(x')的协方差，以方便我们更深入的理解等价核。可以看到：
 
@@ -133,8 +133,8 @@ $$\begin{align} cov[y(x),y(x')] &= cov[\phi(x)^w, w^T\phi(x')] \\ &= \phi(x)^T c
 
 这里使用了w是方差为$$S_N$$的高斯分布。由此看到，距离点预测均值点越近的点相关性越大。此外，通过预测分布生成的点的不确定性是由预测分布的方差决定的（下图3.8）；但是通过w的后验概率分布生成的点，绘制y(x,w)的曲线图，在x点出的y值得不确定性却是由等价核决定的（下图3.9）。
 
-<img src="http://chrispher.github.com/images/prml/ch3_LinearRegression_figure3.8.jpg" height="100%" width="100%">
-<img src="http://chrispher.github.com/images/prml/ch3_LinearRegression_figure3.9.jpg" height="100%" width="100%">
+<img src="/images/prml/ch3_LinearRegression_figure3.8.jpg" height="100%" width="100%">
+<img src="/images/prml/ch3_LinearRegression_figure3.9.jpg" height="100%" width="100%">
 
 <a name="4.贝叶斯模型比较"/>
 
@@ -159,7 +159,7 @@ $$\ln p(D) \approx \ln p(D \mid w_{MAP}) + \ln(\frac{\Delta w_{posterior}}{\Delt
 
 如下图左侧图所示，这种近似后的结果。第一项是表示用最优参数下拟合数据的概率分布；第二项表示对模型复杂的惩罚。因为$$\Delta w_{posterior} < \Delta w_{prior}$$，即这一项就是负的，$$\Delta w_{posterior} / \Delta w_{prior}$$变得越小，该项值增幅越大。即如果在后验分布中，参数很好的吻合了数据，那么这一项的惩罚越大。
 
-<img src="http://chrispher.github.com/images/prml/ch3_bayes_model_select.jpg" height="100%" width="100%">
+<img src="/images/prml/ch3_bayes_model_select.jpg" height="100%" width="100%">
 
 如果是有M个参数，同上面那些假设，此外还假设所有参数均匀相同的$$\Delta w_{posterior} / \Delta w_{prior}$$，那么有：
 
@@ -186,7 +186,7 @@ $$\ln p(t \mid \alpha,\beta) = \frac{M}{2} \ln \alpha + \frac{M}{2} \ln \beta - 
 $$p(c \mid t) \approx p(c \mid t,\hat{\alpha}, \hat{\beta}) = \int p(c \mid w,\hat{\beta}) p(\hat{\alpha}, \hat{\beta}) dw $$ 
 
 我们绘制evidence $$\ln p(t \mid \alpha, \beta)$$对模型复杂度M的图(如下图所示)：
-<img src="http://chrispher.github.com/images/prml/ch3_evidenceVSm.jpg" height="100%" width="100%">
+<img src="/images/prml/ch3_evidenceVSm.jpg" height="100%" width="100%">
 
 我们看到在M=3的时候，值最大，模型最好。通过最大化$$p(t \mid \alpha,\beta)$$，我们对$$\alpha$$求偏导，可以得到 $$\gamma = \sum_i \frac{\gamma_i}{\alpha + gamma_i}$$，最终得到$$\alpha = \frac{\gamma}{m_N^Tm_N}$$。同样，可以得到$$\frac{1}{\beta} = \frac{1}{N-\gamma} \sum^N_{n=1}(t_n - m_N^T \Phi(x_n))^2$$。注意这里得到的$$\alpha,\beta$$都不是最终值，因为$$m_N$$的计算依赖于他们，所以这些是迭代公式。最终我们也能够得到$$\gamma$$的表达式$$\gamma = \alpha m_N^Tm_N$$。$$\gamma$$有一个非常好的解释，即可以解释为有效参数。
 

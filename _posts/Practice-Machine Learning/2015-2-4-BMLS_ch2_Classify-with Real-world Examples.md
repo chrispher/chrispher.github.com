@@ -37,7 +37,7 @@ sns.pairplot(iris, hue="species", size=3.0)
 
 {% endhighlight %}
 
-<img src="http://chrispher.github.com/images/practicalML/bmls_ch2/output_3_1.png" height="100%" width="100%">
+<img src="/images/practicalML/bmls_ch2/output_3_1.png" height="100%" width="100%">
 
 如果我们只有选择一个特征作为分类特征，选择一个阈值，我们以最后一幅图为例，可以选择petal的长度，取4.8为阈值(可以设定不同的阈值，看看那个阈值分类最高，图里可以看到绿色的最大值作为分割点是最优的)。这个没啥意思，不过也提供了一种简单的分析思路。我主要想做这个图看看而已。
 
@@ -170,7 +170,7 @@ sns.pairplot(seeds, hue="class", size=2.5)
 
 {% endhighlight %}
 
-<img src="http://chrispher.github.com/images/practicalML/bmls_ch2/output_7_1.png" height="100%" width="100%">
+<img src="/images/practicalML/bmls_ch2/output_7_1.png" height="100%" width="100%">
 
 {% highlight python %}
 
@@ -182,7 +182,7 @@ sns.corrplot(d, annot=True, sig_stars=False,
 
 {% endhighlight %}
 
-<img src="http://chrispher.github.com/images/practicalML/bmls_ch2/output_8_1.png" height="50%" width="50%">
+<img src="/images/practicalML/bmls_ch2/output_8_1.png" height="50%" width="50%">
 
 原始数据中，部分分隔符错乱，所以我们转成了excel。通过数据描述，我们发现都是数值的，且没有缺失值，但单位不一。另外，各个变量之间的相关关系很明显。
 所以，我们考虑先使用一些模型来做分类，使用交叉验证，看看结果如何。如果效果不好，使用归一化以及做一些特征选择，再看看效果。
@@ -347,7 +347,7 @@ sns.pairplot(error, hue="c_train", size=2.5)
 
 {% endhighlight %}
 
-<img src="http://chrispher.github.com/images/practicalML/bmls_ch2/output_17_2.png" height="100%" width="100%">
+<img src="/images/practicalML/bmls_ch2/output_17_2.png" height="100%" width="100%">
 
 <a name="4、总结"/> 
 

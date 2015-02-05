@@ -181,7 +181,7 @@ Python的基础课程推荐麻省理工的[计算机科学及编程导论](http:
 
 ####5.3 数据科学学习图谱
 
-<img src="http://chrispher.github.com/images/resource/road_data_science.jpg" height="100%" width="100%">
+<img src="/images/resource/road_data_science.jpg" height="100%" width="100%">
 
 最后引用Thomas H. Davenport（埃森哲战略变革研究院主任） 和 D.J. Patil（美国科学促进会科学与技术政策研究员，为美国国防部服务）的话来总结数据科学家需要具备的能力：
 

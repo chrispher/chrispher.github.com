@@ -37,7 +37,7 @@ plt.show()
 
 {% endhighlight %}
 
-<img src="http://chrispher.github.com/images/python/matplotlib_style.jpg" height="70%" width="70%">
+<img src="/images/python/matplotlib_style.jpg" height="70%" width="70%">
 
 <a name="2.subplots"/>
 
@@ -87,7 +87,7 @@ plt.show()
 
 {% endhighlight %}
 
-<img src="http://chrispher.github.com/images/python/plot_ggplot.png" height="70%" width="70%">
+<img src="/images/python/plot_ggplot.png" height="70%" width="70%">
 
 <a name="3.colors"/>
 
@@ -111,4 +111,4 @@ plt.show()
 
 {% endhighlight%}
 
-<img src="http://chrispher.github.com/images/python/plot_matrix.png" height="70%" width="70%">
+<img src="/images/python/plot_matrix.png" height="70%" width="70%">
