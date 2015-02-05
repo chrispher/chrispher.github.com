@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Classify with Real-world Examples
-category: Algorithm-Machine Learning
+category: Practice-Machine Learning
 tags: [案例, 分类]
 ---
 
@@ -192,9 +192,7 @@ sns.corrplot(d, annot=True, sig_stars=False,
 
 from sklearn import cross_validation as c_v
 from sklearn import svm
-from sklearn import linear_model
-from sklearn.externals.six import StringIO  
-import pydot 
+from sklearn import linear_model 
 
 # svm model
 # we can choose some feature for the model, based on the corrplot, we could drop the "P"
