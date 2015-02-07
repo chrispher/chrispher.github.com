@@ -1,8 +1,9 @@
 ---
 layout: post
 title: 各大语言下的机器学习小汇总
-category: Resource
-tags: [机器学习, 资料, 语言]
+category: 资源合集
+tags: [机器学习, 资源合集]
+description: R、python、matlab、Julia、Ruby等语音下的机器学习库资料汇总。  
 ---
 
 主要参考[josephmisiti](https://github.com/josephmisiti/awesome-machine-learning)提供的链接。语言方面主要集中在R、python、matlab等。

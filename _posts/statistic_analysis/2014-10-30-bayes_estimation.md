@@ -1,8 +1,9 @@
 ---
 layout: post
 title: 贝叶斯估计
-category: Data Analysis
-tags: [统计,贝叶斯,最大似然估计]
+category: 统计分析
+tags: [统计学]
+description: 介绍了贝叶斯估计方法，以及如何使用贝叶斯估计来解决一些实际问题。
 ---
 
 本文简单的介绍了贝叶斯估计方法，以及如何使用贝叶斯估计来解决一些实际问题。

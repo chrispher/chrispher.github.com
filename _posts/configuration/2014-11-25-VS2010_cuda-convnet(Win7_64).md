@@ -1,8 +1,9 @@
 ---
 layout: post
 title: VS2010环境下编译cuda-convnet(Win7_64位)
-category: Application
-tags: [convnet, CNN, win7, 配置, 深度学习]
+category: 操作配置
+tags: [环境搭建, 深度学习]
+description: 在windows 64位环境下，搭建并编译基于convnet的深度学习环境。
 ---
 
 系统是win7 64位, 已经提前安装了Visual Studio2010， CUDA5.5，Python安装的是Anaconda环境(可以自行搜索安装)；

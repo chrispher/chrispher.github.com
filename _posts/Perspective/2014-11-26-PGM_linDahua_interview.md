@@ -1,8 +1,9 @@
 ---
 layout: post
 title: 概率图模型(PGM)综述-林达华博士访谈
-category: Perspective
-tags: [概率图模型, 林达华, 计算机视觉]
+category: 学习观点
+tags: [概率图模型]
+description: 林达华博士对PGM理论做的综述，高屋建瓴的总结了PGM的主要分支和发展趋势
 ---
 
 本文转载自 [http://www.sigvc.org/bbs/thread-728-1-1.html](http://www.sigvc.org/bbs/thread-728-1-1.html)，是一篇很好的PGM理论综述，高屋建瓴的总结了PGM的主要分支和发展趋势，收藏并分享。

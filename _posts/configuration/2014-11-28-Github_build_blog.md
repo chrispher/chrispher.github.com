@@ -1,8 +1,9 @@
 ---
 layout: post
 title: 使用Github搭建个人博客
-category: Application
-tags: [博客, jekyll, Git, 配置]
+category: 操作配置
+tags: [环境搭建]
+description: 使用Github的page功能和jekyll搭建个人博客
 ---
 
 [GitHub](https://github.com)，是全球最大的社交编程及代码托管网站，GitHub可以托管各种git库，并提供一个web界面，但与其它像SourceForge或Google Code这样的服务不同，GitHub的独特卖点在于从另外一个项目进行分支的简易性。这里着重写如何使用Github的page功能搭建个人博客。

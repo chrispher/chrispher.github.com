@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Feature hashing
-category: Advanced Machine Learning
-tags: [trick, 特征, 哈希]
+category: 机器学习
+tags: [特征工程]
+description: hash特征是一种快速的且很节省空间的特征向量化的方法
 ---
 
 在机器学习中，[Feature hasing](https://en.wikipedia.org/wiki/Feature_hashing) 也称之为[hashing trick](http://alex.smola.org/papers/2009/Weinbergeretal09.pdf)，是一种快速的且很节省空间的特征向量化的方法。

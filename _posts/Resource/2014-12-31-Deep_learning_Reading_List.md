@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Deep learning Reading List
-category: Resource
-tags: [深度学习, 教程, 资料]
+category: 资源合集
+tags: [深度学习, 阅读书单]
+description: J Mohamed Zahoor的深度学习阅读书单
 ---
 
 文章来自[J Mohamed Zahoor](http://jmozah.github.io/links/)的深度学习阅读书单。

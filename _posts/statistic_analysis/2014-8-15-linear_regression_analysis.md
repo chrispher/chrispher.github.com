@@ -1,11 +1,12 @@
 ---
 layout: post
 title: 应用线性回归分析
-category: Data Analysis
-tags: [回归, 统计, 数据分析]
+category: 统计分析
+tags: [统计学]
+description: 简述线性回归问题，目的在厘清回归问题中涉及的基本假设、检验方法等，除了必要的公式和计算，着重于如何做好回归分析
 ---
 
-本文主要简述线性回归问题，目的在厘清回归问题中涉及的基本假设、检验方法等，除了必要的公式和计算，本文将着重在如何做好回归分析。**笔记主要参考《An Introduction to Statistical Learning with Applications in R》、《完全统计学教程》、维基百科等资料**。
+本文主要简述线性回归问题，目的在厘清回归问题中涉及的基本假设、检验方法等，除了必要的公式和计算，本文将着重于如何做好回归分析。**笔记主要参考《An Introduction to Statistical Learning with Applications in R》、《完全统计学教程》、维基百科等资料**。
 
 <!-- more -->
 

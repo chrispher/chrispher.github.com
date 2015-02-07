@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Discover Feature Engineering
-category: Advanced Machine Learning
-tags: [机器学习, 特征]
+category: 机器学习
+tags: [特征工程, 数据分析]
+description: 介绍了建模过程中的一些特征处理方法和技巧
 ---
 
 Note: This article originates from the [network](http://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/)

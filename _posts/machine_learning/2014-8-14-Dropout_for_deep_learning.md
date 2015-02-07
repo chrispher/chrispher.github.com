@@ -1,12 +1,13 @@
 ---
 layout: post
-title: Dropout-for deep learning
-category: Advanced Machine Learning
-tags: [Dropout, 深度学习, 机器学习]
+title: Dropout for deep learning
+category: 机器学习
+tags: [深度学习, 论文笔记]
+description: 使用dropout来阻止深度神经网络模型过拟合，并介绍了一些trick。
 ---
 
-文章参考Benjio的论文：[Dropout-A Simple Way to Prevent Neural Networks from Overfitting](http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)
-
+文章介绍了使用dropout来阻止深度神经网络模型过拟合，并介绍了一些trick。
+，详细请阅读Benjio的论文：[Dropout-A Simple Way to Prevent Neural Networks from Overfitting](http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)。
 <!-- more -->
 
 ####目录

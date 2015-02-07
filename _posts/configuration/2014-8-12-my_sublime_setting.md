@@ -1,11 +1,12 @@
 ---
 layout: post
 title: My sublime text2 setting
-category: Application
-tags: [sublime, 配置]
+category: 操作配置
+tags: [软件配置]
+description: windows下sublime text2的一些设置和调整
 ---
 
-windows下sublime text2的一些设置和调整
+windows下sublime text2的一些设置和调整。
 
 <!-- more -->
 

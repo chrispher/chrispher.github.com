@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Reading lists for new LISA students
-category: Resource
-tags: [深度学习, 资料]
+category: 资源合集
+tags: [深度学习, 阅读书单]
+description: Benjio给LISA学生的阅读书单，主要涉及机器学习、深度学习等等内容 
 ---
 
 Benjio给LISA学生的[Reading lists](https://docs.google.com/document/d/1IXF3h0RU5zz4ukmTrVKVotPQypChscNGf5k6E25HGvA/edit)

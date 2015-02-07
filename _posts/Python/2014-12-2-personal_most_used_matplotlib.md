@@ -2,7 +2,8 @@
 layout: post
 title: matplotlib之个人常用绘图
 category: Python
-tags: [python, 绘图, matplotlib]
+tags: [pydata]
+description: Python下的绘图包matplotlib的使用
 ---
 
 本文主要关于Python下的绘图包matplotlib的使用，涉及几个自己在实际过程中经常用的一些绘图命令。在这里，对个人经常使用的绘图功能做一个简单的总结，以便以后查看和使用！因为是在建模过程中的作图，所以不是追求论文中作图的那种详尽，而是尽可能用简短的命令实现所需要的绘图。本文所有代码默认`from matplotlib import pyplot as plt` 和 `import numpy as np` 。此外，用到一些不是很常用的绘图可以去 [matplotlib gallery](http://matplotlib.org/gallery.html)和[matplotlib doc](http://matplotlib.org/contents.html#)查看。

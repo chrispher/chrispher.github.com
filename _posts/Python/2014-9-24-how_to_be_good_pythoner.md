@@ -2,7 +2,8 @@
 layout: post
 title: 如何成为Python高手
 category: Python
-tags: [python, 编程, 学习]
+tags: [pythoner]
+description: 从函数式编程、性能、测试、编码规范四个方面介绍如何成为python高手
 ---
 
 文章翻译来自[外刊IT评论](http://www.aqee.net/how-to-become-a-proficient-python-programmer/)，英文原文参考[How to become a proficient Python programmer](http://blog.dispatched.ch/2011/06/12/how-to-become-a-proficient-python-programmer/) 。这篇文章主要集中在四个基本题目上：函数式编程，性能，测试，编码规范。如果一个程序员能将这四个方面的内容知识都吸收消化，那他/她不管怎样都会有巨大的收获。

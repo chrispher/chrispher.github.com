@@ -1,8 +1,9 @@
 ---
 layout: post
 title: 如何学习数据科学
-category: Resource
-tags: [数据科学, 教程, 资料]
+category: 学习观点
+tags: [数据科学]
+description: 个人对如何学习数据科学的一些个人认知，附录部分参考了网上资源
 ---
 
 本文主要是个人对如何学习数据科学的一些个人认知，附录部分参考了网上资源。

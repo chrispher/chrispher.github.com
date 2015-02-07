@@ -24,7 +24,6 @@ h1,.post-main h2,h3 {
 }
 h1,h2,h3,h4,h5,h6 {
 	letter-spacing:2px;
-	color:#f47920;
 }
 .post-main h1,h2,h3,h4 {
 	margin-bottom:-4px;
@@ -36,6 +35,7 @@ h1 {
 }
 h3 {
 	font-size:19px;
+	color:#1c87bf;
 }
 h5,h6 {
 	margin-bottom:-4px;
@@ -439,9 +439,8 @@ blockquote {
 code {
 	font-family:Consolas,Menlo,"Andale Mono","Courier New","Ubuntu Mono",Arial,"Microsoft YaHei","Hiragino Sans GB",sans-serif;
 	font-size:15px;
-	background:rgba(235,245,245,0.85);
+	background:#d3d7d4;
 	color:#000000;
-	margin-left:4%;
 	padding:0 4px;
 	border-radius:4px;
 	letter-spacing:1px;
@@ -452,13 +451,12 @@ pre code {
 	font-family:Consolas,Menlo,"Andale Mono","Courier New","Ubuntu Mono",Arial,"Microsoft YaHei","Hiragino Sans GB",sans-serif;
 	font-size:13px;
 	margin-left:4%;
-	background:rgba(235,245,245,0.75);
-	border-radius:3px;
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
+	background:#d3d7d4;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
 	line-height:1.2;
 	display:block;
-	border-left:9px solid rgba(102,128,153,0.075);
 	padding:5px 0px 5px 10px;
 	overflow-x:auto;
 	word-wrap:normal;

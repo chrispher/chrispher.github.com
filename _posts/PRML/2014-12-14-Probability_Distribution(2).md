@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Probability Distribution(2)
-category: PRML
-tags: [指数族, K近邻, 非参数估计, 核密度]
+category: 机器学习
+tags: [机器学习, PRML]
+description: 介绍指数族分布，以及使用K近邻、核密度方法进行非参数估计
 ---
 
 该部分主要是复习一下机器学习概率分布的相关知识。这里的概率分布主要讲两个方面：其一是密度估计(Density Estimation)，主要是频率学派和贝叶斯学派的方法。其次是共轭先验，主要是方便后验概率计算。本笔记分上下两个部分，第一部分是这里的各个分布概述；第二部分是指数族分布和非参数估计。这一篇记录第二部分。

@@ -1,8 +1,9 @@
 ---
 layout: post
 title: free-data-science-books
-category: Resource
-tags: [数据科学, 资料]
+category: 资源合集
+tags: [数据科学, 资源合集]
+description: 一些关于数据科学的书籍
 ---
 
 some free data science books!

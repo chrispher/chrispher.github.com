@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Classify with Real-world Examples
-category: Practice-Machine Learning
-tags: [案例, 分类]
+category: 机器学习
+tags: [机器学习案例, 特征工程, BMLSP]
+description: 基于python下一些数据科学包构建了一个分类器并进行调参。
 ---
 
 本文主要是简单的构建了一个分类器。首先是针对iris数据集，构建了一个只用阈值来分类的情况。之后简介了下交叉验证。然后考虑了更实际的数据集，使用了UCI的数据集，并考虑特征处理，使用logistics回归分类。最后，简单的说了一下分析的思路和一些待思考的问题。这里数据集和问题是参考了书籍《building machine learning system with python》，建模过程和分析属于个人见解，请批判阅读。

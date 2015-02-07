@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Linear Models for Classification-Bayesian Logistic Regression
-category: PRML
-tags: [线性回归, 分类, 预测, 生成, Laplace]
+category: 机器学习
+tags: [机器学习, PRML]
+description: 概述一下线性分类相关的一些知识, 本文主要是贝叶斯Losgistic回归等，使用Laplace平滑方法
 ---
 
 本篇主要是概述一下线性分类相关的一些知识。分类的目标是在给到一个D维的输入数据X，预测它的类别c（假设共K个类别，一般而言，各个类别是互斥的）。输入空间可以被分割为不同的决策区域(decision regions),这些区域的平面称之为决策边界(decision boundaries或decision surfaces，本文使用决策平面)。这一章，主要考虑线性分类器，即决策平面是输入x的线性模型。如果数据可以完全被线性决策平面分割，称之为线性可分（linearly separable）。笔记分三部分，这是第三部分：以贝叶斯logistic回归为主部分。

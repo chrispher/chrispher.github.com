@@ -1,8 +1,9 @@
 ---
 layout: post
 title: 数据挖掘9大定律
-category: Data Analysis
-tags: [数据挖掘]
+category: 统计分析
+tags: [数据科学]
+description: 数据挖掘上的九大定律，分布是目标律、知识律、准备律、没有免费午餐、大卫律、洞察律、预测律、价值律、变化律
 ---
 
 数据挖掘通用流程CRISP-DM的缔造者之一Tom Khabaza曾总结了在数据挖掘上的九大定律，分布是Business Goals Law （目标律）、Business Knowledge Law （知识律）、Data Preparation Law （准备律）、NFL Law （没有免费午餐，No Free Lunch）、Watkins' Law （大卫律，沃特金斯定律）、Insight Law（洞察律）、Prediction Law （预测律）、Value Law （价值律）、Law of Change （变化律）。
