@@ -62,12 +62,18 @@ img {
 	margin-left:4%;
 	margin-bottom:-5px;
 	margin-top:5px;
+	display: block;
+	clear: both; 
+	margin:auto; 
 }
 .post-main img {
 	text-align:center;
 	max-width:92%;
 	height:auto;
 	border-radius:2px;
+	display: block;
+	clear: both; 
+	margin:auto; 
 }
 iframe {
 	max-width:100%;
