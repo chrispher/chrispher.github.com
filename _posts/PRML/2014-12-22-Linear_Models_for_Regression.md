@@ -13,13 +13,10 @@ description: 概述一下线性回归相关的知识，包括了一些非线性�
 注：本文仅属于个人学习记录而已！参考Chris Bishop所著[Pattern Recognition and Machine Learning(PRML)](http://research.microsoft.com/en-us/um/people/cmbishop/PRML/)以及由Elise Arnaud, Radu Horaud, Herve Jegou, Jakob Verbeek等人所组织的Reading Group。
 
 ###目录
-- [1.线性回归模型](#1.线性回归模型)
-- [2.偏差方差分解](#2.偏差方差分解)
-- [3.贝叶斯线性回归](#3.贝叶斯线性回归)
-- [4.贝叶斯模型比较](#4.贝叶斯模型比较)
-- [5.Evidence近似](#5.Evidence近似)
+{:.no_toc}
 
-<a name="1.线性回归模型"/>
+* 目录
+{:toc}
 
 ###1.线性回归模型
 一个基本的例子是函数拟合，观测到N个D维度的x，每个都都对应一个目标值t，构造一个函数y(x)用于预测t。在概率的观点下，是寻找一个合适的概率分布$$p(t \mid x)$$。如下图所示：
@@ -76,8 +73,6 @@ $$\frac{1}{2} \sum^N_{n=1} (t_n - w^T \phi(x_n))^2 + \frac{\lambda}{2} \sum^M_{j
 
 此外，如果我们的目标t的维度是大于1的呢？其实是不影响的，只有一维一维的计算就可以了，这样w就是M×K维的了。最终结果就是$$W_{ML} = (\Phi^T \Phi)^{-1} \Phi^T T$$
 
-<a name="2,偏差方差分解"/>
-
 ###2.偏差方差分解
 我们知道过拟合是最大似然的一个不幸的特点，但是通过贝叶斯方法却是可以避免的。在考虑贝叶斯方法之前，我们先讨论模型复杂度的问题，也称之为“偏差-方差的权衡”(biasvariance trade-off)，这是频率学派对于模型复杂度的观点。过拟合一般发生在基函数比较多（即特征多）而训练数据有限的情况下。限制基函数数量，能够限制模型的复杂度。而使用正则项也能够控制模型的复杂度，但是需要决定正则系数是多少。
 
@@ -93,8 +88,6 @@ squared loss)
 $$E_D[(y(x;D) - h(x))^2] = \underbrace{E_D[y(x;D) - h(x)^2]}_{(bias)^2} + \underbrace{E_D[(y(x;D) - E_D[y(x;D)])^2]}_{variance}$$
 
 合起来就是 expected loss = (bias)$$^2$$ + variance + noise, 这里(bias)$$^2 = \int (E_D[y(x;D)] - h(x))^2 p(x)dx$$; variance = $$\int E_D[(y(x;D) - E_D(y(x;D)))^2]p(x)dx$$; nois = $$\int (h(x)-t)^2 p(x,t)dxdt$$。我们把期望损失分解成了bias(偏差)、variance(方差)与常数nose(噪声)的和。灵活的(flexible)模型一般都有较低的bias和较高的variance；而死板的(rigid)模型一般对于较高的bias和较低的variance。虽然这个分解让我们看到了模型复杂度内在的一些东西，但是实际应用确实有限的，因为着要求多个数据集。
-
-<a name="3.贝叶斯线性回归"/>
 
 ###3.贝叶斯线性回归
 
@@ -137,8 +130,6 @@ $$\begin{align} cov[y(x),y(x')] &= cov[\phi(x)^w, w^T\phi(x')] \\ &= \phi(x)^T c
 <img src="/images/prml/ch3_LinearRegression_figure3.8.jpg" height="100%" width="100%">
 <img src="/images/prml/ch3_LinearRegression_figure3.9.jpg" height="100%" width="100%">
 
-<a name="4.贝叶斯模型比较"/>
-
 ###4.贝叶斯模型比较
 
 过拟合问题可以通过边缘化模型参数来避免，在使用贝叶斯方法中，交叉验证不再有用，我们可以使用全部数据来训练模型，根据所以训练数据来比较模型。贝叶斯观点下的模型比较，是在模型选择中，使用概率来表示不确定，使用一些概率的加法和乘法原则。假设我们要比较L个模型$${M_i}$$，我们假设数据是由这里的某个模型产生的，但是不确定是具体哪一个，这种不确定性用先验概率$$p(M_i)$$表示。对于给到的数据集D，我们希望评估$$p(M_i \mid D) \propto p(M_i)p(D \mid M_i)$$。我们假设所有模型的先验分布是一样的，那么最终需要关注的就是模型的evidence项$$p(D \mid M_i)$$（有时也称之为边缘似然，marginal likelihood）。此外，$$p(D \mid M_i) / p(D \mid M_i)$$被称之为贝叶斯因子(Bayes Factor)。
@@ -169,8 +160,6 @@ $$\ln p(D) \approx \ln p(D \mid w_{MAP}) + M\ln(\frac{\Delta w_{posterior}}{\Del
 可以看到，M控制着模型的复杂度，如果M很大，那么第一项就会减小，因为复杂的模型能够更好的拟合数据，而第二项将会增大。我们可以根据最大evidence来得到最优的模型复杂度，在之后会用高斯分布来具体推导。此外，我们根据上图右侧图（注意概率和为1，即各个面积相同），来进一步理解模型复杂度和贝叶斯模型选择。这里$$M_1,M_2,M_3$$依次增大，想象一下用这些模型生成数据，越复杂的模型，越能生成不同的数据。具体生成过程是，从参数先验分布p(w)生成一个w，之后根据$$p(D \mid w)$$生成数据。
 
 我们看到了贝叶斯方法下能够避免模型过拟合也能做模型选择。但是，它也是建立在大量的假设之上。实际过程中，因为各种假设很难满足或者很难获取，导致一些错误的结论。因此实际中，预留一部分数据做测试数据是比较明智的。
-
-<a name="5.Evidence近似"/>
 
 ###5.Evidence近似
 

@@ -13,13 +13,11 @@ description: 介绍机器学习概率分布的相关知识，包括伯努利分�
 注：本文仅属于个人学习记录而已！参考Chris Bishop所著[Pattern Recognition and Machine Learning(PRML)](http://research.microsoft.com/en-us/um/people/cmbishop/PRML/)以及由Elise Arnaud, Radu Horaud, Herve Jegou, Jakob Verbeek等人所组织的Reading Group。
 
 
-###内容
-- [1.二元变量](#1.二元变量)
-- [2.多元变量](#2.多元变量)
-- [3.高斯分布](#3.高斯分布)
-- [4.其他分布](#4.其他分布)
+###目录
+{:.no_toc}
 
-<a name="1.二元变量"/>
+* 目录
+{:toc}
 
 ###1.二元变量
 首先是对于二元变量(Binary Variables)， $$x \in {0,1}$$ ,参数 $$\mu$$ , $$p(x)$$ 满足 $$p(x=1 \mid \mu)=\mu, p(x=0 \mid \mu) = 1-\mu$$ ，那么我们称$$p(x)$$是伯努利分布(Bernoulli distribution)，表示如下：
@@ -60,8 +58,6 @@ $$\begin{align} var_\theta[\theta] &= E_\theta[\theta^2] - [E_\theta[\theta]]^2 
 
 由此看出参数后验概率的方差是小于先验概率方差的，即参数的不确定性随着观测数据而降低。当然，这只是理想情况，实际过程中，也存在大于的情况。
 
-<a name="2.多元变量"/>
-
 ###2.多元变量
 对于多元变量(Multinomial Variables)，假设随机变量有K个互斥状态(mutually exclusive states)，用K维度的向量x表示，对于状态K发生时，$$x_k=1, x_{i \neq k} =0$$。那么对于伯努利分布可以扩展为 $$p(x \mid \mu) = \prod_{k=1}^{K}\mu_k^{x_k}$$，这里要求$$\sum_k\mu_k = 1$$。
 
@@ -86,8 +82,6 @@ $$p(\mu \mid D,\alpha) \propto p(D \mid \mu)p(\mu \mid \alpha) \propto \prod_{k=
 $$p(\mu \mid D,\alpha) = Dir(\mu \mid \alpha+m) = \frac{\Gamma(\alpha_0+N)}{\Gamma(\alpha_1+m_1) ...\Gamma(\alpha_k+m_k)} \prod_{k=1}^K \mu_k^{a_k+m_k-1}$$
 
 类似于beta分布，我们也可以认为$$a_k$$是$$x_k=1$$的有效观测数。
-
-<a name="3.高斯分布"/>
 
 ###3.高斯分布
 
@@ -173,8 +167,6 @@ $$b_N = b_0 + \frac{1}{2}\sum_{n=1}^N(x_n-\mu)^2 = b_0 + \frac{N}{2}\sigma_{ML}^
 - 最大似然估计对异常值不鲁棒；解决方法是用t分布或其他分布；
 - 无法描述周期函；解决方法是使用von Mises分布
 - 是单峰分布；解决方法是使用混合高斯分布；
-
-<a name="4.其他分布"/>
 
 ###4.其他分布
 对于高斯分布的局限性，我们引入了其他的几个分布，这里简单的概述下；

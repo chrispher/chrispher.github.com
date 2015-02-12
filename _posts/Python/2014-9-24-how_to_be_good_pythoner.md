@@ -10,14 +10,11 @@ description: 从函数式编程、性能、测试、编码规范四个方面介�
 
 <!-- more -->
 
-### 目录
+###目录
+{:.no_toc}
 
-- [函数式编程](#函数式编程)
-- [性能](#性能)
-- [测试](#测试)
-- [编码规范](#编码规范)
-
-<a name="函数式编程"/>
+* 目录
+{:toc}
 
 ####函数式编程
 
@@ -29,8 +26,6 @@ description: 从函数式编程、性能、测试、编码规范四个方面介�
 - [http://www.secnetix.de/olli/Python/lambda_functions.hawk](http://www.secnetix.de/olli/Python/lambda_functions.hawk)
 - [http://docs.python.org/howto/functional.html](http://docs.python.org/howto/functional.html)
 
-<a name="性能"/>
-
 ####性能
 
 你会看到有如此多的讨论都在批评这些“脚本语言”(Python，Ruby)是如何的性能低下，可是你却经常的容易忽略这样的事实：是程序员使用的算法导致了程序这样拙劣的表现。
@@ -39,8 +34,6 @@ description: 从函数式编程、性能、测试、编码规范四个方面介�
 
 - [http://jaynes.colorado.edu/PythonIdioms.html](http://jaynes.colorado.edu/PythonIdioms.html)
 - [http://wiki.python.org/moin/PythonSpeed/PerformanceTips](http://wiki.python.org/moin/PythonSpeed/PerformanceTips)
-
-<a name="测试"/>
 
 ####测试
 
@@ -52,8 +45,6 @@ description: 从函数式编程、性能、测试、编码规范四个方面介�
 - [http://www.oreillynet.com/lpt/a/5584](http://www.oreillynet.com/lpt/a/5584)
 - [http://wiki.cacr.caltech.edu/dan…._Integration_testing](http://wiki.cacr.caltech.edu/dan…._Integration_testing)
 - [http://docs.python.org/library/unittest.html](http://docs.python.org/library/unittest.html)
-
-<a name="编码规范"/>
 
 ####编码规范
 

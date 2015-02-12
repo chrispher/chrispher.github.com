@@ -11,18 +11,11 @@ description: R、python、matlab、Julia、Ruby等语音下的机器学习库资
 
 <!-- more -->
 
-## Table of Contents
-- [books](#some usefull books about Machine-Learning / Data Mining)
-- [Java](#java)
-- [Julia](#julia)
-- [Lua](#lua)
-- [Matlab](#matlab)
-- [Python](#python)
-- [Ruby](#ruby)
-- [R](#r)
-- [Scala](#scala)
+###目录
+{:.no_toc}
 
-<a name="some usefull books about Machine-Learning / Data Mining" />
+* 目录
+{:toc}
 
 ### some usefull books 
 
@@ -84,8 +77,6 @@ and Prediction](http://users.soe.ucsc.edu/~draper/draper-BMIP-dec2005.pdf)
 A curated list of awesome machine learning frameworks, libraries and software (by language). Inspired by awesome-php.
 Other awesome lists can be found in the [awesome-awesomeness](https://github.com/bayandin/awesome-awesomeness) list.
 
-<a name="java" />
-
 ### Java
 
 ##### Natural Language Processing
@@ -129,8 +120,6 @@ Other awesome lists can be found in the [awesome-awesomeness](https://github.com
 * [Hadoop](https://github.com/apache/hadoop-mapreduce) - Hadoop/HDFS
 * [Spark](https://github.com/apache/spark) - Spark is a fast and general engine for large-scale data processing.
 * [Impala](https://github.com/cloudera/impala) - Real-time Query for Hadoop
-
-<a name="julia" />
 
 ### Julia
 
@@ -181,8 +170,6 @@ Other awesome lists can be found in the [awesome-awesomeness](https://github.com
 * [JuliaCon Presentations](https://github.com/JuliaCon/presentations) - Presentations for JuliaCon
 * [SignalProcessing](https://github.com/davidavdav/SignalProcessing) - Signal Processing tools for Julia
 * [Images](https://github.com/timholy/Images.jl) - An image library for Julia
-
-<a name="lua" />
 
 ### Lua
 
@@ -246,8 +233,6 @@ Other awesome lists can be found in the [awesome-awesomeness](https://github.com
   * NORB
 * [Atari2600](https://github.com/fidlej/aledataset) - Scripts to generate a dataset with static frames from the Arcade Learning Environment
 
-<a name="matlab" />
-
 ### Matlab
 
 #### Computer Vision
@@ -275,8 +260,6 @@ on MNIST digits[DEEP LEARNING]
 #### Data Analysis / Data Visualization
 * [matlab_gbl](https://www.cs.purdue.edu/homes/dgleich/packages/matlab_bgl/) - MatlabBGL is a Matlab package for working with graphs.
 * [gamic](http://www.mathworks.com/matlabcentral/fileexchange/24134-gaimc---graph-algorithms-in-matlab-code) - Efficient pure-Matlab implementations of graph algorithms to complement MatlabBGL's mex functions.
-
-<a name="python" />
 
 ### Python
 
@@ -402,8 +385,6 @@ on MNIST digits[DEEP LEARNING]
 * [kaggle_acquire-valued-shoppers-challenge](https://github.com/MLWave/kaggle_acquire-valued-shoppers-challenge) - Code for the Kaggle acquire valued shoppers challenge
 * [wine-quality](https://github.com/zygmuntz/wine-quality) - Predicting wine quality
 
-<a name="ruby" />
-
 ### Ruby
 
 #### Natural Language Processing
@@ -436,8 +417,6 @@ on MNIST digits[DEEP LEARNING]
 #### Misc
 * [Big Data For Chimps](https://github.com/infochimps-labs/big_data_for_chimps)
 * [Listof](https://github.com/kevincobain2000/listof) - Community based data collection, packed in gem. Get list of pretty much anything (stop words, countries, non words) in txt, json or hash. [Demo/Search for a list](http://listof.herokuapp.com/)
-
-<a name="r" />
 
 ### R
 
@@ -554,8 +533,6 @@ Angle Regression
 #### Data Analysis / Data Visualization
 * [Learning Statistics Using R](http://health.adelaide.edu.au/psychology/ccs/teaching/lsr/)
 * [ggplot2](http://ggplot2.org/) - A data visualization package based on the grammar of graphics.
-
-<a name="scala" />
 
 ### Scala
 

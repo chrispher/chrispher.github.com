@@ -13,12 +13,11 @@ description: 概述一下线性分类相关的一些知识, 本文主要是贝�
 注：本文仅属于个人学习记录而已！参考Chris Bishop所著[Pattern Recognition and Machine Learning(PRML)](http://research.microsoft.com/en-us/um/people/cmbishop/PRML/)以及由Elise Arnaud, Radu Horaud, Herve Jegou, Jakob Verbeek等人所组织的Reading Group。
 
 ###目录
-- [1.拉普拉斯近似](#1.拉普拉斯近似)
-- [2.模型比较](#2.模型比较)
-- [3.贝叶斯logistic回归](#3.贝叶斯logistic回归)
+{:.no_toc}
 
+* 目录
+{:toc}
 
-<a name="1.拉普拉斯近似"/>
 
 ###1.拉普拉斯近似
 在分类问题中使用贝叶斯法则，比在回归中要复杂的多。我们没办法基于w达到形式的一致化，因为后验概率不再是高斯分布，因此要引入一些基于分析计算和数值抽样的近似方法。这里介绍其中一个方法，拉普拉斯近似(the Laplace approximation)。
@@ -47,8 +46,6 @@ $$q(z) = \frac{\mid A \mid^{1/2}}{(2 \pi)^{M / 2}} exp(-\frac{1}{2}(z - z_0)^T A
 
 为了使得拉普拉斯近似，我们首先要得到$$z_0$$，之后估计在该点的Hessian矩阵。但是实际分布可能是多峰分布，因此也会有不同的拉普拉斯近似。此外，真实分布的归一化因子Z在使用拉普拉斯近似法时是不需要知道的。根据中心极限定理，随着观测量的增加，后验概率会越来越趋近于拉普拉斯估计的高斯分布。拉普拉斯近似的不足是：因为它基于高斯分布，只能用于实数变量。其他的情况，我们也许可以通过一些变换来使用拉普拉斯近似。比如对于 $$0 \le \tau < \infty$$，可以通过对数变换来使用拉普拉斯估计。当然，拉普拉斯近似最严重的不足是它是纯粹依赖于真实分布在变量取得某个特定值，因此可能无法刻画一些重要的全局特征。在后面的章节会有一些别的方法。
 
-<a name="2.模型比较"/>
-
 ###2.模型比较
 近似得到p(z)之后，我们可以通过积分得到归一化因子$$Z = \int f(z) dz \cong f(z_0)\frac{(2 \pi)^{M / 2}}{\mid A \mid^{1/2}}$$。
 
@@ -57,8 +54,6 @@ $$q(z) = \frac{\mid A \mid^{1/2}}{(2 \pi)^{M / 2}} exp(-\frac{1}{2}(z - z_0)^T A
 这里A是hessian矩阵。上式第一项是在最优参数下的对数概率估计，剩余的三项是奥卡姆因子(Occam factor)，用于惩罚模型的复杂度。如果假设参数的先验概率是高斯分布，而且hessian矩阵是满秩的，那么我们可以近似上式为$$\ln p(D) \cong p(D \mid \theta_{MAP}) - \frac{1}{2}M \ln N$$。这里N是样本数，M是参数个数，该式子也称之为贝叶斯信息准则(BIC, Bayesian Information Criterion)。与第一章的AIC($$\ln p(D \mid w_{ML}) - M$$)相比,对模型的复杂度惩罚更厉害。
 
 复杂度测量，比如AIC、BIC等等，虽然很容易计算，但是也可能导致一些错误的结果。尤其是Hessian矩阵很难满足满秩的假设，我们也可以用拉普拉斯近似来得到一些结果。
-
-<a name="3.贝叶斯logistic回归"/>
 
 ###3.贝叶斯logistic回归
 用贝叶斯来解释logistic回归是比较棘手的。这里我们采用拉普拉斯近似来解决贝叶斯logistic回归的相关问题。

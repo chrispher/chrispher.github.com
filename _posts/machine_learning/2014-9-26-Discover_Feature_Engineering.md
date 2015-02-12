@@ -10,18 +10,11 @@ Note: This article originates from the [network](http://machinelearningmastery.c
 
 <!-- more -->
 
-### Contents
-<!-- MarkdownTOC depth=4 -->
-- [1. Introduction](#1. Introduction)
-- [2. Problem that Feature Engineering Solves](#2. Problem that Feature Engineering Solves)
-- [3. Importance of Feature Engineering](#3. Importance of Feature Engineering)
-- [4. What is Feature Engineering?](#4. What is Feature Engineering?)
-- [5. Sub-Problems of Feature Engineering](#5. Sub-Problems of Feature Engineering)
-- [6. Process of Feature Engineering](#6. Process of Feature Engineering)
-- [7. General Examples of Feature Engineering](#7. General Examples of Feature Engineering)
-- [8. More Resources on Feature Engineering](#8. More Resources on Feature Engineering)
+###目录
+{:.no_toc}
 
-<a name="1. Introduction" />
+* 目录
+{:toc}
 
 ###1. Introduction
 Feature engineering is an informal topic, but one that is absolutely known and agreed to be key to success in applied machine learning.
@@ -31,8 +24,6 @@ If you read one article on feature engineering, I want it to be this one.
 
 > feature engineering is another topic which doesn’t seem to merit any review papers or books, or even chapters in books, but it is absolutely vital to ML success. [...] Much of the success of machine learning is actually success in engineering features that a learner can understand.  — Scott Locklin, in “[Neglected machine learning ideas](https://scottlocklin.wordpress.com/2014/07/22/neglected-machine-learning-ideas/)”
 
-<a name="2. Problem that Feature Engineering Solves" />
-
 ###2. Problem that Feature Engineering Solves
 When your goal is to get the best possible results from a predictive model, you need to get the most from what you have. This includes getting the best results from the algorithms you are using. It also involves getting the most out of the data for your algorithms to work with.
 
@@ -41,8 +32,6 @@ When your goal is to get the best possible results from a predictive model, you 
 This is the problem that the process and practice of feature engineering solves.
 
 > Actually the success of all Machine Learning algorithms depends on how you present the data. — Mohammad Pezeshki, answer to “[What are some general tips on feature selection and engineering that every data scientist should know?](http://www.quora.com/What-are-some-general-tips-on-feature-selection-and-engineering-that-every-data-scientist-should-know)”
-
-<a name="3. Importance of Feature Engineering"/>
 
 ###3. Importance of Feature Engineering
 The features in your data will directly influence the predictive models you use and the results you can achieve.You can say that: the better the features that you prepare and choose, the better the results you will achieve. It is true, but it also misleading.
@@ -61,8 +50,6 @@ With good features, you are closer to the underlying problem and a representatio
 
 - **Better features means better results.**
 > The algorithms we used are very standard for Kagglers. [...]  We spent most of our efforts in feature engineering.  — Xavier Conort, on “[Q&A with Xavier Conort](http://blog.kaggle.com/2013/04/10/qa-with-xavier-conort/)” on winning the Flight Quest challenge on Kaggle
-
-<a name="4. What is Feature Engineering?"/>
 
 ###4. What is Feature Engineering?
 Here is how I define feature engineering:
@@ -92,8 +79,6 @@ The data is a variable and is different every time. You get good at deciding whi
 Mastery of feature engineering comes with hands on practice, and study of what others that are doing well are practicing.
 
 > …some machine learning projects succeed and some fail. What makes the difference? Easily the most important factor is the features used. — Pedro Domingos, in “[A Few Useful Things to Know about Machine Learning](http://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf)” (PDF)
-
-<a name="5. Sub-Problems of Feature Engineering"/>
 
 ###5. Sub-Problems of Feature Engineering
 It is common to think of feature engineering as one thing. For example, for a long time for me, feature engineering was feature construction.
@@ -177,8 +162,6 @@ The abstract representations are prepared automatically, but you cannot understa
 
 Nevertheless, it’s fascinating, exciting and an important and modern part of feature engineering.
 
-<a name="6. Process of Feature Engineering"/>
-
 ###6. Process of Feature Engineering
 Feature engineering is best understood in the broader process of applied machine learning.
 You need this context.
@@ -223,8 +206,6 @@ The process might look as follows:
 You need a well defined problem so that you know when to stop this process and move on to trying other models, other model configurations, ensembles of models, and so on. There are gains to be had later in the pipeline once you plateau on ideas or the accuracy delta.
 
 You need a well considered and designed test harness for objectively estimating model skill on unseen data. It will be the only measure you have of your feature engineering process, and you must trust it not to waste your time.
-
-<a name="7. General Examples of Feature Engineering"/>
 
 ###7. General Examples of Feature Engineering
 Let’s make the concepts of feature engineering more concrete.In this section we will consider tabular data like that you might have in an excel spreadsheet. We will look at some examples of manual feature construction that you might like to consider on your own problems.
@@ -299,8 +280,6 @@ Specifically, the paper “[Round 1 Milestone Prize: How We Did It – Team Mark
 The paper provides both tables of attributes and SQL required to construct the attributes.
 
 The paper gives some great real-world examples of feature engineering by simple decomposition. There are a lot of counts, mins, maxes, lots of binary attributes, and discretized numerical attributes. Very simple methods used to great effect.
-
-<a name="8. More Resources on Feature Engineering"/>
 
 ###8. More Resources on Feature Engineering
 

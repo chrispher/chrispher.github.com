@@ -10,13 +10,11 @@ description: Python下的绘图包matplotlib的使用
 
 <!-- more -->
 
-### 目录
-- [1.使用风格](#[1.使用风格)
-- [2.subplots](#[2.subplots)
-- [3.colors](#3.colors)
-- [4.matrix](#4.matrix)
+###目录
+{:.no_toc}
 
-<a name="1.使用风格"/>
+* 目录
+{:toc}
 
 ###1.使用风格
 
@@ -39,8 +37,6 @@ plt.show()
 {% endhighlight %}
 
 <img src="/images/python/matplotlib_style.jpg" height="70%" width="70%">
-
-<a name="2.subplots"/>
 
 ###2.subplots
 subplots使用还是比较多的。如果子图比较多，可以使用for循环；如果比较少，可以直接使用；代码和结果如下：
@@ -90,15 +86,11 @@ plt.show()
 
 <img src="/images/python/plot_ggplot.png" height="70%" width="70%">
 
-<a name="3.colors"/>
-
 ###3.colors
 
 ```
 colors = plt.cm.Spectral(np.linspace(0, 1, len(unique_labels)))
 ```
-
-<a name="4.matrix"/>
 
 ###4.matrix
 

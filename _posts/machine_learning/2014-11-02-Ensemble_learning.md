@@ -12,13 +12,11 @@ description: Ensemble Learning(集成学习)是一种将多种学习算法组合
 
 <!-- more -->
 
-###内容
-- [1.Overview](#1.Overview)
-- [2.Ensemble theory](#2.Ensemble theory)
-- [3.Common types of ensembles](#3.Common types of ensembles)
-- [4. Ensemble combination rules](#4. Ensemble combination rules)
+###目录
+{:.no_toc}
 
-<a name="1.Overview"/>
+* 目录
+{:toc}
 
 ###1.Overview
 
@@ -30,8 +28,6 @@ Ensemble方法对于大量数据和不充分数据都有很好的效果。因为
 
 **注:本文直接使用Ensemble这个词，而不使用翻译，如“组合”等等**
 
-<a name="2.Ensemble theory"/>
-
 ###2.Ensemble theory
 
 Ensemble方法是监督式学习的一种，训练完成之后就可以看成是单独的一个"假设"（或模型），只是该"假设"不一定是在原"假设"空间里的。因此，Ensemble方法具有更多的灵活性。理论上来说，Ensemble方法也比单一模型更容易过拟合。但是，实际中有一些方法(尤其是Bagging)也倾向于避免过拟合。
@@ -41,8 +37,6 @@ Ensemble方法是监督式学习的一种，训练完成之后就可以看成是
 下图是使用训练集合中不同的子集进行训练（以获得适当的差异性，类似于合理抽样），得到不同的误差，之后适当的组合在一起来减少误差。
 
 <img src="/images/machinelearning/EnsembleLearning_Combining_classifiers.jpg" height="100%" width="100%">
-
-<a name="3.Common types of ensembles"/>
 
 ###3.Common types of ensembles
 
@@ -164,8 +158,6 @@ Stacking(有时候也称之为stacked generalization)是指训练一个模型用
 <img src="/images/machinelearning/EnsembleLearning_Stacked_generalization.jpg" height="100%" width="100%">
 
 总的来说，Stacking 方法比任何单一模型的效果都要好，而且不仅成功应用在了监督式学习中，也成功应用在了非监督式(概率密度估计)学习中。甚至应用于估计bagging模型的错误率。据论文Feature-Weighted Linear Stacking(Sill, J. and Takacs, G. and Mackey L. and Lin D., 2009, arXiv:0911.0460)而言，Stacking比Bayesian Model Averaging表现要更好！此外在Kaggle上，很多比赛多是通过Stacking获取优秀的结果！
-
-<a name="4. Ensemble combination rules"/>
 
 ###4. Ensemble combination rules
 

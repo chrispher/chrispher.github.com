@@ -11,12 +11,10 @@ description: 基于python下一些数据科学包构建了一个分类器并进�
 <!-- more -->
 
 ###目录
-- [1、简单分类器](#1、简单分类器)
-- [2、logistic回归](#2、logistic回归)
-- [3、归一化与增加特征](#3、归一化与增加特征)
-- [4、总结](#4、总结)
+{:.no_toc}
 
-<a name="1、简单分类器"/>
+* 目录
+{:toc}
 
 ###1、简单分类器
 
@@ -42,10 +40,7 @@ sns.pairplot(iris, hue="species", size=3.0)
 
 如果我们只有选择一个特征作为分类特征，选择一个阈值，我们以最后一幅图为例，可以选择petal的长度，取4.8为阈值(可以设定不同的阈值，看看那个阈值分类最高，图里可以看到绿色的最大值作为分割点是最优的)。这个没啥意思，不过也提供了一种简单的分析思路。我主要想做这个图看看而已。
 
-<a name="2、logistic回归"/>
-
 ###2、logistic回归
-
 这里使用了新的[数据集](https://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt)，是小麦种子数据。有7个特征，area
 A（面积）, perimeter P（周长）, compactness C = 4*pi*A/P\^2（紧密度）,
 length of kernel(胚长度), width of kernel(胚宽度), asymmetry
@@ -213,8 +208,6 @@ print 'LogisticRegression: the score is {s:.3}, var is {v:.3}'.format(s=score_lr
 
 我们看到使用了SVM等方法，发现使用LogisticRegression的结果可以达到92.4%，而且方差也比较小。那么，接下来我们只用LogisticRegression进行分析，毕竟LogisticRegression的可解释比较强。我们做一些特征变换和特征选择。这里，我们先采用归一化。这里为了方便，我们直接把数据集分割为训练数据和测试数据。
 
-<a name="3、归一化与增加特征"/>
-
 ###3、归一化与增加特征
 
 {% highlight python %}
@@ -349,8 +342,6 @@ sns.pairplot(error, hue="c_train", size=2.5)
 {% endhighlight %}
 
 <img src="/images/practicalML/bmls_ch2/output_17_2.png" height="100%" width="100%">
-
-<a name="4、总结"/> 
 
 ###4、总结
 

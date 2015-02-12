@@ -13,11 +13,11 @@ description: 概述一下线性分类相关的一些知识, 本文主要是生�
 注：本文仅属于个人学习记录而已！参考Chris Bishop所著[Pattern Recognition and Machine Learning(PRML)](http://research.microsoft.com/en-us/um/people/cmbishop/PRML/)以及由Elise Arnaud, Radu Horaud, Herve Jegou, Jakob Verbeek等人所组织的Reading Group。
 
 ###目录
-- [1.生成模型](#1.生成模型)
-- [2.概率判别模型](#2.概率判别模型)
+{:.no_toc}
 
+* 目录
+{:toc}
 
-<a name="1.生成模型"/>
 
 ###1.生成模型
 上一节简单的说明了不同类型的分类器。这里我们使用生成模型，需要得到类别的先验分布$$p(C_k)$$和条件概率密度$$p(x \mid C_k)$$，之后使用贝叶斯法则得到后验概率分布$$p(C_k \mid x)$$。考虑一下二元分类，我们有：
@@ -66,8 +66,6 @@ $$p(x \mid \lambda_k,s) = \frac{1}{s} h(\frac{1}{s} x) g(\lambda_k)exp(\frac{1}{
 
 这里可以看到我们允许各个类有自己的参数向量$$\lambda_k$$，但是假设共享一个参数s。对于二元分类，我们转化得到$$a(x) = (\lambda_1 - \lambda_2)^T x + \ln (g(\lambda_1)) - \ln g(\lambda_2) + \ln p(C_1) - \ln p(C_2)$$
 。同样，对于多元分类，$$a_k(x) = \lambda_k^Tx + \ln g(\lambda_k) + \ln p(C_k)$$，同样是x的线性函数。
-
-<a name="2.概率判别模型"/>
 
 ###2.概率判别模型
 上面我们的模型是使用最大似然得到$$p(x \mid C_k)$$和$$p(C_k)$$的参数值，之后使用贝叶斯法则得到后验分布。接下来用的概率判别模型(Probabilistic Discriminative Models)，则是直接使用最大似然估计得到线性模型的参数值。我们也就讨论一个比较有效的优化算法"迭代再加权最小平方法"(IRLS, iterative reweighted least squares)。与其间接的通过贝叶斯法则得到后验概率，我们直接拟合后验概率分布，这种方法称之为概率判别法，一般称之为判别法，优点是有更少的参数，而且可能会有更好的预测效果，尤其是当假设的条件概率分布$$p(x \ mid C_k)$$与实际差距比较大的时候。

@@ -12,12 +12,11 @@ description: 在windows 64位环境下，搭建并编译基于convnet的深度�
 
 <!-- more -->
 
-### 目录
-- [编译过程](#编译过程)
-- [测试过程](#测试过程)
-- [常见错误](#常见错误)
+###目录
+{:.no_toc}
 
-<a name="编译过程"/>
+* 目录
+{:toc}
 
 ### 编译过程
 
@@ -64,8 +63,6 @@ description: 在windows 64位环境下，搭建并编译基于convnet的深度�
 - 12).build整个工程。如果编译成功，就OK了。
 
 
-<a name="测试过程"/>
-
 ### 测试过程
 测试过程遵循cuda-convnet官方主页的说明文档步骤
 
@@ -86,8 +83,6 @@ description: 在windows 64位环境下，搭建并编译基于convnet的深度�
 运行成功会出现如下信息：
 
 <img src="/images/deeplearning/convnet_test.png" height="100%" width="100%">
-
-<a name="常见错误"/>
 
 ### 常见错误
 

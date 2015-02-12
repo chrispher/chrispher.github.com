@@ -11,12 +11,10 @@ description: 使用Github的page功能和jekyll搭建个人博客
 <!-- more -->
 
 ###目录
-- [1.github博客概述](#1.github博客概述)
-- [2.搭建博客](#2.搭建博客)
-- [3.写作与格式](#3.写作与格式)
-- [4.写作的一些技巧](#4.写作的一些技巧)
+{:.no_toc}
 
-<a name="1.github博客概述"/>
+* 目录
+{:toc}
 
 ###1.github博客概述
 
@@ -29,8 +27,6 @@ description: 使用Github的page功能和jekyll搭建个人博客
 [Jekyll](http://jekyllcn.com/) 是一个简单的博客形态的静态站点生产机器。它有一个模版目录，其中包含原始文本格式的文档，通过 Markdown （或者 Textile） 以及 Liquid 转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的服务器上。Jekyll 也可以运行在 GitHub Page 上，也就是说，你可以使用 GitHub 的服务来搭建你的项目页面、博客或者网站，而且是完全免费的。
 
 注意：本文只是介绍在github上搭建blog，不考虑本地博客环境。此外，本文列出了许多可以参考的文档，感兴趣深入的同学可以深入了解！
-
-<a name="2.搭建博客"/>
 
 ###2.搭建博客
 
@@ -114,8 +110,6 @@ git push # 上传所有文件，之后输入自己的用户名和密码即可
 
 其他的一些常用Git命令，建议大家去学习一些Git的基本操作[教程](http://git-scm.com/book/zh/v1)！当然，你可以不在乎乱七八糟的东西，专注于几个常用命令即可（除了上面提到的命令外，git pull表示把）。
 
-<a name="3.写作与格式"/>
-
 ###3.写作与格式
 
 这里简单的介绍下如何利用markdown进行文章的写作。大家可以随意选择一个文本编辑器，这里我推荐使用Sublime Text2，关于sublime的一些常用设置可以参考我的博客[My sublime text2 setting](http://www.datakit.cn/blog/2014/08/12/My%20sublime%20setting.html)。
@@ -139,8 +133,6 @@ windows下sublime text2的一些设置和调整 #正文
 
 Makrdown的简单语法,可以参考[Markdown 语法说明简体中文版](http://wowubuntu.com/markdown/)
 
-<a name="4.写作的一些技巧"/>
-
 ###4.写作的一些技巧
 
 这里额外讲一下几个我在博客里比较常用的语法；
@@ -152,11 +144,19 @@ Makrdown的简单语法,可以参考[Markdown 语法说明简体中文版](http:
 `- [1.github博客概述]（#1.github博客概述）`
 
 之后在每个需要添加的目录地方，增加
-
-`<a name="1.github博客概述"/>`  
 `### 1.github博客概述`
 
 这里是使用了html的一些语法，注意内容的一致性。另外，网上也也其他的不是有html语法的目录创建方式。但是，有些Jekyll不支持，比如直接使用TOC。也有自动侧边栏生成，可以自行搜索"Markdown自动生成侧边栏目录"等内容。
+
+另外，如果你使用的是`markdown: kramdown`，那么你可以在开头加入下面几行，实现自动的目录。
+
+    ``` 
+    ###目录
+    {:.no_toc}
+
+    * 目录
+    {:toc}
+    ```
 
 ####4.2插入图片
 
