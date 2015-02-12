@@ -75,23 +75,21 @@ description: 使用Github的page功能和jekyll搭建个人博客
 
 一般所需要做的核心设置在_config.yml 中，用文本打开：
 
-{% highlight python %}
-blog:
-    name: chrispher guan       # 博客名称
-    description: Data Science  # 博客描述
-    title: Data Science        # 网页标题
-    url: http://chrispher.github.com  # 博客地址，即你的项目名称
-    duoshuo: chrispher2012            # 多说ID
-    tongji: 3F27793c8b949a643c724f32bcf5058791 # 百度统计ID
-author:
-    name: chrispher guan       # 作者名称
-    email: chrispher2012@gmail.com # 邮箱地址
-    weibo: 2917650677  # weibo ID
-    github: chrispher  # github ID
-    linkedin: chrispher-guan/5a/a68/6b8 # linkedIn ID
-    gplus: 110552447039675960964  # G+ ID 
-    logo: http://chrispher.github.com/images/op_we_are_brothers.png # logo地址
-{% endhighlight %}
+    blog:
+        name: chrispher guan       # 博客名称
+        description: Data Science  # 博客描述
+        title: Data Science        # 网页标题
+        url: http://chrispher.github.com  # 博客地址，即你的项目名称
+        duoshuo: chrispher2012            # 多说ID
+        tongji: 3F27793c8b949a643c724f32bcf5058791 # 百度统计ID
+    author:
+        name: chrispher guan       # 作者名称
+        email: chrispher2012@gmail.com # 邮箱地址
+        weibo: 2917650677  # weibo ID
+        github: chrispher  # github ID
+        linkedin: chrispher-guan/5a/a68/6b8 # linkedIn ID
+        gplus: 110552447039675960964  # G+ ID 
+        logo: http://chrispher.github.com/images/op_we_are_brothers.png # logo地址
 
 如果没有对应的账号，可以直接不填！如果填我的账号信息，那么你的博客就相当于我的一个子博客了，哈哈！
 
@@ -100,11 +98,9 @@ author:
 如果你都修改好了之后，你可以上传你的项目了。同样，如果你使用Github客户端，同步一下就可以了。我个人是terminal，需要使用以下几个命令。
 以下是示范，井号后面是注释说明，不需要输入！可以参考一些简单[教程](http://rogerdudler.github.io/git-guide/index.zh.html)
 
-{% highlight python %}
-git add --all  # 添加所有文件
-git commit -a -m 'first commit' # 'first commit'表示你为这次提交写的备注，方便自己回顾和查看
-git push # 上传所有文件，之后输入自己的用户名和密码即可
-{% endhighlight %}
+    git add --all  # 添加所有文件
+    git commit -a -m 'first commit' # 'first commit'表示你为这次提交写的备注，方便自己回顾和查看
+    git push # 上传所有文件，之后输入自己的用户名和密码即可
 
 之后，10min左右，你的博客就好建好了，在网址栏输入**chrispher.github.com**即可访问博客（注意用户名！）
 
@@ -118,18 +114,16 @@ git push # 上传所有文件，之后输入自己的用户名和密码即可
 
 在文章开头是关于文章主题的设置，如下(井号后面是注释说明):
 
-{% highlight python %}
----                   # 默认文章主题设置起始标识符
-layout: post          # 使用post模板，在_layouts里多个模板可以用
-title: My sublime text2 setting #文章标题
-comments: true        # 增加评论功能
-category: Application # 设置文章的类别
-tags: [sublime, setting] # 设置文章的tag，方便自己以后搜索用
----          # 默认结束标识符
+    ---                   # 默认文章主题设置起始标识符
+    layout: post          # 使用post模板，在_layouts里多个模板可以用
+    title: My sublime text2 setting #文章标题
+    comments: true        # 增加评论功能
+    category: Application # 设置文章的类别
+    tags: [sublime, setting] # 设置文章的tag，方便自己以后搜索用
+    ---          # 默认结束标识符
 
 windows下sublime text2的一些设置和调整 #正文
 
-{% endhighlight %}
 
 Makrdown的简单语法,可以参考[Markdown 语法说明简体中文版](http://wowubuntu.com/markdown/)
 
@@ -150,13 +144,12 @@ Makrdown的简单语法,可以参考[Markdown 语法说明简体中文版](http:
 
 另外，如果你使用的是`markdown: kramdown`，那么你可以在开头加入下面几行，实现自动的目录。
 
-    ``` 
     ###目录
     {:.no_toc}
 
     * 目录
     {:toc}
-    ```
+
 
 ####4.2插入图片
 
@@ -174,3 +167,5 @@ Makrdown的简单语法,可以参考[Markdown 语法说明简体中文版](http:
 代码高亮语法是：在代码开始的地方标注 `｛％ highlight python ％｝` ，在代码结束的地方标注 `｛％ endhighlight ％｝`，那么中间的代码就是使用了Python的代码高亮风格！
 
 **注意：有些时候我们用的字符和markdown或者系统的字符重合，导致编译错误，我们可以用全角来替换，本文写作技巧中，部分符号用了全角替换！**
+
+另外需要注意，不同的markdown解析器，使用的语法也有一些差距。有些markdown的编辑器比如本文用的kramdown，可以使用波浪号来表示代码块等等。具体的语法扩展可以参考官网。
