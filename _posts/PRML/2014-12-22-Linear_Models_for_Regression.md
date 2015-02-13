@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linear Models for Regression
+title: ch3-线性回归模型
 category: 机器学习
 tags: [机器学习, PRML]
 description: 概述一下线性回归相关的知识，包括了一些非线性变化，比如基函数等等。分别使用最小二乘法和贝叶斯框架进行分析

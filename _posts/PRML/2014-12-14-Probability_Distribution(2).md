@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Probability Distribution(2)
+title: ch2-概率分布之非参估计
 category: 机器学习
 tags: [机器学习, PRML]
 description: 介绍指数族分布，以及使用K近邻、核密度方法进行非参数估计

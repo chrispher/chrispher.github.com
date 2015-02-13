@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Probability Distribution(1)
+title: ch2-概率分布及参数估计
 category: 机器学习
 tags: [机器学习, PRML]
 description: 介绍机器学习概率分布的相关知识，包括伯努利分布、多项分布、狄利克雷分布、高斯分布、共轭分布等等。以及使用频率学派和贝叶斯学派的方法进行参数估计。

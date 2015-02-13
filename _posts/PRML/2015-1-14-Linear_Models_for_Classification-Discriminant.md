@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linear Models for Classification-Discriminant
+title: ch4-线性分类之判别模型
 category: 机器学习
 tags: [机器学习, PRML]
 description: 概述一下线性分类相关的一些知识, 本文主要是判别函数法，包括LDA、感知器等方法
