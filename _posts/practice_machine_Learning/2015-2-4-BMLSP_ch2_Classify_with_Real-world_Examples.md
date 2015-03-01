@@ -170,10 +170,9 @@ sns.pairplot(seeds, hue="class", size=2.5)
 
 {% highlight python %}
 
-d = seeds.corr()
 f, ax = plt.subplots(figsize=(7, 7))
 cmap = sns.diverging_palette(220, 10, as_cmap=True)
-sns.corrplot(d, annot=True, sig_stars=False,
+sns.corrplot(seeds, annot=True, sig_stars=False,
              diag_names=False, cmap=cmap, ax=ax)
 
 {% endhighlight %}
