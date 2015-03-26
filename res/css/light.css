@@ -113,14 +113,14 @@ a:link {
 .sidebar {
 	text-align:center;
 	background:#31373d;
-	width:18%;
+	width:25%;
 	position:fixed;
 	top:0;
 	bottom:0;
 	left:0;
 }
 .profilepic {
-	margin-top:2%;
+	margin-top:12%;
 }
 .profilepic img {
 	height:174px;
