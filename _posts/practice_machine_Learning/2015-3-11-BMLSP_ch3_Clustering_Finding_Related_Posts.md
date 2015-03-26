@@ -19,8 +19,7 @@ description: 基于python下一些数据科学包构建了一个分类器并进�
 
 ###1、简单分类器
 
-首先我们导入一些我们需要使用的库。这里主要是使用python，以及它的一些包，主要是numpy、scipy、sklearn等等，绘图使用matplotlib，这里我个人习1、基础文本处理
-我们首先简单的使用jieba分词包和sklearn.feature_extraction下面的text库进行基础的文本特征处理，作为一个引入。
+首先我们导入一些我们需要使用的库。这里主要是使用python，以及它的一些包，主要是numpy、scipy、sklearn等等，绘图使用matplotlib，这里我个人习。我们首先简单的使用jieba分词包和sklearn.feature_extraction下面的text库进行基础的文本特征处理，作为一个引入。
 
 {% highlight python %}
 import numpy as np
