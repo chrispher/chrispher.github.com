@@ -10,7 +10,7 @@ blog:
     title: Data Science
     url: http://chrispher.github.com 
     duoshuo: chrispher2012
-    tongji: 3F27793c8b949a643c724f32bcf5058791
+    # tongji: 3F27793c8b949a643c724f32bcf5058791
 author:
     # Profile links on the left sidebar, leave blank to ignore
     name: chrispher guan 
