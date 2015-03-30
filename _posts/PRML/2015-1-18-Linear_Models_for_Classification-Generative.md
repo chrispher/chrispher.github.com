@@ -46,7 +46,7 @@ $$p(x \mid C_k) = \frac{1}{(2 \pi)^{D/2}} \frac{1}{\mid \Sigma \mid ^{1/2}} exp(
 
 一旦我们选用了特定分布，那么有需要进行参数估计，这里拿二元分类说一下，采用最大似然的方法。这里数据集是$$(x_n,t_n)$$，先验概率$$p(C_1) = \pi$$，推导比较直接，把相关分布代入，可以得到：
 
-$$p(t \mid \pi,\mu_1,\mu_2,\Sigma) = \prod^N_{n=1}(\pi N(x_n \mid \mu_1,\Sigma)^(t_n)((1-\pi) N(x_n \mid \mu_2,\Sigma))^{1-t_n}$$
+$$p(t \mid \pi,\mu_1,\mu_2,\Sigma) = \prod^N_{n=1}(\pi N(x_n \mid \mu_1,\Sigma)^{t_n}((1-\pi) N(x_n \mid \mu_2,\Sigma))^{1-t_n}$$
 
 之后我们取对数，对$$\pi$$取导数为0，可以得到$$\pi = \frac{1}{N} \Sigma t_n = \frac{N_1}{N}$$,这里$$N$$是样本总数，$$N_1$$是第一类样本数。对$$\mu_1$$取导数为0，可以得到$$\mu_1=\frac{1}{N_1} \Sigma^N_{n=1} t_n x_n$$,同理$$\mu_2=\frac{1}{N_2} \Sigma^N_{n=1} (1-t_n)x_n$$（即各自类别下的均值）。对共享的$$\Sigma$取导数为0，可以得到：
 
