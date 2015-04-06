@@ -28,7 +28,7 @@ description: 概述一下线性分类相关的一些知识, 本文主要是贝�
 
 $$\ln f(z) \cong \ln f(z_0) - \frac{1}{2}A(z - z_0)^2; \quad A = - \frac{d^2}{dz^2} \ln f(z) \mid_{z=z_0}$$
 
-这里注意一阶导数为0。那么我们再去指数，可以得到$$f(z) \cong f(z_0) exp(-frac{A}{2}(z - z_0)^2)$$，那么我们可以对于高斯分布得到$$q(z) = (\frac{A}{2 \pi})^{1/2} exp(-frac{A}{2}(z - z_0)^2)$$。这里注意对于高斯分布而言，精度是大于0的，即A > 0这种近似如下图所示。
+这里注意一阶导数为0。那么我们再去指数，可以得到$$f(z) \cong f(z_0) exp(-\frac{A}{2}(z - z_0)^2)$$，那么我们可以对于高斯分布得到$$q(z) = (\frac{A}{2 \pi})^{1/2} exp(-\frac{A}{2}(z - z_0)^2)$$。这里注意对于高斯分布而言，精度是大于0的，即A > 0这种近似如下图所示。
 
 <img src="/images/prml/ch4_bayesian_laplace.jpg" height="100%" width="100%">
 
