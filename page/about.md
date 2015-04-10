@@ -15,11 +15,11 @@ title: 个人博客
 
 - 翻译了Andrew Ng的Machine Learning课程Notes——机器学习笔记([点击下载](https://raw.githubusercontent.com/chrispher/chrispher.github.com/master/_draft/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_%E6%96%AF%E5%9D%A6%E7%A6%8F_%E5%88%9D%E7%A8%BFv1.docx))，课程见网易公开课——[斯坦福大学公开课 ：机器学习课程](http://v.163.com/special/opencourse/machinelearning.html)
 
-- 邮箱: chrispher2012@gmail.com
+- 邮箱: chrispher2012@gmail.com & chrispher2012@163.com
 
 - 博客地址: [http://www.datakit.cn](http://www.datakit.cn)，转载文章请注明作者chrispher guan和出处！
 
-- 捐赠: 看到左下角的**支付宝捐赠**了？觉得有趣，就请抖抖小手吧！有需要探讨的相关主题，可以在留言板块留言哟！
+- 有需要探讨的相关主题，可以在留言板块留言哟！
 
 - 博客主题Jekyll Light, 由[pexcn](https://github.com/pexcn/Jekyll-Light)设计，我在该版本上增加了**站内搜索**、**多种社交关注**、**标签页**、**留言板**、**支付宝捐赠**、重设**百度统计**功能、**配色调整**、**页面tag和字数统计**以及其他一些细节上的修改。
 
