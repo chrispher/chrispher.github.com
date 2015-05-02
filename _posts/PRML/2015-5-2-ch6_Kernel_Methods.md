@@ -14,8 +14,10 @@ description: 不同类型的神经网络，包括卷积神经网络
 注：本文仅属于个人学习记录而已！参考Chris Bishop所著[Pattern Recognition and Machine Learning(PRML)](http://research.microsoft.com/en-us/um/people/cmbishop/PRML/)以及由Elise Arnaud, Radu Horaud, Herve Jegou, Jakob Verbeek等人所组织的Reading Group。
 
 ###目录
+{:.no_toc}
 
-[TOC]
+* 目录
+{:toc}
 
 ###1、前言
 之前我们的模型一些参数模型，比如神经网络、线性回归等等，是学习一个由参数控制的的输入到输出的映射，模型学习完成之后，就可以扔掉所有的训练数据，预测时只根据参数就可以得到预测值。也有一些机器学习算法，在模型训练完成之后，并不扔掉所有的训练数据，在模型预测时，会用的所有的或者一部分训练数据，比如KNN和SVM。
@@ -64,9 +66,9 @@ $$k(X,Y) = \sum_z p(X \mid Z) p(Y \mid Z) p(Z)$$
 
 此外RBF也可以通过正则理论来得到，即融合不同的正则操作，使用Green's Function。还可以从有噪声输入的问题中得到，比如输入x伴随的噪声$$\zeta$$,分布为$$v(\zeta)$$,那么最小二乘误差如下:
 
-$$E = \fraec{1}{2} \sum_ {n=1} ^N \int (y(x_n + \zeta) - t_n)^2 v(\zeta) d \zeta$$
+$$E = \frac{1}{2} \sum_ {n=1} ^N \int (y(x_n + \zeta) - t_n)^2 v(\zeta) d \zeta$$
 
-类似于之前的推导（课后练习里有），我们可以得到$$y(x_n) = \sum^N_ {n=1} t_n h(x_x_n)$$，其中：
+类似于之前的推导（课后练习里有），我们可以得到 $$y(x_n) = \sum^N_ {n=1} t_n h(x-x_n)$$，其中：
 
 $$h(x - x_n) = \frac{v(x-x_n)}{ \sum^N_ {n=1} v(x-x_n)}$$
 
