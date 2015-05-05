@@ -4,7 +4,7 @@ title: ch6-核方法
 category: 机器学习
 tags: [机器学习, PRML]
 path: /notes/PRML/2015-5-2-ch6_Kernel_Methods.md
-description: 不同类型的神经网络，包括卷积神经网络
+description: 核方法介绍与基于样本学习的模型
 ---
 
 本章主要是介绍了核方法和高斯过程的一些知识。笔记分两部分，这是第一部分：核方法。
