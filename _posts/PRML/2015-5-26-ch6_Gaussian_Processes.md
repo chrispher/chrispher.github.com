@@ -1,6 +1,6 @@
 ---
 layout: post
-title:ch6-高斯过程
+title: ch6-高斯过程
 category: 机器学习
 tags: [机器学习, PRML]
 path: /notes/PRML/2015-5-26-ch6_Gaussian_Processes.md
