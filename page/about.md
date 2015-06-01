@@ -13,7 +13,7 @@ title: 个人博客
 
 - 也包括了一些学习感悟、人文阅读等无伤大雅的东西。但以**机器学习**为核心内容！
 
-- 翻译了Andrew Ng的Machine Learning课程Notes——机器学习笔记([点击下载](https://raw.githubusercontent.com/chrispher/chrispher.github.com/master/_draft/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_%E6%96%AF%E5%9D%A6%E7%A6%8F_%E5%88%9D%E7%A8%BFv1.docx))，课程见网易公开课——[斯坦福大学公开课 ：机器学习课程](http://v.163.com/special/opencourse/machinelearning.html)
+- 翻译了Andrew Ng的Machine Learning课程Notes——机器学习笔记([点击下载](https://raw.githubusercontent.com/chrispher/chrispher.github.com/master/_draft/machine_learning_notes_ng.docx))，课程见网易公开课——[斯坦福大学公开课 ：机器学习课程](http://v.163.com/special/opencourse/machinelearning.html)
 
 - 邮箱: chrispher2012@gmail.com & chrispher2012@163.com
 
