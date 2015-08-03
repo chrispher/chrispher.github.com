@@ -26,7 +26,7 @@ Caffe，全称Convolutional Architecture for Fast Feature Embedding，是一个�
 ####2.1、数据准备
 首先准备原始的训练数据和验证数据集，采用分类的方式训练CNN。我们的原始数据是按照类别放在一起，即facenet文件下是很多人，每个人一个文件夹，用于存放所以照片。之后处理成如下文件结构如下：
 
-``` python
+{% highlight python %}
 - train/ #存放训练数据
     -n01440765/ #每个人一个文件夹
         n01440765_1.jpg
@@ -42,11 +42,13 @@ train.txt            # 存放训练数据路径以及对应的类别
 test.txt             # 存放测试数据路径以及对应的类别
 val.txt              # 存放验证数据路径以及对应的类别
 
-```
+{% endhighlight %}
+
 这里编码的好处是防止caffe无法识别原始文件名，而且需要把类别处理成整数型的数据。把原始图片处理成caffe待使用的数据。
 
 在数据预处理完成之后，我们使用caffe提高的imagenet的数据生成脚`creat_imgnet.sh`本来生成训练数据，注意在caffe路径下使用sh命令，否则里面的一些引用路径会有报错，需要再配置路径。对于`creat_imgnet.sh`文件，需要注意路径的配置，这里列出一部分，其他的可以参照这些进行修改。主要如下:
-``` sh
+
+{% highlight sh %}
 EXAMPLE=facenet/face_256_256_31w_alax          # 生成模型训练数据文化夹
 TOOLS=build/tools                              # caffe的工具库，不用变
 
@@ -64,14 +66,14 @@ GLOG_logtostderr=1 $TOOLS/convert_imageset \
     $DATA/train.txt \                          # 训练数据文件名
     $EXAMPLE/face_train_lmdb                   # 生成训练数据，使用lmdb存储
 
-``` 
+{% endhighlight %}
 
 之后使用imagenet下的`make_imagenet_mean.sh`生成均值数据，同样需要**注意修改路径**，以及在caffe路径下使用sh命令。
 
 ####2.2、模型配置
 在模型配置里，我们可以直接使用alex模型或者googlenet模型，他们提供了`train_val.prototxt`文件，这个文件主要用于配置训练模型，可以自定义层数以及每层的参数。尤其是对于卷积层的里参数，需要对CNN有一定的理解。这里不细说CNN模型，只考虑应用。在应用层面，需要注意的是数据层。在数据定义层，Caffe生成的数据分为2种格式：Lmdb和Leveldb。它们都是键/值对（Key/Value Pair）嵌入式数据库管理系统编程库。虽然lmdb的内存消耗是leveldb的1.1倍，但是lmdb的速度比leveldb快10%至15%，更重要的是lmdb允许多种训练模型同时读取同一组数据集。需要注意的一些参数如下：
 
-``` sh
+{% highlight sh %}
 layers {
   name: "data"
   type: DATA
@@ -91,13 +93,14 @@ layers {
   include: { phase: TRAIN }
 }
 
-```
+{% endhighlight %}
+
 这里需要注意的另一个事情是，在分类层那里（在alex模型里，是fc8层的INNER_PRODUCT里的num_output），需要把默认的类别数改为你自己数据的训练类别数。
 
 ####2.3、模型训练
 如果对都没有啥问题，就可以训练模型了，使用梯度下降法。训练模型之前，我们需要定义solver文件，即`solver.prototxt`，在该文件里，指定迭代次数，是否使用GPU，以及保存中间模型的间隔次数、测试间隔等等。
 
-``` sh
+{% highlight sh %}
 net: "facenet/train_val.prototxt"     #指定训练模型配置文件
 test_iter: 1000                       
 test_interval: 1000                   # 每迭代1000次，进行一次测试（测试不要太频繁）
@@ -109,7 +112,7 @@ display: 2000                         # 每隔两千次打印一次结果
 max_iter: 350000                      # 训练一共迭代次数
 momentum: 0.9                         # momentum系数
 snapshot_prefix: "facenet/"           # 保持中间模型路径
-```
+{% endhighlight %}
 
 之后在caffe目录下，使用imagenet模型提供的`train.sh`。这里建议把各个sh文件和训练数据以及均值文件放一起，配置文件和中间模型放在同一路径，置于sh文件下的子文件，这里可以很容易的知道一个模型是结果是采用了什么配置，避免混乱。train里的命令如下：
 
@@ -117,10 +120,10 @@ snapshot_prefix: "facenet/"           # 保持中间模型路径
 
 这里需要注意，我们可以指定gpu的id（如果存在多个GPU，可以指定具体的GPU）。另外一点，如果我们增加了数据，需要重新训练模型的话，我们可以在训练的时候，指定已训练好的模型来初始化新训练的模型，这样能够加快我们的训练速度。比如
 
-``` sh  
+{% highlight sh %}  
 ./build/tools/caffe train  --solver=facenet/solver.prototxt -gpu 0  -weights facenet/caffe_450000.caffemodel
 
-```
+{% endhighlight %}
 
 那么新训练的模型，不会随机初始化权重，而是更具已训练的caffe_450000.caffemodel来初始化参数。这个初始化参数需要注意，这两个模型是相同的，只是输入数据量增多了。
 
