@@ -26,6 +26,6 @@
   icon: fa fa-bookmark
   title: PRML专题
 
-- href: /page/month.html
-  icon: fa fa-bookmark
-  title: 资源分享
+# - href: /page/month.html
+#   icon: fa fa-bookmark
+#   title: 资源分享
