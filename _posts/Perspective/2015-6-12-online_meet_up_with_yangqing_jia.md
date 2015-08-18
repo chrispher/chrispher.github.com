@@ -18,7 +18,7 @@ Caffe是一个清晰而高效的深度学习框架，其作者是博士毕业于
 
 
 ###1、caffe分享
-我用的ppt基本上和我们在CVPR上要做的tutorial是类似的，所以大家如果需要更多的内容的话，可以去[tutorial.caffe.berkeleyvision.org](tutorial.caffe.berkeleyvision.org)，也欢迎来参加我们的tutorial。网页上应该还有一些python的样例帮助大家上手，所以欢迎参观。ppt比较长，所以我想我主要就介绍一下背景以及high level的内容，然后更多关注大家有一些什么具体的问题，希望大家觉得OK。[slider here](/static/meetup/webchat_online/20150531_DIY_Deep_Learning_for_Vision.pdf)
+我用的ppt基本上和我们在CVPR上要做的tutorial是类似的，所以大家如果需要更多的内容的话，可以去[tutorial.caffe.berkeleyvision.org](tutorial.caffe.berkeleyvision.org)，也欢迎来参加我们的tutorial。网页上应该还有一些python的样例帮助大家上手，所以欢迎参观。ppt比较长，所以我想我主要就介绍一下背景以及high level的内容，然后更多关注大家有一些什么具体的问题，希望大家觉得OK。[slider here](http://on-demand.gputechconf.com/gtc/2014/webinar/gtc-express-deep-learning-caffee-evan-shelhamer.pdf)
 
 ####1.1、caffe起源
 大家最近一段时间应该已经听到很多关于deep learning的八卦了，**deep learning比较流行的一个原因，主要是因为它能够自主地从数据上学到有用的feature**,特别是对于一些不知道如何设计feature的场合，比如说图像和speech deep learning可以学习到比以往比如说sift或者MFCC这样手工设计的feature更好的方法, 而且像slide 4显示的一样，这些feature有很强的semantic的含义。所以很多时候在用到其他的一些task的时候会很有效，这也是为什么我们可以用一个feature来实现很多比如说识别，检测，物体分割这样的不同task的缘故。
