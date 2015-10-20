@@ -1,10 +1,8 @@
 <div class="sidebar">
   <div class="profilepic">
     <a href="/"><img src="{{ site.author.logo }}" alt="logo"></img></a>
+    <h3 class="title"><a href="/">{{ site.blog.name }}</a></h3>
   </div>
-  <br/>
-  <h3 class="title"><a href="/">{{ site.blog.name }}</a></h3>
-
 
   <nav id="nav">
     <ul>
@@ -16,12 +14,10 @@
 
   <li><a href="/page/category.html"<i class="fa fa-archive"></i>&nbsp;分类</a></li>
   <div class="tag-cloud">
-    <ul>
-      {% for item in (0..site.categories.size) %}{% unless forloop.last %}
-      {% capture word %}{{ category[item] | strip_newlines }}{% endcapture %}
-        <a href="#{{word}}">{{ word }}&nbsp;<sup>{{ site.categories[word].size }}</sup></a>
-      {% endunless %}{% endfor %}
-    </ul>
+    {% for item in (0..site.categories.size) %}{% unless forloop.last %}
+    {% capture word %}{{ category[item] | strip_newlines }}{% endcapture %}
+      <a href="">{{word}}&nbsp;<sup>{{ site.categories[word].size }}</sup></a>
+    {% endunless %}{% endfor %}
   </div>
 
   <nav id="sub-nav">

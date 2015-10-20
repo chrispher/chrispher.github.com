@@ -124,12 +124,12 @@ a:link {
 	margin-bottom:3%;
 }
 .profilepic img {
-	height:174px;
-	width:200px;
-	border:4px solid rgba(0,100,200,0.5);
-	border-radius:50%;
-	-moz-border-radius:50%;
-	-webkit-border-radius:50%;
+	height:43px;
+	width:40px;
+	border:2px solid rgba(0,100,200,0.5);
+	border-radius:20%;
+	-moz-border-radius:20%;
+	-webkit-border-radius:20%;
 	transition:transform 0.8s ease-out,border-radius 0.5s ease-out;
 	-webkit-transition:-webkit-transform 0.8s ease-out,border-radius 0.5s ease-out;
 	-moz-transition:-moz-transform 0.8s ease-out,border-radius 0.5s ease-out;
@@ -148,7 +148,7 @@ a:link {
 
 .title {
 	font-family:segoepr;
-	font-size:30px;
+	font-size:20px;
 	margin-top:-3%;
 }
 .title a {
@@ -179,7 +179,7 @@ a:link {
 	list-style:none;
 	display:block;
 	text-align:left;
-	font-size:15px;
+	font-size:12px;
 	letter-spacing:3px;
 }
 #nav ul li {
@@ -317,9 +317,9 @@ a:link {
 #post-readall {
 	color:#fff;
 	background:#4d85d1;
-	font-size:13px;
+	font-size:12px;
 	margin-left:5px;
-	padding:2px 2px;
+	padding:4px 4px;
 	border-radius:2px;
 	border-top:5px;
 	border-bottom:5px;
