@@ -20,15 +20,3 @@ author:
     weibo: 2917650677
     github: chrispher
     linkedin: chrispher-guan/5a/a68/6b8
-
-# Markdown设置
-kramdown:
-  input:  GFM
-  use_coderay: true
-  coderay:
-    coderay_line_numbers:  nil
-
-#scss设置
-sass:
-    sass_dir: /assets/stylesheet
-    style: :compressed
