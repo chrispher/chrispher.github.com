@@ -18,7 +18,3 @@ title: 个人博客
 - 博客地址: [http://www.datakit.cn](http://www.datakit.cn)
 
 - 博客主题参考Jekyll Light——[pexcn](https://github.com/pexcn/Jekyll-Light)。
-
-### 许可证
-
-- [GNU GPL v3](http://www.gnu.org/licenses/gpl-3.0.html)
