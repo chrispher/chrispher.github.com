@@ -114,7 +114,7 @@ a:link {
 	text-align:center;
 	background:#31373d;
 	width:25%;
-	position:fixed;
+	position:relative;
 	top:0;
 	bottom:0;
 	left:0;
@@ -333,7 +333,7 @@ a:link {
 	background:#00C04D;
 }
 .tag-cloud{
-  background-color: #e8f1f4;
+  /*background-color: #e8f1f4;*/
   line-height: 1.2;
   margin-top: 10px;
 }
