@@ -22,19 +22,29 @@ math: true
   </p>
 </header>
 <div class="post-main">
-{{ content }}
+  {{ content }}
 </div>
-{% include share.html %}
+  <td>
+  <form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank" accept-charset="GBK">
+  <input name="optEmail" type="hidden" value="chrispher2012@gmail.com"/>
+  <input name="payAmount" type="hidden" value="10"/>
+  <input id="title" name="title" type="hidden" value=""/>
+  <input name="memo" type="hidden" value="给Chrispher Guan的Blog打赏"/>
+  <input name="pay" type="image" value="转账" src="http://chrispher.github.com/res/img/alipay.png"/>
+  </form>
+  </td>
 <div class="pagination">
 {% if page.previous %}
-<a class="pagination-item newer" href="{{ BASE_PATH }}{{ page.previous.url }}"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{ page.previous.title }}</a>
+  <a class="pagination-item newer" href="{{ BASE_PATH }}{{ page.previous.url }}"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{ page.previous.title }}</a>
 {% else %}
-<span class="pagination-item newer">上一篇&nbsp;<i class="fa fa-chain-broken"></i></span>
+  <span class="pagination-item newer">上一篇&nbsp;<i class="fa fa-chain-broken"></i></span>
 {% endif %}
+
 {% if page.next %}
 <a class="pagination-item older" href="{{ BASE_PATH }}{{ page.next.url }}">{{ page.next.title }}&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
 {% else %}
 <span class="pagination-item older">下一篇&nbsp;<i class="fa fa-chain-broken"></i></span>
 {% endif %}
 </div>
+{% include share.html %}
 {% include duoshuo.html %}

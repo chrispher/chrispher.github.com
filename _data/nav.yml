@@ -2,10 +2,6 @@
   icon: fa fa-clock-o
   title: 时间轴
 
-- href: /page/category.html
-  icon: fa fa-archive
-  title: 分类
-
 - href: /page/tags.html
   icon: fa fa-tags
   title: 标签

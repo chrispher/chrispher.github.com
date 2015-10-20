@@ -3,8 +3,6 @@ layout: blog
 title: 个人博客
 ---
 
-<link rel="stylesheet" href="/res/css/page.css">
-
 ### 博客简介
 
 - 写一点东西，整理一些东西。分享知识，是成长所必须的。
@@ -21,7 +19,7 @@ title: 个人博客
 
 - 有需要探讨的相关主题，可以在留言板块留言哟！
 
-- 博客主题Jekyll Light, 由[pexcn](https://github.com/pexcn/Jekyll-Light)设计，我在该版本上增加了**站内搜索**、**多种社交关注**、**标签页**、**留言板**、**支付宝捐赠**、重设**百度统计**功能、**配色调整**、**页面tag和字数统计**以及其他一些细节上的修改。
+- 博客主题参考Jekyll Light——[pexcn](https://github.com/pexcn/Jekyll-Light)。
 
 ### 许可证
 

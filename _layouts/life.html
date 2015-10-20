@@ -6,7 +6,13 @@
   <meta name="description" content="{{ site.blog.title }}">
   <meta name="author" content="{{ site.author.name }}">
   <meta name="keywords" content="{{ page.title }}, {{ site.blog.name }}, {{ page.title }} - {{ site.blog.name }}">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.blog.title }}{% endif %} - {{ site.blog.name }}</title>
+  <title>
+    {% if page.title %}
+      {{ page.title }}
+    {% else %}
+      {{ site.blog.title }}
+    {% endif %} - {{ site.blog.name }}
+  </title>
   <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
   <link rel="canonical" href="{{ site.blog.url }}{{ page.url }}">
