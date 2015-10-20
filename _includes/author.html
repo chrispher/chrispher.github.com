@@ -1,0 +1,83 @@
+<div class="panel panel-pithy author">
+    <div class="panel-heading">
+        <img src="/assets/images/logo.png" alt="chrispher guan"/>
+    </div>
+    <div class="panel-body">
+        不知所措，才是人生。
+    </div>
+    <div class="panel-footer social">
+        <ul>
+        {% if site.author.linkedin %}
+        <li><a class="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/pub/{{ site.author.linkedin }}">
+        <i class="fa fa-linkedin fa-2x"></i>
+        </a></li>
+        {% endif %}
+
+        {% if site.author.gplus %}
+        <li><a class="Google Plus" title="Google Plus" href="https://plus.google.com/{{ site.author.gplus }}">
+        <i class="fa fa-google-plus fa-2x"></i>
+        </a></li>
+        {% endif %}
+
+        {% if site.author.github %}
+        <li><a class="Github" title="Github" href="https://github.com/{{ site.author.github }}">
+        <i class="fa fa-github fa-2x"></i>
+        </a></li>
+        {% endif %}
+
+        {% if site.author.bitbucket %}
+        <li><a class="Bitbucket" title="Bitbucket" href="https://bitbucket.com/{{ site.author.bitbucket }}/">
+        <i class="fa fa-bitbucket fa-2x"></i>
+        </a></li>
+        {% endif %}
+
+        {% if site.author.hacker_news %}
+        <a class="Hacker News" title="Hacker News" href="https://news.ycombinator.com/user?id={{site.author.hacker_news }}">
+         <span class="fa-stack">
+          <i class="fa fa-stack-1x fa fa-2x"></i>
+        <li>  <i class="fa fa-stack-1x fa-hn">Y</i>
+        </span>
+        </a></li>
+        {% endif %}
+
+        {% if site.author.stackexchange %}
+        <a class="Stack Exchange" title="Stack Exchange" href="https://stackexchange.com/users/{{site.author.stackexchange <li>}}">
+        <i class="fa fa-stack-exchange"></i>
+        </a></li>
+        {% endif %}
+
+        {% if site.author.stackoverflow %}
+        <a class="Stack Overflow" title="Stack Overflow" href="http://stackoverflow.com/users/{{site.author.stackoverflow <li>}}">
+        <i class="fa fa-stack-overflow"></i>
+        </a</a>>
+        {% endif %}
+
+        {% if site.author.twitter %}
+        <li><a class="Twitter" title="Twitter" href="https://twitter.com/{{ site.author.twitter }}">
+        <i class="fa fa-twitter fa-2x"></i>
+        </a></li>
+        {% endif %}
+
+        {% if site.author.facebook %}
+        <li><a class="Facebook" title="Facebook" href="https://facebook.com/{{ site.author.facebook }}">
+        <i class="fa fa-facebook fa-2x"></i>
+        </a></li>
+        {% endif %}
+
+        {% if site.author.tumblr %}
+        <li><a class="tumblr" title="tumblr" href="https://{{ site.author.tumblr }}.tumblr.com">
+        <i class="fa fa-tumblr fa-2x"></i>
+        </a></li>
+        {% endif %}
+
+        {% if site.author.weibo %}
+        <li><a class="weibo" title="weibo" href="http://www.weibo.com/u/{{ site.author.weibo }}">
+        <i class="fa fa-weibo"></i>
+        </a></li>
+        {% endif %}
+
+        <a class="rss" href="/pages/feed.xml" title="RSS订阅" target="_blank"><i class="fa fa-rss"></i></a>
+
+        </ul>
+    </div>
+</div>

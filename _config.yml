@@ -1,5 +1,7 @@
 markdown: kramdown
 highlighter: pygments
+
+# 分页设置
 permalink: blog/:year/:month/:day/:title.html
 paginate: 12
 paginate_path: page/:num
@@ -8,14 +10,25 @@ blog:
     name: chrispher
     description: Data Science
     title: Data Science
+    keywords: Data Science
     url: http://chrispher.github.com 
-    duoshuo: chrispher2012
+
 author:
-    # Profile links on the left sidebar, leave blank to ignore
+    duoshuo: chrispher2012
     name: chrispher guan 
     email: chrispher2012@gmail.com 
-    weibo: 2917650677  # weibo ID
-    github: chrispher  # github ID
+    weibo: 2917650677
+    github: chrispher
     linkedin: chrispher-guan/5a/a68/6b8
-    logo: http://chrispher.github.com/res/img/logo.png
 
+# Markdown设置
+kramdown:
+  input:  GFM
+  use_coderay: true
+  coderay:
+    coderay_line_numbers:  nil
+
+#scss设置
+sass:
+    sass_dir: /assets/stylesheet
+    style: :compressed

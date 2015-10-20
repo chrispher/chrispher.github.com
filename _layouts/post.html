@@ -1,50 +1,59 @@
 ---
-layout: blog
-post: true
-math: true
+layout: default
 ---
+<div class="container">
+    <div class="col-md-9 col-content">
+        <div id="post-content" class="panel panel-pithy post">
+            <div class="panel-heading">
+                <h3 class="title">
+                  <i class="fa fa-bookmark-o"></i>{{page.title}}
+                </h3>
+                <ul class="info">
+                    <i class="fa fa-calendar"></i>
+                    {{ page.date | date: "%Y" }}年{{ page.date | date: "%m" }}月{{ page.date | date: "%d" }}日
+                    <i class="space"></i>
+                    <i class="fa fa-archive"></i>
+                    <a class="tag" href="{{ site.url }}/category/#{{ page.categories }}">{{ page.categories }}</a> 
+                    <i class="space"></i>
+                    <i class="fa fa-tags"></i>
+                    {% for tag in page.tags %}
+                        <a class="tag" href="{{ site.url }}/tag/#{{ tag }}">{{ tag }}</a>
+                        <i class="space"></i>
+                    {% endfor %}
+                    <i class="space"></i> 字数:{{page.content | size |divided_by:2}}
+                </ul>
+            </div>
+            <div class="panel-body content">
+                {{content}}
+            </div>
+            <div class="panel-footer operate" align="center">
+              <form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank" accept-charset="GBK">
+              <input name="optEmail" type="hidden" value="chrispher2012@gmail.com"/>
+              <input name="payAmount" type="hidden" value="10"/>
+              <input id="title" name="title" type="hidden" value=""/>
+              <input name="memo" type="hidden" value="给Chrispher Guan的Blog打赏"/>
+              <input name="pay" type="image" value="转账" src="http://chrispher.github.com/assets/images/alipay.png"/>
+              </form>
+            </div>
+            <div class="pagination">
+                {% if page.previous %}
+                <a class="pagination-item newer" href="{{ BASE_PATH }}{{ page.previous.url }}"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{ page.previous.title }}</a>
+                {% else %}
+                <span class="pagination-item newer">上一篇&nbsp;<i class="fa fa-chain-broken"></i></span>
+                {% endif %}
+                {% if page.next %}
+                <a class="pagination-item older" href="{{ BASE_PATH }}{{ page.next.url }}">{{ page.next.title }}&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+                {% else %}
+                <span class="pagination-item older">下一篇&nbsp;<i class="fa fa-chain-broken"></i></span>
+                {% endif %}
+            </div>
 
-<header class="post-header">
-  <h1 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
-  <p class="post-meta">
-    <i class="fa fa-calendar"></i>
-    {{ page.date | date: "%Y" }}年{{ page.date | date: "%m" }}月{{ page.date | date: "%d" }}日
-    <i class="space"></i>
-    <i class="fa fa-archive"></i>
-    <a class="post-category" href="/page/category.html#{{ page.categories }}">{{ page.categories }}</a>	
-    <i class="space"></i>
-    <i class="fa fa-tags"></i>
-    {% for tag in page.tags %}
-      <a class="post-tag" href="/page/tags.html#{{ tag }}">{{tag}}</a>
-      <i class="space"></i>
-    {% endfor %}
-    <i class="space"></i> 字数:{{page.content | size |divided_by:2}}
-  </p>
-</header>
-<div class="post-main">
-  {{ content }}
+            {% include share.html%}
+        </div>
+        {% include comment.html%}
+    </div>
+    <div class="col-md-3 col-sidebar">
+        {% include categories.html%}
+        {% include tags.html%}
+    </div>
 </div>
-  <div align="center">
-  <form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank" accept-charset="GBK">
-  <input name="optEmail" type="hidden" value="chrispher2012@gmail.com"/>
-  <input name="payAmount" type="hidden" value="10"/>
-  <input id="title" name="title" type="hidden" value=""/>
-  <input name="memo" type="hidden" value="给Chrispher Guan的Blog打赏"/>
-  <input name="pay" type="image" value="转账" src="http://chrispher.github.com/res/img/alipay.png"/>
-  </form>
-  </div>
-<div class="pagination">
-{% if page.previous %}
-  <a class="pagination-item newer" href="{{ BASE_PATH }}{{ page.previous.url }}"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{ page.previous.title }}</a>
-{% else %}
-  <span class="pagination-item newer">上一篇&nbsp;<i class="fa fa-chain-broken"></i></span>
-{% endif %}
-
-{% if page.next %}
-<a class="pagination-item older" href="{{ BASE_PATH }}{{ page.next.url }}">{{ page.next.title }}&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
-{% else %}
-<span class="pagination-item older">下一篇&nbsp;<i class="fa fa-chain-broken"></i></span>
-{% endif %}
-</div>
-{% include share.html %}
-{% include duoshuo.html %}
