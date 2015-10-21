@@ -2,11 +2,11 @@
 layout: default
 ---
 <div class="container">
-    <div class="col-md-9 col-content">
+    <div class="col-md-11">
         <div id="post-content" class="panel panel-pithy post">
             <div class="panel-heading">
                 <h3 class="title">
-                  <i class="fa fa-bookmark-o"></i>{{page.title}}
+                  <i class="fa fa-bookmark-o"></i><i class="space"></i>{{page.title}}
                 </h3>
                 <ul class="info">
                     <i class="fa fa-calendar"></i>
@@ -26,34 +26,30 @@ layout: default
             <div class="panel-body content">
                 {{content}}
             </div>
-            <div class="panel-footer operate" align="center">
+            <div class="navbar panel-footer operate" align="center">
               <form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank" accept-charset="GBK">
               <input name="optEmail" type="hidden" value="chrispher2012@gmail.com"/>
               <input name="payAmount" type="hidden" value="10"/>
               <input id="title" name="title" type="hidden" value=""/>
               <input name="memo" type="hidden" value="给Chrispher Guan的Blog打赏"/>
-              <input name="pay" type="image" value="转账" src="http://chrispher.github.com/assets/images/alipay.png"/>
+              <input name="pay" type="image" value="打赏" src="/assets/images/alipay.png"/>
               </form>
             </div>
-            <div class="pagination">
+            <div class="navbar pager">
                 {% if page.previous %}
-                <a class="pagination-item newer" href="{{ BASE_PATH }}{{ page.previous.url }}"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;{{ page.previous.title }}</a>
+                <li class="previous"><a href="{{ BASE_PATH }}{{ page.previous.url }}">← {{ page.previous.title }}</a></li>
                 {% else %}
-                <span class="pagination-item newer">上一篇&nbsp;<i class="fa fa-chain-broken"></i></span>
+                <span class="previous">上一篇&nbsp;</span>
                 {% endif %}
                 {% if page.next %}
-                <a class="pagination-item older" href="{{ BASE_PATH }}{{ page.next.url }}">{{ page.next.title }}&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></a>
+                <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}"> → {{ page.next.title }}</a></li>
                 {% else %}
-                <span class="pagination-item older">下一篇&nbsp;<i class="fa fa-chain-broken"></i></span>
+                <span class="next">下一篇&nbsp;</span>
                 {% endif %}
             </div>
 
             {% include share.html%}
         </div>
         {% include comment.html%}
-    </div>
-    <div class="col-md-3 col-sidebar">
-        {% include categories.html%}
-        {% include tags.html%}
     </div>
 </div>

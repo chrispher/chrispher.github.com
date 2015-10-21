@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Feature hashing
-category: 机器学习
+category: 数据挖掘
 tags: [特征工程]
 description: hash特征是一种快速的且很节省空间的特征向量化的方法
 ---

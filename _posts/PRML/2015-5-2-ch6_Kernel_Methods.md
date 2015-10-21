@@ -1,8 +1,8 @@
 ---
 layout: post
 title: ch6-核方法
-category: 机器学习
-tags: [机器学习, PRML]
+category: PRML
+tags: [机器学习]
 path: /notes/PRML/2015-5-2-ch6_Kernel_Methods.md
 description: 核方法介绍与基于样本学习的模型
 ---

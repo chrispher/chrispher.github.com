@@ -1,8 +1,8 @@
 ---
 layout: post
 title: ch5-神经网络基础
-category: 机器学习
-tags: [机器学习, PRML]
+category: PRML
+tags: [机器学习]
 path: /notes/PRML/2015-2-13-ch5_Neural_Network-basic.md
 description: 神经网络基础知识和使用BP算法来训练模型以及训练中的一些技巧
 ---

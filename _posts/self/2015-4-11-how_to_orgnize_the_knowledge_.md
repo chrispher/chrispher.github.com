@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 最近博客的说明
-category: 学习观点
+category: 博客人生
 tags: [个人观点]
 description: 关于个人知识管理与最近博客说明
 ---

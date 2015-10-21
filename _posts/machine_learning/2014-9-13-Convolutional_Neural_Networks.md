@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Convolutional Neural Networks
-category: 机器学习
-tags: [深度学习]
-description: 讨论了卷积神经网络(CNN)的基本概念和实现，并且针对某些CNN结构做具体的分析。CNN的发展也是经历了很长时间，不同的人也会有不同的实现方法和技巧，但是基本概念是相同的，这里以LeNet5为主要参照。
+category: 深度学习
+tags: [深度学习, 机器学习]
+description: 讨论了卷积神经网络(CNN)的基本概念和实现，并且针对某些CNN结构做具体的分析。
 ---
 
 CNN ([Convolutional Neural Networks](http://en.wikipedia.org/wiki/Convolutional_neural_network)) 是神经网络的一种，也是受启发于生物学，广泛的应用与图像分类等任务中。 这篇文档主要讨论CNN的基本概念和实现，并且针对某些CNN结构做具体的分析。CNN的发展也是经历了很长时间，不同的人也会有不同的实现方法和技巧，但是基本概念是相同的，这里以LeNet5为主要参照，词语表达以图像处理为基础。本文为个人的知识管理而进行资料整理，并不应用于商业目的，仅供学习交流。

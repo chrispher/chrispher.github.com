@@ -1,8 +1,8 @@
 ---
 layout: post
 title: ch4-线性分类之生成模型
-category: 机器学习
-tags: [机器学习, PRML]
+category: PRML
+tags: [机器学习]
 description: 概述一下线性分类相关的一些知识, 本文主要是生成模型，包括Losgistic回归等
 ---
 

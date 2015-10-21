@@ -1,0 +1,48 @@
+---
+layout: page 
+title: Search Results
+permalink: /search/
+hide: true
+share: false
+---
+
+<script>
+    var baseurl = "{{ site.blog.url | prepend: site.baseurl }}";
+</script>
+
+<div class="container">
+  <div class="col-md-9 col-content" id="results-container">
+  <div id="search-results">
+    <hr id="first-hr" class="with-no-margin"/>
+    {% for post in site.posts %}
+    <div id="{{ post.id | replace: '/', '-' }}" style="display: none;">
+      <p>for my day2 </p>
+        <div class="article-wrapper">
+        {{ post.title }}
+        </div>
+        <hr class="with-no-margin"/>
+    </div>
+    {% endfor %}
+  </div>
+
+    <div class="gallery">
+    {% for post in site.posts[0:2] %}
+      <div class="item" id="{{ post.id | replace: '/', '-' }}">
+        <a class="item-inner" href="{{ post.url | prepend: ""}}">      
+          <div class="item-title">{{ post.title }}</div>
+          <div class="item-time">{{ post.date | date: "%Y" }}年{{ post.date | date: "%m" }}月{{ post.date | date: "%d" }}日</div>
+          <div class="post-content">{{ post.description}}</div>
+        </a>
+      </div>
+    {% endfor %}
+    </div>
+
+</div>
+
+
+  <div class="col-md-3 col-sidebar">
+    {% include author.html%}
+    {% include categories.html%}
+    {% include tags.html%}
+  </div>
+</div>

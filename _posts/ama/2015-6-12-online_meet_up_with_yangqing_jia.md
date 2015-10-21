@@ -1,7 +1,7 @@
 ---
 layout: post
-category: 学习观点
-tags: [深度学习, caffe, 个人观点]
+category: 深度学习
+tags: [深度学习, caffe, 学习观点]
 description: 关于深度学习框架caffe的介绍和讨论
 title: 贾扬清分享_深度学习框架caffe
 ---

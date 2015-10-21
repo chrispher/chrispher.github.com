@@ -1,8 +1,8 @@
 ---
 layout: post
-title: caffe的应用心得
-category: 操作配置
-tags: [环境搭建, 深度学习]
+title: caffe的应用
+category: 深度学习
+tags: [环境搭建, 机器学习]
 description: 关于深度学习框架caffe的使用的一些技巧。
 ---
 

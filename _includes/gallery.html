@@ -1,0 +1,8 @@
+<!-- 文章列表展示 -->
+<div class="item">
+  <a class="item-inner" href="{{ post.url | prepend: ""}}">      
+    <div class="item-title">{{ post.title }}</div>
+    <div class="item-time">{{ post.date | date: "%Y" }}年{{ post.date | date: "%m" }}月{{ post.date | date: "%d" }}日</div>
+    <div class="post-content">{{ post.description}}</div>
+  </a>
+</div>

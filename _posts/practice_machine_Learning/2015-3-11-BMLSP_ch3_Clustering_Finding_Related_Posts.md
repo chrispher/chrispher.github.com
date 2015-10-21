@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Clustering-Finding Related Posts
-category: 机器学习
-tags: [机器学习案例, 特征工程, BMLSP]
+category: 案例学习
+tags: [机器学习, 特征工程, BMLSP]
 path: /notes/practice_machine_Learning/2015-3-11-BMLSP_ch3_Clustering_Finding_Related_Posts.md
 description: 基于python下一些数据科学包构建了一个分类器并进行调参。
 ---

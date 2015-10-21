@@ -1,8 +1,8 @@
 ---
 layout: post
 title: ch5-不同类型神经网络
-category: 机器学习
-tags: [机器学习, PRML]
+category: PRML
+tags: [机器学习]
 path: /notes/PRML/2015-2-13-ch5_Neural_Network-types.md
 description: 不同类型的神经网络，包括卷积神经网络
 ---

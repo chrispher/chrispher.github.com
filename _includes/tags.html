@@ -3,7 +3,7 @@
     <div class="panel-heading title">
         标签云
     </div>
-    <div class="panel-body list">
+    <div class="tag-cloud">
         {% for tag in site.tags %}
             <a class="taglink" href="{{ site.url }}/tag/#{{tag.first}}" data-target-cate="#{{tag.first}}">
                 {{ tag.first }}

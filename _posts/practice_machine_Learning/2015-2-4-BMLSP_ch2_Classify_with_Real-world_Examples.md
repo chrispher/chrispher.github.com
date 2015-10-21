@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Classify with Real-world Examples
-category: 机器学习
-tags: [机器学习案例, 特征工程, BMLSP]
+category: 案例学习
+tags: [机器学习, 特征工程, BMLSP]
 description: 基于python下一些数据科学包构建了一个分类器并进行调参。
 ---
 

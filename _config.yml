@@ -1,9 +1,7 @@
 markdown: kramdown
 highlighter: pygments
-
-# 分页设置
 permalink: blog/:year/:month/:day/:title.html
-paginate: 12
+paginate: 6
 paginate_path: page/:num
 
 blog:
@@ -11,8 +9,8 @@ blog:
     description: Data Science
     title: Data Science
     keywords: Data Science
-    url: http://chrispher.github.com 
-
+    url: http://localhost:4000
+    # http://chrispher.github.com 
 author:
     duoshuo: chrispher2012
     name: chrispher guan 

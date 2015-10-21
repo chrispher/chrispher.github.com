@@ -1,8 +1,8 @@
 ---
 layout: post
 title: kaggle比赛otto group的感想
-category: 机器学习
-tags: [机器学习案例]
+category: 案例学习
+tags: [机器学习]
 description: kaggle比赛otto group的感想
 ---
 

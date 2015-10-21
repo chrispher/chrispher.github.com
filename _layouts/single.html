@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<div class="container">
+    <div class="col-md-9">
+        <div id="post-content" class="panel panel-pithy post">
+            <div class="panel-heading">
+                <h3 class="title">
+                  <i class="fa fa-bookmark-o"></i><i class="space"></i>{{page.title}}
+                </h3>
+            </div>
+            <div class="panel-body content">
+                {{content}}
+            </div>
+            <div class="panel-footer operate" align="center">
+              <form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank" accept-charset="GBK">
+              <input name="optEmail" type="hidden" value="chrispher2012@gmail.com"/>
+              <input name="payAmount" type="hidden" value="10"/>
+              <input id="title" name="title" type="hidden" value=""/>
+              <input name="memo" type="hidden" value="给Chrispher Guan的Blog打赏"/>
+              <input name="pay" type="image" value="打赏" src="/assets/images/alipay.png"/>
+              </form>
+            </div>
+        </div>
+        {% include comment.html%}
+    </div>
+    <div class="col-md-3 col-sidebar">
+    {% include author.html%}
+    {% include categories.html%}
+    {% include tags.html%}
+</div>
+</div>
