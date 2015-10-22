@@ -6,7 +6,7 @@ title: Chrispher Guan
 ##这货是谁？
 - 数据科学爱好者，不断追求更高的境界
 - 邮箱: chrispher2012@gmail.com & chrispher2012@163.com 
-- 翻译了Andrew Ng的Machine Learning课程Notes——机器学习笔记([点击下载](https://raw.githubusercontent.com/chrispher/chrispher.github.com/master/_draft/machine_learning_notes_ng.docx))，课程见网易公开课——[斯坦福大学公开课 ：机器学习课程](http://v.163.com/special/opencourse/machinelearning.html)
+- 翻译了Andrew Ng的Machine Learning课程Notes——机器学习笔记([点击下载](https://raw.githubusercontent.com/chrispher/chrispher.github.com/master/_drafts/machine_learning_notes_ng.docx))，课程见网易公开课——[斯坦福大学公开课 ：机器学习课程](http://v.163.com/special/opencourse/machinelearning.html)
 - 有很多喜欢和想要做的事情，正在慢慢地、一点一滴的实现着：梦想，是不会结束的！
 
 ##博客更新说明
