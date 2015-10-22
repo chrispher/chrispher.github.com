@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Approximate Bayesian Computation and the Socks of Karl Broman
-category: 统计分析
+category: statistic_analysis
 tags: [统计学, 数据分析]
 description: 使用近似贝叶斯计算进行参数估计
 

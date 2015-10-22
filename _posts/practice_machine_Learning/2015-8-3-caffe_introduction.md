@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 深度学习框架caffe
-category: 深度学习
+category: deep_learning
 tags: [环境搭建, caffe]
 description: 关于深度学习框架caffe的使用文档。
 ---

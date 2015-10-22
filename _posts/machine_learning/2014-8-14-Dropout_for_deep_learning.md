@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dropout for deep learning
-category: 深度学习
+category: deep_learning
 tags: [机器学习, 论文笔记]
 description: 使用dropout来阻止深度神经网络模型过拟合，并介绍了一些trick。
 ---

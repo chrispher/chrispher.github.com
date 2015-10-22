@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 数据挖掘9大定律
-category: 数据挖掘
+category: data_mining
 tags: [数据科学]
 description: 数据挖掘上的九大定律，分布是目标律、知识律、准备律、没有免费午餐、大卫律、洞察律、预测律、价值律、变化律
 ---

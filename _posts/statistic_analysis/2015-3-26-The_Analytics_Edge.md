@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The_Analytics_Edge_笔记四篇
-category: 统计分析
+category: statistic_analysis
 tags: [数据分析]
 description: The Analytics Edge课程下的基础数据分析入门、线性回归分析入门、线性回归分析入门、文本分析入门。
 ---

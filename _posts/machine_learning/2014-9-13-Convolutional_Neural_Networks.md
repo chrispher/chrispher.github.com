@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Convolutional Neural Networks
-category: 深度学习
+category: deep_learning
 tags: [深度学习, 机器学习]
 description: 讨论了卷积神经网络(CNN)的基本概念和实现，并且针对某些CNN结构做具体的分析。
 ---

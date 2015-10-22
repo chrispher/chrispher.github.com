@@ -1,7 +1,7 @@
 ---
 layout: post
 title: VS2010环境下编译cuda-convnet(Win7_64位)
-category: 应用工具
+category: app_config
 tags: [环境搭建, 深度学习]
 description: 在windows 64位环境下，搭建并编译基于convnet的深度学习环境。
 ---

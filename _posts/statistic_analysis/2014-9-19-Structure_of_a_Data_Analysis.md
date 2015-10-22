@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Structure of a Data Analysis
-category: 统计分析
+category: statistic_analysis
 tags: [数据科学]
 description: 介绍了数据分析的基本流程和文件存放方法等等
 ---

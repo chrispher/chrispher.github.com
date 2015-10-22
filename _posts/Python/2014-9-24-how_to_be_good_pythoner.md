@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 如何成为Python高手
-category: Python
+category: python
 tags: [python]
 description: 从函数式编程、性能、测试、编码规范四个方面介绍如何成为python高手
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: caffe的应用
-category: 深度学习
+category: deep_learning
 tags: [环境搭建, 机器学习]
 description: 关于深度学习框架caffe的使用的一些技巧。
 ---

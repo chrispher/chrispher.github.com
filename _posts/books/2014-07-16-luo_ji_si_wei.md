@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 2014年课外阅读——罗辑思维
-category: 人文阅读
+category: outside_reading
 tags: [人文读物]
 path: /books/2014-07-16-luo_ji_si_wei.md
 description: 罗辑思维

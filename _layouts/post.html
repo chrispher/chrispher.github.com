@@ -13,11 +13,11 @@ layout: default
                     {{ page.date | date: "%Y" }}年{{ page.date | date: "%m" }}月{{ page.date | date: "%d" }}日
                     <i class="space"></i>
                     <i class="fa fa-archive"></i>
-                    <a class="tag" href="{{ site.url }}/category/#{{ page.categories }}">{{ page.categories }}</a> 
+                    <a class="tag" href="{{ site.blog.url }}/category/#{{ page.categories }}">{{ page.categories }}</a> 
                     <i class="space"></i>
                     <i class="fa fa-tags"></i>
                     {% for tag in page.tags %}
-                        <a class="tag" href="{{ site.url }}/tag/#{{ tag }}">{{ tag }}</a>
+                        <a class="tag" href="{{ site.blog.url }}/tag/#{{ tag }}">{{ tag }}</a>
                         <i class="space"></i>
                     {% endfor %}
                     <i class="space"></i> 字数:{{page.content | size |divided_by:2}}

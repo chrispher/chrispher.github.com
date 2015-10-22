@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ROC曲线
-category: 机器学习
+category: machine_learning
 tags: [机器学习, python算法]
 description: 以二元分类为例，分析混淆矩阵和ROC曲线以及绘制ROC曲线的代码
 ---

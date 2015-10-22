@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Discover Feature Engineering
-category: 数据挖掘
+category: data_mining
 tags: [特征工程, 数据分析]
 description: 介绍了建模过程中的一些特征处理方法和技巧
 ---

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Chrispher Guan
+title: Chrispher Guan 
 ---
 
 ##这货是谁？

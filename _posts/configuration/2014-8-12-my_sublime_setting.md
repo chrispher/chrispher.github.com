@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My sublime text2 setting
-category: 应用工具
+category: app_config
 tags: [软件配置]
 description: windows下sublime text2的一些设置和调整
 ---
@@ -20,27 +20,28 @@ windows下sublime text2的一些设置和调整。
 
 ###1. 安装插件Package Control
 在控制台输入以下代码后重启：
-``` python 
+
+{% highlight python %} 
 import urllib2,os; pf='Package Control.sublime-package';
 ipp = sublime.installed_packages_path();
 os.makedirs( ipp ) if not os.path.exists(ipp) else None;
 urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( )));
 open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read());
 print( 'Please restart Sublime Text to finish installation')
-``` 
+{% endhighlight %} 
 
 如果是sublime text3的，如下
 
-``` python 
+{% highlight python %} 
 import urllib.request,os; pf = 'Package Control.sublime-package'; 
 ipp = sublime.installed_packages_path();
 urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); 
 open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
-``` 
+{% endhighlight %} 
 
 ###2. 推荐主题
 主题设置,这里使用Afterglow，也可以尝试theme fatland和brogrammer。
-``` python 
+{% highlight python %} 
 {
     "binary_file_patterns":
     [
@@ -93,12 +94,12 @@ open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.
     "wrap_width": 0
 }
 
-``` 
+{% endhighlight %} 
 
 ###3. snippet
 在tools里，会有新建snippets，snippets是帮助你快速输入一些内容的，比如python的一些开头部分。输入如下内容，之后可以保存到一个新建的snippnets的目录,专门来放这些片段代码,保存的文件后缀必须是"sublime-snippet"。
 
-``` sh
+{% highlight sh %} 
 <snippet>
     <content><![CDATA[
 #!/usr/bin/env python
@@ -120,7 +121,7 @@ if __name__ == '__main__':
     <!-- <scope>source.python</scope> -->
 </snippet>
 
-```
+{% endhighlight %}
 
 ###4. sublimeREPL
 可以使用iypthon交互式分析
@@ -130,7 +131,7 @@ if __name__ == '__main__':
     }  
 
 也可以用Preferences-Browse Packages...里，把SublimeREPL/config中一些不需要的库都删除掉。另外，对于sublime REPL里的python，可以用刚才Browse Packages的方式打开config中python下的Main.sublime-menu,寻找到`Python - RUN current file`，修改python路径，使得可以进行交互。
-```sh
+{% highlight sh %} 
 {"command": "repl_open",
  "caption": "Python - RUN current file",
  "id": "repl_python_run",
@@ -145,10 +146,10 @@ if __name__ == '__main__':
      "extend_env": {"PYTHONIOENCODING": "utf-8"}
     }
 }
-```
+{% endhighlight %}
 
 此外，我们可以给他配置一个快捷键，在Preferences-Key Bindings-User中添加：
-```sh
+{% highlight sh %} 
 [
     {"keys":["f5"],
     "caption": "SublimeREPL: Python - RUN current file",
@@ -158,7 +159,7 @@ if __name__ == '__main__':
     "file": "config/Python/Main.sublime-menu"
     }}
 ]
-```
+{% endhighlight %}
 ###5. ctags
 使用ctags进行代码的跳转阅读。
 首先在sublime中，安装ctags插件。安装完成之后，会自动的打开一个Package Control Messages，里面会有ctags的一个其他依赖的下载地址和安装方法，比如在windows下，还需要ctags.exe, 可以去[下载](http://prdownloads.sourceforge.net/ctags/ctags58.zip),之后解压到某个文件夹就可以了。
@@ -180,7 +181,7 @@ if __name__ == '__main__':
 推荐使用Markdown Editing。但是默认的Markdown Editing的颜色不是很帅，不过可以修改。如果是python或者其他类型的也是一样的可以专门的针对这种类型的文件设定自定义的格式。
 比如打开一个markdown文件，在Preferences-setting more-Syntax Spacific User，会打开一个Markdown.sublime-sttings，也就是设置Syntax的地方，把下面的代码，复制进去就可以了（当然，比较推荐的方式是把Markdown Editing的一些设置复制过来，我们只是把color_scheme更新一下就可以了）。
 
-``` python
+{% highlight python %}
 {
     "color_scheme": "Packages/Theme - Afterglow/Afterglow-markdown.tmTheme",
     "draw_centered": true,
@@ -195,7 +196,7 @@ if __name__ == '__main__':
         "md"
     ]
 }
-```
+{% endhighlight %}
 
 ###8. 常用快捷键
 - ctrl + -> —— 按照单词移动

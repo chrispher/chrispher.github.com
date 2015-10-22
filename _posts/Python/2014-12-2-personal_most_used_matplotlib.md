@@ -1,7 +1,7 @@
 ---
 layout: post
 title: matplotlib之个人常用绘图
-category: PyData
+category: pydata
 tags: [python]
 description: Python下的绘图包matplotlib的使用
 ---

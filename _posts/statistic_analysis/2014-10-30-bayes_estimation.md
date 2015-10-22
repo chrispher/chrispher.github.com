@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 贝叶斯估计
-category: 统计分析
+category: statistic_analysis
 tags: [统计学]
 description: 介绍了贝叶斯估计方法，以及如何使用贝叶斯估计来解决一些实际问题。
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 统计推断概述
-category: 统计分析
+category: StatisticAnalysis
 tags: [统计学]
 description: 概述一下统计推断，涉及统计推断中的一些常用方法，包括置信区间、假设检验等
 ---

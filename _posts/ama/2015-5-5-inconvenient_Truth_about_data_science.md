@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 关于数据科学不易触及的真相
-category: 学习观点
+category: data_science
 tags: [个人观点]
 description: 关于数据科学不易触及的真相
 ---

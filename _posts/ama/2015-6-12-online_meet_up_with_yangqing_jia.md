@@ -1,9 +1,9 @@
 ---
+title: 贾扬清分享_深度学习框架caffe
 layout: post
-category: 深度学习
+category: deep_learning
 tags: [深度学习, caffe, 学习观点]
 description: 关于深度学习框架caffe的介绍和讨论
-title: 贾扬清分享_深度学习框架caffe
 ---
 
 Caffe是一个清晰而高效的深度学习框架，其作者是博士毕业于UC Berkeley的 贾扬清，目前在Google工作。本文是根据机器学习研究会组织的online分享的交流内容，简单的整理了一下。

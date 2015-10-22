@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ensemble learning 概述
-category: 机器学习
+category: machine_learning
 tags: [集成学习]
 description: Ensemble Learning(集成学习)是一种将多种学习算法组合在一起以取得更好表现的一种方法。主要是指有限的模型相互组合，而且可以有很多不同的结构。
 ---

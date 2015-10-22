@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 数据科学方面一些博客和资源分享
-category: 资源合集
+category: resource
 tags: [数据科学]
 description: 数据科学方面一些博客和资源分享
 ---

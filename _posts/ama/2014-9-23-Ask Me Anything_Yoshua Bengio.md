@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ask Me Anything_Yoshua Bengio
-category: 科学访谈
+category: reddit
 tags: [深度学习, 学习观点]
 description: 介绍了Yoshua Bengio教授在深度学习和数据科学领域的一些问答和认知。
 ---

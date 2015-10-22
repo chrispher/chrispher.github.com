@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 使用Github搭建个人博客
-category: 应用工具
+category: app_config
 tags: [环境搭建]
 description: 使用Github的page功能和jekyll搭建个人博客
 ---
