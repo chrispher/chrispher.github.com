@@ -10,20 +10,6 @@ share: false
     var baseurl = "{{ site.blog.url | prepend: site.baseurl }}";
 </script>
 
-<script>
-  $(function () {
-    // focus on search input with '/' key.
-    $("body").on("keyup", function (e) {
-        e.stopPropagation();
-        var slashKeys = [47, 111, 191];
-        if (slashKeys.some(function (value) { return e.keyCode == value })) {
-            $("#search").focus();
-        }
-    });    
-});
-</script>
-
-
 <div class="container">
   <div class="col-md-9 col-content" id="results-container">
   <div id="search-results" class="gallery">
@@ -38,7 +24,6 @@ share: false
     {% endfor %}
     </div>
   </div>
-
 
   <div class="col-md-3 col-sidebar">
     {% include author.html%}

@@ -10,6 +10,18 @@
             scale: 88},
             tex2jax:{inlineMath: [['\[','\]']],displayMath: [['$$','$$']]}});
 </script>
+<script type="text/javascript">
+  $(function () {
+    // focus on search input with '/' key.
+    $("body").on("keyup", function (e) {
+        e.stopPropagation();
+        var slashKeys = [47, 111, 191];
+        if (slashKeys.some(function (value) { return e.keyCode == value })) {
+            $("#search").focus();
+        }
+    });    
+});
+</script>
 
 <script type="text/javascript">
     $("#returnTop").hide();
