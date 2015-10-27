@@ -22,23 +22,6 @@
     });    
 });
 </script>
-
-<script type="text/javascript">
-    $("#returnTop").hide();
-    $(function () {
-        $(window).scroll(function(){
-            if ($(window).scrollTop()>100){
-                $(".returnTop").fadeIn(1500);
-            }else{
-                $(".returnTop").fadeOut(1500);
-            }
-        });
-        $(".returnTop").click(function(){
-            $('body,html').animate({scrollTop:0},20);
-            return false;
-        });
-    });
-</script>
   
 {% for script in page.scripts %}
   <script type="text/javascript" src="{{'/assets/script/' | append: script | prepend: site.blog.url }}"></script>
