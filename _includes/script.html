@@ -12,16 +12,20 @@
 </script>
 
 <script type="text/javascript">
-  $(function () {
-    // focus on search input with '/' key.
-    $("body").on("keyup", function (e) {
-        e.stopPropagation();
-        var slashKeys = [47, 111, 191];
-        if (slashKeys.some(function (value) { return e.keyCode == value })) {
-            $("#search").focus();
-        }
-    });    
-});
+    $("#returnTop").hide();
+    $(function () {
+        $(window).scroll(function(){
+            if ($(window).scrollTop()>100){
+                $(".returnTop").fadeIn(500);
+            }else{
+                $(".returnTop").fadeOut(500);
+            }
+        });
+        $(".returnTop").click(function(){
+            $('body,html').animate({scrollTop:0},20);
+            return false;
+        });
+    });
 </script>
   
 {% for script in page.scripts %}

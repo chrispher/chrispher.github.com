@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 应用线性回归分析
-category: StatisticAnalysis
+category: statistic_analysis
 tags: [统计学]
 description: 简述线性回归问题，目的在厘清回归问题中涉及的基本假设、检验方法等，除了必要的公式和计算，着重于如何做好回归分析
 ---
