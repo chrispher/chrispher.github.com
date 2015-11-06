@@ -48,7 +48,6 @@ function getQuery(keys)
 function showPosts(words, targets)
 {
     var getJson = function () {
-
         var dfd = $.Deferred();
         $.ajax({
             url: baseurl + "/search.json",
@@ -57,7 +56,6 @@ function showPosts(words, targets)
             success: function (posts) {
                 var matchedPosts = [];
                 posts.forEach(function (post) {
-
                     // concatenate target fields as a string.
                     var searchee = "";
                     for (var i = 0; i < targets.length; i++) {
