@@ -125,8 +125,8 @@ if __name__ == "__main__":
 {% endhighlight %}
 
 
-####2.例子
+###2.例子
 
 这里可视化了各种网络结构，比如google的部分如下：
 
-<img src="/images/deeplearning/GoogleNet_part.png" height="100%" width="100%">
+<img src="/images/deeplearning/GoogleNet_part.png" height="80%" width="80%">
