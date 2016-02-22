@@ -1,5 +1,5 @@
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 permalink: blog/:year/:month/:day/:title.html
 paginate: 6
 paginate_path: page/:num
@@ -13,8 +13,8 @@ blog:
     # http://chrispher.github.com  http://localhost:4000
 author:
     duoshuo: chrispher2012
-    name: chrispher guan 
-    email: chrispher2012@gmail.com 
+    name: chrispher guan
+    email: chrispher2012@gmail.com
     weibo: 2917650677
     github: chrispher
     linkedin: chrispher-guan/5a/a68/6b8
