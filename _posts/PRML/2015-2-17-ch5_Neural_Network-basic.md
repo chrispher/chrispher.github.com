@@ -37,19 +37,19 @@ $$a_j = \sum_{i=1}^D w_{ji}^{(1)} x_i + w^{(1)}_{j0}$$
 
 $$a_k = \sum^M_{j=1}  w_{kj}^{(2)} z_j + w^{(2)}_{k0}$$
 
-注意权重w的下标，由ji到了kj。之后再跟着非线性变换，不断重复。到一定的层数后，跟一层输出层,这里只用一层隐含层后，输出层为$$y_k = \sigma(a_k);  \ \  \sigma(a) = \frac{1}{1+exp(-a)}$$。如果是多元分类，那么跟一层softmax 激活函数即可。那么整个结构如下图所示（每个激活量对应的圆称之为神经元）：
+注意权重w的下标，由ji到了kj。之后再跟着非线性变换，不断重复。到一定的层数后，跟一层输出层,这里只用一层隐含层后，输出层为$$y_k = \delta(a_k);  \ \  \delta(a) = \frac{1}{1+exp(-a)}$$。如果是多元分类，那么跟一层softmax 激活函数即可。那么整个结构如下图所示（每个激活量对应的圆称之为神经元）：
 
 <img src="/images/prml/ch5_basic_nural_network.jpg" height="100%" width="100%">
 
 把中间输入输出合并起来如下：
 
-$$y_k(x, w) = \sigma(\sum^M_{j=1} w^{(2)}_{kj} h(\sum^D_{i=1} w^{(1)}_{ji} x_i + w^{(1)}_{j0})+ w^{(2)}_{k0})$$ 
+$$y_k(x, w) = \delta(\sum^M_{j=1} w^{(2)}_{kj} h(\sum^D_{i=1} w^{(1)}_{ji} x_i + w^{(1)}_{j0})+ w^{(2)}_{k0})$$ 
 
 我们看到神经网络就是输入变量的多次非线性变换和线性组合得到输出，其中w是可以调整的参数。这种就是前向传递，把x输入之后，我们就能够得到输出y。需要注意的是上面的图并不代表概率图。之后，我们后用概率来解释神经网络。
 
 当然，我们可以在输入中增加一列1，那么就可以把第一层的偏置项舍去了，同时为了简化，我们把隐含层的偏置项也舍去，那么可以得到简化的神经网络如下：
 
-$$y_k(z,w) = \sigma(\sum^M_{j=0} w^{(2)}_{kj} h(\sum^D_{i=0} w^{(1)}_{ji} x_i ))$$
+$$y_k(z,w) = \delta(\sum^M_{j=0} w^{(2)}_{kj} h(\sum^D_{i=0} w^{(1)}_{ji} x_i ))$$
 
 我们简单的说一下他的一些特点。如果隐含层也是线性的话,那么线性变换组合仍是线性的，隐含层就没有意义了。此外，如果隐含层神经元的数量少于输入维数或输出维数，那么神经网络可以看成一种降维模式，这在ch12章会讲述到。此外，上面说的神经网络是基础的网络，也可以有很多其他种类的神经网络，比如：
 
@@ -73,7 +73,7 @@ $$\frac{\beta}{2} \sum^N_{n=1}(y(x_n, w) - t_n)^2 - \frac{N}{2} \ln \beta + \fra
 
 此外，如果我们单层的看，每层的输出是$$y_k = a_k$$，那么有$$\frac{\partial E}{\partial a_k} = y_k - t_k$$，这是为后面提出误差反馈(error backpropagation)做准备。
 
-现在考虑二元分类和多元分类。区别不大，可以类比于之前提到的logistic回归和softmax回归。对于二元分类，$$y = \sigma(a) = \frac{1}{1+exp(-a)}$$，那么有$$p(t \mid x,w) = y(x, w)^t (1 - y(x,w))^{1-t}$$，他的误差函数就是交叉熵，如下：
+现在考虑二元分类和多元分类。区别不大，可以类比于之前提到的logistic回归和softmax回归。对于二元分类，$$y = \delta(a) = \frac{1}{1+exp(-a)}$$，那么有$$p(t \mid x,w) = y(x, w)^t (1 - y(x,w))^{1-t}$$，他的误差函数就是交叉熵，如下：
 
 $$E(w) = -\sum^N_{n=1} (t_n \ln y_n + (1-t_n) \ln (1-y_n))$$
 
@@ -129,22 +129,22 @@ $$\frac{\partial E_n}{\partial w_{ji}} = (y_{nj} - t_{nj})x_{ni}$$
 
 $$\frac{\partial E_n}{\partial w_{ji}} = \frac{\partial E_n}{\partial a_j} \frac{\partial a_j}{\partial w_{ji}}$$
 
-这里我们引入一个表示$$\sigma_j \equiv \frac{\partial E_n}{\partial a_j}$$。那么我们可以看到$$\frac{\partial a_j}{\partial w_{ji}} = z_i$$,即$$\frac{\partial E_n}{\partial w_{ji}} = \sigma_j z_i$$。可以看到，权重的梯度就是j层的$$\sigma$$和i层的激活值z的乘积，(注意z=1的情况是bias，即偏置项)他们之间的关系如下图所示（蓝色箭头表示正向传递的方向）：
+这里我们引入一个表示$$\delta_j \equiv \frac{\partial E_n}{\partial a_j}$$。那么我们可以看到$$\frac{\partial a_j}{\partial w_{ji}} = z_i$$,即$$\frac{\partial E_n}{\partial w_{ji}} = \delta_j z_i$$。可以看到，权重的梯度就是j层的$$\delta$$和i层的激活值z的乘积，(注意z=1的情况是bias，即偏置项)他们之间的关系如下图所示（蓝色箭头表示正向传递的方向）：
 
 <img src="/images/prml/ch5_backpropagation.jpg" height="80%" width="80%">
 
-那我们的核心就是得到$$\sigma$$对于输出层，$$\sigma_k = y_k - t_k$$，对于j层，我们有：
+那我们的核心就是得到$$\delta$$对于输出层，$$\delta_k = y_k - t_k$$，对于j层，我们有：
 
-$$\sigma_j \equiv \frac{\partial E_n}{\partial a_j} = \sum_k \frac{\partial E_n}{\partial a_k} \frac{\partial a_k}{\partial a_j}$$
+$$\delta_j \equiv \frac{\partial E_n}{\partial a_j} = \sum_k \frac{\partial E_n}{\partial a_k} \frac{\partial a_k}{\partial a_j}$$
 
-注意到$$\frac{\partial a_k}{\partial a_j} = \frac{\partial a_k}{\partial z_j} \frac{\partial z_j}{\partial a_j} = w_{kj} h'(a_j)$$，结合上面几个式子，我们得到backpropagation的式子：$$\sigma_j = h'(a_j) \sum w_{kj} \sigma_k$$
+注意到$$\frac{\partial a_k}{\partial a_j} = \frac{\partial a_k}{\partial z_j} \frac{\partial z_j}{\partial a_j} = w_{kj} h'(a_j)$$，结合上面几个式子，我们得到backpropagation的式子：$$\delta_j = h'(a_j) \sum w_{kj} \delta_k$$
 
 那么erro backpropagation可以归纳为：
 
 - 1、输入x，根据前向传递得到隐含层和输出层的各个激活值
-- 2、计算输出层的$$\sigma_k$$
-- 3、根据误差反馈,得到不同隐含层的$$\sigma_j$$
-- 4、根据式子$$\frac{\partial E_n}{\partial w_{ji}} = \sigma_j z_i$$得到梯度值
+- 2、计算输出层的$$\delta_k$$
+- 3、根据误差反馈,得到不同隐含层的$$\delta_j$$
+- 4、根据式子$$\frac{\partial E_n}{\partial w_{ji}} = \delta_j z_i$$得到梯度值
 
 该算法的效率比标准的数值法要高，比如权重和偏置项的总维度是W，那么误差反馈的时候需要$$O(W)$$，不需要再次计算前向传递的值，而标准的方法中是需要不断的计算误差前向和反向的变化，需要$$O(W^2)$$。
 
