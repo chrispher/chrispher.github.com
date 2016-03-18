@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 各大语言下的机器学习小汇总
-category: resource
+category: 资源帖
 tags: [机器学习, 资源合集]
 description: R、python、matlab、Julia、Ruby等语音下的机器学习库资料汇总。  
 ---
@@ -11,7 +11,7 @@ description: R、python、matlab、Julia、Ruby等语音下的机器学习库资
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录

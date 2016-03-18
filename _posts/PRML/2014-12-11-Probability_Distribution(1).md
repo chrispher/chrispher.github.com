@@ -12,14 +12,13 @@ description: 介绍机器学习概率分布的相关知识，包括伯努利分�
 
 注：本文仅属于个人学习记录而已！参考Chris Bishop所著[Pattern Recognition and Machine Learning(PRML)](http://research.microsoft.com/en-us/um/people/cmbishop/PRML/)以及由Elise Arnaud, Radu Horaud, Herve Jegou, Jakob Verbeek等人所组织的Reading Group。
 
-
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-###1.二元变量
+### 1.二元变量
 首先是对于二元变量(Binary Variables)， $$x \in {0,1}$$ ,参数 $$\mu$$ , $$p(x)$$ 满足 $$p(x=1 \mid \mu)=\mu, p(x=0 \mid \mu) = 1-\mu$$ ，那么我们称$$p(x)$$是伯努利分布(Bernoulli distribution)，表示如下：
 
 $$Bern(x \mid \mu) = \mu^x(1-\mu)^{1-x}$$
@@ -58,7 +57,7 @@ $$\begin{align} var_\theta[\theta] &= E_\theta[\theta^2] - [E_\theta[\theta]]^2 
 
 由此看出参数后验概率的方差是小于先验概率方差的，即参数的不确定性随着观测数据而降低。当然，这只是理想情况，实际过程中，也存在大于的情况。
 
-###2.多元变量
+### 2.多元变量
 对于多元变量(Multinomial Variables)，假设随机变量有K个互斥状态(mutually exclusive states)，用K维度的向量x表示，对于状态K发生时，$$x_k=1, x_{i \neq k} =0$$。那么对于伯努利分布可以扩展为 $$p(x \mid \mu) = \prod_{k=1}^{K}\mu_k^{x_k}$$，这里要求$$\sum_k\mu_k = 1$$。
 
 对于有N个独立观测的数据集D，使用最大似然估计，可以得到：
@@ -83,9 +82,9 @@ $$p(\mu \mid D,\alpha) = Dir(\mu \mid \alpha+m) = \frac{\Gamma(\alpha_0+N)}{\Gam
 
 类似于beta分布，我们也可以认为$$a_k$$是$$x_k=1$$的有效观测数。
 
-###3.高斯分布
+### 3.高斯分布
 
-####3.1高斯分布基础
+#### 3.1高斯分布基础
 对于x是D维度的高斯分布(The gaussian distribution)形式为：
 
 $$N(x \mid \mu,\Sigma) = \frac{1}{(2\pi)^{D/2} {\mid \Sigma \mid}^{1/2}} exp(-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu))$$
@@ -103,7 +102,7 @@ form)，高斯分布就被决定下来了。 $$\Sigma$$是对称矩阵(symmetric
 
 其中，$$\lambda_i$$ 是$$\Sigma$$的特征值， $$u_i$$是对应的特征向量。这里我们提及行列式的一个性质$$ \mid \Sigma \mid = \prod_{j=1}^D \lambda_j^(\frac{1}{2})$$。高斯分布是最常使用的概率密度，但是通常会有一些限制。因为正常情况下高斯分布含有 D(D+1)/2 + D 个独立参数，即是随着维度增长而二次增长。因此，有时候我们会限制$$\Sigma$$是对角矩阵(即属性间相互独立，等高线图中特征向量与属性是平行的)，有时候会限制$$\Sigma$$是单位矩阵(等高线图是一个个圆)。书中还简介了一些以后会深入讲的一些东西，比如潜在变量模型、图模型等。
 
-####3.2条件高斯分布
+#### 3.2条件高斯分布
 多元高斯分布的一个重要性质是：如果两组变量联合分布是高斯分布，那么一组变量基于另一组变量的条件分布也是高斯分布。类似的，每组变量的边际分布也是高斯分布。即对于高斯分布 $$N(x \mid \mu, \Sigma)$$，考虑分割成a和b的联合分布，即
 
 $$x = (x_a,x_b)^T \ \ \ ; \ \ \  \mu = (\mu_a,\mu_b)^T$$
@@ -117,7 +116,7 @@ $$\Sigma = \begin{pmatrix} \Sigma_{aa} & \Sigma_{ab} \\ \Sigma_{ba} & \Sigma_{bb
 $$p(y) = N(y, A \mu + b, L^{-1}+A \Lambda A^T)$$
 $$p(x \mid y) = N(x \mid \Sigma(A^TL(y-b) + \Lambda\mu), \Sigma) \ \ \ ; \ \ \  \Sigma = (\Lambda + A^TLA)^{-1}$$
 
-####3.3最大似然
+#### 3.3最大似然
 接下来就是如何根据观测数据来进行参数估计了。假设我们有N个服从iid的观测数据，通过对数最大似然估计是：
 
 $$\ln p(X \mid \mu,\Sigma) = -\frac{ND}{2}\ln (2\pi) - \frac{N}{2}\ln  \mid \Sigma \mid - \frac{1}{2}\sum_{n=1}^N (x_n-\mu)^T \Sigma^{-1} (x_n - \mu)$$
@@ -136,7 +135,7 @@ $$\theta^{(N)} = \theta^{(N-1)} + a_{N-1} z(\theta^{(N-1)})$$
 
 把该算法应用在求解最大似然时，只需要代入z就可以，对于高斯分布，$$z = \frac{\partial}{\partial \mu_{ML}} \ln  p(x \mid \mu_{ML}, \sigma^2) = \frac{1}{\sigma^2}(x-\mu_{ML})$$。
 
-####3.4贝叶斯
+#### 3.4贝叶斯
 用贝叶斯方法进行参数估计，比较复杂,这里先考虑一维的情况。
 
 这里先假设**方差已知，均值未知**。只有参数$$\mu$$，选择$$p(\mu) = N(\mu \mid \mu_0, \sigma_0^2)$$，那么后验概率是$$p(\mu \mid X) \propto p(X \mid \mu)p(\mu)$$，最终得到$$p(\mu \mid X) = N(\mu \mid \mu_N,\sigma_N^2)$$，其中参数如下:
@@ -160,7 +159,7 @@ $$b_N = b_0 + \frac{1}{2}\sum_{n=1}^N(x_n-\mu)^2 = b_0 + \frac{N}{2}\sigma_{ML}^
 
 现在我们考虑D维度的问题。如果方差已知，均值未知，那么仍然采用高斯分布；如果均值已知，方差未知，则采用Wishart分布，具体可以参考书本；
 
-####3.5局限性
+#### 3.5局限性
 通过以上描述，可以总结出高斯分布的四个不足点：
 
 - 待估计参数太多，有D(D+3)/2；解决方法是简化，比如使用方差选择对角矩阵等；
@@ -168,7 +167,7 @@ $$b_N = b_0 + \frac{1}{2}\sum_{n=1}^N(x_n-\mu)^2 = b_0 + \frac{N}{2}\sigma_{ML}^
 - 无法描述周期函；解决方法是使用von Mises分布
 - 是单峰分布；解决方法是使用混合高斯分布；
 
-###4.其他分布
+### 4.其他分布
 对于高斯分布的局限性，我们引入了其他的几个分布，这里简单的概述下；
 
 t分布就是学生分布(t-Student distribution)，是无数多个具体同均值、不同方差的高斯分布的和，对异常值比较鲁棒，函数形式见课本。

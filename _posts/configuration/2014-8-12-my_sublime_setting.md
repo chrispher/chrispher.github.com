@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My sublime text2 setting
-category: app_config
+category: 环境配置
 tags: [软件配置]
 description: windows下sublime text2的一些设置和调整
 ---
@@ -12,13 +12,13 @@ windows下sublime text2的一些设置和调整。
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-###1. 安装插件Package Control
+### 1. 安装插件Package Control
 在控制台输入以下代码后重启：
 
 {% highlight python %} 
@@ -39,7 +39,7 @@ urllib.request.install_opener( urllib.request.build_opener( urllib.request.Proxy
 open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
 {% endhighlight %} 
 
-###2. 推荐主题
+### 2. 推荐主题
 主题设置,这里使用Afterglow，也可以尝试theme fatland和brogrammer。
 {% highlight python %} 
 {
@@ -96,7 +96,7 @@ open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.
 
 {% endhighlight %} 
 
-###3. snippet
+### 3. snippet
 在tools里，会有新建snippets，snippets是帮助你快速输入一些内容的，比如python的一些开头部分。输入如下内容，之后可以保存到一个新建的snippnets的目录,专门来放这些片段代码,保存的文件后缀必须是"sublime-snippet"。
 
 {% highlight sh %} 
@@ -123,7 +123,7 @@ if __name__ == '__main__':
 
 {% endhighlight %}
 
-###4. sublimeREPL
+### 4. sublimeREPL
 可以使用iypthon交互式分析
 
     {  
@@ -160,13 +160,13 @@ if __name__ == '__main__':
     }}
 ]
 {% endhighlight %}
-###5. ctags
+### 5. ctags
 使用ctags进行代码的跳转阅读。
 首先在sublime中，安装ctags插件。安装完成之后，会自动的打开一个Package Control Messages，里面会有ctags的一个其他依赖的下载地址和安装方法，比如在windows下，还需要ctags.exe, 可以去[下载](http://prdownloads.sourceforge.net/ctags/ctags58.zip),之后解压到某个文件夹就可以了。
 
 但是，我们想要生成tags，需要把ctags.exe加入系统path里。这样，就可以使用ctags了。比如在某个工程目录下，打开cmd，输入`ctags -R -f .tags` 生成  .tags文件，然后在sublime下就可以用ctrl+t ctrl+t来跳转,用ctrl+t ctrl+b来返回到原来位置。也可以直接在sublime中打开文件夹，之后在sublime中右击文件夹，会有一个`cTags:Rebuild Tags`,点击即可。
 
-###6. 其他插件
+### 6. 其他插件
 * Enhanced-R
 * CodeIntel (自动补全)
 * Python PEP8Autoformat(python)
@@ -177,7 +177,7 @@ if __name__ == '__main__':
 * CSS Formatter (格式化css)
 * fileDiffs (文件对比)
 
-###7. markdown插件
+### 7. markdown插件
 推荐使用Markdown Editing。但是默认的Markdown Editing的颜色不是很帅，不过可以修改。如果是python或者其他类型的也是一样的可以专门的针对这种类型的文件设定自定义的格式。
 比如打开一个markdown文件，在Preferences-setting more-Syntax Spacific User，会打开一个Markdown.sublime-sttings，也就是设置Syntax的地方，把下面的代码，复制进去就可以了（当然，比较推荐的方式是把Markdown Editing的一些设置复制过来，我们只是把color_scheme更新一下就可以了）。
 
@@ -198,7 +198,7 @@ if __name__ == '__main__':
 }
 {% endhighlight %}
 
-###8. 常用快捷键
+### 8. 常用快捷键
 - ctrl + -> —— 按照单词移动
 - ctrl + d —— 向下选中该单词
 - ctrl + shift + up —— 将该行上移

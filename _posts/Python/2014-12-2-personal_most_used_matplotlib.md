@@ -1,7 +1,7 @@
 ---
 layout: post
 title: matplotlib之个人常用绘图
-category: pydata
+category: python
 tags: [python]
 description: Python下的绘图包matplotlib的使用
 ---
@@ -10,13 +10,13 @@ description: Python下的绘图包matplotlib的使用
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-###1.使用风格
+### 1.使用风格
 
 很多人说matplotlib绘图和matlab一样，配色很难看。其实，是他们不会用。matplotlib提供多种配色，可以`print plt.style.available
 `, 看到有 `[u'dark_background', u'bmh', u'grayscale', u'ggplot', u'fivethirtyeight']` 五种独特的配色方案。代码和结果如下：
@@ -38,7 +38,7 @@ plt.show()
 
 <img src="/images/python/matplotlib_style.jpg" height="70%" width="70%">
 
-###2.subplots
+### 2.subplots
 subplots使用还是比较多的。如果子图比较多，可以使用for循环；如果比较少，可以直接使用；代码和结果如下：
 
 {% highlight python %}
@@ -86,13 +86,13 @@ plt.show()
 
 <img src="/images/python/plot_ggplot.png" height="70%" width="70%">
 
-###3.colors
+### 3.colors
 
 ```
 colors = plt.cm.Spectral(np.linspace(0, 1, len(unique_labels)))
 ```
 
-###4.matrix
+### 4.matrix
 
 矩阵绘图是比较多的，可以画混淆矩阵，也可以画相关系数矩阵等！代码和结果如下：
 {% highlight python%}

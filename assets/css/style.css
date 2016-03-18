@@ -2,7 +2,8 @@ sty.CodeMirror pre{
   line-height: 14px;
 }
 @font-face {
-  font-family: "Comic Sans MS", "Helvetica Neue", "Hiragino Sans GB", Arial, "微软雅黑", sans-serif;
+  font-family: "Hiragino Sans GB", Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;;
+  /*font-family: "Comic Sans MS", "Helvetica Neue", "Hiragino Sans GB", Arial, "微软雅黑", sans-serif;*/
   src: url("/assets/fonts/fontawesome-webfont.eot?v=4.1.0");
   src: url("/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0") format("embedded-opentype"), url("/assets/fonts/fontawesome-webfont.woff?v=4.1.0") format("woff"), url("/assets/fonts/fontawesome-webfont.ttf?v=4.1.0") format("truetype"), url("/assets/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular") format("svg");
   font-weight: normal;
@@ -10,7 +11,7 @@ sty.CodeMirror pre{
 }
 .attachments-ul{
   height: 400px;
-  overflow-y:scroll; 
+  overflow-y:scroll;
   border:1px solid;
 }
 
@@ -72,9 +73,7 @@ h4 {font-size:1.2em; color:#f58220;}
 h5,h6 {font-size:1.0em; color:#fffffb; margin-bottom:4px;margin-top:-2px;}
 
 body {
-  /*font-family: "Hiragino Sans GB", Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;*/
-  font-family: "Comic Sans MS", "Helvetica Neue", "Hiragino Sans GB", Arial, "微软雅黑", sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
   color: #000000;
 }
@@ -87,8 +86,8 @@ img {
   margin-bottom:-5px;
   margin-top:5px;
   display: block;
-  clear: both; 
-  margin:auto; 
+  clear: both;
+  margin:auto;
   vertical-align: middle;
 }
 blockquote {
@@ -102,7 +101,7 @@ blockquote {
 hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;
      border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
 
-pre, code{color: #000; font-family: "Monaco", consolas; font-size: 0.88em; 
+pre, code{color: #000; font-family: "Monaco", consolas; font-size: 0.88em;
           border-radius:3px; background-color: #F8F8F8; border: 1px solid #CCC;}
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px;}
 pre code { border: 0px !important; background: transparent !important; line-height: 1.0em; }
@@ -205,9 +204,9 @@ dd { margin: 0 0 0 2em; }
   width: 22%;
   vertical-align:bottom;
   margin: 10px 10px 10px 10px;
-  margin-top:5px; 
-  margin-bottom: 30px; 
-  background: #3e4145; 
+  margin-top:5px;
+  margin-bottom: 30px;
+  background: #3e4145;
 }
 .gallery div.item .item-inner {
   display: block;

@@ -1,7 +1,7 @@
 ---
 title: 贾扬清分享_深度学习框架caffe
 layout: post
-category: deep_learning
+category: 深度学习
 tags: [深度学习, caffe, 学习观点]
 description: 关于深度学习框架caffe的介绍和讨论
 ---
@@ -10,17 +10,17 @@ Caffe是一个清晰而高效的深度学习框架，其作者是博士毕业于
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
 
-###1、caffe分享
+### 1、caffe分享
 我用的ppt基本上和我们在CVPR上要做的tutorial是类似的，所以大家如果需要更多的内容的话，可以去[tutorial.caffe.berkeleyvision.org](tutorial.caffe.berkeleyvision.org)，也欢迎来参加我们的tutorial。网页上应该还有一些python的样例帮助大家上手，所以欢迎参观。ppt比较长，所以我想我主要就介绍一下背景以及high level的内容，然后更多关注大家有一些什么具体的问题，希望大家觉得OK。[slider here](http://on-demand.gputechconf.com/gtc/2014/webinar/gtc-express-deep-learning-caffee-evan-shelhamer.pdf)
 
-####1.1、caffe起源
+#### 1.1、caffe起源
 大家最近一段时间应该已经听到很多关于deep learning的八卦了，**deep learning比较流行的一个原因，主要是因为它能够自主地从数据上学到有用的feature**,特别是对于一些不知道如何设计feature的场合，比如说图像和speech deep learning可以学习到比以往比如说sift或者MFCC这样手工设计的feature更好的方法, 而且像slide 4显示的一样，这些feature有很强的semantic的含义。所以很多时候在用到其他的一些task的时候会很有效，这也是为什么我们可以用一个feature来实现很多比如说识别，检测，物体分割这样的不同task的缘故。
 
 anyway，deep learning其实说回来是个挺久的话题了，Yann Lecun在89年的时候就提出了convolutional Neural Net的idea
@@ -32,7 +32,7 @@ anyway，deep learning其实说回来是个挺久的话题了，Yann Lecun在89�
 所以这些都很美好。但是**问题是写code还挺麻烦的**。所以大家肯定希望有个比较好用的框架来很快上手和试试这些deep learning的算法。
 所以这就是Caffe了！**Caffe是我在Berkeley写thesis的时候想学习C++和cuda写的，**然后写完了觉得我自己用太亏了，所以想贡献给community让大家来用。所以如果你看见一些写得很烂的code，不要骂我。
 
-####1·2、caffe介绍
+#### 1·2、caffe介绍
 caffe的好处是，我们基本上可以用一个比较简单的语言（google protobuffer）来定义许多网络结构，然后我们可以在CPU或者GPU上面执行这些代码，而且cpu和gpu在数学结果上是兼容的。然后，所有的模型和recipe我们都会公布出来，使得我们可以很容易地reproduce互相发布的结果。这也是我感到很幸运的一个地方，大家都很喜欢caffe，也很喜欢分享自己paper里的成果（比如说MIT的place net和VGG的模型）。
 
 anyway，这就是Caffe的简单介绍了，最开始是一个hobby project，但是最近Berkeley和其他公司比如说NVidia，Yahoo在很认真地maintain它，希望能够把整个架构做的更好用。
@@ -52,7 +52,7 @@ anyway，Caffe里面实现的solver主要也是为了神经网络设计的。
 
 我在和人聊的时候发现大家都比较喜欢fine tune的方法，所以我也简单介绍一下。基本上，finetuning的想法就是说，我在imagenet那么大的数据集上train好一个很牛的网络了，那别的task上肯定也不错。所以我可以把pretrain的网络拿过来，然后只重新train最后几层。重新train的意思是说，比如我以前需要classify imagenet的一千类，现在我只想识别是狗还是猫，或者是不是车牌。于是我就可以把最后一层softmax从一个4096*1000的分类器变成一个4096*2的分类器。这个strategy在应用中非常好使，所以我们经常会先在imagenet上pretrain一个网络，因为我们知道imagenet上training的大概过程会怎么样。
 
-####1.3、caffe其他方向
+#### 1.3、caffe其他方向
 我觉得算法上主要就是以上这些了，大概再讲一下最近一些比较有意思的方向吧。首先是multi-GPU的训练，caffe有一个Flickr的branch可以用来做multi-GPU，不过目前好像把它merge进master得过程有点慢。不过，如果你有兴趣的话，其实multi-GPU不是很难。比如说，用MPI实现一个GPU之间的synchronization，然后把data transfer和computation 并行起来，基本上就可以实现一个比较直接的single machine multi-gpu training了。当然希望flickr的branch尽早merge。
 
 另外，sequence model （RNN, LSTM）也是一个比较热门的方向，一个比较简单地实现RNN的方法是unrolling。就是说，我不来实现一个for loop，而是确定地说我的sequence就是一个固定的长度，这样，整个网络就依然是一个feed forward的网络，除了需要一些weight sharing以外，依然是可以用原先的架构来实现的。
@@ -61,10 +61,10 @@ anyway，Caffe里面实现的solver主要也是为了神经网络设计的。
 
 另外一个比较值得关注的数学计算库是Eigen，在CPU上的优化还是挺显著的。Caffe没有太多地用到Eigen，但是我觉得值得提一下。anyway，我觉得咱们要不还是多留一些时间来讨论大家关注的问题，所以我就先打住了，我们Caffe的主要的contributer都在slide 89上，大家都很nice，如果你在CVPR上碰见我们的话欢迎来聊天：）
 
-###2、讨论
+### 2、讨论
 讨论部分，这里把一些问题合并，方便查看和阅读。
 
-####2.1、caffe算法与结构
+#### 2.1、caffe算法与结构
 multi-gpu其实是在最近的model，比如说googlenet上，只需要model parallelism就可以了，因为参数的数量很少：）。
 caffe内部的Convolution计算是图像拉伸成向量进行的计算，这种方式会比普通的方法和fft的方法计算更快吗？放大点说，caffe做了哪些算法上的优化 使得计算速度比较快呢？那个其实是我的weekend hack，所以推荐大家用其他的优化，比如说cudnn等等。说实话写caffe的时候我没太关注速度。在神经网络的训练过程中，如何能够并行或者说更快地计算？主要是靠两点吧，一个是写更快的code（比如说用cudnn优化convolution），一个是写并行计算的框架（这方面我推荐用MPI入手，因为MPI虽然没有fault tolerance等等的好处，但是并行非常简单，可以作为最开始的测试）。使用gpu对计算性能进行优化，这个更多的是在code层面上调速度了，如果有兴趣的话，nvidia的nvprof应该会很有帮助。目前，caffe也有很多的branch，比如对分布式的支持，可以在parallel branch里面找到。
 
@@ -82,7 +82,7 @@ caffe能否在多个层都连接loss函数，同时进行反向传播？可以�
 
 用SGD的时候，收敛充分的前提下，不同的学习率衰减策略是不是结果都差不多？恩，一般会差不多。autoencoder 模型中，单个隐含层和多隐层 模型，效果差别很多啊吗？这个可能和具体实现有关，隐层多了以后，representation power增加，很可能会提升效果，但是也可能会overfit，所以需要更仔细的training。
 
-####2.2、caffe工程与应用
+#### 2.2、caffe工程与应用
 目前Caffe主要面对CV或图像的任务，但是也可以做nlp。那在移动端用深度学习可以实现实时人脸检测么？人脸检测可能目前用传统方法还是很competitive的，但是做一些识别等等，我觉得目前的移动设备应该是可以支持的。DL也能和传统特征结合，即传统特征可以作为feature输入到网络里面，然后再继续做计算。
 
 对于多任务学习的DL有什么经验可以分享吗？比如数据分布的均匀性的影响。数据分布均匀性一般都还是挺tricky的，实际操作上一般我觉得cap一些frequency（如果某一类太多了，就downsample一下）会使得training更好一些。
@@ -100,7 +100,7 @@ CNN可以应用到对图像进行深度图提取吗？效果会怎样呢？最�
 dl 在ctr预测上有什么好的论文或者资料么？我不是很清楚，不过余凯师兄以前讲过百度用DL做CTR效果很好，所以还是很promising的。
 请问除了从分类结果看特征表出的优劣，有没有一种通行的方式去看特征表出的优劣？还有一个问题：lstm简直就是一个编码模型…以后机器学习的结构都要往电子工程上靠了吗？我觉得结构越来越复杂正背离dl的初衷了？其实大家经常批评DL的问题就是说，我们从设计feature变成了设计model（我记得原话是jitendra malik讲的，我太八卦了）。所以这个的确也是一个难解的问题，兴许我们可以做一个算法来自动生成很多model然后evolve这些model？MIT曾经有一篇paper来自动学习网络的结构，但是目前state of the art的模型还经常靠手调。
 
-####2.3、模型训练与调参
+#### 2.3、模型训练与调参
 参数设置其实有点tricky，我觉得更多的还是通过已有的架构然后来做一些微调，个人也没有太好的insights可以分享，更多的是一些经验型的东西，推荐大家读一下kaiming he最近的paper，很有效果，此外微软的paper，vgg，googlenet可能有帮助。。受限于gpu内存，batchsize不能选太大，这会导致结果的不收敛，话句话说那训练过程中batch的大小对结果影响大吗？理论上batch小是不会影响收敛的。小batch主要的问题是在FC层的计算可能会不是很efficient，但是数学上没有问题。
 
 对于2-GPU（AlexNet里的group参数），其实AlexNet可以直接用单GPU来实现，大家觉得AlexNet是2GPU的缘故是，Alex当年train网络的时候GPU内存太小，他只好用两个GPU来实现：）后来大家一般都是用一个GPU的。
@@ -113,7 +113,7 @@ finetuning过程是用已有的模型来初始化现有的模型，在caffe里�
 
 记得有一篇说[论文:trainning_convolutional_networks_with_noisy_labels](http://arxiv.org/abs/1406.2080)说在imagenet上，把30%的标签打乱，反而使得最后的结果更好和更鲁棒。那么是不是意味着我们不需要强定义的数据（不需要那么仔细的标注数据） 就可以训练得到一个不错的模型呢？我觉得基本上就是数据越干净，数据越多，效果一般就越好（实际应用上我们有时候会让human rater去再次确认一些不确定的标注）。鲁棒性的问题，我觉得可能是因为增加了regularization？imagenet上基本上还是标准的protocol来training效果最好。。。
 
-####2.4、caffe与DL的学习与方向
+#### 2.4、caffe与DL的学习与方向
 我觉得主要还是follow tutorial，另外网上（比如[知乎](http://www.zhihu.com/question/27982282/answer/39350629)）也有很多解析。
 现在是在做机器学习，还没有深入deep learning，是不是要先打好机器学习的基础再学DL会好一点？这个我其实也不是很清楚，很多想法其实都是相通的（比如说优化的问题），所以可以都看一些，然后按照自己的需求深入：）
 
@@ -125,9 +125,9 @@ finetuning过程是用已有的模型来初始化现有的模型，在caffe里�
 
 目前dl在时序序列分析中的进展如何？研究思路如何，能简单描述一下么。这个有点长，可以看看google最近的一系列machine translation和image description的工作。关于时序的问题统一回答一下，大家可以参考最近的machine translation，im2txt等等的一系列文章。DL在时序方面的应用主要是RNN/LSTM这方面，主要是用来理解sequence的信息，两个用法：（1）提取sequence的feature，然后来做classification或者embedding，（2）从sequence到sequence，比如说输入语音，输出识别的句子。
 
-####2.5、其他
+#### 2.5、其他
 google brain和human brain project，恕我不好评论。公司政策：）。对于cxxnet，您是怎么看待的呢？我还挺喜欢cxxnet的一些设计的，基本上就是大家选自己喜欢的codebase来用吧：）
 
-###3、附录
+### 3、附录
 
 贾扬清的[知乎](http://www.zhihu.com/people/jia-yang-qing-74)以及他的[个人主页](http://daggerfs.com/),微信可以关注**机器学习研究会**，当然也可以加一下我个人的群**数据，为梦想而生**（更推荐比较高大上的**机器学习狂热分子**群）

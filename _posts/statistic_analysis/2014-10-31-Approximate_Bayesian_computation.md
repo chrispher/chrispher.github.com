@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Approximate Bayesian Computation and the Socks of Karl Broman
-category: statistic_analysis
+category: 统计分析
 tags: [统计学, 数据分析]
 description: 使用近似贝叶斯计算进行参数估计
 
@@ -11,13 +11,13 @@ description: 使用近似贝叶斯计算进行参数估计
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-###1.问题
+### 1.问题
 虽然我们处在大数据时代，但是有时候你并没有大数据。比如Karl Broman在twitter上的提出一个问题:他在洗衣时候发现11只不同的袜子，请问他实际应该有多少只袜子呢？
 
 <img src="/images/statistics/Approximate_Bayesian_Computation_karl_tweet_1.jpeg" height="100%" width="100%">
@@ -25,7 +25,7 @@ description: 使用近似贝叶斯计算进行参数估计
 如果我们有大量的数据，我们可以用一些机器学习的方法来推断。而目前我们知道的信息有限，因此这里采用了一些统计模型来求解。
 
 
-###2.随机模拟法
+### 2.随机模拟法
 我们先考虑这样一个问题，如果已知了实际袜子数(n_socks,比如为18只)，从这些中取出11只袜子，看看有多少不同的袜子。这里我们没有直接计算，而是直接使用程序去模拟！
 这里我们假设有n_socks=18只袜子，其中有n_pairs=7是成对的，n_odd=4是单只的（遗失4只），从中选n_picked = 11只；首先我们对这18只袜子进行编号，考虑到有成对的袜子，编号socks应该是0-10。程序如下：
 
@@ -75,7 +75,7 @@ while abs(final - 11) > 0.01:
 
 很显然，这不科学！
 
-###3.近似贝叶斯计算
+### 3.近似贝叶斯计算
 [Approximate Bayesian computation](http://en.wikipedia.org/wiki/Approximate_Bayesian_computation)(ABC, 近似贝叶斯计算)是贝叶斯统计的基本方法，基本思路如下：
 
 - 1.构建一个生成模型用于生成你的目标数据。这里你需要假设待估计参数的先验分布(可以参考贝叶斯方法生成数据的[步骤](http://chrispher.github.io/data%20analysis/2014/10/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%B0%E8%AE%A1.html))；
@@ -86,12 +86,12 @@ while abs(final - 11) > 0.01:
 
 <img src="/images/statistics/Approximate_Bayesian_computation_conceptual_overview.svg.png" height="100%" width="100%">
 
-####3.1选择先验概率
+#### 3.1选择先验概率
 如何选择一个合适的先验概率分布呢？我们的参数是 n_socks（袜子总数）, n_pairs(成对的袜子数) 和 n_odd(成单的袜子数)。我们目前所能知道的是这两者都是离散整数。一个比较不错的选择是泊松分布（适合于描述单位时间内随机事件发生的次数），但是泊松分布的期望和方差都是一个参数值。
 
 我们考虑到一个家庭大约3-4人，每人每周换5次袜子，这里选择n_socks服从[negative binomial](http://en.wikipedia.org/wiki/Negative_binomial_distribution)分布，即`n_socks = random.negative_binomial(30,0.42)`，对于n_pairs，不直接使用概率分布，而是考虑n_socks中出现n_pairs的比例，期望是95%，使用beta分布，即`random.beta(20,2,1)`
 
-####3.2程序与结果
+#### 3.2程序与结果
 
 {% highlight python %}
 

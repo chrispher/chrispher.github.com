@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Deep learning Reading List
-category: deep_learning
+category: 深度学习
 tags: [阅读书单]
 description: J Mohamed Zahoor的深度学习阅读书单
 ---

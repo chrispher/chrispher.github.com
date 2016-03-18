@@ -13,7 +13,7 @@ title: 大数据spark入门学习
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
@@ -21,7 +21,7 @@ title: 大数据spark入门学习
 
 <br/>
 
-###第一周：入门简介
+### 第一周：入门简介
 
 第一周第一节的[课件](/static/lectures/big_data_Spark/Week1Lec1.pdf)主要简介了课程的一些相关信息以及大数据和数据科学的一些基本模块。课程的主要目标如下：
 
@@ -51,7 +51,7 @@ title: 大数据spark入门学习
 
 之后分别从数据科学的几个话题上介绍了各个模块，尤其是数据的获取与准备，需要很强的ETL(extract, transform, load)能力。也提到了数据在传输过程中的序列化和反序列化，这一点需要注意。课程也从不同的角色（分析员、程序员、企业等等）来看不同的角色在这几个模块使用的工具和方法。同时，总结了一些困难和问题，这些问题是我们做数据科学时需要考虑的，比如多种工具和编程语言使得分享很难，很多分析是一次性的，查找一些脚本往往比自己写还困难。（可能需要搭建知识库！）
 
-###第二周：spark入门
+### 第二周：spark入门
 
 第二周第一个[课件](/static/lectures/big_data_Spark/Week2Lec3.pdf)主要议题如下：
 
@@ -121,7 +121,7 @@ title: 大数据spark入门学习
 
 本周有一个spark的python notebook的[tutorial](/static/lectures/big_data_Spark/lab/spark_tutorial_student.html)以及[练习](/static/lectures/big_data_Spark/lab/lab1_word_count_student.html)
 
-###第三周：spark结构化数据
+### 第三周：spark结构化数据
 第三周第一个[课件](/static/lectures/big_data_Spark/Week3Lec5.pdf)，主要介绍了半结构化数据，列表格数据(Tabular Data)和log日志。
 
 - 数据管理
@@ -165,7 +165,7 @@ Value:  [('a',  (1, 2)),    ('a',   (1, 3))]
 
 最后是本周的[作业](/static/lectures/big_data_Spark/lab/lab2_apache_log_student.html)，主要是log日志分析，没用到sql，还是跟上周差不多的命令。
 
-###第四周：spark数据分析与mllib
+### 第四周：spark数据分析与mllib
 第四周第一个[课件](/static/lectures/big_data_Spark/Week4Lec7.pdf)，主要介绍了数据清洗的一些认识。
 
 - 数据清洗(data cleaning)
@@ -197,5 +197,5 @@ Value:  [('a',  (1, 2)),    ('a',   (1, 3))]
 
 最后是本周的[作业](/static/lectures/big_data_Spark/lab/lab3_text_analysis_and_entity_resolution_student.html)，主要是文本相似度分析，基于BOW。这类问题，主要在于确定基本思路，之后实现模型中的各个点，再整合起来就可以了。
 
-###第五周：协同过滤lab
+### 第五周：协同过滤lab
 本周只有[lab](/static/lectures/big_data_Spark/lab/lab4_machine_learning_student.html)，完成协同过滤模型做推荐系统。使用mllib库的主要问题在于，如何组织你的数据，使其符合mllib的数据格式，并且学会评估模型的好坏，学会选择模型和调整模型。

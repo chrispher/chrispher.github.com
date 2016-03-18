@@ -1,7 +1,7 @@
 ---
 layout: post
 title: caffe深度学习网络结构可视化
-category: deep_learning
+category: 深度学习
 tags: [环境搭建, caffe]
 description: caffe深度学习网络结构可视化
 ---
@@ -10,13 +10,13 @@ description: caffe深度学习网络结构可视化
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-###1、code
+### 1.code
 
 {% highlight python %}
 
@@ -125,7 +125,7 @@ if __name__ == "__main__":
 {% endhighlight %}
 
 
-###2.例子
+### 2.例子
 
 这里可视化了各种网络结构，比如google的部分如下：
 

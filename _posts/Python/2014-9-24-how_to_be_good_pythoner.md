@@ -10,13 +10,13 @@ description: 从函数式编程、性能、测试、编码规范四个方面介�
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-####函数式编程
+#### 函数式编程
 
 命令式的编程风格已经成为事实上的标准。命令式编程的程序是由一些描述状态转变的语句组成。虽然有时候这种编程方式十分的有效，但有时也不尽如此(比如复杂性) —— 而且，相对于声明式编程方式，它可能会显得不是很直观。
 
@@ -26,7 +26,7 @@ description: 从函数式编程、性能、测试、编码规范四个方面介�
 - [http://www.secnetix.de/olli/Python/lambda_functions.hawk](http://www.secnetix.de/olli/Python/lambda_functions.hawk)
 - [http://docs.python.org/howto/functional.html](http://docs.python.org/howto/functional.html)
 
-####性能
+#### 性能
 
 你会看到有如此多的讨论都在批评这些“脚本语言”(Python，Ruby)是如何的性能低下，可是你却经常的容易忽略这样的事实：是程序员使用的算法导致了程序这样拙劣的表现。
 
@@ -35,7 +35,7 @@ description: 从函数式编程、性能、测试、编码规范四个方面介�
 - [http://jaynes.colorado.edu/PythonIdioms.html](http://jaynes.colorado.edu/PythonIdioms.html)
 - [http://wiki.python.org/moin/PythonSpeed/PerformanceTips](http://wiki.python.org/moin/PythonSpeed/PerformanceTips)
 
-####测试
+#### 测试
 
 如今在计算机科学界，测试可能是一个最让人不知所措的主题了。有些程序员能真正的理解它，十分重视TDD(测试驱动开发)和它的后继者BDD(行为驱动开发)。而另外一些根本不接受，认为这是浪费时间。那么，我现在将告诉你：如果你不曾开始使用TDD/BDD，那你错过了很多最好的东西！
 
@@ -46,7 +46,7 @@ description: 从函数式编程、性能、测试、编码规范四个方面介�
 - [http://wiki.cacr.caltech.edu/dan…._Integration_testing](http://wiki.cacr.caltech.edu/dan…._Integration_testing)
 - [http://docs.python.org/library/unittest.html](http://docs.python.org/library/unittest.html)
 
-####编码规范
+#### 编码规范
 
 并非所有的代码生来平等。有些代码可以被另外的任何一个好的程序员读懂和修改。但有些却只能被读，而且只能被代码的原始作者修改 —— 而且这也只是在他或她写出了这代码的几小时内可以。为什么会这样？因为没有经过代码测试(上面说的)和缺乏正确的编程规范。
 

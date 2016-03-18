@@ -1,22 +1,16 @@
 <!-- 分类列表 -->
 <div class="panel panel-default categories">
     <div class="panel-heading title">
-        文章分类
+        文章分类 &nbsp;<span class="badge">[{{ site.posts.size }}]</span>
     </div>
     <div class="panel-body list">
         <ul>
-          <li>
-              <a class="catelink" href="{{ site.blog.url }}/category/#all" data-target-cate="#all">
-                  所有分类&nbsp;<span class="badge">[{{ site.posts.size }}]</span>
-              </a>
-          </li>
           {% for category in site.categories %}
           <li>
               <a class="catelink" href="{{ site.blog.url }}/category/#{{category.first}}" data-target-cate="#{{category.first}}">
                   {{ category.first }}&nbsp;<span class="badge">[{{ category.last.size }}]</span>
               </a>
           </li>
-
           {% endfor %}
         </ul>
     </div>

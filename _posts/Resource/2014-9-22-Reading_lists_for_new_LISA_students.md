@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Reading lists for new LISA students
-category: resource
+category: 资源帖
 tags: [深度学习, 阅读书单]
 description: Benjio给LISA学生的阅读书单，主要涉及机器学习、深度学习等等内容 
 ---
@@ -10,7 +10,7 @@ Benjio给LISA学生的[Reading lists](https://docs.google.com/document/d/1IXF3h0
 
 <!-- more -->
 
-###content
+### content
 - [Research in General](#Research in General)
 - [Basics of machine learning](#Basics of machine learning)
 - [Basics of deep learning](#Basics of deep learning)
@@ -40,19 +40,19 @@ Reading lists for new LISA students
 
 <a name="Research in General"/>
 
-####Research in General
+#### Research in General
 - [How to write a great research paper](https://research.microsoft.com/en-us/um/people/simonpj/papers/giving-a-talk/writing-a-paper-slides.pdf)
 
 <a name="Basics of machine learning"/>
 
-####Basics of machine learning
+#### Basics of machine learning
 
 - [bengioy/DLbook/math.html](http://www.iro.umontreal.ca/~bengioy/DLbook/math.html)
 - [bengioy/DLbook/ml.html](http://www.iro.umontreal.ca/~bengioy/DLbook/ml.html)
 
 <a name="Basics of deep learning"/>
 
-####Basics of deep learning
+#### Basics of deep learning
 - [bengioy/DLbook/intro.html](http://www.iro.umontreal.ca/~bengioy/DLbook/intro.html)
 - [bengioy/DLbook/mlp.html](http://www.iro.umontreal.ca/~bengioy/DLbook/mlp.html)
 - [Learning deep architectures for AI](http://www.iro.umontreal.ca/~bengioy/papers/ftml_book.pdf)
@@ -72,7 +72,7 @@ Reading lists for new LISA students
 
 <a name="Feedforward nets"/>
 
-####Feedforward nets
+#### Feedforward nets
 - [bengioy/DLbook/mlp.html](http://www.iro.umontreal.ca/~bengioy/DLbook/mlp.html)
 - [“Improving Neural Nets with Dropout” by Nitish Srivastava](http://www.cs.toronto.edu/~nitish/msc_thesis.pdf)
 - [“Fast Drop Out” ](http://nlp.stanford.edu/pubs/sidaw13fast.pdf)
@@ -82,14 +82,14 @@ Reading lists for new LISA students
 
 <a name="MCMC"/>
 
-####MCMC
+#### MCMC
 - [Iain Murray’s MLSS slides](http://mlg.eng.cam.ac.uk/mlss09/mlss_slides/Murray_1.pdf)
 - [Radford Neal’s Review Paper](http://www.cs.toronto.edu/pub/radford/review.pdf) (old but still very comprehensive)
 - [Better Mixing via Deep Representations](https://arxiv.org/abs/1207.4404)
 
 <a name="Restricted Boltzmann Machines"/>
 
-####Restricted Boltzmann Machines
+#### Restricted Boltzmann Machines
 - [Unsupervised learning of distributions of binary vectors using 2-layer networks](http://cseweb.ucsd.edu/~yfreund/papers/freund94unsupervised.pdf)
 - [A practical guide to training restricted Boltzmann machines](http://www.cs.toronto.edu/~hinton/absps/guideTR.pdf)
 - [Training restricted Boltzmann machines using approximations to the likelihood gradient](http://icml2008.cs.helsinki.fi/papers/638.pdf)
@@ -101,7 +101,7 @@ Reading lists for new LISA students
 
 <a name="Boltzmann Machines">
 
-####Boltzmann Machines
+#### Boltzmann Machines
 - [Deep Boltzmann Machines (Salakhutdinov & Hinton)](http://www.cs.toronto.edu/~hinton/absps/dbm.pdf)
 - [Multimodal Learning with Deep Boltzmann Machines](http://www.cs.toronto.edu/~rsalakhu/papers/Multimodal_DBM.pdf)
 - [Multi-Prediction Deep Boltzmann Machines ](http://papers.nips.cc/paper/5024-multi-prediction-deep-boltzmann-machines)
@@ -109,16 +109,16 @@ Reading lists for new LISA students
 
 <a name="Regularized Auto-Encoders"/>
 
-####Regularized Auto-Encoders
+#### Regularized Auto-Encoders
 - [The Manifold Tangent Classifier](http://books.nips.cc/papers/files/nips24/NIPS2011_1240.pdf)
 
 <a name="Regularization"/>
 
-####Regularization
+#### Regularization
 
 <a name="Stochastic Nets and GSNs"/>
 
-####Stochastic Nets and GSNs
+#### Stochastic Nets and GSNs
 - [Estimating or Propagating Gradients Through Stochastic Neurons for Conditional Computation](https://arxiv.org/abs/1308.3432)
 - [Learning Stochastic Feedforward Neural Networks](http://papers.nips.cc/paper/5026-learning-stochastic-feedforward-neural-networks)
 - [Generalized Denoising Auto-Encoders as Generative Models](https://arxiv.org/abs/1305.6663)
@@ -126,7 +126,7 @@ Reading lists for new LISA students
 
 <a name="Others"/>
 
-####Others
+#### Others
 - [Slow, Decorrelated Features for Pretraining Complex Cell-like Networks](http://machinelearning.wustl.edu/mlpapers/paper_files/NIPS2009_0933.pdf)
 - [What Regularized Auto-Encoders Learn from the Data Generating Distribution ](https://arxiv.org/abs/1211.4246)
 - [Generalized Denoising Auto-Encoders as Generative Models ](https://arxiv.org/abs/1305.6663)
@@ -134,7 +134,7 @@ Reading lists for new LISA students
 
 <a name="Recurrent Nets"/>
 
-####Recurrent Nets
+#### Recurrent Nets
 - [Learning long-term dependencies with gradient descent is difficult](http://www-dsi.ing.unifi.it/~paolo/ps/tnn-94-gradient.pdf)
 - [Advances in Optimizing Recurrent Networks ](https://arxiv.org/abs/1212.0901)
 - [Learning recurrent neural networks with Hessian-free optimization](http://machinelearning.wustl.edu/mlpapers/paper_files/ICML2011Martens_532.pdf)
@@ -150,7 +150,7 @@ Reading lists for new LISA students
 
 <a name="Convolutional Nets"/>
 
-####Convolutional Nets
+#### Convolutional Nets
 - [http://www.iro.umontreal.ca/~bengioy/DLbook/convnets.html](http://www.iro.umontreal.ca/~bengioy/DLbook/convnets.html)
 - [Generalization and Network Design Strategies (LeCun)](http://yann.lecun.com/exdb/publis/pdf/lecun-89.pdf)
 - [ImageNet Classification with Deep Convolutional Neural Networks, Alex Krizhevsky, Ilya ](http://books.nips.cc/papers/files/nips25/NIPS2012_0534.pdf) Sutskever, Geoffrey E Hinton, NIPS 2012.
@@ -158,7 +158,7 @@ Reading lists for new LISA students
 
 <a name="Optimization issues with DL"/>
 
-####Optimization issues with DL
+#### Optimization issues with DL
 - [Curriculum Learning](http://www.machinelearning.org/archive/icml2009/papers/119.pdf)
 - [Evolving Culture vs Local Minima](http://arxiv.org/pdf/1203.2990v2.pdf)
 - [Knowledge Matters: Importance of Prior Information for Optimization](http://arxiv.org/pdf/1301.4083v6.pdf)
@@ -171,7 +171,7 @@ Reading lists for new LISA students
 
 <a nameDL="NLP + DL"/>
 
-####NLP + DL
+#### NLP + DL
 - [Natural Language Processing (Almost) from Scratch](http://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/35671.pdf)
 - [DeViSE: A Deep Visual-Semantic Embedding Model](http://papers.nips.cc/paper/5204-devise-a-deep-visual-semantic-embedding-model)
 - [Distributed Representations of Words and Phrases and their Compositionality](http://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality)
@@ -179,7 +179,7 @@ Reading lists for new LISA students
 
 <a name="CV+RBM"/>
 
-####CV+RBM
+#### CV+RBM
 - [Fields of Experts](http://www.gris.informatik.tu-darmstadt.de/~sroth/pubs/foe-ijcv.pdf)
 - [What makes a good model of natural images?](http://people.csail.mit.edu/billf/papers/foe-final.pdf)
 - [Phone Recognition with the mean-covariance restricted Boltzmann machine](http://machinelearning.wustl.edu/mlpapers/paper_files/NIPS2010_0160.pdf)
@@ -187,26 +187,26 @@ Reading lists for new LISA students
 
 <a namDLe="CV + DL"/>
 
-####CV + DL
+#### CV + DL
 - [Imagenet classiﬁcation with deep convolutional neural networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf)
 - [Learning to relate images](http://www.iro.umontreal.ca/~memisevr/pubs/pami_relational.pdf)
 
 <a name="Scaling Up"/>
 
-####Scaling Up
+#### Scaling Up
 - [Large Scale Distributed Deep Networks](http://www.cs.toronto.edu/~ranzato/publications/DistBeliefNIPS2012_withAppendix.pdf)
 - [Random search for hyper-parameter optimization](http://jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf)
 - [Practical Bayesian Optimization of Machine Learning Algorithms](http://www.cs.toronto.edu/~jasper/bayesopt.pdf)
 
 <a name="DL + Reinforcement learning"/>
 
-####DL + Reinforcement learning
+#### DL + Reinforcement learning
 - [Playing Atari with Deep Reinforcement Learning (paper not officially released yet!)](http://arxiv.org/abs/1312.5602)
 
 
 <a name="Graphical Models Background"/>
 
-####Graphical Models Background
+#### Graphical Models Background
 - [An Introduction to Graphical Models (Mike Jordan, brief course notes)](http://www.cis.upenn.edu/~mkearns/papers/barbados/jordan-tut.pdf)
 - [A View of the EM Algorithm that Justifies Incremental, Sparse and Other Variants (Neal &Hinton, important paper to the modern understanding of Expectation-Maximization)](http://www.cs.toronto.edu/~radford/ftp/emk.pdf) 
 - [A Unifying Review of Linear Gaussian Models (Roweis & Ghahramani, ties together PCA, factor analysis, hidden Markov models, Gaussian mixtures, k-means, linear dynamical systems](http://authors.library.caltech.edu/13697/1/ROWnc99.pdf)
@@ -214,25 +214,25 @@ Reading lists for new LISA students
 
 <a name="Writing"/>
 
-####Writing
+#### Writing
 - [Writing a great research paper (video of the presentation)](https://www.youtube.com/watch?v=g3dkRsTqdDA)
 
 <a name="Software documentation"/>
 
-####Software documentation
+#### Software documentation
 - [Python](http://www.deeplearning.net/software/theano/tutorial/python.html), [Theano](http://www.deeplearning.net/software/theano/tutorial/), [Pylearn2](http://www.deeplearning.net/software/pylearn2/#documentation)
 - [Linux (bash)](http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html)(at least the 5 first sections), [git](http://git-scm.com/book) (5 first sections), [github/contributing to it](http://deeplearning.net/software/theano/dev_start_guide.html#dev-start-guide) (Theano doc), [vim tutorial](http://blog.interlinked.org/tutorials/vim_tutorial.html) or [emacs tutorial](http://www2.lib.uchicago.edu/keith/tcl-course/emacs-tutorial.html)
 
 <a name="Software lists of built-in commands/functions"/>
 
-####Software lists of built-in commands/functions
+#### Software lists of built-in commands/functions
 - [Bash commands](http://ss64.com/bash/)
 - [List of Built-in Python Functions](http://docs.python.org/2/library/functions.html)
 - [vim commands](http://tnerual.eriogerg.free.fr/vimqrc.html)
 
 <a name="Other Software stuff to know about:"/>
 
-####Other Software stuff to know about:
+#### Other Software stuff to know about:
 - screen/tmux
 - ssh
 - ipython

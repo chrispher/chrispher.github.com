@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Classify with Real-world Examples
-category: case_study
+category: 实践练习
 tags: [机器学习, 特征工程, BMLSP]
 description: 基于python下一些数据科学包构建了一个分类器并进行调参。
 ---
@@ -10,13 +10,13 @@ description: 基于python下一些数据科学包构建了一个分类器并进�
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-###1、简单分类器
+### 1、简单分类器
 
 首先我们导入一些我们需要使用的库。这里主要是使用python，以及它的一些包，主要是numpy、scipy、sklearn等等，绘图使用matplotlib，这里我个人习惯采用ggplot的配色风格。在最开始，我们新可视化一下数据，做一些基本的数据探索。
 
@@ -40,7 +40,7 @@ sns.pairplot(iris, hue="species", size=3.0)
 
 如果我们只有选择一个特征作为分类特征，选择一个阈值，我们以最后一幅图为例，可以选择petal的长度，取4.8为阈值(可以设定不同的阈值，看看那个阈值分类最高，图里可以看到绿色的最大值作为分割点是最优的)。这个没啥意思，不过也提供了一种简单的分析思路。我主要想做这个图看看而已。
 
-###2、logistic回归
+### 2、logistic回归
 这里使用了新的[数据集](https://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt)，是小麦种子数据。有7个特征，area
 A（面积）, perimeter P（周长）, compactness C = 4*pi*A/P\^2（紧密度）,
 length of kernel(胚长度), width of kernel(胚宽度), asymmetry
@@ -207,7 +207,7 @@ print 'LogisticRegression: the score is {s:.3}, var is {v:.3}'.format(s=score_lr
 
 我们看到使用了SVM等方法，发现使用LogisticRegression的结果可以达到92.4%，而且方差也比较小。那么，接下来我们只用LogisticRegression进行分析，毕竟LogisticRegression的可解释比较强。我们做一些特征变换和特征选择。这里，我们先采用归一化。这里为了方便，我们直接把数据集分割为训练数据和测试数据。
 
-###3、归一化与增加特征
+### 3、归一化与增加特征
 
 {% highlight python %}
 
@@ -342,7 +342,7 @@ sns.pairplot(error, hue="c_train", size=2.5)
 
 <img src="/images/practicalML/bmls_ch2/output_17_2.png" height="100%" width="100%">
 
-###4、总结
+### 4、总结
 
 最后，我们看一下整体。首先我们并没有完整的按照数据挖掘流程进行分析。这里，主要集中在建模的讨论中，而且毕竟是练习，所以也比较粗糙。简单的可视化了数据的情况，之后直接套模型看看效果，然后根据一些情况进行调整归一化和特征调整。有很多细节，我们可以深入的思考，比如得到的回归系数，我们如何解释？如果根据这些东西，进行调参呢？最后增加的特征，也只是简单的增加点，没有深入的探讨，当然也参考了数据的分布(pairplot图)。另外，在编程过程中，也需要注意内存的释放，这里因为数据集比较小，我没有使用delete
 variable来释放内存。还有有很多东西值得进一步的思考的东西，不再赘述！

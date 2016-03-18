@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Clustering-Finding Related Posts
-category: case_study
+category: 实践练习
 tags: [机器学习, 特征工程, BMLSP]
 path: /notes/practice_machine_Learning/2015-3-11-BMLSP_ch3_Clustering_Finding_Related_Posts.md
 description: 基于python下一些数据科学包构建了一个分类器并进行调参。
@@ -11,13 +11,13 @@ description: 基于python下一些数据科学包构建了一个分类器并进�
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-###1、简单分类器
+### 1、简单分类器
 
 首先我们导入一些我们需要使用的库。这里主要是使用python，以及它的一些包，主要是numpy、scipy、sklearn等等，绘图使用matplotlib，这里我个人习。我们首先简单的使用jieba分词包和sklearn.feature_extraction下面的text库进行基础的文本特征处理，作为一个引入。
 
@@ -101,7 +101,7 @@ sns.heatmap(d, annot=True, center=0, cmap='coolwarm') # RdBu_r coolwarm
 
 可以看到，PRML系列之间的相关性还是比较明显的。在此之后，我们还需要引入一些文本处理的方式。如果是英文的，可能时态的变换也有影响，可以使用nltk里`s=nltk.stem.SnowballStemmer('english')`来清洗这些英文单词，中文的话就不需要考虑了。
 
-###2、TFIDF
+### 2、TFIDF
 此外，我们考虑一种很常用的方法——term frequency – inverse document frequency (TF-IDF)。TF-IDF的主要思想是：如果某个词或短语在一篇文章中出现的频率TF高，并且在其他文章中很少出现，则认为此词或者短语具有很好的类别区分能力，适合用来分类。TF-IDF实际上是：$$TF * IDF$$，TF词频(Term Frequency)，IDF逆向文件频率(Inverse Document Frequency)。TF表示词条在文档d中出现的频率。
 
 IDF的主要思想是：如果包含词条t的文档越少，也就是n越小，IDF越大，则说明词条t具有很好的类别区分能力。如果某一类文档C中包含词条t的文档数为m，而其它类包含t的文档总数为k，显然所有包含t的文档数n=m+k，当m大的时候，n也大，按照IDF公式得到的IDF的值会小，就说明该词条t类别区分能力不强。但是实际上，如果一个词条在一个类的文档中频繁出现，则说明该词条能够很好代表这个类的文本的特征，这样的词条应该给它们赋予较高的权重，并选来作为该类文本的特征词以区别于其它类文档。这就是IDF的不足之处. 在一份给定的文件里，词频（term frequency，TF）指的是某一个给定的词语在该文件中出现的频率。这个数字是对词数(term count)的归一化，以防止它偏向长的文件。（同一个词语在长文件里可能会比短文件有更高的词数，而不管该词语重要与否。）
@@ -135,7 +135,7 @@ sns.heatmap(d, annot=True, center=0, cmap='coolwarm') # RdBu_r coolwarm
 - 2、无法刻画否定意义，比如"I will eat icecream" 和 "I will not eat ice cream" 的特征向量是非常相似的；
 - 3、完全无法适应拼写错误的单词
 
-###3、聚类可视化
+### 3、聚类可视化
 接下来，我们使用简单的聚类方式进行可视化。这里我们虽然已经手动分成了两个类别，但是实际文本之间还是有很多交叉的内容。另外，为了可视化，我们使用了PCA降维到2维来可视化一些kmeans的结果。注意，这里为了方便，都直接使用了fit_tranform。
 
 {% highlight python %}

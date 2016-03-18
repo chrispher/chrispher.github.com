@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Discover Feature Engineering
-category: data_mining
+category: 机器学习
 tags: [特征工程, 数据分析]
 description: 介绍了建模过程中的一些特征处理方法和技巧
 ---
@@ -10,13 +10,13 @@ Note: This article originates from the [network](http://machinelearningmastery.c
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
-{:toc}
+{:toc} 
 
-###1. Introduction
+### 1. Introduction
 Feature engineering is an informal topic, but one that is absolutely known and agreed to be key to success in applied machine learning.
 
 In creating this guide I went wide and deep and synthesized all of the material I could.You will discover what feature engineering is, what problem it solves, why it matters, how to engineer features, who is doing it well and where you can go to learn more and get good at it.
@@ -24,7 +24,7 @@ If you read one article on feature engineering, I want it to be this one.
 
 > feature engineering is another topic which doesn’t seem to merit any review papers or books, or even chapters in books, but it is absolutely vital to ML success. [...] Much of the success of machine learning is actually success in engineering features that a learner can understand.  — Scott Locklin, in “[Neglected machine learning ideas](https://scottlocklin.wordpress.com/2014/07/22/neglected-machine-learning-ideas/)”
 
-###2. Problem that Feature Engineering Solves
+### 2. Problem that Feature Engineering Solves
 When your goal is to get the best possible results from a predictive model, you need to get the most from what you have. This includes getting the best results from the algorithms you are using. It also involves getting the most out of the data for your algorithms to work with.
 
 **How do you get the most out of your data for predictive modeling?**
@@ -33,7 +33,7 @@ This is the problem that the process and practice of feature engineering solves.
 
 > Actually the success of all Machine Learning algorithms depends on how you present the data. — Mohammad Pezeshki, answer to “[What are some general tips on feature selection and engineering that every data scientist should know?](http://www.quora.com/What-are-some-general-tips-on-feature-selection-and-engineering-that-every-data-scientist-should-know)”
 
-###3. Importance of Feature Engineering
+### 3. Importance of Feature Engineering
 The features in your data will directly influence the predictive models you use and the results you can achieve.You can say that: the better the features that you prepare and choose, the better the results you will achieve. It is true, but it also misleading.
 
 The results you achieve are a factor of the model you choose, the data you have available and the features you prepared. Even your framing of the problem and objective measures you’re using to estimate accuracy play a part. Your results are dependent on many inter-dependent properties.
@@ -51,7 +51,7 @@ With good features, you are closer to the underlying problem and a representatio
 - **Better features means better results.**
 > The algorithms we used are very standard for Kagglers. [...]  We spent most of our efforts in feature engineering.  — Xavier Conort, on “[Q&A with Xavier Conort](http://blog.kaggle.com/2013/04/10/qa-with-xavier-conort/)” on winning the Flight Quest challenge on Kaggle
 
-###4. What is Feature Engineering?
+### 4. What is Feature Engineering?
 Here is how I define feature engineering:
 
 > **Feature engineering is the process of transforming raw data into features that better represent the underlying problem to the predictive models, resulting in improved model accuracy on unseen data.**
@@ -64,14 +64,14 @@ You can see the dependencies in this definition:
 
 > feature engineering is manually designing what the input x’s should be. — Tomasz Malisiewicz, answer to “[What is feature engineering?](http://www.quora.com/What-is-feature-engineering)”
 
-####4.1 Feature Engineering is a Representation Problem
+#### 4.1 Feature Engineering is a Representation Problem
 Machine learning algorithms learn a solution to a problem from sample data.In this context, feature engineering asks: what is the best representation of the sample data to learn a solution to your problem?
 
 It’s deep. Doing well in machine learning, even in artificial intelligence in general comes back to representation problems. It’s hard stuff, perhaps unknowable (or at best intractable) to know the best representation to use, a priori.
 
 > you have to turn your inputs into things the algorithm can understand. — Shayne Miel, answer to “[What is the intuitive explanation of feature engineering in machine learning?](http://www.quora.com/What-is-the-intuitive-explanation-of-feature-engineering-in-machine-learning)”
 
-####4.2 Feature Engineering is an Art
+#### 4.2 Feature Engineering is an Art
 It is an art like engineering is an art, like programming is an art, like medicine is an art.There are well defined procedures that are methodical, provable and understood.
 
 The data is a variable and is different every time. You get good at deciding which procedures to use and when, by practice. By empirical apprenticeship. Like engineering, like programming, like medicine, like machine learning in general.
@@ -80,14 +80,14 @@ Mastery of feature engineering comes with hands on practice, and study of what o
 
 > …some machine learning projects succeed and some fail. What makes the difference? Easily the most important factor is the features used. — Pedro Domingos, in “[A Few Useful Things to Know about Machine Learning](http://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf)” (PDF)
 
-###5. Sub-Problems of Feature Engineering
+### 5. Sub-Problems of Feature Engineering
 It is common to think of feature engineering as one thing. For example, for a long time for me, feature engineering was feature construction.
 
 I would think to myself “I’m doing feature engineering now” and I would pursue the question “How can I decompose or aggregate raw data to better describe the underlying problem?” The goal was right, but the approach was one of a many.
 
 In this section we look at these many approaches and the specific sub-problems that they are intended to address. Each could be an in depth article of their own as they are large and important areas of practice and study.
 
-####5.1 Feature: An attribute useful for your modeling task
+#### 5.1 Feature: An attribute useful for your modeling task
 Let’s start with data and what is a [feature](http://en.wikipedia.org/wiki/Feature_(machine_learning)).
 
 Tabular data is described in terms of observations or instances (rows) that are made up of variables or attributes (columns). An attribute could be a feature.
@@ -98,7 +98,7 @@ I use “meaningful” to discriminate attributes from features. Some might not.
 
 In computer vision, an image is an observation, but a feature could be a line in the image. In natural language processing, a document or a tweet could be an observation, and a phrase or word count could be a feature. In speech recognition, an utterance could be an observation, but a feature might be a single word or phoneme.
 
-####5.2 Feature Importance: An estimate of the usefulness of a feature
+#### 5.2 Feature Importance: An estimate of the usefulness of a feature
 You can objectively estimate the usefulness of features.
 
 This can be helpful as a pre-cursor to selecting features. Features are allocated scores and can then be ranked by their scores. Those features with the highest scores can be selected for inclusion in the training dataset, whereas those remaining can be ignored.
@@ -108,7 +108,7 @@ A feature may be important if it is highly correlated with the dependent variabl
 
 More complex predictive modeling algorithms perform feature importance and selection internally while constructing their model. Some examples include MARS, Random Forest and Gradient Boosted Machines. These models can also report on the variable importance determined during the model preparation process.
 
-####5.3 Feature Extraction: The automatic construction of new features from raw data
+#### 5.3 Feature Extraction: The automatic construction of new features from raw data
 Some observations are far too voluminous in their raw state to be modeled by predictive modeling algorithms directly. Common examples include image, audio, and textual data, but could just as easily include tabular data with millions of attributes.
 
 [Feature extraction](http://en.wikipedia.org/wiki/Feature_extraction) is a process of automatically reducing the dimensionality of these types of observations into a much smaller set that can be modelled.
@@ -117,7 +117,7 @@ For tabular data, this might include projection methods like Principal Component
 
 Key to feature extraction is that the methods are automatic (although may need to be designed and constructed from simpler methods) and solve the problem of unmanageably high dimensional data, most typically used for analog observations stored in digital formats.
 
-####5.4 Feature Selection: From many features to a few that are useful
+#### 5.4 Feature Selection: From many features to a few that are useful
 Not all features are created equal.
 
 Those attributes that are irrelevant to the problem need to be removed. There will be some features that will be more important than others to the model accuracy. There will also be features that will be redundant in the context of other features.
@@ -132,7 +132,7 @@ There are also methods that bake in feature selection or get it as a side effect
 
 Regularization methods like LASSO and ridge regression may also be considered algorithms with feature selection baked in, as they actively seek to remove or discount the contribution of features as part of the model building process.
 
-####5.5 Feature Construction: The manual construction of new features from raw data
+#### 5.5 Feature Construction: The manual construction of new features from raw data
 The best results come down to you, the practitioner, crafting the features.
 
 Feature importance and selection can inform you about the objective utility of features, but those features have to come from somewhere.
@@ -149,7 +149,7 @@ It is manual, it is slow, it requires lots of human brain power, and it makes a 
 
 > Feature engineering and feature selection are not mutually exclusive.  They are both useful.  I’d say feature engineering is more important though, especially because you can’t really automate it. — Robert Neuhaus, answer to “[Which do you think improves accuracy more, feature selection or feature engineering?](http://www.quora.com/How-valuable-do-you-think-feature-selection-is-in-machine-learning-Which-do-you-think-improves-accuracy-more-feature-selection-or-feature-engineering)”
 
-####5.6 Feature Learning: The automatic identification and use of features in raw data
+#### 5.6 Feature Learning: The automatic identification and use of features in raw data
 Can we avoid the manual load of prescribing how to construct or extract features from raw data?
 
 Representation learning or [feature learning](http://en.wikipedia.org/wiki/Feature_learning) is an effort towards this goal.
@@ -162,11 +162,11 @@ The abstract representations are prepared automatically, but you cannot understa
 
 Nevertheless, it’s fascinating, exciting and an important and modern part of feature engineering.
 
-###6. Process of Feature Engineering
+### 6. Process of Feature Engineering
 Feature engineering is best understood in the broader process of applied machine learning.
 You need this context.
 
-####6.1 Process of Machine Learning
+#### 6.1 Process of Machine Learning
 The process of applied machine learning (for lack of a better name) that in a broad brush sense involves lots of activities. Up front is problem definition, next is  data selection and preparation, in the middle is model preparation, evaluation and tuning and at the end is the presentation of results.
 
 Process descriptions like [data mining and KDD](http://machinelearningmastery.com/what-is-data-mining-and-kdd/) help to better understand the tasks and subtasks. You can pick and choose and phrase the process the way you like. I’ve talked a lot about [this before](http://machinelearningmastery.com/process-for-working-through-machine-learning-problems/).
@@ -194,7 +194,7 @@ It suggests a strong interaction with modeling, reminding us of the interplay of
 
 This also suggests we may need to leave the data in a form suitable for the chosen modeling algorithm, such as normalize or standardize the features as a final step. This sounds like a preprocessing step, it probably is, but it helps us consider what types of finishing touches are needed to the data before effective modeling.
 
-####6.2 Iterative Process of Feature Engineering
+#### 6.2 Iterative Process of Feature Engineering
 Knowing where feature engineering fits into the context of the process of applied machine learning highlights that it does not standalone.It is an iterative process that interplays with data selection and model evaluation, again and again, until we run out of time on our problem.
 
 The process might look as follows:
@@ -207,12 +207,12 @@ You need a well defined problem so that you know when to stop this process and m
 
 You need a well considered and designed test harness for objectively estimating model skill on unseen data. It will be the only measure you have of your feature engineering process, and you must trust it not to waste your time.
 
-###7. General Examples of Feature Engineering
+### 7. General Examples of Feature Engineering
 Let’s make the concepts of feature engineering more concrete.In this section we will consider tabular data like that you might have in an excel spreadsheet. We will look at some examples of manual feature construction that you might like to consider on your own problems.
 
 When I hear “feature engineering is critically important”, this is the type of feature engineering I think of. It is the most common form that I am familiar with and practice.Which of these is best? You cannot know before hand. You must try them and evaluate the results to achieve on your algorithm and performance measures.
 
-####7.1 Decompose Categorical Attributes
+#### 7.1 Decompose Categorical Attributes
 Imagine you have a categorical attribute, like “*Item_Color*” that can be Red, Blue or Unknown.
 Unknown may be special, but to a model, it looks like just another colour choice. It might be beneficial to better expose this information.
 
@@ -221,7 +221,7 @@ Going a step further, you could create a binary feature for each value that *Ite
 
 These additional features could be used instead of the Item_Color feature (if you wanted to try a simpler linear model) or in addition to it (if you wanted to get more out of something like a decision tree).
 
-####7.2 Decompose a Date-Time
+#### 7.2 Decompose a Date-Time
 A date-time contains a lot of information that can be difficult for a model to take advantage of in it’s native form, such as [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) (i.e. 2014-09-20T20:45:40Z).
 
 If you suspect there are relationships between times and other attributes, you can decompose a date-time into constituent parts that may allow models to discover and exploit these relationships.
@@ -235,7 +235,7 @@ You could create a new ordinal feature called Part_Of_Day with 4 values Morning,
 You can use similar approaches to pick out time of week relationships, time of month relationships and various structures of seasonality across a year.
 Date-times are rich in structure and if you suspect there is time dependence in your data, take your time and tease them out.
 
-####7.3 Reframe Numerical Quantities
+#### 7.3 Reframe Numerical Quantities
 Your data is very likely to contain quantities, which can be reframed to better expose relevant structures. This may be a transform into a new unit or the decomposition of a rate into time and amount components.
 
 You may have a quantity like a weight, distance or timing. A linear transform may be useful to regression and other scale dependent methods.
@@ -250,12 +250,12 @@ You may also have a quantity stored as a rate or an aggregate quantity for an in
 
 In this case you may want to go back to the data collection step and create new features in addition to this aggregate and try to expose more temporal structure in the purchases, like perhaps seasonality. For example, the following new binary features could be created: Purchases_Summer, Purchases_Fall, Purchases_Winter and Purchases_Spring.
 
-####7.4 Concrete Examples of Feature Engineering
+#### 7.4 Concrete Examples of Feature Engineering
 A great place to study examples of feature engineering is in the results from competitive machine learning.Competitions typically use data from a real-world problem domain. A write-up of methods and approach is required at the end of a competition. These write-ups give valuable insight into effective real-world machine learning processes and methods.
 
 In this section we touch on a few examples of interesting and notable post-competition write-ups that focus on feature engineering.
 
-#####7.4.1 Predicting Student Test Performance in KDD Cup 2010
+##### 7.4.1 Predicting Student Test Performance in KDD Cup 2010
 The [KDD Cup](http://www.sigkdd.org/kddcup/index.php) is a machine learning competition held for attendees of the ACM Special Interest Group on Knowledge Discovery and Data Mining conferences, each year.
 
 In 2010, the focus of the competition was the problem of modeling how students learn. A corpus of student results on algebraic problems was provided to be used to predict those students’ future performance.
@@ -268,7 +268,7 @@ The paper provides details of how specific temporal and other non-linearities in
 
 This is an extreme and instructive example of what is possible with simple attribute decomposition.
 
-#####7.4.2 Predicting Patient Admittance in the Heritage Health Prize
+##### 7.4.2 Predicting Patient Admittance in the Heritage Health Prize
 The [heritage health prize](https://www.heritagehealthprize.com/c/hhp) was a 3 million dollar prize awarded to the team who could best predict which patients would be admitted to hospital within the next year.
 
 The prize had milestone awards each year where the top teams would be awarded a prize and their processes and methods made public.

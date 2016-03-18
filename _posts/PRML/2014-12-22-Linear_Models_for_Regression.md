@@ -12,18 +12,18 @@ description: 概述一下线性回归相关的知识，包括了一些非线性�
 
 注：本文仅属于个人学习记录而已！参考Chris Bishop所著[Pattern Recognition and Machine Learning(PRML)](http://research.microsoft.com/en-us/um/people/cmbishop/PRML/)以及由Elise Arnaud, Radu Horaud, Herve Jegou, Jakob Verbeek等人所组织的Reading Group。
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-###1.线性回归模型
+### 1.线性回归模型
 一个基本的例子是函数拟合，观测到N个D维度的x，每个都都对应一个目标值t，构造一个函数y(x)用于预测t。在概率的观点下，是寻找一个合适的概率分布$$p(t \mid x)$$。如下图所示：
 
 <img src="/images/prml/ch3_LinearRegression.jpg" height="80%" width="80%">
 
-####1.1基函数
+#### 1.1基函数
 基础的线性回归模型形式是：$$y(x,w) = \sum_{j=0}^{M-1} w_i \phi_j(x) = w^T \phi(x)$$, 这里$$w = (w_0,...,w_{M-1})^T ; \ \ \phi=(\phi_0,...,\phi_{M-1})^T, \phi_0(x)=1$$， $$w_0$$是偏置参数（也就是常说的截距项）。这里的$$\phi(x)$$就是基函数，对x的每个属性都有一个基函数，常用的一些基函数有
 
 - 多项式：$$\phi_j(x) = x^j$$；
@@ -32,7 +32,7 @@ description: 概述一下线性回归相关的知识，包括了一些非线性�
 
 还有其他，比如傅里叶、小波、样条等等。基函数的一个直观的作用是引入了非线性变换。
 
-####1.2最大似然与最小二乘
+#### 1.2最大似然与最小二乘
 我们假设了数据是由函数y(x,w)决定的，即$$t = y(x,w) + \xi$$, 这里$$\xi$$是均值为0，精度为$$\beta$$的高斯分布(高斯噪声),我们可以认为$$p(t \mid x,w,\beta) = N(t \mid y(x,w), \beta^{-1})$$。在IID条件下，可得到如下似然函数：
 
 $$p(t \mid X, w, \beta) = \prod_{n=1}^N N(t_n \mid \underbrace{ w^T \phi(x_n)}_{mean} , \underbrace{ \beta^{-1}}_{var})$$
@@ -49,12 +49,12 @@ $$\begin{align} \nabla \ln p(t \mid w, \beta) &= \sum_{n=1}^N (t_n - w^T \phi(x_
 
 <img src="/images/prml/ch3_Geometry_of_least_squares.jpg" height="100%" width="100%">
 
-####1.3顺序学习 
+#### 1.3顺序学习 
 顺序学习(Sequential learning)，也称为“在线学习”(on-line),可以使用随机梯度下降(stochastic gradient descent)来实现。即$$E_D(w) = \frac{1}{2} \sum_{n=1}^N (t_n - w^T\phi(x_n))^2$$。在上一部分，我们是直接得到了w的解析解，这里我们使用梯度下降法，选择学习速率$$\eta$$，得到w的更新表达式如下：
 
 $$w^{\tau + 1} = w^{\tau} + \eta \underbrace{(t_n - {w^(tau)}^T \phi(x_n)) \phi(x_n)}_{\nabla E_n}$$
 
-####1.4正则最小二乘
+#### 1.4正则最小二乘
 接下来就是引入正则项，正则项的优点之一是能够控制模型的复杂度。在误差函数上增加正则项：$$E_D(w) + \lambda E_W(w)$$, 其中$$\lambda$$是正则系数，控制着基于数据的误差$$E_D(w)$$和正则项$$\lambda E_W(w)$$，比较常见的正则项是$$E_W(w) = \frac{1}{2w^Tw}$$,因此误差函数变为:
 
 $$\frac{1}{2} \sum^N_{n=1} (t_n - w^T \phi(x_n))^2 + \frac{\lambda}{2} w^Tw$$
@@ -73,7 +73,7 @@ $$\frac{1}{2} \sum^N_{n=1} (t_n - w^T \phi(x_n))^2 + \frac{\lambda}{2} \sum^M_{j
 
 此外，如果我们的目标t的维度是大于1的呢？其实是不影响的，只有一维一维的计算就可以了，这样w就是M×K维的了。最终结果就是$$W_{ML} = (\Phi^T \Phi)^{-1} \Phi^T T$$
 
-###2.偏差方差分解
+### 2.偏差方差分解
 我们知道过拟合是最大似然的一个不幸的特点，但是通过贝叶斯方法却是可以避免的。在考虑贝叶斯方法之前，我们先讨论模型复杂度的问题，也称之为“偏差-方差的权衡”(biasvariance trade-off)，这是频率学派对于模型复杂度的观点。过拟合一般发生在基函数比较多（即特征多）而训练数据有限的情况下。限制基函数数量，能够限制模型的复杂度。而使用正则项也能够控制模型的复杂度，但是需要决定正则系数是多少。
 
 这里我们深入的理解一下。对于回归问题，loss-function是 $$L(t,y(x)) = (y(x) - t)^2$$，决策问题是最小化误差，即$$E[L] = \int \int (y(x) - t)^2 p(x,t)dx dt$$，最终得到$$y(x) = \int t p(t \mid x) dt = E_t[t \mid x]$$,这就是回归函数。这里需要区分一下有决策理论得到的误差函数和最小二乘法得到的误差函数，虽然这里看起来一样，实际上决策理论得到的可以用正则或贝叶斯方法得到$$p(t \mid x)$$。我们知道生成分布是$$p(t \mid x)$$，那么理论上观测到的数据是$$h(x) = E[t \mid x] = \int tp(t \mid x)dt$$,实际观测到的是t，而我们拟合得到的是y(x)，那么，我们的loss-function可以分解为:
@@ -89,9 +89,9 @@ $$E_D[(y(x;D) - h(x))^2] = \underbrace{E_D[y(x;D) - h(x)^2]}_{(bias)^2} + \under
 
 合起来就是 expected loss = (bias)$$^2$$ + variance + noise, 这里(bias)$$^2 = \int (E_D[y(x;D)] - h(x))^2 p(x)dx$$; variance = $$\int E_D[(y(x;D) - E_D(y(x;D)))^2]p(x)dx$$; nois = $$\int (h(x)-t)^2 p(x,t)dxdt$$。我们把期望损失分解成了bias(偏差)、variance(方差)与常数nose(噪声)的和。灵活的(flexible)模型一般都有较低的bias和较高的variance；而死板的(rigid)模型一般对于较高的bias和较低的variance。虽然这个分解让我们看到了模型复杂度内在的一些东西，但是实际应用确实有限的，因为着要求多个数据集。
 
-###3.贝叶斯线性回归
+### 3.贝叶斯线性回归
 
-####3.1参数分布
+#### 3.1参数分布
 假设噪声是精度为$$\beta$$的高斯分布，似然函数$$p(t \mid w)$$是w的二次指数形式，共轭先验选择高斯分布$$p(w) = N(w \mid m_0, S_0)$$, 那么后验分布也是高斯分布。
 
 $$p(w \mid t) = N(w \mid m_N, S_N) \propto p(t \mid w)p(w)$$
@@ -105,7 +105,7 @@ $$\ln p(w \mid t) = -\frac{\beta}{2} \sum_{n=1}^N(t_n - w^T \phi(x_n))^2 - \frac
 
 该式子类似于加了正则项的最大似然估计，其中$$\lambda = \alpha / \beta$$
 
-####3.2预测分布
+#### 3.2预测分布
 现在我们想要对一个给定的新x，预测t的值(下式中用c表示新预测值，t表示训练数据)，则可以:
 
 $$p(c \mid t,\alpha,\beta) = \int p(c \mid w, \beta) p(w \mid t,\alpha, \beta)dw$$
@@ -116,7 +116,7 @@ $$\sigma_N^2(x) = \underbrace{\beta^{-1}}_{noise\ in \ data} + \underbrace{\Phi(
 
 同样可以看到当N趋近于无穷大时，后一项趋近于0。同样，在如果我们使用局部基函数，如高斯，那么在远离基函数中心的区域，第二项中的预测方差的贡献将变为零，只留下$$\beta^{-1}$$作为噪声贡献。因此，预测变得非常有信心，这通常不是一个好的行为，可采用一种替代贝叶斯方法来避免这个影响，用高斯过程方法（在第六章会有介绍）。同样，如果$$w,\beta$$均未知，那么先验分布可以选择Gaussian-gamma分布，最终预测分布是学生分布，这个可以在第二章看到。
 
-####3.3等价核
+#### 3.3等价核
 通过上面的分析，预测分布的均值为$$y(x,m_N) = m_N^T \phi(x) = \beta \phi(x)^T S_N \Phi(x)t = \sum_{n=1}^N \beta \phi(x)^T S_N \phi(x_n)t_n$$,这里的$$S_N^{-1} = S_0^{-1} + \beta \Phi^T \Phi$$. 这里看到了待预测点x与训练数据集中$$x_n$$的内积形式，我们用一个函数来表示，即$$y(x,m_N) = \sum^N_{n=1} k(x,x_n)t_n$$,该函数是$$k(x,x') = \beta \phi(x)^T S_N \phi(x')$$，也称之为Smoother matrix, equivalent kernel（这里简单的翻译为等价核）。在解析解中，我们简单的（没有引入正则项）看，$$w = (X^TX)^{-1}X^Tt$$，那么预测x值就是$$wx = \frac{X^Txt}{X^TX}$$，分子是点积形式，分母可以认为是归一化，这里就可以和上面提到的$$m_N,S_N$$对应起来。在线性回归里，可以看到预测值是训练数据集中目标值得线性组合的产生的，也称之为linear smoother。下图是选用多项式基函数和sigmoid基函数的核函数曲线图。
 
 <img src="/images/prml/ch3_kernel_regression.jpg" height="100%" width="100%">

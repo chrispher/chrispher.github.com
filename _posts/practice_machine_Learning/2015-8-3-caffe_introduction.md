@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 深度学习框架caffe
-category: deep_learning
+category: 深度学习
 tags: [环境搭建, caffe]
 description: 关于深度学习框架caffe的使用文档。
 ---
@@ -10,20 +10,20 @@ description: 关于深度学习框架caffe的使用文档。
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-###1、caffe简介
+### 1、caffe简介
 Caffe，全称Convolutional Architecture for Fast Feature Embedding，是一个计算CNN相关算法的框架。caffe是一个清晰，可读性高，快速的深度学习框架。作者是贾扬清,加州大学伯克利的ph.D。
 
 
-###2、模型训练
+### 2、模型训练
 这里主要介绍caffe训练CNN的模型。官网给了一些入门的例子，以人脸识别数据为例，
 
-####2.1、数据准备
+#### 2.1、数据准备
 
 首先准备原始的训练数据和验证数据集，采用分类的方式训练CNN。我们的原始数据是按照类别放在一起，即facenet文件下是很多人，每个人一个文件夹，用于存放所以照片。之后处理成如下文件结构如下：
 
@@ -106,12 +106,10 @@ for meta in metanames[0:train_num]:
     det_synset_words.add((sub_dir, sub_dir0))
     name = sub_dir + '_' + name.split('_')[1]
     targetname = target_dir + 'train/' + sub_dir + '/' + name
-    
     if os.path.exists(target_dir + 'train/' + sub_dir):
         pass
     else:
         os.makedirs(target_dir + 'train/' + sub_dir)
-    
     f0.write(sub_dir + '/' + name + ' ' + label)
     f0.write('\n')
     labels.append(label)
@@ -216,12 +214,10 @@ import os
 
 def deal_img(fpath):
     image = caffe.io.load_image(fpath)
-
     # Reshape image
     image = image[:, :, (2, 1, 0)]
     image = image.transpose((2, 0, 1))
     image = image.astype(np.uint8, copy=False)
-
     return image
 
 
@@ -296,7 +292,7 @@ write_levelDB("data_test_leveldb/", images_list[0:2000])
 {% endhighlight %}
 
 
-####2.2、模型配置
+#### 2.2、模型配置
 在模型配置里，我们可以直接使用alex模型或者googlenet模型，他们提供了`train_val.prototxt`文件，这个文件主要用于配置训练模型，可以自定义层数以及每层的参数。尤其是对于卷积层的里参数，需要对CNN有一定的理解。这里不细说CNN模型，只考虑应用。在应用层面，需要注意的是数据层。在数据定义层，Caffe生成的数据分为2种格式：Lmdb和Leveldb。它们都是键/值对（Key/Value Pair）嵌入式数据库管理系统编程库。虽然lmdb的内存消耗是leveldb的1.1倍，但是lmdb的速度比leveldb快10%至15%，更重要的是lmdb允许多种训练模型同时读取同一组数据集。需要注意的一些参数如下：
 
 {% highlight sh %}
@@ -323,7 +319,7 @@ layers {
 
 这里需要注意的另一个事情是，在分类层那里（在alex模型里，是fc8层的INNER_PRODUCT里的num_output），需要把默认的类别数改为你自己数据的训练类别数。
 
-####2.3、模型训练
+#### 2.3、模型训练
 如果对都没有啥问题，就可以训练模型了，使用梯度下降法。训练模型之前，我们需要定义solver文件，即`solver.prototxt`，在该文件里，指定迭代次数，是否使用GPU，以及保存中间模型的间隔次数、测试间隔等等。
 
 {% highlight sh %}
@@ -357,11 +353,11 @@ snapshot_prefix: "facenet/"           # 保持中间模型路径
 
 此外，我们训练的方式也有很多种。比如一开始用一个模型训练之后，新增的数据，我们可以合并已有的数据，重新训练新模型，也可以使用旧的模型进行finetuning。在caffe目录下，有一个example和model文件夹，里面有很多例子可以使用，在对应的例子下有readme文件，可以在细节上深入理解。比如我们要输入一对数据，这样的模型如何训练呢？只需要更新一下训练配置文件，可以参考`examples/siamese`下的例子。
 
-###3、模型使用
+### 3、模型使用
 
 模型的使用方式，这里根据caffe提供的python接口来简单介绍一下，这些例子在python文件下，已经提供了一些包装好的接口。而且在example下提供了一些ipython notebook详细的介绍了各个模块的使用。这里需要注意，我们的`deploy.prototxt`文件里，开始有四个input_dim,第一个input_dim是指图片数。由于这个接口是参考了AlexNet模型，所以在python的classify类里有一个系数oversample，默认是True的，意味着在预测的时候会对原始图像crop，默认是crop10张图片。注意在官方给的例子里，是使用了crop，所以他的input_dim是10，正好对应一张照片，他的第四个通道是对应第四个crop图片的特征。一般我们会选择False。此外，需要注意input_dim也对应了net.blobs['blob_name']的照片数量维度。在`net.predict([input_image])`的时候，input_image可以是多张。如果输入张数和input_dim不一致，那么得到的net.blob里的特征数是与input_dim一致的，使得得到的特征与输入的特征无法一一对应。所以建议设置input_dim=2,一次输入两张照片，得到对应的两张照片的特征，用于比对。
 
 此外，除了python的接口，caffe也提供命令行用于特征提取，这些都可以参考官方文档。
 
-###4、其他
+### 4、其他
 因为caffe的社区非常的强大，多数情况下，你遇到的问题，别人都遇到过了。所以，要善用google。也可以在github或者google邮件列表里，寻找一些答案。

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 使用Github搭建个人博客
-category: app_config
+category: 环境配置
 tags: [环境搭建]
 description: 使用Github的page功能和jekyll搭建个人博客
 ---
@@ -10,13 +10,13 @@ description: 使用Github的page功能和jekyll搭建个人博客
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-###1.github博客概述
+### 1.github博客概述
 
 为什么我选择github写博客呢？最开始在CSDN、新浪等博客平台写过博客，也在印象笔记中做过笔记，但是都只是满足了我一部分的需求。对于理工科而已，良好的数学编辑环境、支持博客分类、博客搜索等功能也必不可少，这样也方便自己以后查找和回顾。这一切，在github page中都可以实现。甚至包括添加社交评论、分享等功能，也可以使用百度统计来查看博客的访问情况等功能。另外，github本身的版本控制也非常方便我进行编辑博客、与他人一起合作编辑等等。
 
@@ -28,12 +28,12 @@ description: 使用Github的page功能和jekyll搭建个人博客
 
 注意：本文只是介绍在github上搭建blog，不考虑本地博客环境。此外，本文列出了许多可以参考的文档，感兴趣深入的同学可以深入了解！
 
-###2.搭建博客
+### 2.搭建博客
 
 一般的教程是在本地搭建好jekyll环境，之后一步一步的使用github搭建博客。但是，这里我没有在本地搭建环境。所以，如果想在本地搭建环境的，需要去其他地方找资料了。
 步骤流程参考[Github Page](https://pages.github.com/)，这里只是简单的介绍下！
 
-####2.1新建项目
+#### 2.1新建项目
 
 首先需要大家建立一个去建立一个github账号。注册成功之后，我们新建一个项目，注意**项目名称**！，如下图：
 
@@ -41,7 +41,7 @@ description: 使用Github的page功能和jekyll搭建个人博客
 
 之后可以设置该项目的属性，在项目的右侧的Settings，可以设置允许有wiki等，注意GitHub Pages不要选择**automatic page generator!**。
 
-####2.2Git下载
+#### 2.2Git下载
 
 在项目建立完之后，我们下载Github。我自己电脑上装的是通用版的[Git](http://www.git-scm.com/download/win),无法下载的童鞋，可以去网上搜索下载。也可以下载Github自己的[客户端](https://windows.github.com/)。
 根据[Github Page](https://pages.github.com/)所说，你需要根据自己下载的东西进行操作。比如你选择了Github的客户端，你可以按照上面说的**Clone the repository**,一步一步的操作。
@@ -49,7 +49,7 @@ description: 使用Github的page功能和jekyll搭建个人博客
 "git clone https://github.com/chrispher/chrispher.github.com.git"。
 之后，我们会在本地的看到与自己项目名称一致的文件夹。
 
-####2.3设置主题
+#### 2.3设置主题
 
 我们可以去Jekyll自己收集的一些[主题](https://github.com/jekyll/jekyll/wiki/Sites)，这里罗列了许多主题，大家可以去点击看看页面的效果，如果喜欢，就去对应的source链接里，能够查看到该主题的所有代码！
 我这里比较推荐大家使用博客主题Jekyll Light, 由[pexcn](https://github.com/pexcn/Jekyll-Light)设计，我在该版本上增加了**站内搜索**、**多种社交关注**、**标签页**、**页面标签链接**、**留言板**、**支付宝捐赠**、重设**百度统计**功能、删除了豆瓣阅读和其他一些细节上的修改。。
@@ -71,7 +71,7 @@ description: 使用Github的page功能和jekyll搭建个人博客
 
 对于其他的一些东西，大家慢慢摸索，用的多了就会懂了，也可以多去看看[Jekyll](http://jekyllcn.com/)官网。开始，最重要的是搭建起来，其他的慢慢调整！
 
-####2.4设置博客
+#### 2.4设置博客
 
 一般所需要做的核心设置在_config.yml 中，用文本打开：
 
@@ -93,7 +93,7 @@ description: 使用Github的page功能和jekyll搭建个人博客
 
 如果没有对应的账号，可以直接不填！如果填我的账号信息，那么你的博客就相当于我的一个子博客了，哈哈！
 
-####2.5修改与提交
+#### 2.5修改与提交
 
 如果你都修改好了之后，你可以上传你的项目了。同样，如果你使用Github客户端，同步一下就可以了。我个人是terminal，需要使用以下几个命令。
 以下是示范，井号后面是注释说明，不需要输入！可以参考一些简单[教程](http://rogerdudler.github.io/git-guide/index.zh.html)
@@ -106,7 +106,7 @@ description: 使用Github的page功能和jekyll搭建个人博客
 
 其他的一些常用Git命令，建议大家去学习一些Git的基本操作[教程](http://git-scm.com/book/zh/v1)！当然，你可以不在乎乱七八糟的东西，专注于几个常用命令即可（除了上面提到的命令外，git pull表示把）。
 
-###3.写作与格式
+### 3.写作与格式
 
 这里简单的介绍下如何利用markdown进行文章的写作。大家可以随意选择一个文本编辑器，这里我推荐使用Sublime Text2，关于sublime的一些常用设置可以参考我的博客[My sublime text2 setting](http://www.datakit.cn/blog/2014/08/12/My%20sublime%20setting.html)。
 
@@ -127,11 +127,11 @@ windows下sublime text2的一些设置和调整 #正文
 
 Makrdown的简单语法,可以参考[Markdown 语法说明简体中文版](http://wowubuntu.com/markdown/)
 
-###4.写作的一些技巧
+### 4.写作的一些技巧
 
 这里额外讲一下几个我在博客里比较常用的语法；
 
-####4.1添加目录
+#### 4.1添加目录
 更具基本的语法我们知道中括号[] 后面跟着小括号() 表示对中括号内容做了超链接，而链接地址是小括号内容。目录就是根据这个思路去做的。即如下：
 
 `### 目录`  
@@ -151,18 +151,18 @@ Makrdown的简单语法,可以参考[Markdown 语法说明简体中文版](http:
     {:toc}
 
 
-####4.2插入图片
+#### 4.2插入图片
 
 官方的语法是 `![Alt text](image_path "Optional title")` ，这里是一个惊叹号!，接着一个方括号，里面放上图片的替代文字
 接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上 选择性的 'title' 文字。这种方式不能自动的适应屏幕，所以我个人比较喜欢适应html的格式，即` <img src="img_path" height="100%" width="100%">` 这里的100%是指相对屏幕的大小。
 
-####4.3文章简介
+#### 4.3文章简介
 
 在博客的首页，通常只显示了文章的一部分内容，这是怎么实现的呢？一般而言，我们写作时，会在开头写一下整篇文章的概述，之后在增加一行`＜！－－ more --＞`，那么一般显示的时候就只显示`＜！－－ more --＞`之前的文本，只有点击阅读进入这篇文章才能看到全部内容。当然，这里也是跟html语法相关的，在index.html里的
 ＞ {{ post.content ｜ split:＇＜！－－ more --＞'｜ first }}
 这里不细说其他html语法，毕竟我不是做web的，只是了解一点点对自己有价值的部分。
 
-####4.4代码高亮
+#### 4.4代码高亮
 
 代码高亮语法是：在代码开始的地方标注 `｛％ highlight python ％｝` ，在代码结束的地方标注 `｛％ endhighlight ％｝`，那么中间的代码就是使用了Python的代码高亮风格！
 

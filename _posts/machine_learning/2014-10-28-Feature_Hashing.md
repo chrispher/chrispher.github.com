@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Feature hashing
-category: data_mining
+category: 机器学习
 tags: [特征工程]
 description: hash特征是一种快速的且很节省空间的特征向量化的方法
 ---
@@ -10,13 +10,13 @@ description: hash特征是一种快速的且很节省空间的特征向量化的
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-###1.Motivating example
+### 1.Motivating example
 
 在文本分类任务中，我们需要将输入的文本转化成数值向量。一般而言，我们都采用词库（a bag of words, BOW）来构建，之后根据：
 比如如下输入：
@@ -31,11 +31,11 @@ description: hash特征是一种快速的且很节省空间的特征向量化的
 
 注意hashing trick 并不局限在文本分类，也可以用在其他特征较大的问题中。
 
-###2.overview
+### 2.overview
 
 我们设计一个函数[v = h(x)](http://metaoptimize.com/qa/questions/6943/what-is-the-hashing-trick) , 能够将d维度向量x = (x(1),x(2),...,x(d))转化成m维度的新向量 v，这里的m可以大于也可以小于d。一种方法使用hash(哈希)函数将x(1)映射到v(h(1)), 将x(d)映射到v(h(d))。Hash 函数能够将任意输入转换到一个固定范围的整数输出。好的hash函数函数应该有均匀的输出，并遵守雪崩效应：在输出中的一个小的扰动必须导致在输出上有很大的变化。这确保了在X中维度将被映射到v中的随机维度。注意，这将典型地导致碰撞（collisions, 即x的两个维度可以被映射到v中相同的维度），但在实践中，如果m是足够大，这将不会影响性能。
 
-###3.Feature vectorization using the hashing trick
+### 3.Feature vectorization using the hashing trick
 
 在文本分类中，hash函数以string(字符串)作为输入，我们需要将这些words映射到所需要的维度v（预先定义的长度）。
 
@@ -64,7 +64,7 @@ description: hash特征是一种快速的且很节省空间的特征向量化的
 
 上面给出了两个比较简单的例子。一个比较优化的方法是生成一组(h,g)并由算法使用，线性模型也可以作为hash表用于特征系数表示。
 
-###4.other
+### 4.other
 另外也有用hash函数自动生成叉乘特征(cross-product features)。比如你的hash函数能够从两个数中生成一个，即i = h(a,b), 那么你就可以把一些组合特征x(a)*x(b)变化为v(i)。Cross-product 在建模一些交互特征中比较有效。
 
 论文 [Feature Hashing for Large Scale Multitask Learning](http://alex.smola.org/papers/2009/Weinbergeretal09.pdf) 也提到用hash方法解决多任务学习问题。包括降维、稀疏表达、叉乘特征、文本特征、多任务学习等等。

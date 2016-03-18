@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 数据科学中需要注意的习惯
-category: self_life
+category: 自说自话
 tags: [数据科学, 学习观点]
 description: 数据科学里的一些习惯，主要是注重业务、多读人文、多沟通、多探索，不要盲目自信
 ---

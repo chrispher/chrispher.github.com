@@ -2,19 +2,14 @@
 layout: default
 title: Category
 permalink: /category/
-scripts: [category.js]
 ---
 <div class="col-md-9 col-content">
-    <!-- 所有分类下文章 -->
-    <section class="category hide gallery" id="all">
-      {% for post in site.posts %}
-          {% include gallery.html%}
-      {% endfor %}
-    </section>
-
-    <!-- 每一个分类下文章 -->
+    <div class="panel-heading title">
+        分类浏览
+    </div>
     {% for category in site.categories%}
-    <section class="category hide gallery" id="{{category | first}}">
+    <section class="category gallery" id="{{category | first}}">
+    <div class="panel-heading">{{category.first}}</div>
       {% for post in category.last %}
             {% include gallery.html%}
       {% endfor %}

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ensemble learning 概述
-category: machine_learning
+category: 机器学习
 tags: [集成学习]
 description: Ensemble Learning(集成学习)是一种将多种学习算法组合在一起以取得更好表现的一种方法。主要是指有限的模型相互组合，而且可以有很多不同的结构。
 ---
@@ -12,13 +12,13 @@ description: Ensemble Learning(集成学习)是一种将多种学习算法组合
 
 <!-- more -->
 
-###目录
+### 目录
 {:.no_toc}
 
 * 目录
 {:toc}
 
-###1.Overview
+### 1.Overview
 
 机器学习中，[监督式学习算法](http://en.wikipedia.org/wiki/Supervised_learning)(Supervised learning)可以描述为:对于一个具体问题，从一堆"假设"(hypothesis space，"假设"空间)中搜索一个具有较好且相对稳定的预测效果的模型。有些时候，即使"假设"空间中包含了一些很好的"假设"(hypothesis) ，我们也很难从中找到一个较好的。Ensemble 的方法就是组合多个"假设"以期望得到一个较优的"假设"。换句话说，Ensemble的方法就是组合许多弱模型(weak learners，预测效果一般的模型) 以得到一个强模型(strong learner，预测效果好的模型)。Ensemble中组合的模型可以是同一类的模型，也可以是不同类型的模型。
 
@@ -28,7 +28,7 @@ Ensemble方法对于大量数据和不充分数据都有很好的效果。因为
 
 **注:本文直接使用Ensemble这个词，而不使用翻译，如“组合”等等**
 
-###2.Ensemble theory
+### 2.Ensemble theory
 
 Ensemble方法是监督式学习的一种，训练完成之后就可以看成是单独的一个"假设"（或模型），只是该"假设"不一定是在原"假设"空间里的。因此，Ensemble方法具有更多的灵活性。理论上来说，Ensemble方法也比单一模型更容易过拟合。但是，实际中有一些方法(尤其是Bagging)也倾向于避免过拟合。
 
@@ -38,9 +38,9 @@ Ensemble方法是监督式学习的一种，训练完成之后就可以看成是
 
 <img src="/images/machinelearning/EnsembleLearning_Combining_classifiers.jpg" height="100%" width="100%">
 
-###3.Common types of ensembles
+### 3.Common types of ensembles
 
-####3.1 Bayes optimal classifier
+#### 3.1 Bayes optimal classifier
 
 贝叶斯最优分类器(Bayes Optimal Classifier)是分类技术的一种，他是"假设"空间里所有"假设"的一个Ensemble。通常来说，没有别的Ensemble会比它有更好的表现！因此，可以认为他是最优的Ensemble(见Tom M. Mitchell, Machine Learning, 1997, pp. 175)。如果"假设"是对的话，那每一个"假设"对从系统中产生训练数据的似然性都有一个投票比例。为了促使训练数据集大小是有限的，我们需要对每个"假设"的投票乘上一个先验概率。因此，完整的Bayes Optimal Classifier如下:  
 $$y=argmax_{c_j \in C} \sum_{h_i \in H}{P(c_j｜h_i)P(T｜h_i)P(h_i)}$$
@@ -52,13 +52,13 @@ $$y=argmax_{c_j \in C} \sum_{h_i \in H}{P(c_j｜h_i)P(T｜h_i)P(h_i)}$$
 - 3) 计算一个训练数据的无偏估计$$P(T｜h_i)$$是非常难的;
 - 4) 估计各个"假设"的先验分布$$P(h_i)$$基本是不可行的；
 
-####3.2 Bootstrap aggregating
+#### 3.2 Bootstrap aggregating
 
 [Bootstrap aggregating](http://en.wikipedia.org/wiki/Bootstrap_aggregating)通常又简称为Bagging(装袋法)，它是让各个模型都平等投票来决定最终结果。为了提高模型的方差(variance, 差异性)，bagging在训练待组合的各个模型的时候是从训练集合中随机的抽取数据。比如[随机森林](http://en.wikipedia.org/wiki/Random_forest)(random forest)就是多个随机决策树平均组合起来以达到较优分类准确率的模型。 但是，bagging的一个有趣应用是非监督式学习中，图像处理中使用不同的核函数进行bagging，可以阅读论文Image denoising with a multi-phase kernel principal component approach and an ensemble version 和 Preimages for Variation Patterns from Kernel PCA and Bagging。
 
 <img src="/images/machinelearning/EnsembleLearning_Bagging.jpg" height="100%" width="100%">
 
-####3.3 Boosting
+#### 3.3 Boosting
 
 [Boosting](http://en.wikipedia.org/wiki/Boosting_(meta-algorithm))(提升法)是通过不断的建立新模型而新模型更强调上一个模型中被错误分类的样本，再将这些模型组合起来的方法。在一些例子中，boosting要比bagging有更好的准确率，但是也更容易过拟合。目前，boosting中最常用的方法是[adaboost](http://en.wikipedia.org/wiki/Adaboost).
 
@@ -87,7 +87,7 @@ function train_bayesian_model_averaging(T)
     Normalize all the model weights to sum to 1.
 {% endhighlight %}
 
-####3.5 Bayesian model combination
+#### 3.5 Bayesian model combination
 Bayesian model combination(BMC) 是 BMA 的一个校正算法。它不是独立的生成Ensemble中的一个个模型，而是从可能的Ensemble Space中生成（模型的权重是由同一参数的Dirichlet分布生成）。这个修正克服了BMA算法给单个模型所有权重的倾向。尽管BMC比BMA有更多的计算量，但是它的结果也非常的好！有很多例子证明了BMC比BMA和bagging的效果更好。
 
 对于BMA而言，使用贝叶斯法来计算模型权重就必须要计算给定各个模型时生成数据的概率$$P(T｜h_i)$$。通常情况下，Ensemble中的模型都不是严格服从训练数据的生成分布来生成数据，所以这一项一般都非常接近于0。如果Ensemble足够大到可以抽样整个"假设"空间，那么理论上结果是比较好。但是，Ensemble空间有限，不可行。因此，训练数据中的每个模式会导致Ensemble中与训练数据分布最接近的模型的权重增大。举一个例子来说，比如"假设"空间有5个假设，BMA与BMC可以简单的如下图所示：
@@ -129,7 +129,7 @@ function train_bayesian_model_combination(T)
     Normalize the model weights to sum to 1.
 {% endhighlight %}
 
-####3.6 Bucket of models
+#### 3.6 Bucket of models
 
 bucket of models是在Ensemble中针对具体问题进行最优模型选择的算法。当针对一个具体问题是，bucket of models 并不能够产生比最优模型更好的结果，但是在许多问题评估中，平均来说，它将比其他模型有更好的结果。
 
@@ -149,7 +149,7 @@ Gating 是交叉验证的一种一般化。它在训练中多训练一个模型�
 
 Bucket of models也可以用于处理一大组问题，用以避免训练一些需要很长时间训练的模型。Landmark learning是一种旨在解决这个问题的元学习(meta-learning)方法。Bucket中，只包括一些训练比较快的模型(可能不是很准确)，用这些模型的结果来确定哪些缓慢（但准确）算法是最有可能做最好。
 
-####3.7 Stacking
+#### 3.7 Stacking
 
 Stacking(有时候也称之为stacked generalization)是指训练一个模型用于组合(combine)其他各个模型。即首先我们先训练多个不同的模型，然后再以之前训练的各个模型的输出为输入来训练一个模型，以得到一个最终的输出。如果可以选用任意一个组合算法，那么理论上，Stacking可以表示上面提到的各种Ensemble方法。然而，实际中，我们通常使用单层logistic回归作为组合模型。
 
@@ -159,7 +159,7 @@ Stacking(有时候也称之为stacked generalization)是指训练一个模型用
 
 总的来说，Stacking 方法比任何单一模型的效果都要好，而且不仅成功应用在了监督式学习中，也成功应用在了非监督式(概率密度估计)学习中。甚至应用于估计bagging模型的错误率。据论文Feature-Weighted Linear Stacking(Sill, J. and Takacs, G. and Mackey L. and Lin D., 2009, arXiv:0911.0460)而言，Stacking比Bayesian Model Averaging表现要更好！此外在Kaggle上，很多比赛多是通过Stacking获取优秀的结果！
 
-###4. Ensemble combination rules
+### 4. Ensemble combination rules
 
 上面提到很多组合的方法，比如根据均值或者加权等等。但是，Ensemble内的各个模型不仅仅可以是同一个模型根据训练集合的随机子集进行训练（得到不同的参数），也可以不同的模型进行组合、甚至可以是针对不同的特征子集进行训练。之后各个模型可以通过不同的策略进行组合。但是不同的结果输出，组合的情况是不同的，这里主要包括三种情况: 
 
