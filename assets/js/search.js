@@ -13,6 +13,8 @@ $(function () {
             targets = ["date"];
             break;
         case "q":
+            targets = ["title", "tags", "category", "url", "date", "description"];
+            break;
         default:
             targets = ["title", "tags", "category", "url", "date", "description"];
             break;

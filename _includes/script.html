@@ -1,14 +1,13 @@
 <!--官方JS引入-->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="/assets/js/search.js"></script>
 <!-- mathjax -->
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>MathJax.Hub.Config({
     "HTML-CSS": {
             linebreaks: {automatic: true},
             mtextFontInherit: true,
-            scale: 110,
+            scale: 90,
             preferredFont: "TeX",
     },
     tex2jax:{
@@ -17,7 +16,22 @@
     }
 });
 </script>
-<style type="text/css"> .mi{
-    font-family: 'Times New Roman' !important;
-    font-style: italic !important;
-}</style>
+
+<script type="text/javascript">
+    $("#returnTop").hide();
+    $(function () {
+        $(window).scroll(function(){
+            if ($(window).scrollTop()>100){
+                $(".returnTop").fadeIn(500);
+            }else{
+                $(".returnTop").fadeOut(500);
+            }
+        });
+        $(".returnTop").click(function(){
+            $('body,html').animate({scrollTop:0},20);
+            return false;
+        });
+    });
+</script>
+
+<script type="text/javascript"  src="/assets/js/search.js"></script>

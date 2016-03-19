@@ -4,16 +4,17 @@ title: Category
 permalink: /category/
 ---
 <div class="col-md-9 col-content">
-    <div class="panel-heading title">
-        分类浏览
-    </div>
+    <br/>
+    <br/>
     {% for category in site.categories%}
-    <section class="category gallery" id="{{category | first}}">
-    <div class="panel-heading">{{category.first}}</div>
-      {% for post in category.last %}
+      <div class="panel-heading title">
+         {{ category.first }} &nbsp;<span class="badge">[{{ category.last.size }}]</span>
+      </div>
+      <section class="category gallery" id="{{category | first}}">
+        {% for post in category.last %}
             {% include gallery.html%}
-      {% endfor %}
-    </section>
+        {% endfor %}
+      </section>
     {% endfor %}
 
 </div>

@@ -9,8 +9,8 @@ blog:
     description: Data Science
     title: Data Science
     keywords: Data Science
-    url: http://chrispher.github.com
-    # url: http://localhost:4000
+    # url: http://chrispher.github.com
+    url: http://localhost:4000
 author:
     duoshuo: chrispher2012
     name: chrispher guan

@@ -2,7 +2,7 @@ sty.CodeMirror pre{
   line-height: 14px;
 }
 @font-face {
-  font-family: "Hiragino Sans GB", Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;;
+  font-family: "Hiragino Sans GB", Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
   /*font-family: "Comic Sans MS", "Helvetica Neue", "Hiragino Sans GB", Arial, "微软雅黑", sans-serif;*/
   src: url("/assets/fonts/fontawesome-webfont.eot?v=4.1.0");
   src: url("/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0") format("embedded-opentype"), url("/assets/fonts/fontawesome-webfont.woff?v=4.1.0") format("woff"), url("/assets/fonts/fontawesome-webfont.ttf?v=4.1.0") format("truetype"), url("/assets/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular") format("svg");
@@ -73,8 +73,9 @@ h4 {font-size:1.2em; color:#f58220;}
 h5,h6 {font-size:1.0em; color:#fffffb; margin-bottom:4px;margin-top:-2px;}
 
 body {
-  font-size: 15px;
-  line-height: 1.5;
+  font-family: "Hiragino Sans GB", Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  font-size: 14px;
+  line-height: 1.42857143;
   color: #000000;
 }
 p { word-break:break-all;}
@@ -153,15 +154,6 @@ dd { margin: 0 0 0 2em; }
 .recomsmall img {
   height:250px;
   border:1px solid rgba(0,100,200,0.2);
-}
-.navbar {
-  position: relative;
-  /*background-color: #D7D7D7;*/
-  margin-bottom: 2px;
-  border: 1px solid transparent;
-}
-.navbarcolor {
-  color: #ffffff;
 }
 .indexblock {
   display: inline-block;

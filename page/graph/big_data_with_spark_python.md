@@ -155,7 +155,6 @@ title: 大数据spark入门学习
     - 对于RDDs和pySpark支持 ` inner join(), leftOuterJoin(), rightOuterJoin(), fullOuterJoin()`，需要注意的是pair RDD joins，例如：
 
 {% highlight sh %} 
-
 >>> x = sc.parallelize([("a",   1), ("b",   4)])    
 >>> y = sc.parallelize([("a",   2), ("a",   3)])    
 >>> sorted(x.join(y).collect()) 
