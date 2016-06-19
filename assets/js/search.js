@@ -52,7 +52,7 @@ function showPosts(words, targets)
     var getJson = function () {
         var dfd = $.Deferred();
         $.ajax({
-            url: url + "/search.json",
+            url: "http://chrispher.github.com/search.json",
             dataType: "json",
             timeout: 3000,  // 3 sec
             success: function (posts) {
