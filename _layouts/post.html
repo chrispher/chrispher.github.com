@@ -2,7 +2,7 @@
 layout: default
 ---
 <div class="container">
-    <div class="col-md-11">
+    <div class="col-md-9">
         <div id="post-content" class="panel panel-pithy post">
             <div class="panel-heading">
                 <h3 class="title">
@@ -13,7 +13,7 @@ layout: default
                     {{ page.date | date: "%Y" }}年{{ page.date | date: "%m" }}月{{ page.date | date: "%d" }}日
                     <i class="space"></i>
                     <i class="fa fa-archive"></i>
-                    <a class="tag" href="{{ site.blog.url }}/category/#{{ page.categories }}">{{ page.categories }}</a> 
+                    <a class="tag" href="{{ site.blog.url }}/category/#{{ page.categories }}">{{ page.categories }}</a>
                     <i class="space"></i>
                     <i class="fa fa-tags"></i>
                     {% for tag in page.tags %}
