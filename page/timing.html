@@ -5,7 +5,7 @@ title: 时间轴
 <link rel="stylesheet" href="/assets/css/page.css">
 <div class="col-md-12 col-content">
 <div>
-{% for post in site.posts reverse %}
+{% for post in site.posts %}
 {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
 {% if year != y %}{% assign year = y %}<h1 class="year">{{ post.date | date: "%Y" }}</h1>{% endif %}
 <div class="timing">

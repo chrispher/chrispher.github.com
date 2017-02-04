@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 category: 知识图谱
 tags: 大数据, 课程
 description: 大数据spark相关知识汇总和整理，接口使用python的pyspark
@@ -38,14 +38,14 @@ title: 大数据spark入门学习
 之后分享了不同的人是如何做数据科学的方法。最终回到数据科学的几个话题上来：
 数据获取(Data Acquisition), 数据准备(Data Preparation),分析(Analysis), 数据展示(Data Presentation), 数据产品(Data Products), 观察和实验(Observation and Experimentation)。对于数据科学要克服的问题，记录如下：
 
-- Overcoming assumptions 
-- Making ad-hoc explanations of data patterns 
-- Not checking enough (validate models, data pipeline integrity, etc.) 
-- Overgeneralizing 
-- Communication 
-- Using statistical tests correctly 
-- Prototype ! Production transitions 
-- Data pipeline complexity (who do you ask?) 
+- Overcoming assumptions
+- Making ad-hoc explanations of data patterns
+- Not checking enough (validate models, data pipeline integrity, etc.)
+- Overgeneralizing
+- Communication
+- Using statistical tests correctly
+- Prototype ! Production transitions
+- Data pipeline complexity (who do you ask?)
 
 > We all naturally try to generalize when we see what appears to be a pattern. Also, once we observe a pattern, we tend to see that pattern in future observations. As data scientists we have to try and overcome these tendencies.
 
@@ -55,26 +55,26 @@ title: 大数据spark入门学习
 
 第二周第一个[课件](/static/lectures/big_data_Spark/Week2Lec3.pdf)主要议题如下：
 
-- The Big Data Problem 
+- The Big Data Problem
     - 传统分析都是基于单机的，但是无法处理大数据，必须使用分布式处理。
 
-- Hardware for Big Data 
+- Hardware for Big Data
     - 硬件也比较便宜，但是容易损坏，有网络传输延时以及性能不均衡等问题。
 
-- Distributing Work 
+- Distributing Work
     - 使用集群计算，以及如何分发任务
     - 简单的介绍了map reduce的思路，使用key-value结构
 
-- Handling Failures and Slow Machines 
+- Handling Failures and Slow Machines
     - 分发任务，数据传输非常耗时
     - MR中，机器损坏，可以转移任务
     - MR中，较慢的任务，能够继续分发
     - MR中，不能自动的并行算法
 
-- Map Reduce and Complex Jobs 
+- Map Reduce and Complex Jobs
     - 复杂的任务需要更多的磁盘IO，非常耗时
 
-- Apache Spark 
+- Apache Spark
     - 内存便宜，传输分享特别快
     - Resilient Distributed Datasets (RDDs)
         - 是一个容错的、并行的数据结构，可以让用户显式地将数据存储到磁盘和内存中，并能控制数据的分区
@@ -88,12 +88,12 @@ title: 大数据spark入门学习
 
 第二周第二个[课件](/static/lectures/big_data_Spark/Week2Lec4.pdf)介绍了spark的编程入门，主要涉及以下几个内容：
 
-- Programming Spark 
+- Programming Spark
     - 使用pyspark接口
     - spark编程分两步：driver program 和 workers program。RDD分布在各个workers里
-    - 参考教程，先创建SparkContext，再用它创建RDD 
+    - 参考教程，先创建SparkContext，再用它创建RDD
 
-- RDDs 
+- RDDs
     - 主要指pyspark里的RDD，可以通过python的list或者hdfs等其他数据存储构建
     - 参数partitions： more partitions = more parallelism
     - 主要包括transformations和actions操作，其中transformations操作是lazy的，不是即时执行，而是在有action的时候才会执行具体的transformations。
@@ -109,7 +109,7 @@ title: 大数据spark入门学习
     - 执行一系列transfos操作，从而获得一些可以不依赖spark的结果
     - 主要操作有reduce(func), take, collect, takeOrdered(n,  key=func)
 
-- Spark Programming Model 
+- Spark Programming Model
     - 这里主要是讲解了一些操作的内部机理。编程的lifecycle如下
         - 构建RDD
         - 通过lazily transformations转化为新的RDD
@@ -140,7 +140,7 @@ title: 大数据spark入门学习
     - 简单的概述了一些日志的格式以及一些日志分析的常见问题，主要集中在“描述分析”
     - 对于文本数据操作的效率，进行了对比
     > Python performance depends on library you use
-    - 文件IO总结，未压缩的情况，读取和写入时间差不多，但是压缩后读取的速度比写入要快很多。使用LZ4压缩比较好 
+    - 文件IO总结，未压缩的情况，读取和写入时间差不多，但是压缩后读取的速度比写入要快很多。使用LZ4压缩比较好
 
 第三周第二个[课件](/static/lectures/big_data_Spark/Week3Lec6.pdf)，主要介绍了结构化数据和关系型数据库以及SQL在spark里的使用。
 
@@ -154,10 +154,10 @@ title: 大数据spark入门学习
     - 主要介绍了join的查询以及内在机理。此外有一些比较特别的join模式，INNER JION Enrolled（匹配左侧，且仅显示匹配上的结果），LEFT OUTER JOIN(匹配左侧，未匹配上以NULL显示结果)， RIGHT OUTER JOIN恰好相反。
     - 对于RDDs和pySpark支持 ` inner join(), leftOuterJoin(), rightOuterJoin(), fullOuterJoin()`，需要注意的是pair RDD joins，例如：
 
-{% highlight sh %} 
+{% highlight sh %}
 >>> x = sc.parallelize([("a",   1), ("b",   4)])    
 >>> y = sc.parallelize([("a",   2), ("a",   3)])    
->>> sorted(x.join(y).collect()) 
+>>> sorted(x.join(y).collect())
 Value:  [('a',  (1, 2)),    ('a',   (1, 3))]
 
 {% endhighlight %}

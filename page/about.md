@@ -1,6 +1,6 @@
 ---
-layout: single
-title: Chrispher Guan 
+layout: default
+title: Chrispher Guan
 ---
 
 ### 这货是谁？
@@ -26,4 +26,3 @@ title: Chrispher Guan
 ### 博客参考
 - 博客主题参考Jekyll——[pithy](https://github.com/guovz/pithy)。
 - css主题参考 [bootswatch](http://bootswatch.com)
-

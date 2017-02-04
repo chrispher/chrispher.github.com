@@ -12,7 +12,6 @@
 	margin-top:-24px;
 }
 .link a {
-	text-shadow:0 0 1px;
 	letter-spacing:2px;
 	transition:padding-left 0.25s;
 	-webkit-transition:padding-left 0.25s;
@@ -20,7 +19,6 @@
 	-o-transition:padding-left 0.25s;
 }
 .link a:hover {
-	color:#00D809;
 	padding-left:15px;
 }
 .timing {

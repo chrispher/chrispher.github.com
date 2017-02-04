@@ -2,7 +2,7 @@
 layout: post
 title: ROC曲线
 category: 机器学习
-tags: [机器学习, python算法]
+tags: [机器学习, py算法]
 description: 以二元分类为例，分析混淆矩阵和ROC曲线以及绘制ROC曲线的代码
 ---
 
@@ -49,20 +49,20 @@ def roc1(scores):
     m = len(scores)
     pos_num = sum([i[0] for i in scores])
     neg_num = m - pos_num
-    
+
     fp, tp = [], []
     FP, TP = 0, 0
-    # decent the scores 
+    # decent the scores
     scores = sorted(scores, key=lambda x:x[1], reverse=True)
     accs = []
     for n,s in enumerate(scores):
         TP = len([i for i in scores[0:n] if i[0] == 1])
         TN = len([i for i in scores[n:] if i[0] == 0])
         FP = len([i for i in scores[0:n] if i[0] == 0])
-        accs.append([float(TP+TN)/m, s[1]]) 
+        accs.append([float(TP+TN)/m, s[1]])
         fp.append(float(FP) / neg_num)
         tp.append(float(TP) / pos_num)
-            
+
     fp.append(1)
     tp.append(1)
     # get the best theshold
@@ -75,22 +75,22 @@ def roc2(scores):
     m = len(scores)
     pos_num = sum([i[0] for i in scores])
     neg_num = m - pos_num
-    
+
     fp, tp = [], []
     FP, TP = 0, 0
-    # decent the scores 
+    # decent the scores
     scores = sorted(scores, key=lambda x:x[1], reverse=True)
     threshold = 1.0
     for s in scores:   
         if s[1] < threshold:
             fp.append(float(FP) / neg_num)
             tp.append(float(TP) / pos_num)
-        
+
         if s[0] == 1:
             TP += 1
         else:
             FP += 1
-            
+
     fp.append(1)
     tp.append(1)
     return fp, tp    

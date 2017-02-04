@@ -2,3 +2,4 @@ _site
 .sass-cache
 .idea
 .jekyll-metadata
+.DS_Store

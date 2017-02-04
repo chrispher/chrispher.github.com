@@ -4,15 +4,13 @@ title: Category
 permalink: /tag/
 ---
 <div class="col-md-9 .tag-cloud">
-    <!-- 所有标签下文章 -->
-    <!-- 每一个分类下文章 -->
     {% for tag in site.tags %}
     <div class="panel panel-pithy tag" id="{{tag.first}}">
       <div class="panel-heading">{{tag.first}}</div>
       <div class="panel-body gallery">
         {% for post in tag.last %}
           <div class="item">
-            <a class="item-inner" href="{{ post.url | prepend: ""}}">      
+            <a class="item-inner" href="{{ post.url | prepend: ""}}">
               <div class="item-title">{{ post.title }}</div>
               <div class="item-time">{{ post.date | date: "%Y" }}年{{ post.date | date: "%m" }}月{{ post.date | date: "%d" }}日</div>
               <div class="post-content">{{ post.description}}</div>
@@ -22,8 +20,7 @@ permalink: /tag/
       </div>
     </div>
     {% endfor %}
-
 </div>
-<div class="col-md-3 col-sidebar">
+<div class="col-md-3 col-sidebar" style="position: fixed; right: 5%;">
     {% include tags.html %}
 </div>

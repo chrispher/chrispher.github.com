@@ -2,13 +2,13 @@ sty.CodeMirror pre{
   line-height: 14px;
 }
 @font-face {
-  font-family: "Hiragino Sans GB", Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
-  /*font-family: "Comic Sans MS", "Helvetica Neue", "Hiragino Sans GB", Arial, "微软雅黑", sans-serif;*/
+  font-family: -apple-system,BlinkMacSystemFont, "monaco","Helvetica Neue", "Noto Sans CJK TC",SimSun, sans-serif;
   src: url("/assets/fonts/fontawesome-webfont.eot?v=4.1.0");
   src: url("/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0") format("embedded-opentype"), url("/assets/fonts/fontawesome-webfont.woff?v=4.1.0") format("woff"), url("/assets/fonts/fontawesome-webfont.ttf?v=4.1.0") format("truetype"), url("/assets/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
+
 .attachments-ul{
   height: 400px;
   overflow-y:scroll;
@@ -52,20 +52,25 @@ sty.CodeMirror pre{
   padding-left: 10px;
 }
 
-/*a{ color: #0645ad; text-decoration:none;}
+a{ color: #0645ad; text-decoration:none;}
 a:visited{ color: #0b0080; }
 a:hover{ color: #06e; }
 a:active{ color:#faa700; }
 a:focus{ outline: thin dotted; }
-a:hover, a:active{ outline: 0; }*/
+a:hover, a:active{ outline: 0; }
 
 p{margin:1em 0;}
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: "Comic Sans MS", "Helvetica Neue", "Hiragino Sans GB", Arial, "微软雅黑", sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont, "monaco","Helvetica Neue", "Noto Sans CJK TC",SimSun, sans-serif;
   font-weight: normal;
+  line-height: 1.5;
 }
-h1,h2,h3,h4 {margin-bottom:4px;margin-top:4px;letter-spacing:2px;}
+h1,h2,h3,h4 {
+  margin-bottom:4px;
+  margin-top:4px;
+  letter-spacing:2px;
+}
 h1 {font-size:1.8em;}
 h2 {font-size:1.6em;}
 h3 {font-size:1.4em; color:#f58220;}
@@ -73,9 +78,9 @@ h4 {font-size:1.2em; color:#f58220;}
 h5,h6 {font-size:1.0em; color:#fffffb; margin-bottom:4px;margin-top:-2px;}
 
 body {
-  font-family: "Hiragino Sans GB", Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
-  font-size: 14px;
-  line-height: 1.42857143;
+  font-family: -apple-system,BlinkMacSystemFont, "monaco","Helvetica Neue", "Noto Sans CJK TC",SimSun, sans-serif;
+  font-size: 13.34px;
+  line-height: 1.5;
   color: #000000;
 }
 p { word-break:break-all;}
@@ -102,8 +107,14 @@ blockquote {
 hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;
      border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
 
-pre, code{color: #000; font-family: "Monaco", consolas; font-size: 0.88em;
-          border-radius:3px; background-color: #F8F8F8; border: 1px solid #CCC;}
+pre, code{
+  color: #000;
+  font-family: "Monaco", consolas;
+  font-size: 0.7em;
+  line-height: 1.2;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC;
+}
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px;}
 pre code { border: 0px !important; background: transparent !important; line-height: 1.0em; }
 
@@ -399,4 +410,10 @@ dd { margin: 0 0 0 2em; }
 .pagination-mini ul>li>a, .pagination-mini ul>li>span {
     padding: 0 6px;
     font-size: 10.5px
+}
+.equation {
+  padding-bottom:  1rem;
+  padding-top:     1rem;
+  text-align:      center;
+  font-size:       1.5em;
 }

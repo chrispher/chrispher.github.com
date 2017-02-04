@@ -1,18 +1,13 @@
 <!-- 分类列表 -->
-<div class="panel panel-default categories">
+<div class="panel panel-primary">
     <div class="panel-heading title">
-        文章分类&nbsp;<span class="badge">[{{ site.posts.size }}]</span>
+        文章分类 &nbsp; {{ site.posts.size }}篇
     </div>
-    <div class="panel-body list">
-        <ul>
-          {% for category in site.categories %}
-          <li>
-              <a class="catelink" href="{{ site.blog.url }}/category/#{{category.first}}" data-target-cate="#{{category.first}}">
-                  {{ category.first }}&nbsp;<span class="badge">[{{ category.last.size }}]</span>
-              </a>
-          </li>
-
-          {% endfor %}
-        </ul>
+    <div class="tag-cloud">
+        {% for category in site.categories %}
+            <a href="{{ site.url }}/category/#{{category.first}}">
+                {{ category.first }} {{category.last.size }}
+            </a>
+        {% endfor %}
     </div>
 </div>

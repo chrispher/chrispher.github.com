@@ -7,7 +7,7 @@ permalink: /category/
     <br/>
     <br/>
     {% for category in site.categories%}
-      <div class="panel-heading title">
+      <div class="panel-heading title well">
          {{ category.first }} &nbsp;<span class="badge">[{{ category.last.size }}]</span>
       </div>
       <section class="category gallery" id="{{category | first}}">
@@ -18,6 +18,6 @@ permalink: /category/
     {% endfor %}
 
 </div>
-<div class="col-md-3 col-sidebar">
+<div class="col-md-3 col-sidebar" style="position: fixed; right: 5%;">
     {% include categories.html %}
 </div>

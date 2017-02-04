@@ -3,10 +3,11 @@ layout: post
 title: 使用Github搭建个人博客
 category: 环境配置
 tags: [环境搭建]
-description: 使用Github的page功能和jekyll搭建个人博客
+description: 使用github的page功能和jekyll搭建个人博客
 ---
 
-[GitHub](https://github.com)，是全球最大的社交编程及代码托管网站，GitHub可以托管各种git库，并提供一个web界面，但与其它像SourceForge或Google Code这样的服务不同，GitHub的独特卖点在于从另外一个项目进行分支的简易性。这里着重写如何使用Github的page功能搭建个人博客。
+github 是全球最大的社交编程及代码托管网站，GitHub可以托管各种git库，并提供一个web界面，但与其它像SourceForge或Google Code这样的服务不同，GitHub的独特卖点在于从另外一个项目进行分支的简易性。这里着重写如何使用Github的page功能搭建个人博客。
+
 
 <!-- more -->
 
@@ -88,7 +89,7 @@ description: 使用Github的page功能和jekyll搭建个人博客
         weibo: 2917650677  # weibo ID
         github: chrispher  # github ID
         linkedin: chrispher-guan/5a/a68/6b8 # linkedIn ID
-        gplus: 110552447039675960964  # G+ ID 
+        gplus: 110552447039675960964  # G+ ID
         logo: http://chrispher.github.com/images/op_we_are_brothers.png # logo地址
 
 如果没有对应的账号，可以直接不填！如果填我的账号信息，那么你的博客就相当于我的一个子博客了，哈哈！
@@ -158,9 +159,7 @@ Makrdown的简单语法,可以参考[Markdown 语法说明简体中文版](http:
 
 #### 4.3文章简介
 
-在博客的首页，通常只显示了文章的一部分内容，这是怎么实现的呢？一般而言，我们写作时，会在开头写一下整篇文章的概述，之后在增加一行`＜！－－ more --＞`，那么一般显示的时候就只显示`＜！－－ more --＞`之前的文本，只有点击阅读进入这篇文章才能看到全部内容。当然，这里也是跟html语法相关的，在index.html里的
-＞ {{ post.content ｜ split:＇＜！－－ more --＞'｜ first }}
-这里不细说其他html语法，毕竟我不是做web的，只是了解一点点对自己有价值的部分。
+在博客的首页，通常只显示了文章的一部分内容，这是怎么实现的呢？一般而言，我们写作时，会在开头写一下整篇文章的概述，之后在增加一行 `＜！－－ more --＞`，那么一般显示的时候就只显示 `＜！－－ more --＞` 之前的文本，只有点击阅读进入这篇文章才能看到全部内容。当然，这里也是跟html语法相关的，在index.html里的设置了分割的方式.
 
 #### 4.4代码高亮
 
