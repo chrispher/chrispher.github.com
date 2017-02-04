@@ -42,7 +42,7 @@ Ensemble方法是监督式学习的一种，训练完成之后就可以看成是
 
 #### 3.1 Bayes optimal classifier
 
-贝叶斯最优分类器(Bayes Optimal Classifier)是分类技术的一种，他是"假设"空间里所有"假设"的一个Ensemble。通常来说，没有别的Ensemble会比它有更好的表现！因此，可以认为他是最优的Ensemble(见Tom M. Mitchell, Machine Learning, 1997, pp. 175)。如果"假设"是对的话，那每一个"假设"对从系统中产生训练数据的似然性都有一个投票比例。为了促使训练数据集大小是有限的，我们需要对每个"假设"的投票乘上一个先验概率。因此，完整的Bayes Optimal Classifier如下:  
+贝叶斯最优分类器(Bayes Optimal Classifier)是分类技术的一种，他是"假设"空间里所有"假设"的一个Ensemble。通常来说，没有别的Ensemble会比它有更好的表现！因此，可以认为他是最优的Ensemble(见Tom M. Mitchell, Machine Learning, 1997, pp. 175)。如果"假设"是对的话，那每一个"假设"对从系统中产生训练数据的似然性都有一个投票比例。为了促使训练数据集大小是有限的，我们需要对每个"假设"的投票乘上一个先验概率。因此，完整的Bayes Optimal Classifier如下:
 $$y=argmax_{c_j \in C} \sum_{h_i \in H}{P(c_j｜h_i)P(T｜h_i)P(h_i)}$$
 
 这里$$y$$是预测的类，$$C$$是所有可能的类别，$$H$$是"假设"空间，$$P$$是概率分布, $$T$$是训练数据。作为一个Ensemble，Bayes Optimal Classifier代表了一个"假设"，但是不一定在$$H$$中，而是在Ensemble空间(是原"假设"空间里的"假设"的所有可能的Ensemble)里的最优"假设"。然而，在实际中的很多例子中（即使很简单的例子），Bayes Optimal Classifier并不能很好的实现。实际中不能很好的实现Bayes Optimal Classifier的理由主要有以下几个：
@@ -70,7 +70,7 @@ Bayesian model averaging (BMA, 贝叶斯模型平均)是一个寻求近似于Bay
 
 伪代码如下:
 
-{% highlight Python %}
+``` python
 function train_bayesian_model_averaging(T)
     z = -infinity
     For each model, m, in the ensemble:
@@ -85,7 +85,7 @@ function train_bayesian_model_averaging(T)
     For each model, m, in the ensemble:
             weight[m] = prior[m] * exp(log_likelihood[m] - z)
     Normalize all the model weights to sum to 1.
-{% endhighlight %}
+```
 
 #### 3.5 Bayesian model combination
 Bayesian model combination(BMC) 是 BMA 的一个校正算法。它不是独立的生成Ensemble中的一个个模型，而是从可能的Ensemble Space中生成（模型的权重是由同一参数的Dirichlet分布生成）。这个修正克服了BMA算法给单个模型所有权重的倾向。尽管BMC比BMA有更多的计算量，但是它的结果也非常的好！有很多例子证明了BMC比BMA和bagging的效果更好。
@@ -100,14 +100,14 @@ BMA是选择一个与生成数据的分布最接近的模型，而BMC是选择�
 
 伪代码如下:更多信息可以阅读[Turning Bayesian Model Averaging Into Bayesian Model Combination](http://synapse.cs.byu.edu/papers/Kristine.ijcnn2011.pdf)
 
-{% highlight Python %}
+``` c++
 function train_bayesian_model_combination(T)
     For each model, m, in the ensemble:
         weight[m] = 0
     sum_weight = 0
     z = -infinity
     Let n be some number of weightings to sample.
-        (100 might be a reasonable value. Smaller is faster. 
+        (100 might be a reasonable value. Smaller is faster.
         Bigger leads to more precise results.)
     for i from 0 to n - 1:
         For each model, m, in the ensemble: // draw from a uniform Dirichlet distribution
@@ -127,7 +127,7 @@ function train_bayesian_model_combination(T)
             weight[m] = weight[m] * sum_weight / (sum_weight + w) + w * v[m]
         sum_weight = sum_weight + w
     Normalize the model weights to sum to 1.
-{% endhighlight %}
+```
 
 #### 3.6 Bucket of models
 
@@ -135,14 +135,14 @@ bucket of models是在Ensemble中针对具体问题进行最优模型选择的�
 
 最常用的方法是[交叉验证](http://en.wikipedia.org/wiki/Cross-validation_(statistics))(cross-validation), 有时候称之为bake-off contest，伪代码如下:
 
-{% highlight Python %}
+``` python
 For each model m in the bucket:
   Do c times: (where 'c' is some constant)
     Randomly divide the training dataset into two datasets: A, and B.
     Train m with A
     Test m with B
 Select the model that obtains the highest average score
-{% endhighlight %}
+```
 
 交叉验证可以简单的总结为“在所有的训练集合上，看看它们的表现，选择表现最好的”。
 Gating 是交叉验证的一种一般化。它在训练中多训练一个模型用于决定在特定问题下具体选择某个模型。通常情况下，[感知器](http://en.wikipedia.org/wiki/Perceptron)(perceptron)会被用于Gating model。它可以用于选择最优模型，也可以是bucket中各个模型的预测结果的一组线性权重。比如垃圾分类问题中，用感知器训练Gating 之后，可以训练成：在money单词出现2次以上时使用logistic的分类结果，否则使用朴素贝叶斯的结果；也可以训练成结果为a×money出现次数×决策树+b×money出现次数×朴素贝叶斯 + c的结果（结果是为是是垃圾邮件的概率，abc由感知器训练得到）。
@@ -161,7 +161,7 @@ Stacking(有时候也称之为stacked generalization)是指训练一个模型用
 
 ### 4. Ensemble combination rules
 
-上面提到很多组合的方法，比如根据均值或者加权等等。但是，Ensemble内的各个模型不仅仅可以是同一个模型根据训练集合的随机子集进行训练（得到不同的参数），也可以不同的模型进行组合、甚至可以是针对不同的特征子集进行训练。之后各个模型可以通过不同的策略进行组合。但是不同的结果输出，组合的情况是不同的，这里主要包括三种情况: 
+上面提到很多组合的方法，比如根据均值或者加权等等。但是，Ensemble内的各个模型不仅仅可以是同一个模型根据训练集合的随机子集进行训练（得到不同的参数），也可以不同的模型进行组合、甚至可以是针对不同的特征子集进行训练。之后各个模型可以通过不同的策略进行组合。但是不同的结果输出，组合的情况是不同的，这里主要包括三种情况:
 
 - 1)Abstract-level:各个模型只输出一个目标类别，如猫、狗和人的图像识别中，仅输出人；
 - 2)Rank-level:各个模型是输出目标类别的一个排序，如猫、狗和人的图像识别中，输出人-狗-猫；

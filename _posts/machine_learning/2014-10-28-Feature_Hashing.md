@@ -39,7 +39,7 @@ description: hash特征是一种快速的且很节省空间的特征向量化的
 
 在文本分类中，hash函数以string(字符串)作为输入，我们需要将这些words映射到所需要的维度v（预先定义的长度）。
 
-{% highlight python %}
+``` python
     def hashing_vectorizer(s, N):
         x = [0 for i in xrange(N)]
         for f in s.split():
@@ -49,18 +49,18 @@ description: hash特征是一种快速的且很节省空间的特征向量化的
 
     print hashing_vectorizer('we are the great', 4) # return [0, 1, 3, 0]
     print hashing_vectorizer('tell me the way to the IBM', 4) # return [1, 3, 3, 0]
-{% endhighlight %}
+```
 
 如果我们引入一个二值函数g(x)(假设输出为1，-1)来决定更新数值是加还是减，以此来对坑hash collisions(哈希碰撞)。那么算法更新为:
 
-{% highlight python %}
+``` python
     def hashing_vectorizer(s, N):
         x = [0 for i in xrange(N)]
         for f in s.split():
             h = hash(f)
             x[h % N] += 1*g(f)
         return x
-{% endhighlight %}
+```
 
 上面给出了两个比较简单的例子。一个比较优化的方法是生成一组(h,g)并由算法使用，线性模型也可以作为hash表用于特征系数表示。
 

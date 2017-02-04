@@ -41,7 +41,7 @@ ROC曲线(receiver operating characteristic curve，受试者工作特征曲线)
 
 ### 3、ROC代码
 
-{% highlight python %}
+``` python
 
 def roc1(scores):
     # scores[0][1] is predict
@@ -66,7 +66,7 @@ def roc1(scores):
     fp.append(1)
     tp.append(1)
     # get the best theshold
-    accs = sorted(accs, reverse=True)     
+    accs = sorted(accs, reverse=True)
     return fp, tp, accs[0]
 
 def roc2(scores):
@@ -81,7 +81,7 @@ def roc2(scores):
     # decent the scores
     scores = sorted(scores, key=lambda x:x[1], reverse=True)
     threshold = 1.0
-    for s in scores:   
+    for s in scores:
         if s[1] < threshold:
             fp.append(float(FP) / neg_num)
             tp.append(float(TP) / pos_num)
@@ -93,7 +93,7 @@ def roc2(scores):
 
     fp.append(1)
     tp.append(1)
-    return fp, tp    
+    return fp, tp
 
 scores = [[1, 0.2], [1, 0.8], [1,0.89], [1, 0.98],
           [0, 0.1], [0, 0.3], [0,0.34], [0, 0.56]]
@@ -101,4 +101,4 @@ scores = [[1, 0.2], [1, 0.8], [1,0.89], [1, 0.98],
 fp1, tp1, accs1 = roc1(scores)
 fp2, tp2 = roc2(scores)
 
-{% endhighlight %}
+```

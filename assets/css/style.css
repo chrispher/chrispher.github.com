@@ -1,8 +1,5 @@
-sty.CodeMirror pre{
-  line-height: 14px;
-}
 @font-face {
-  font-family: -apple-system,BlinkMacSystemFont, "monaco","Helvetica Neue", "Noto Sans CJK TC",SimSun, sans-serif;
+  font-family: "Helvetica Neue", "Noto Sans CJK TC", SimSun, sans-serif;
   src: url("/assets/fonts/fontawesome-webfont.eot?v=4.1.0");
   src: url("/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0") format("embedded-opentype"), url("/assets/fonts/fontawesome-webfont.woff?v=4.1.0") format("woff"), url("/assets/fonts/fontawesome-webfont.ttf?v=4.1.0") format("truetype"), url("/assets/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular") format("svg");
   font-weight: normal;
@@ -62,23 +59,19 @@ a:hover, a:active{ outline: 0; }
 p{margin:1em 0;}
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: -apple-system,BlinkMacSystemFont, "monaco","Helvetica Neue", "Noto Sans CJK TC",SimSun, sans-serif;
+  font-family: "Helvetica Neue", "Noto Sans CJK TC", SimSun, sans-serif;
   font-weight: normal;
   line-height: 1.5;
-}
-h1,h2,h3,h4 {
-  margin-bottom:4px;
-  margin-top:4px;
   letter-spacing:2px;
 }
 h1 {font-size:1.8em;}
 h2 {font-size:1.6em;}
 h3 {font-size:1.4em; color:#f58220;}
 h4 {font-size:1.2em; color:#f58220;}
-h5,h6 {font-size:1.0em; color:#fffffb; margin-bottom:4px;margin-top:-2px;}
+h5,h6 {font-size:1.0em; color:#fffffb;}
 
 body {
-  font-family: -apple-system,BlinkMacSystemFont, "monaco","Helvetica Neue", "Noto Sans CJK TC",SimSun, sans-serif;
+  font-family: "Helvetica Neue", "Noto Sans CJK TC", SimSun, sans-serif;
   font-size: 13.34px;
   line-height: 1.5;
   color: #000000;
@@ -107,7 +100,7 @@ blockquote {
 hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;
      border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
 
-pre, code{
+pre, code {
   color: #000;
   font-family: "Monaco", consolas;
   font-size: 0.7em;
@@ -119,6 +112,14 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5
 pre code { border: 0px !important; background: transparent !important; line-height: 1.0em; }
 
 code { padding: 0 3px 0 3px; }
+
+code.has-jax {
+  font: inherit;
+  font-size: 100%;
+  background: inherit;
+  border: inherit;
+  color: inherit;
+}
 
 sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
 sup { top: -0.5em; }

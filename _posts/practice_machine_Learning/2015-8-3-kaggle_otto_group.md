@@ -19,7 +19,7 @@ kaggle的[比赛](https://www.kaggle.com/c/otto-group-product-classification-cha
 ### 1、基本思路
 数据读取的代码如下：
 
-{% highlight python %}
+``` python
 def load_train():
     dpath = "data/train.csv"
     data = pd.read_csv(dpath)
@@ -49,11 +49,11 @@ def submit_prob(y, name):
         f.write(line)
     f.close()
 
-{% endhighlight %}
+```
 
 这里随便用什么算法都可以，benchmark是用随机森林做的, 这里简单的给一下测试（本来是用cross-valid的方法，但是这里只是一些简单的做法，而且有些模型训练比较费时间，所以只随机分割一次，进行训练和测试）和benchmark的代码。
 
-{% highlight python %}
+``` python
 def test_model_onece(x, y, model):
     x_train, x_test, y_train, y_test = cv.train_test_split(
         x, y, test_size=0.2, random_state=123)
@@ -75,7 +75,7 @@ def base_line(x, y):
     y_submit = model.predict_proba(x_submit)
     submit_prob(y_submit, name)
 
-{% endhighlight %}
+```
 
 ### 2、特征？
 其实最开始的时候，我对数据做了一次description，发现这些数据是非常有偏的，而且是离散数据，比如某个feature中数值1出现的次数特别多，而大一点的数值出现的次数特别少。所以，我只做了一个特征变换`x = np.log(x + 2)`，。

@@ -1,6 +1,10 @@
 gems: [jekyll-paginate, jekyll-coffeescript]
 markdown: kramdown
 highlighter: rouge
+kramdown:
+    input: GFM
+    syntax_highlighter: rouge
+
 permalink: blog/:year/:month/:day/:title.html
 paginate: 6
 paginate_path: page/:num
@@ -10,8 +14,8 @@ blog:
     description: Data Science
     title: Data Science
     keywords: Data Science
-    # url: http://chrispher.github.com
-    url: http://localhost:4000
+    url: http://chrispher.github.com
+    # url: http://localhost:4000
 author:
     duoshuo: chrispher2012
     name: chrispher guan

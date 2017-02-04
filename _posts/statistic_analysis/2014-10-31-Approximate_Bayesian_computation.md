@@ -29,7 +29,7 @@ description: 使用近似贝叶斯计算进行参数估计
 我们先考虑这样一个问题，如果已知了实际袜子数(n_socks,比如为18只)，从这些中取出11只袜子，看看有多少不同的袜子。这里我们没有直接计算，而是直接使用程序去模拟！
 这里我们假设有n_socks=18只袜子，其中有n_pairs=7是成对的，n_odd=4是单只的（遗失4只），从中选n_picked = 11只；首先我们对这18只袜子进行编号，考虑到有成对的袜子，编号socks应该是0-10。程序如下：
 
-{% highlight python %}
+``` python
 
 n_socks = 18 # The total number of socks in the laundry
 n_picked = 11 # The number of socks we are going to pick
@@ -41,12 +41,12 @@ picked_socks = random.sample(socks, size=min(n_picked, n_socks))
 unique_socks = len(set(picked_socks))
 pairs = len(picked_socks) - len(set(picked_socks))
 
-{% endhighlight %}
+```
 
 
 那我们可以假设不同的袜子总数，看看结果（这里每个参数，都进行了1w次抽样来平均结果）。这里假设单只总是4只。不断的增大n_pairs,程序和结果如下：
 
-{% highlight python %}
+``` python
 import random
 
 n_pairs = 100
@@ -69,7 +69,7 @@ while abs(final - 11) > 0.01:
     print 'n_pairs:%.f , socks:%.f , result:%.3f ' % (n_pairs, n_socks, final)
     n_pairs += 100
 
-{% endhighlight %}
+```
 
 从结果看，大约要2600双袜子才能达到预期效果！当然，实际中，单只的数量会随着袜子总量增多而增多。即使我们假设会有40%的遗失(即n_odd = int(n_pairs * 0.4))，那么结果是要1900双袜子, 760只单袜子，共计4560只袜子！！
 
@@ -93,7 +93,7 @@ while abs(final - 11) > 0.01:
 
 #### 3.2程序与结果
 
-{% highlight python %}
+``` python
 
 import random
 from numpy import random as rd
@@ -110,7 +110,7 @@ for i in xrange(100000):
     n_odd = n_socks - n_pairs * 2
     socks = [i for i in range(n_pairs)] * 2 + \
         [i for i in range(n_pairs, n_pairs + n_odd)]
-    
+
     # pick the socks randomly
     picked_socks = random.sample(socks, min(n_picked, n_socks))
     unique_socks = len(set(picked_socks))
@@ -125,7 +125,7 @@ print float(len(sum_pairs)) / 100000
 print 'average pairs: ', float(sum(sum_pairs) / len(sum_pairs))
 print 'average socks: ',float(sum(sum_socks) / len(sum_socks))
 
-{% endhighlight %}
+```
 
 在程序中，n_socks有过不断的调整，按照上面结果得到袜子总数是45只，其中有20双成对的，而实际上袜子总数是45只，21双成对的。但是，这与先验分布的选择关系非常大。不同的参数和先验分布的选择，会导致完全不同的结果！
 

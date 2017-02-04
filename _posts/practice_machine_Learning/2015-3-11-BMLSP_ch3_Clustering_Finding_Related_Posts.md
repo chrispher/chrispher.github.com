@@ -21,7 +21,7 @@ description: 基于python下一些数据科学包构建了一个分类器并进�
 
 首先我们导入一些我们需要使用的库。这里主要是使用python，以及它的一些包，主要是numpy、scipy、sklearn等等，绘图使用matplotlib，这里我个人习。我们首先简单的使用jieba分词包和sklearn.feature_extraction下面的text库进行基础的文本特征处理，作为一个引入。
 
-{% highlight python %}
+``` python
 import numpy as np
 from matplotlib import pyplot as plt
 import pandas as pd
@@ -35,7 +35,7 @@ import seaborn as sns
 sns.set(style="darkgrid")
 
 def clean_text(data):
-    # delete the html, website and mathjax 
+    # delete the html, website and mathjax
     d = re.sub('<.*?>','', data)
     d = re.sub('\$\$.*?\$\$','', d)
     d = re.sub('\(http.*?\)','', d)
@@ -47,7 +47,7 @@ def clean_text(data):
     d = re.sub(pattern, ' ', d)
     d = re.sub('---.*?---','', d)
     #d = re.sub('[\u4E00-\u9FA5]+','', d) save only the chinese
-    
+
     return d
 
 from sklearn.feature_extraction import text
@@ -75,7 +75,7 @@ names = vectorizer.get_feature_names()
 print 'the nums of the features: {0}; the lens of contents {1}'.format(len(names),len(contents))
 # print len(set(' '.join(contents).split()))
 # print ' '.join(names)
-{% endhighlight %}
+```
 
 输出结果为：the nums of the features: 678; the lens of contents 36
 
@@ -90,12 +90,12 @@ print 'the nums of the features: {0}; the lens of contents {1}'.format(len(names
 
 这种直接把文章根据单词是否存在于文章里或在文章出现的次数作为文章的特征，称之为bag of words。接下来，我们简单的用余弦值来表示各个文章之间的相似度，如下图所示：
 
-{% highlight python %}
+``` python
 d = X.toarray()
 norm = np.linalg.norm(d,axis=1).reshape((d.shape[0],1))
-d = np.dot(d, d.T) / np.dot(norm, norm.T) 
+d = np.dot(d, d.T) / np.dot(norm, norm.T)
 sns.heatmap(d, annot=True, center=0, cmap='coolwarm') # RdBu_r coolwarm
-{% endhighlight %}
+```
 
 <img src="/images/practicalML/bmls_ch3/output_1.png" height="80%" width="80%">
 
@@ -112,14 +112,14 @@ IDF的主要思想是：如果包含词条t的文档越少，也就是n越小，
 
 那么TFIDF怎么用呢？简单的用法是根据TFIDF值，选择合适的词语特征，另外一种是使用向量空间模型的时候，权重不采用词语出现的次数，而采用TFIDF值来作为词向量的值。下面是一个例子：
 
-{% highlight python %}
+``` python
 tfidf = text.TfidfVectorizer(min_df=2, max_df=0.7, stop_words=stop_words)
 Xt = tfidf.fit_transform(contents[17:28])
 d = Xt.toarray()
 norm = np.linalg.norm(d,axis=1).reshape((d.shape[0],1))
-d = np.dot(d, d.T) / np.dot(norm, norm.T) 
+d = np.dot(d, d.T) / np.dot(norm, norm.T)
 sns.heatmap(d, annot=True, center=0, cmap='coolwarm') # RdBu_r coolwarm
-{% endhighlight %}
+```
 
 <img src="/images/practicalML/bmls_ch3/output_2.png" height="80%" width="80%">
 
@@ -138,7 +138,7 @@ sns.heatmap(d, annot=True, center=0, cmap='coolwarm') # RdBu_r coolwarm
 ### 3、聚类可视化
 接下来，我们使用简单的聚类方式进行可视化。这里我们虽然已经手动分成了两个类别，但是实际文本之间还是有很多交叉的内容。另外，为了可视化，我们使用了PCA降维到2维来可视化一些kmeans的结果。注意，这里为了方便，都直接使用了fit_tranform。
 
-{% highlight python %}
+``` python
 from sklearn import cluster
 from sklearn.decomposition import PCA
 pca = PCA(n_components=2)
@@ -153,30 +153,30 @@ param = [{'model':cluster.KMeans(n_clusters=3),
          {'model':cluster.SpectralClustering(n_clusters=3),
           'title':'SpectralClustering'}]
 fig, axes = plt.subplots(ncols=2, nrows=1,figsize=(10,5))
-for n, ax in enumerate(axes.ravel()): 
+for n, ax in enumerate(axes.ravel()):
 #     plt.figure(figsize=(8, 3))
     cluster = param[n]['model']
     k_data = cluster.fit_predict(d)
     ax.scatter(pca_data[:,0], pca_data[:,1], c=['rgb'[i] for i in k_data], s=50)
     ax.set_title(param[n]['title'])
-{% endhighlight %}
+```
 
 <img src="/images/practicalML/bmls_ch3/output_3.png" height="100%" width="100%">
 
 注意：这里没有使用Pipeline，可以在其它过程中尝试使用。这里简单的可视化之后，我们还需要对文本做进一步的分析和考虑。换句话说，我们已经找到了聚类的类别，那么这一类究竟是什么呢？我们还记得IF-IDF值，这个值越大，说明这个文章中的词越具有区分度。那么，我们可以把这一类下文章的词语拿出来看一看：
 
-{% highlight python %}
+``` python
 sub_content2 = [contents[n] for n,i in enumerate(k_data) if i==2]
 sub_data_2 = d[k_data==2,:]
 sum_sub = sub_data_2.max(axis=0)
 print [tfidf.get_feature_names()[n] for n,j in enumerate(sum_sub) if j > 0.4*sum_sub.max()]
 print [filenames[n] for n,i in enumerate(k_data) if i==2]
-{% endhighlight %}
+```
 
 结果如下：
-{% highlight python %}
+``` python
 [u'boltzmann', u'by', u'data', u'deep', u'engineering', u'feature', u'for', u'introduction', u'learning', u'library', u'nets', u'of', u'science', u'the', u'you']
 ['2014-9-26-Discover_Feature_Engineering.md', '2014-10-12-free-data-science-books.md', '2014-12-31-Deep_learning_Reading_List.md', '2014-9-2-resource_of_machine_learning_programme_language.md', '2014-9-22-Reading_lists_for_new_LISA_students.md']
-{% endhighlight %}
+```
 
 当然，这里只是举一个例子，这种查看主题的方式也未必是合理的。因为我们发现data这个词语在多个聚类中均出现次数很多。而这里，对于参数min_df=2, max_df=0.7影响是非常大的，决定了很多特征的差异性，也需要不断的调整，以得到最合适的聚类结果。

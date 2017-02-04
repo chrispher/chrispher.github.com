@@ -18,7 +18,7 @@ description: caffe深度学习网络结构可视化
 
 ### 1.code
 
-{% highlight python %}
+``` python
 
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     width = "1.5"
     plot(res, width)
 
-{% endhighlight %}
+```
 
 
 ### 2.例子

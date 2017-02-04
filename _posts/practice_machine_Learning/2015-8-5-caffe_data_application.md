@@ -35,7 +35,7 @@ caffe官方的mode zone里，提供很多比较流行的模型和任务，大家
 
 因为我一直是python做数据处理，所以简单的给一个例子，是读取三张照片，作为输入。采用levelDB。
 
-{% highlight python %}
+```
 def write_levelDB(dbname, images):
     # dbname = data_train_leveldb/
     db = leveldb.LevelDB(dbname, create_if_missing=True,
@@ -66,7 +66,7 @@ def write_levelDB(dbname, images):
     else:
         print('Processed a total of %i images.' % count)
 
-{% endhighlight %}
+```
 
 ### 3、caffe社区与调参
 很多新的算法或者新的模块，caffe社区里实现是很快的，但是caffe的merger进度一般来说比较慢。所以，遇到一些问题，可以先去caffe社区里找找答案。

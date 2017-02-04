@@ -154,13 +154,13 @@ title: 大数据spark入门学习
     - 主要介绍了join的查询以及内在机理。此外有一些比较特别的join模式，INNER JION Enrolled（匹配左侧，且仅显示匹配上的结果），LEFT OUTER JOIN(匹配左侧，未匹配上以NULL显示结果)， RIGHT OUTER JOIN恰好相反。
     - 对于RDDs和pySpark支持 ` inner join(), leftOuterJoin(), rightOuterJoin(), fullOuterJoin()`，需要注意的是pair RDD joins，例如：
 
-{% highlight sh %}
->>> x = sc.parallelize([("a",   1), ("b",   4)])    
->>> y = sc.parallelize([("a",   2), ("a",   3)])    
+``` sh
+>>> x = sc.parallelize([("a",   1), ("b",   4)])
+>>> y = sc.parallelize([("a",   2), ("a",   3)])
 >>> sorted(x.join(y).collect())
 Value:  [('a',  (1, 2)),    ('a',   (1, 3))]
 
-{% endhighlight %}
+```
 
 最后是本周的[作业](/static/lectures/big_data_Spark/lab/lab2_apache_log_student.html)，主要是log日志分析，没用到sql，还是跟上周差不多的命令。
 
