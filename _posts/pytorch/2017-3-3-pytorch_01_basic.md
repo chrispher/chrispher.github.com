@@ -96,7 +96,7 @@ y.backward(target) # 会报错, 因为x的grad已经被填充了, 不能再放�
 
 官方给出了一个回归的example, 我稍微简化一下, 介绍如下
 
-```
+``` python
 import torch
 import torch.autograd
 import torch.nn.functional as F
@@ -208,7 +208,7 @@ for epoch in range(2):
         # forward + backward + optimize
         outputs = net(inputs)
         loss = criterion(outputs, labels)
-        loss.backward()        
+        loss.backward()
         optimizer.step()
 
         # print statistics
