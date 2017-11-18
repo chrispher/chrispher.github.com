@@ -1,10 +1,8 @@
 <!-- 评论 -->
+<!--
 <div id="post-comment" class="navbar panel panel-default">
     <div class="panel-body">
-        <!-- 多说评论框 start -->
         <div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{page.title}}" data-url="{{page.url | prepend: site.blog.url}}"></div>
-        <!-- 多说评论框 end -->
-        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
         <script type="text/javascript">
             var duoshuoQuery = {short_name:"{{ site.author.duoshuo }}"};
             (function() {
@@ -16,6 +14,23 @@
                 || document.getElementsByTagName('body')[0]).appendChild(ds);
             })();
         </script>
-        <!-- 多说公共JS代码 end -->
     </div>
 </div>
+https://github.com/chrispher
+https://github.com/chrispher/chrispher.github.com.git
+-->
+
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+    owner: 'chrispher',
+    repo: 'https://github.com/chrispher/chrispher.github.com.git',
+    oauth: {
+        client_id: '77c1676f53a5f103c3f4',
+        client_secret: 'be92c1ebe16bbd14631031e721b6102f60f529d5',
+    },
+});
+gitment.render('gitmentContainer');
+</script>
