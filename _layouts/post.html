@@ -26,15 +26,15 @@ layout: default
             <div class="panel-body content">
                 {{content}}
             </div>
-            <!-- <div class="navbar panel-footer operate" align="center">
+            <div class="navbar panel-footer operate" align="center">
               <form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_blank" accept-charset="GBK">
               <input name="optEmail" type="hidden" value="chrispher2012@gmail.com"/>
               <input name="payAmount" type="hidden" value="10"/>
               <input id="title" name="title" type="hidden" value=""/>
-              <input name="memo" type="hidden" value="给Chrispher Guan的Blog打赏"/>
-              <input name="pay" type="image" value="打赏" src="/assets/images/alipay.png"/>
+              <input name="memo" type="hidden" value="扫描打赏"/>
+              <input name="pay" type="image" value="打赏" src="/images/zhifubao.jpg"/>
               </form>
-            </div> -->
+            </div>
             <div class="navbar pager">
                 {% if page.previous %}
                 <li class="previous"><a href="{{ BASE_PATH }}{{ page.previous.url }}">← {{ page.previous.title }}</a></li>
@@ -47,9 +47,10 @@ layout: default
                 <span class="next">下一篇&nbsp;</span>
                 {% endif %}
             </div>
-
-            {% include share.html%}
+            <span id="busuanzi_container_page_pv">
+                本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+            </span>
+            {% include comment.html%}
         </div>
-        {% include comment.html%}
     </div>
 </div>
