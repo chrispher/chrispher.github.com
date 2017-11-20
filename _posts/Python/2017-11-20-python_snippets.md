@@ -107,7 +107,7 @@ if a == "201512310000":
     start_date += datetime.timedelta(days=1)
 ```
 
-#### 并发处理函数
+### 并发处理函数
 ``` python
 from multiprocessing import Process, Queue, Pool
 
@@ -180,7 +180,7 @@ def test():
 ```
 
 
-#### 神奇小函数
+### 神奇小函数
 ``` python
 
 # eval, 字符串格式互转
