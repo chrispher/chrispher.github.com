@@ -92,7 +92,7 @@ $$C = KL(P \mid  \mid Q) = \sum_i \sum_j p_{i,j} \log \frac{p_{ij}}{q_{ij}}$$
 
 这里的$$p_{ii}$$,$$q_{ii}$$为0，我们将这种SNE称之为symmetric SNE(对称SNE)，因为他假设了对于任意i,$$p_{ij} = p_{ji}, q_{ij} = q_{ji}$$，因此概率分布可以改写为:
 
-$$p_{ij} = \frac{\exp(- \mid  \mid x_i - x_i \mid  \mid ^2 / 2\sigma^2)}{\sum_{k \neq l} \exp(- \mid  \mid x_i-x_j \mid  \mid ^2 / 2\sigma^2)}  \ \ \ \  q_{ij} = \frac{\exp(- \mid  \mid y_i - y_i \mid  \mid ^2)}{\sum_{k \neq l} \exp(- \mid  \mid y_i-y_j \mid  \mid ^2)}$$
+$$p_{ij} = \frac{\exp(- \mid  \mid x_i - x_j \mid  \mid ^2 / 2\sigma^2)}{\sum_{k \neq l} \exp(- \mid  \mid x_k-x_l \mid  \mid ^2 / 2\sigma^2)}  \ \ \ \  q_{ij} = \frac{\exp(- \mid  \mid y_i - y_j \mid  \mid ^2)}{\sum_{k \neq l} \exp(- \mid  \mid y_k-y_l \mid  \mid ^2)}$$
 
 这种表达方式，使得整体简洁了很多。但是会引入**异常值**的问题。比如$$x_i$$是异常值，那么$$ \mid  \mid x_i - x_j \mid  \mid ^2$$会很大，对应的所有的j, $$p_{ij}$$都会很小(之前是仅在$$x_i$$下很小)，导致低维映射下的$$y_i$$对cost影响很小。
 
